@@ -8,8 +8,11 @@ public class MovePlayer : MonoBehaviour
     Rigidbody rb;
     Vector3 mousePos;
     bool collided;
-
     Vector3 newPosition;
+    private CharacterManager characterManager;
+
+    float moveSpeedModifier;
+    float moveSpeedMultiplier;
 
     void Awake()
     {
@@ -18,13 +21,20 @@ public class MovePlayer : MonoBehaviour
         publisher = FindObjectOfType<Publisher>();
         publisher.noteHit += MovePlayerToMousePos;
     }
+
+    private void Start()
+    {
+        characterManager = FindObjectOfType<CharacterManager>();
+        moveSpeedModifier = characterManager.playerMovementSpeedModifier;
+        moveSpeedMultiplier = characterManager.playerMovementSpeedMultiplier;
+    }
     private void Update()
     {
         
         if (!collided)
         {
             float distance = (transform.position - mousePos).magnitude;
-            transform.position = Vector3.MoveTowards(transform.position, mousePos, (distance + 1) * 5 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, mousePos, (distance + moveSpeedModifier) * moveSpeedMultiplier * Time.deltaTime);
         }
     }
 
@@ -32,7 +42,7 @@ public class MovePlayer : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, characterManager.LayerToMovement))
         {
             newPosition = hit.point;
         }

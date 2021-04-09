@@ -112,6 +112,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   publisher: {fileID: 0}
   canBePressed: 0
+  StartScale: {x: 4, y: 4, z: 4}
+  downScaleMultiplier: 0.974
+  delay: 0
 --- !u!114 &-3744251683778200010
 MonoBehaviour:
   m_ObjectHideFlags: 0

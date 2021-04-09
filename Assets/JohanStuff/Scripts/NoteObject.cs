@@ -5,31 +5,35 @@ using UnityEngine;
 
 public class NoteObject : MonoBehaviour
 {
-    public Publisher publisher;
+    private Publisher publisher;
     public bool canBePressed;
 
-    public float delay;
-    float timer = 0;
+    NoteManager noteManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        noteManager = FindObjectOfType<NoteManager>();
+        gameObject.transform.localScale = noteManager.StartScale;
         publisher = FindObjectOfType<Publisher>();
-        Destroy(this.gameObject, 20f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (canBePressed)
         {
-            timer += Time.deltaTime;
-
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 publisher.NoteHit();
                 Destroy(this.gameObject);
             }
         }
+    }
+    private void FixedUpdate()
+    {
+        transform.localScale = transform.localScale * (Time.fixedDeltaTime + 1) * noteManager.downScaleMultiplier;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -54,6 +58,7 @@ public class NoteObject : MonoBehaviour
             publisher.NoteNotHit();
             Debug.Log("Exited area");
             canBePressed = false;
+            Destroy(this.gameObject);
         }
     }
     

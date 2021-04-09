@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class CameraFollowPlayer : MonoBehaviour
 {
-    [SerializeField] Transform player;
+    Transform player;
 
-    [SerializeField] float camFollowSpeed;
-    [SerializeField] Vector3 cameraOffset;
+    float camFollowSpeed;
+    Vector3 cameraOffset;
+
+    private CameraManager cameraManager;
 
     float distance;
     void Start()
     {
-        
+        cameraManager = FindObjectOfType<CameraManager>();
+        player = cameraManager.player;
+        camFollowSpeed = cameraManager.camFollowSpeed;
+        cameraOffset = cameraManager.cameraOffset;
     }
 
     

@@ -7,13 +7,12 @@ public class BeatsScroller : MonoBehaviour
 
     private float beatTempo;
 
-    private TempoHandler tempo;
-
+    private NoteManager NoteManager;
     // Start is called before the first frame update
     void Start()
     {
-        tempo = FindObjectOfType<TempoHandler>();
-        beatTempo = tempo.beatTempo / 60f;
+        NoteManager = FindObjectOfType<NoteManager>();
+        beatTempo = NoteManager.beatTempo / 60f;
         transform.position = FindObjectOfType<ButtonController>().transform.position - new Vector3(7, 0, 0);
     }
 
