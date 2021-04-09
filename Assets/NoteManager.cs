@@ -15,12 +15,14 @@ public class NoteManager : MonoBehaviour
     [Range(0.8f, 1)]
     public float downScaleMultiplier;
 
+    [Space]
     public Difficulty difficulty;
 
+    [Space]
     public float beatTempo;
 
     private float multiplier;
-
+    [Space]
     public GameObject notePrefab;
 
     public void SetDifficulty()

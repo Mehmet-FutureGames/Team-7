@@ -9,7 +9,7 @@ public class NoteHandler : MonoBehaviour
 
     
 
-    [SerializeField] GameObject notePrefab;
+    GameObject notePrefab;
     
     float timer = 0;
     [SerializeField] Transform hitArea;
@@ -19,7 +19,7 @@ public class NoteHandler : MonoBehaviour
     private void Start()
     {
         noteManager = FindObjectOfType<NoteManager>();
-        
+        notePrefab = noteManager.notePrefab;
         noteManager.SetDifficulty();
     }
     void FixedUpdate()
