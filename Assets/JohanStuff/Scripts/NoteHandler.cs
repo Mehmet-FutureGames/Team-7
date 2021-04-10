@@ -27,10 +27,10 @@ public class NoteHandler : MonoBehaviour
         if (PressAnyKey.hasStarted)
         {
             timer += Time.fixedDeltaTime;
-            if (timer >= (60/noteManager.beatTempo))
+            if (timer >= (60/noteManager.beatTempo) * noteManager.difficultyMultiplier)
             {
                 GameObject prefab = Instantiate(notePrefab, transform);
-                timer -= (60/noteManager.beatTempo);
+                timer -= (60/noteManager.beatTempo) * noteManager.difficultyMultiplier;
             }
         }
 

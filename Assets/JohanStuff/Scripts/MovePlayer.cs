@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
-    Publisher publisher;
+    NotePublisher publisher;
     Rigidbody rb;
     Vector3 mousePos;
     bool collided;
@@ -18,7 +18,7 @@ public class MovePlayer : MonoBehaviour
     {
         mousePos = transform.position + new Vector3(0, 1, 0);
         rb = GetComponent<Rigidbody>();
-        publisher = FindObjectOfType<Publisher>();
+        publisher = FindObjectOfType<NotePublisher>();
         publisher.noteHit += MovePlayerToMousePos;
     }
 

@@ -6,14 +6,14 @@ public class MoveTest : MonoBehaviour
 {
     Vector3 moveToPos;
 
-    Publisher publisher;
+    NotePublisher publisher;
     public float moveDistance;
     public float moveSpeed;
     public float moveSpeedAdditive;
     private void Awake()
     {
         moveToPos = transform.position + new Vector3(0, 1, 0);
-        publisher = FindObjectOfType<Publisher>();
+        publisher = FindObjectOfType<NotePublisher>();
         publisher.noteHit += MovePos;
         publisher.noteNotHit += MovePos;
     }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6912951687122947463}
   - component: {fileID: -3744251683778200010}
   - component: {fileID: 2392379075685237569}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Note1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,11 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbae416567addde42bbce4fc712e143e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  publisher: {fileID: 0}
   canBePressed: 0
-  StartScale: {x: 4, y: 4, z: 4}
-  downScaleMultiplier: 0.974
-  delay: 0
 --- !u!114 &-3744251683778200010
 MonoBehaviour:
   m_ObjectHideFlags: 0

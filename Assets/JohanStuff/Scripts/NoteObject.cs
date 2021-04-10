@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class NoteObject : MonoBehaviour
 {
-    private Publisher publisher;
+    private NotePublisher publisher;
     public bool canBePressed;
 
     NoteManager noteManager;
-
+    float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
         noteManager = FindObjectOfType<NoteManager>();
         gameObject.transform.localScale = noteManager.StartScale;
-        publisher = FindObjectOfType<Publisher>();
+        publisher = FindObjectOfType<NotePublisher>();
     }
 
     // Update is called once per frame
@@ -33,7 +33,10 @@ public class NoteObject : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        transform.localScale = transform.localScale * (Time.fixedDeltaTime + 1) * noteManager.downScaleMultiplier;
+        
+        timer += Time.fixedDeltaTime;
+        //transform.localScale = transform.localScale * (Time.fixedDeltaTime + 1) * noteManager.downScaleMultiplier;
+        transform.localScale = Vector3.Lerp(noteManager.StartScale, Vector3.zero, noteManager.downScaleMultiplier * timer);
     }
 
     private void OnTriggerEnter(Collider other)

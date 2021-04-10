@@ -12,7 +12,7 @@ public enum Difficulty
 public class NoteManager : MonoBehaviour
 {
     public Vector3 StartScale;
-    [Range(0.8f, 1)]
+    [Range(0f, 1)]
     public float downScaleMultiplier;
 
     [Space]
@@ -21,22 +21,30 @@ public class NoteManager : MonoBehaviour
     [Space]
     public float beatTempo;
 
-    private float multiplier;
+    [HideInInspector]
+    public float difficultyMultiplier;
     [Space]
     public GameObject notePrefab;
+
+
+
+    private void Start()
+    {
+        SetDifficulty();
+    }
 
     public void SetDifficulty()
     {
         switch (difficulty)
         {
             case Difficulty.easy:
-                multiplier = 2;
+                difficultyMultiplier = 2;
                 break;
             case Difficulty.normal:
-                multiplier = 1;
+                difficultyMultiplier = 1;
                 break;
             case Difficulty.hard:
-                multiplier = 0.5f;
+                difficultyMultiplier = 0.5f;
                 break;
         }
     }
