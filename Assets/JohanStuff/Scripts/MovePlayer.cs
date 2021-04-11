@@ -45,17 +45,29 @@ public class MovePlayer : MonoBehaviour
         if (!collided && !hitWall)
         {
             float distance = (transform.position - mousePos).magnitude;
-            transform.position = Vector3.MoveTowards(transform.position, mousePos, (distance + moveSpeedModifier) * moveSpeedMultiplier * Time.deltaTime);
+            ////  This will most likely be used to get the current speed the player is moving. 
+            float value = (distance* moveSpeedMultiplier * Time.deltaTime) * 10;
+            Debug.Log(value);
+            ////
+
+            float modifier = (distance + moveSpeedModifier) * moveSpeedMultiplier * Time.deltaTime;
+            // move the player to mouse position
+            transform.position = Vector3.MoveTowards(transform.position, mousePos, modifier);
         }
         else if(!collided && hitWall)
         {
+            
+            // if there's a wall between the player and the mouse position, make the player move to the normal point of the wall.
             float distance = (transform.position - hitWallPos).magnitude;
-            transform.position = Vector3.MoveTowards(transform.position, hitWallPos, (distance + moveSpeedModifier) * moveSpeedMultiplier * Time.deltaTime);
+            float modifier = (distance + moveSpeedModifier) * moveSpeedMultiplier * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, hitWallPos, modifier);
         }
     }
 
     void MovePlayerToMousePos()
     {
+        ///////////////////////////////////////////////////////////////////////////
+        //Move the Player to Mouse pos.
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, characterManager.LayerToMovement))
@@ -66,6 +78,9 @@ public class MovePlayer : MonoBehaviour
             raycastDir = (mousePos - transform.position).normalized;
             raycastDistance = (mousePos - transform.position).magnitude;
         }
+
+        /////////////////////////////////////////////////////////////////////////////
+        //Move the player to normal point position.
         RaycastHit hit2;
         if (Physics.Raycast(transform.position, raycastDir, out hit2, raycastDistance, layer))
         {
@@ -74,6 +89,7 @@ public class MovePlayer : MonoBehaviour
             Vector3 pointToNormalPos = new Vector3(hit2.normal.x, 0, hit2.normal.z) + point;
             hitWallPos = pointToNormalPos;
         }
+        //////////////////////////////////////////////////////////////////////////////
             collided = false;
     }
     private void OnCollisionEnter(Collision other)
