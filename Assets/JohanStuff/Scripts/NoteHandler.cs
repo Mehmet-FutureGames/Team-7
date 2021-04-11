@@ -15,12 +15,15 @@ public class NoteHandler : MonoBehaviour
     [SerializeField] Transform hitArea;
 
     NoteManager noteManager;
-    
+
+    NotePooler notePooler;
+
     private void Start()
     {
         noteManager = FindObjectOfType<NoteManager>();
         notePrefab = noteManager.notePrefab;
         noteManager.SetDifficulty();
+        notePooler = NotePooler.Instance;
     }
     void FixedUpdate()
     {
@@ -29,7 +32,7 @@ public class NoteHandler : MonoBehaviour
             timer += Time.fixedDeltaTime;
             if (timer >= (60/noteManager.beatTempo) * noteManager.difficultyMultiplier)
             {
-                GameObject prefab = Instantiate(notePrefab, transform);
+                notePooler.SpawnFormPool("Note", notePooler.transform.position, Quaternion.identity, noteManager.StartScale);
                 timer -= (60/noteManager.beatTempo) * noteManager.difficultyMultiplier;
             }
         }

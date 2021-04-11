@@ -13,7 +13,6 @@ public class BeatsScroller : MonoBehaviour
     {
         NoteManager = FindObjectOfType<NoteManager>();
         beatTempo = NoteManager.beatTempo / 60f;
-        transform.position = FindObjectOfType<ButtonController>().transform.position - new Vector3(7, 0, 0);
     }
 
     // Update is called once per frame

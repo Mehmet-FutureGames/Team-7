@@ -5,19 +5,30 @@ using UnityEngine;
 public class MovePlayer : MonoBehaviour
 {
     NotePublisher publisher;
-    Rigidbody rb;
-    Vector3 mousePos;
+    
     bool collided;
-    Vector3 newPosition;
+    
     private CharacterManager characterManager;
+
 
     float moveSpeedModifier;
     float moveSpeedMultiplier;
 
+
+    ///////////////////////////////////----  Raycast  -----/////////////////////////////////////////////////////////
+    Vector3 newPosition;
+    Vector3 mousePos;
+    Vector3 raycastDir;
+    float raycastDistance;
+    bool hitWall;
+    Vector3 hitWallPos;
+    [SerializeField] LayerMask layer;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     void Awake()
     {
-        mousePos = transform.position + new Vector3(0, 1, 0);
-        rb = GetComponent<Rigidbody>();
+        mousePos = transform.position;
         publisher = FindObjectOfType<NotePublisher>();
         publisher.noteHit += MovePlayerToMousePos;
     }
@@ -31,10 +42,15 @@ public class MovePlayer : MonoBehaviour
     private void Update()
     {
         
-        if (!collided)
+        if (!collided && !hitWall)
         {
             float distance = (transform.position - mousePos).magnitude;
             transform.position = Vector3.MoveTowards(transform.position, mousePos, (distance + moveSpeedModifier) * moveSpeedMultiplier * Time.deltaTime);
+        }
+        else if(!collided && hitWall)
+        {
+            float distance = (transform.position - hitWallPos).magnitude;
+            transform.position = Vector3.MoveTowards(transform.position, hitWallPos, (distance + moveSpeedModifier) * moveSpeedMultiplier * Time.deltaTime);
         }
     }
 
@@ -44,28 +60,31 @@ public class MovePlayer : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, characterManager.LayerToMovement))
         {
+            hitWall = false;
             newPosition = hit.point;
+            mousePos = newPosition + new Vector3(0, 1, 0);
+            raycastDir = (mousePos - transform.position).normalized;
+            raycastDistance = (mousePos - transform.position).magnitude;
         }
-        mousePos = newPosition + new Vector3(0,1,0);
-        collided = false;
+        RaycastHit hit2;
+        if (Physics.Raycast(transform.position, raycastDir, out hit2, raycastDistance, layer))
+        {
+            hitWall = true;
+            Vector3 point = new Vector3(hit2.point.x, 1, hit2.point.z);
+            Vector3 pointToNormalPos = new Vector3(hit2.normal.x, 0, hit2.normal.z) + point;
+            hitWallPos = pointToNormalPos;
+        }
+            collided = false;
     }
     private void OnCollisionEnter(Collision other)
     {
-        mousePos = transform.position;
-        collided = true;
-        Vector3 dir = other.contacts[0].point - transform.position;
-        dir = -dir.normalized;
-        rb.AddForce(dir * 40);
+        Debug.Log("Collision");
     }
 
 
     private void OnCollisionStay(Collision other)
     {
-        mousePos = transform.position;
-        collided = true;
-        Vector3 dir = other.contacts[0].point - transform.position;
-        dir = -dir.normalized;
-        rb.AddForce(dir * 40);
+
     }
 
 }

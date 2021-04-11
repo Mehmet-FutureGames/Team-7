@@ -27,7 +27,9 @@ public class NoteObject : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 publisher.NoteHit();
-                Destroy(this.gameObject);
+                gameObject.SetActive(false);
+                timer = 0;
+                canBePressed = false;
             }
         }
     }
@@ -35,7 +37,6 @@ public class NoteObject : MonoBehaviour
     {
         
         timer += Time.fixedDeltaTime;
-        //transform.localScale = transform.localScale * (Time.fixedDeltaTime + 1) * noteManager.downScaleMultiplier;
         transform.localScale = Vector3.Lerp(noteManager.StartScale, Vector3.zero, noteManager.downScaleMultiplier * timer);
     }
 
@@ -44,13 +45,8 @@ public class NoteObject : MonoBehaviour
         
         if (other.CompareTag("Activator"))
         {
-            Debug.Log("Entered area");
             canBePressed = true;
         }
-    }
-    private void OnCollisionStay(Collision collision)
-    {
-
     }
 
     private void OnTriggerExit(Collider other)
@@ -59,9 +55,9 @@ public class NoteObject : MonoBehaviour
         if (other.CompareTag("Activator"))
         {
             publisher.NoteNotHit();
-            Debug.Log("Exited area");
             canBePressed = false;
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
+            timer = 0;
         }
     }
     
