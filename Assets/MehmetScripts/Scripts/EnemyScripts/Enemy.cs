@@ -64,6 +64,7 @@ public class Enemy : MonoBehaviour
         RemoveMovePattern();
     }
 
+    #region Movement Patterns
     public void EnemyRandomMovement()
     {
         moveCounter++;
@@ -117,6 +118,7 @@ public class Enemy : MonoBehaviour
         if(moveCounter == notesToMove) { moveCounter = 0; }
         
     }
+    #endregion
 
     void SetMovePattern()
     {
