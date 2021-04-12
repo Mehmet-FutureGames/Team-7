@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b003b01bd880a44d96e3bab38f6eacf, type: 3}
-  m_Name: FirstEnemy
+  m_Name: TestDummy
   m_EditorClassIdentifier: 
-  enemyModel: {fileID: 7280686633801961007, guid: 2f2dd6f54256d8541a2b2aebc926adf0,
-    type: 3}
-  enemyName: Bob
-  movementSpeed: 1
-  attackDamage: 30
+  enemyModel: {fileID: 0}
+  enemyName: 
+  movementSpeed: 0
+  attackDamage: 0

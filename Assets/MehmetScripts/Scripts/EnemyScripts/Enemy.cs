@@ -16,6 +16,12 @@ public class Enemy : MonoBehaviour
 
     Transform player;
 
+    Transform parent;
+
+    NotePublisher publisher;
+
+
+
     [SerializeField] EnemyStats stats;
     // Start is called before the first frame update
     void Start()
@@ -25,19 +31,27 @@ public class Enemy : MonoBehaviour
         movementSpeed = stats.movementSpeed;
         attackDamage = stats.attackDamage;
 
-        agent = GetComponent<NavMeshAgent>();
+        parent = GetComponent<Transform>();
 
         Debug.Log("Fear not " + enemyName + " is here");
-        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
+        Instantiate(stats.enemyModel, parent);
+
+        agent = GetComponentInChildren<NavMeshAgent>();
+
+        agent.speed = movementSpeed;
+
+        publisher = FindObjectOfType<NotePublisher>();
+
+        publisher.noteHit += EnemyMove;
+        publisher.noteNotHit += EnemyMove;
+
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     public void EnemyMove()
     {
-        agent.SetDestination(player.transform.position);
-        if (agent.velocity.sqrMagnitude > Mathf.Epsilon)
-        {
-            transform.rotation = Quaternion.LookRotation(agent.velocity.normalized);
-        }
+            agent.SetDestination(player.transform.position);
     }
     private void EnemyAttack()
     {
