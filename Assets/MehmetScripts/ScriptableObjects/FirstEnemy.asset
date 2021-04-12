@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b003b01bd880a44d96e3bab38f6eacf, type: 3}
   m_Name: FirstEnemy
   m_EditorClassIdentifier: 
-  prefabName: 
-  numberOfPrefabsToCreate: 0
-  spawnPoints: []
+  enemyModel: {fileID: 8642882133118165317, guid: a7c04080669fe564da20a18d89692e47,
+    type: 3}
+  enemyName: Bob
+  movementSpeed: 15
+  attackDamage: 30
