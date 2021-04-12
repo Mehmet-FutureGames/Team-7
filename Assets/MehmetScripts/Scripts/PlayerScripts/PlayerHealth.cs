@@ -11,6 +11,8 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         playerStats = GetComponentInParent<Player>();
+
+        health = playerStats.health;
     }
 
     public void TakeDamage(int damage)
