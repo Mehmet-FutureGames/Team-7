@@ -13,16 +13,13 @@ public class Enemy : MonoBehaviour
     float attackDamage;
 
     NavMeshAgent agent;
+    Transform parent;
 
     Transform player;
 
-    Transform parent;
-
-    NotePublisher publisher;
-
-
-
     [SerializeField] EnemyStats stats;
+
+    NotePublisher notePublisher;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,28 +27,33 @@ public class Enemy : MonoBehaviour
 
         movementSpeed = stats.movementSpeed;
         attackDamage = stats.attackDamage;
-
         parent = GetComponent<Transform>();
-
-        Debug.Log("Fear not " + enemyName + " is here");
-
         Instantiate(stats.enemyModel, parent);
-
         agent = GetComponentInChildren<NavMeshAgent>();
 
-        agent.speed = movementSpeed;
+        notePublisher = FindObjectOfType<NotePublisher>();
 
-        publisher = FindObjectOfType<NotePublisher>();
+        player = FindObjectOfType<MovePlayer>().transform;
 
-        publisher.noteHit += EnemyMove;
-        publisher.noteNotHit += EnemyMove;
+        notePublisher.noteHit += EnemyMove;
+        notePublisher.noteNotHit += EnemyMove;
 
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        Debug.Log("Fear not " + enemyName + " is here");
+        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     public void EnemyMove()
     {
-            agent.SetDestination(player.transform.position);
+        Vector3 dir = (player.position - transform.position).normalized;
+        Debug.Log(dir);
+        float walkDistance = 3;
+        agent.SetDestination(transform.position + dir * walkDistance);
+        
+        if (agent.velocity.sqrMagnitude > Mathf.Epsilon)
+        {
+            transform.rotation = Quaternion.LookRotation(dir);
+        }
+        
     }
     private void EnemyAttack()
     {

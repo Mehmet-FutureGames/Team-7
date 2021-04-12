@@ -47,7 +47,7 @@ public class MovePlayer : MonoBehaviour
             float distance = (transform.position - mousePos).magnitude;
             ////  This will most likely be used to get the current speed the player is moving. 
             float value = (distance* moveSpeedMultiplier * Time.deltaTime) * 10;
-            Debug.Log(value);
+            
             ////
 
             float modifier = (distance + moveSpeedModifier) * moveSpeedMultiplier * Time.deltaTime;
