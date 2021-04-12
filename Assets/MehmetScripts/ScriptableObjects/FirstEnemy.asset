@@ -18,5 +18,6 @@ MonoBehaviour:
   enemyName: Bob
   movementSpeed: 1
   moveDistance: 8
+  notesToMove: 2
   attackDamage: 30
   health: 0
