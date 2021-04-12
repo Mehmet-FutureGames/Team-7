@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     float movementSpeed;
     float attackDamage;
 
+    float health;
+
     NavMeshAgent agent;
     Transform parent;
 
@@ -27,6 +29,7 @@ public class Enemy : MonoBehaviour
 
         movementSpeed = stats.movementSpeed;
         attackDamage = stats.attackDamage;
+        health = stats.health;
 
         parent = GetComponent<Transform>();
 
@@ -61,5 +64,10 @@ public class Enemy : MonoBehaviour
     private void EnemyAttack()
     {
 
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 }
