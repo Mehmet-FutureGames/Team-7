@@ -27,8 +27,11 @@ public class Enemy : MonoBehaviour
 
         movementSpeed = stats.movementSpeed;
         attackDamage = stats.attackDamage;
+
         parent = GetComponent<Transform>();
+
         Instantiate(stats.enemyModel, parent);
+
         agent = GetComponentInChildren<NavMeshAgent>();
 
         notePublisher = FindObjectOfType<NotePublisher>();
@@ -44,10 +47,10 @@ public class Enemy : MonoBehaviour
 
     public void EnemyMove()
     {
-        Vector3 dir = (player.position - transform.position).normalized;
+        Vector3 dir = (player.position - agent.transform.position).normalized;
         Debug.Log(dir);
-        float walkDistance = 3;
-        agent.SetDestination(transform.position + dir * walkDistance);
+        float walkDistance = 1.5f;
+        agent.SetDestination(agent.transform.position + dir * walkDistance);
         
         if (agent.velocity.sqrMagnitude > Mathf.Epsilon)
         {
