@@ -4,12 +4,24 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] int damage; 
+    float damage;
+
+    Player playerStats;
+
+    void Start()
+    {
+        playerStats = GetComponentInParent<Player>();
+
+        damage = playerStats.damage;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemy>().TakeDamage(damage);
+            other.GetComponentInParent<Enemy>().TakeDamage(damage);
+
+            Debug.Log("I hit an enemy!");
         }
     }
 }

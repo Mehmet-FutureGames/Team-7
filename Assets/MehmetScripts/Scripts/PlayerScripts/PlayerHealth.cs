@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    int health;
+    Player playerStats;
+
+    float health;
+
+    private void Start()
+    {
+        playerStats = GetComponentInParent<Player>();
+    }
 
     public void TakeDamage(int damage)
     {

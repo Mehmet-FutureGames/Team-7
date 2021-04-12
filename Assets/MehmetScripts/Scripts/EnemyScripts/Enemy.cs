@@ -39,10 +39,10 @@ public class Enemy : MonoBehaviour
 
         notePublisher = FindObjectOfType<NotePublisher>();
 
-        player = FindObjectOfType<MovePlayer>().transform;
+        //player = FindObjectOfType<MovePlayer>().transform;
 
-        notePublisher.noteHit += EnemyMove;
-        notePublisher.noteNotHit += EnemyMove;
+        //notePublisher.noteHit += EnemyMove;
+        //notePublisher.noteNotHit += EnemyMove;
 
         Debug.Log("Fear not " + enemyName + " is here");
         //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
     }
