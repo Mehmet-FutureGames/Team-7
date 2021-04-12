@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+     
     //SET VARIABLES FROM ENEMYSTATS, DON'T CHANGE THE VARIABLES.
     //THEY GET SET THROUGH THE STATS VARIABLE.
     string enemyName;
@@ -12,17 +13,15 @@ public class Enemy : MonoBehaviour
     float movementSpeed;
     float attackDamage;
 
+    GameObject agentObj;
     NavMeshAgent agent;
+    Transform parent;
 
     Transform player;
 
-    Transform parent;
-
-    NotePublisher publisher;
-
-
-
     [SerializeField] EnemyStats stats;
+
+    NotePublisher notePublisher;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,25 +32,42 @@ public class Enemy : MonoBehaviour
 
         parent = GetComponent<Transform>();
 
-        Debug.Log("Fear not " + enemyName + " is here");
-
-        Instantiate(stats.enemyModel, parent);
-
+        agentObj = Instantiate(stats.enemyModel, parent);
+        
         agent = GetComponentInChildren<NavMeshAgent>();
 
-        agent.speed = movementSpeed;
+        notePublisher = FindObjectOfType<NotePublisher>();
 
-        publisher = FindObjectOfType<NotePublisher>();
+        player = FindObjectOfType<MovePlayer>().transform;
 
-        publisher.noteHit += EnemyMove;
-        publisher.noteNotHit += EnemyMove;
+        notePublisher.noteHit += EnemyMove;
+        notePublisher.noteNotHit += EnemyMove;
 
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        Debug.Log("Fear not " + enemyName + " is here");
+        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     public void EnemyMove()
     {
-            agent.SetDestination(player.transform.position);
+        Vector3 dir = (player.position - agentObj.transform.position).normalized;
+        float distance = (player.position - agentObj.transform.position).magnitude;
+        Debug.Log(dir);
+        float walkDistance = 8f;
+        if(distance < walkDistance +1 )
+        {
+            agent.SetDestination(player.position);
+        }
+        else
+        {
+            agent.SetDestination(agentObj.transform.position + dir * walkDistance);
+        }
+        
+        
+        if (agent.velocity.sqrMagnitude > Mathf.Epsilon)
+        {
+            agentObj.transform.rotation = Quaternion.LookRotation(dir);
+        }
+        
     }
     private void EnemyAttack()
     {
