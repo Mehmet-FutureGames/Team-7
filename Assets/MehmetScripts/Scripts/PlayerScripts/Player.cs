@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
                 StartCoroutine(AttackingActivated());
             }
         }
+        //Checks if the player is moving and the melee range attack isn't activate.
         if(movePlayer.isMoving && !playerAttackRange.isActiveAndEnabled && hit.transform.CompareTag("Enemy"))
         {
             StartCoroutine(DashAttack());

@@ -30,8 +30,9 @@ public class PlayerAttack : MonoBehaviour
 
     void DamageReference()
     {
+        //Unity doesn't like to reference stuff at the same time as setting other variables
+        //this helps it calm down and actually do the job.
         damage = playerStats.damage;
         dashDamage = playerStats.dashDamage;
-        Debug.Log(damage);
     }
 }
