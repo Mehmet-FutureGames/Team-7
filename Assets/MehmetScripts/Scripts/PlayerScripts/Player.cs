@@ -24,24 +24,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerName = stats.playerName;
-
-        damage = stats.attackDamage;
-        dashDamage = stats.dashDamage;
-        health = stats.health;
-
-        distanceToClick = stats.distanceToClick;
-
-        notePublisher = FindObjectOfType<NotePublisher>();
-
-        movePlayer = GetComponent<MovePlayer>();
-
-        notePublisher.noteHit += AttackActivated;
-
-        playerAttackRange = GetComponentInChildren<PlayerAttack>();
-
-        playerDashRange = GetComponentInChildren<PlayerDashAttack>();
-
         StartCoroutine(References());
     }
 
@@ -60,7 +42,7 @@ public class Player : MonoBehaviour
                 StartCoroutine(AttackingActivated());
             }
         }
-        if(movePlayer.isMoving && !playerAttackRange.isActiveAndEnabled)
+        if(movePlayer.isMoving && !playerAttackRange.isActiveAndEnabled && hit.transform.CompareTag("Enemy"))
         {
             StartCoroutine(DashAttack());
         }
@@ -89,6 +71,28 @@ public class Player : MonoBehaviour
 
     IEnumerator References()
     {
+        //References to all the things needed.
+        playerName = stats.playerName;
+
+        //Stats
+        damage = stats.attackDamage;
+        dashDamage = stats.dashDamage;
+        health = stats.health;
+
+        distanceToClick = stats.distanceToClick;
+
+        //Check if moved or not.
+        notePublisher = FindObjectOfType<NotePublisher>();
+
+        movePlayer = GetComponent<MovePlayer>();
+
+        //Subscribe to noteHit.
+        notePublisher.noteHit += AttackActivated;
+
+        playerAttackRange = GetComponentInChildren<PlayerAttack>();
+
+        playerDashRange = GetComponentInChildren<PlayerDashAttack>();
+
         yield return new WaitForSeconds(1);
         playerAttackRange.gameObject.SetActive(false);
         playerDashRange.gameObject.SetActive(false);
