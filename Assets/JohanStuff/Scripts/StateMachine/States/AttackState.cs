@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class AttackState : State
 {
-
     public AttackState(Character character, StateMachine stateMachine) : base(character, stateMachine)
     {
     }
@@ -10,6 +9,7 @@ public class AttackState : State
     public override void Enter()
     {
         base.Enter();
+        character.EnemyAttack();
         character.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
         character.area.SetActive(false);
     }

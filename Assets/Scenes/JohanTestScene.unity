@@ -1158,6 +1158,7 @@ GameObject:
   - component: {fileID: 1087593873}
   - component: {fileID: 1087593878}
   - component: {fileID: 1087593879}
+  - component: {fileID: 1087593872}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1165,6 +1166,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1087593872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087593871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa72209c4fce7a546bff10d0f81676ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!114 &1087593873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1887,6 +1901,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1806a6cdb08623a428a4c40597e024b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIsInAttackArea: 0
+  area: {fileID: 0}
   agentObj: {fileID: 0}
   agent: {fileID: 0}
   moveDistance: 0

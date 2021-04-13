@@ -8,6 +8,7 @@ public class Character : MonoBehaviour
     public AttackState attack;
     public ChargeAttackState chargeAttack;
 
+    public bool playerIsInAttackArea;
     [HideInInspector]
     public GameObject area;
 
@@ -49,9 +50,12 @@ public class Character : MonoBehaviour
 
 
     #region Methods
-    private void EnemyAttack()
+    public void EnemyAttack()
     {
-
+        if (playerIsInAttackArea)
+        {
+            player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+        }
     }
     public void TakeDamage(float damage)
     {
@@ -115,6 +119,12 @@ public class Character : MonoBehaviour
         notePublisher = FindObjectOfType<NotePublisher>();
         notePublisher.noteHit += EventUpdate;
         notePublisher.noteNotHit += EventUpdate;
+    }
+
+    private void OnDisable()
+    {
+        notePublisher.noteHit -= EventUpdate;
+        notePublisher.noteNotHit -= EventUpdate;
     }
 
     private void Update()
