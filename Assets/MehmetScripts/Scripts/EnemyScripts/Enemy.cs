@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     float detectionRange;
 
     float attackDamage;
-    int health;
+    float health;
 
     private MovePattern movePattern;
     int moveCounter = 0;
@@ -166,7 +166,7 @@ public class Enemy : MonoBehaviour
     {
 
     }
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
     }
