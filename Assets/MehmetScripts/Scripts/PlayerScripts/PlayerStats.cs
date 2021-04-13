@@ -11,5 +11,8 @@ using UnityEngine;
         public float movementSpeed;
         public float attackDamage;
         public float health;
+        public float dashDamage;
+        [Space]
+        public int distanceToClick;
     }
 

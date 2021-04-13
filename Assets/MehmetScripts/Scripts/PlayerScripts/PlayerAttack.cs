@@ -7,6 +7,8 @@ public class PlayerAttack : MonoBehaviour
 {
     float damage;
 
+    public float dashDamage;
+
     Player playerStats;
 
     void Start()
@@ -16,7 +18,7 @@ public class PlayerAttack : MonoBehaviour
         Invoke("DamageReference", 0.1f);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
@@ -29,6 +31,7 @@ public class PlayerAttack : MonoBehaviour
     void DamageReference()
     {
         damage = playerStats.damage;
+        dashDamage = playerStats.dashDamage;
         Debug.Log(damage);
     }
 }
