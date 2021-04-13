@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CapsuleCollider))]
 public class PlayerAttack : MonoBehaviour
 {
     float damage;
@@ -12,7 +13,7 @@ public class PlayerAttack : MonoBehaviour
     {
         playerStats = GetComponentInParent<Player>();
 
-        damage = playerStats.damage;
+        Invoke("DamageReference", 0.1f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,5 +24,11 @@ public class PlayerAttack : MonoBehaviour
 
             Debug.Log("I hit an enemy!");
         }
+    }
+
+    void DamageReference()
+    {
+        damage = playerStats.damage;
+        Debug.Log(damage);
     }
 }

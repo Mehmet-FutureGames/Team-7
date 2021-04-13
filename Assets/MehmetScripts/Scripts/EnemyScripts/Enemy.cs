@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour
         attackDamage = stats.attackDamage;
         notesToMove = stats.notesToMove;
         detectionRange = stats.detectionRange;
+        health = stats.health;
         parent = GetComponent<Transform>();
 
         agentObj = Instantiate(stats.enemyModel, parent);
@@ -162,6 +163,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
     private void EnemyAttack()
     {
 
@@ -169,5 +171,15 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        Debug.Log("This " +enemyName + " has " + health + " HP");
+        Dead();
+    }
+
+    private void Dead()
+    {
+        if(health < 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

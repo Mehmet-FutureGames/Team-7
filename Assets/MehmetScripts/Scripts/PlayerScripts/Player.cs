@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
  
     PlayerAttack playerAttackRange;
 
+    NotePublisher notePublisher;
+
     string playerName;
 
     public float health;
@@ -20,17 +22,28 @@ public class Player : MonoBehaviour
         damage = stats.attackDamage;
         health = stats.health;
 
+        notePublisher = FindObjectOfType<NotePublisher>();
+
+        notePublisher.noteHit += AttackActivated;
+
         playerAttackRange = GetComponentInChildren<PlayerAttack>();
 
-        playerAttackRange.gameObject.SetActive(false);
+        StartCoroutine(References());
     }
 
-
-    void Update()
+    public void AttackActivated()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        // Casts the ray and get the first game object hit
+        Physics.Raycast(ray, out hit);
+        if (hit.transform.CompareTag("Enemy"))
         {
             StartCoroutine(AttackingActivated());
+        }
+        else
+        {
+            Debug.Log("you missed!");
         }
     }
 
@@ -38,9 +51,16 @@ public class Player : MonoBehaviour
     {
         playerAttackRange.gameObject.SetActive(true);
         GetComponent<MeshRenderer>().material.color = Color.red;
+        Debug.Log("Attacked");
+        yield return new WaitForSeconds(0.5f);
+        playerAttackRange.gameObject.SetActive(false);
+        Debug.Log("Stop attacking");
+        GetComponent<MeshRenderer>().material.color = Color.green;
+    }
+
+    IEnumerator References()
+    {
         yield return new WaitForSeconds(1);
         playerAttackRange.gameObject.SetActive(false);
-        GetComponent<MeshRenderer>().material.color = Color.green;
-
     }
 }
