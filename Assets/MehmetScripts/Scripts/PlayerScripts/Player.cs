@@ -5,45 +5,47 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] PlayerStats stats;
+
+    MovePlayer movePlayer;
  
     PlayerAttack playerAttackRange;
 
+    PlayerDashAttack playerDashRange;
+
     NotePublisher notePublisher;
+
+    int distanceToClick;
 
     string playerName;
 
     public float health;
     public float damage;
+    public float dashDamage;
     // Start is called before the first frame update
     void Start()
     {
-        playerName = stats.playerName;
-
-        damage = stats.attackDamage;
-        health = stats.health;
-
-        notePublisher = FindObjectOfType<NotePublisher>();
-
-        notePublisher.noteHit += AttackActivated;
-
-        playerAttackRange = GetComponentInChildren<PlayerAttack>();
-
         StartCoroutine(References());
     }
 
     public void AttackActivated()
     {
+        //Shoots a ray and stores the information in the raycastHit variable.
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        // Casts the ray and get the first game object hit
         Physics.Raycast(ray, out hit);
-        if (hit.transform.CompareTag("Enemy"))
+        float distance = (transform.position - hit.transform.position).sqrMagnitude;
+
+        if(distance < distanceToClick)
         {
-            StartCoroutine(AttackingActivated());
+            if (hit.transform.CompareTag("Enemy"))
+            {
+                StartCoroutine(AttackingActivated());
+            }
         }
-        else
+        //Checks if the player is moving and the melee range attack isn't activate.
+        if(movePlayer.isMoving && !playerAttackRange.isActiveAndEnabled && hit.transform.CompareTag("Enemy"))
         {
-            Debug.Log("you missed!");
+            StartCoroutine(DashAttack());
         }
     }
 
@@ -57,10 +59,43 @@ public class Player : MonoBehaviour
         Debug.Log("Stop attacking");
         GetComponent<MeshRenderer>().material.color = Color.green;
     }
+    IEnumerator DashAttack()
+    {
+        playerDashRange.gameObject.SetActive(true);
+        GetComponent<MeshRenderer>().material.color = Color.red;
+        Debug.Log("Attacked");
+        yield return new WaitForSeconds(1f);
+        playerDashRange.gameObject.SetActive(false);
+        Debug.Log("Stop attacking");
+        GetComponent<MeshRenderer>().material.color = Color.green;
+    }
 
     IEnumerator References()
     {
+        //References to all the things needed.
+        playerName = stats.playerName;
+
+        //Stats
+        damage = stats.attackDamage;
+        dashDamage = stats.dashDamage;
+        health = stats.health;
+
+        distanceToClick = stats.distanceToClick;
+
+        //Check if moved or not.
+        notePublisher = FindObjectOfType<NotePublisher>();
+
+        movePlayer = GetComponent<MovePlayer>();
+
+        //Subscribe to noteHit.
+        notePublisher.noteHit += AttackActivated;
+
+        playerAttackRange = GetComponentInChildren<PlayerAttack>();
+
+        playerDashRange = GetComponentInChildren<PlayerDashAttack>();
+
         yield return new WaitForSeconds(1);
         playerAttackRange.gameObject.SetActive(false);
+        playerDashRange.gameObject.SetActive(false);
     }
 }

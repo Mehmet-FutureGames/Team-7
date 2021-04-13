@@ -7,6 +7,8 @@ public class PlayerAttack : MonoBehaviour
 {
     float damage;
 
+    public float dashDamage;
+
     Player playerStats;
 
     void Start()
@@ -16,7 +18,7 @@ public class PlayerAttack : MonoBehaviour
         Invoke("DamageReference", 0.1f);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
@@ -28,7 +30,9 @@ public class PlayerAttack : MonoBehaviour
 
     void DamageReference()
     {
+        //Unity doesn't like to reference stuff at the same time as setting other variables
+        //this helps it calm down and actually do the job.
         damage = playerStats.damage;
-        Debug.Log(damage);
+        dashDamage = playerStats.dashDamage;
     }
 }
