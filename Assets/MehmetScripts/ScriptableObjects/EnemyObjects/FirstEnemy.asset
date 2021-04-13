@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b003b01bd880a44d96e3bab38f6eacf, type: 3}
   m_Name: FirstEnemy
   m_EditorClassIdentifier: 
+  movePattern: 0
   enemyModel: {fileID: 7280686633801961007, guid: 2f2dd6f54256d8541a2b2aebc926adf0,
     type: 3}
   enemyName: Bob
   movementSpeed: 1
+  moveDistance: 8
+  notesToMove: 2
   attackDamage: 30
+  health: 0

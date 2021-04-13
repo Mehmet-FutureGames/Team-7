@@ -45,7 +45,9 @@ public class MovePlayer : MonoBehaviour
         if (!collided && !hitWall)
         {
             float distance = (transform.position - mousePos).magnitude;
+
             ////  This will most likely be used to get the current speed the player is moving. 
+            // Example: if(value > 0){ doingDamageIsPossible }
             float value = (distance* moveSpeedMultiplier * Time.deltaTime) * 10;
             
             ////

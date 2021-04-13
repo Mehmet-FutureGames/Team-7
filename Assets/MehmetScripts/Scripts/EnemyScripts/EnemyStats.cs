@@ -1,14 +1,74 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
+public enum MovePattern
+{
+    TowardsPlayer,
+    RandomDirection,
+    ProximityDetection
+}
 [CreateAssetMenu(fileName = "New EnemyStats", menuName = "ScriptableObjects/EnemyStats", order = 1)]
 public class EnemyStats : ScriptableObject
 {
+    public MovePattern movePattern;
     public GameObject enemyModel;
     public string enemyName;
     [Space]
     public float movementSpeed;
+    public float moveDistance;
+    public float detectionRange;
+    [Range(1, 5), Tooltip("Determines how many notes that pass through the hitArea before the enemy moves")]
+    public int notesToMove;
+    [Space]
     public float attackDamage;
     public float health;
+
 }
+
+
+[CustomEditor(typeof(EnemyStats))]
+public class TestCustomInspector : Editor
+{
+
+    public override void OnInspectorGUI()
+    {
+        EnemyStats script = (EnemyStats)target;
+
+        script.movePattern = (MovePattern)EditorGUILayout.EnumPopup("Move Pattern", script.movePattern);
+
+        if (script.movePattern == MovePattern.TowardsPlayer)
+        {
+            script.enemyModel = (GameObject)EditorGUILayout.ObjectField("Enemy Model", script.enemyModel, typeof(GameObject), true);
+            script.enemyName = EditorGUILayout.TextField("Enemy Name", script.enemyName);
+            script.movementSpeed = EditorGUILayout.FloatField("Movement Speed", script.movementSpeed);
+            script.moveDistance = EditorGUILayout.FloatField("Move Distance", script.moveDistance);
+            script.notesToMove = EditorGUILayout.IntField("Notes to move", script.notesToMove);
+            script.attackDamage = EditorGUILayout.FloatField("Attack Damage", script.attackDamage);
+            script.health = EditorGUILayout.FloatField("Health", script.health);
+        }
+        if (script.movePattern == MovePattern.RandomDirection)
+        {
+            script.enemyModel = (GameObject)EditorGUILayout.ObjectField("Enemy Model", script.enemyModel, typeof(GameObject), true);
+            script.enemyName = EditorGUILayout.TextField("Enemy Name", script.enemyName);
+            script.movementSpeed = EditorGUILayout.FloatField("Movement Speed", script.movementSpeed);
+            script.moveDistance = EditorGUILayout.FloatField("Move Distance", script.moveDistance);
+            script.notesToMove = EditorGUILayout.IntField("Notes to move", script.notesToMove);
+            script.attackDamage = EditorGUILayout.FloatField("Attack Damage", script.attackDamage);
+            script.health = EditorGUILayout.FloatField("Health", script.health);
+        }
+        if (script.movePattern == MovePattern.ProximityDetection)
+        {
+            script.enemyModel = (GameObject)EditorGUILayout.ObjectField("Enemy Model", script.enemyModel, typeof(GameObject), true);
+            script.enemyName = EditorGUILayout.TextField("Enemy Name", script.enemyName);
+            script.movementSpeed = EditorGUILayout.FloatField("Movement Speed", script.movementSpeed);
+            script.moveDistance = EditorGUILayout.FloatField("Move Distance", script.moveDistance);
+            script.notesToMove = EditorGUILayout.IntField("Notes to move", script.notesToMove);
+            script.attackDamage = EditorGUILayout.FloatField("Attack Damage", script.attackDamage);
+            script.health = EditorGUILayout.FloatField("Health", script.health);
+            script.detectionRange = EditorGUILayout.FloatField("Detection Range", script.detectionRange);
+        }
+    }
+}
+
