@@ -10,6 +10,8 @@ public class ChargeAttackState : State
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("Entered ChargeAttackState");
+        character.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.green;
 
     }
 
@@ -19,21 +21,14 @@ public class ChargeAttackState : State
 
     }
 
-    public override void HandleInput()
+    public override void NoteEventUpdate()
     {
-        base.HandleInput();
-
+        base.NoteEventUpdate();
+        stateMachine.ChangeState(character.attack);
     }
 
-    public override void LogicUpdate()
+    public override void Action()
     {
-        base.LogicUpdate();
-
-    }
-
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
-
+        base.Action();
     }
 }

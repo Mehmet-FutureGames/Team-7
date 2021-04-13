@@ -1,5 +1,9 @@
 ﻿
-public abstract class State
+public interface IState
+{
+    void Action();
+}
+public abstract class State : IState
 {
     protected Character character;
     protected StateMachine stateMachine;
@@ -40,5 +44,9 @@ public abstract class State
 
     }
 
+    public virtual void Action()
+    {
+        
+    }
 }
 

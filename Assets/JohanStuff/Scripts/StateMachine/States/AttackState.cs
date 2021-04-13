@@ -10,30 +10,17 @@ public class AttackState : State
     public override void Enter()
     {
         base.Enter();
-
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-
-    }
-
-    public override void HandleInput()
-    {
-        base.HandleInput();
-
-    }
-
-    public override void LogicUpdate()
-    {
-        base.LogicUpdate();
-
+        character.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
 
+    }
+    public override void NoteEventUpdate()
+    {
+        base.NoteEventUpdate();
+        stateMachine.ChangeState(character.moving);
     }
 }

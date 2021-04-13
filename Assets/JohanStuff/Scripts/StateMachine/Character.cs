@@ -4,9 +4,9 @@ public class Character : MonoBehaviour
 {
 
     public StateMachine movementSM;
-    public MoveRandomState moving;
-
-
+    public MoveState moving;
+    public AttackState attack;
+    public ChargeAttackState chargeAttack;
 
 
     string enemyName;
@@ -23,62 +23,59 @@ public class Character : MonoBehaviour
     public int notesToMove;
     float detectionRange;
 
-    float attackDamage;
-    float health;
+    
 
-    private MovePattern movePattern;
+    float attackDamage;
+    [HideInInspector]
+    public float attackRange;
+    float health;
+    [HideInInspector]
+    public MovePattern movePattern;
     [HideInInspector]
     public int moveCounter = 0;
     int attackCounter = 0;
 
+    [HideInInspector]
+    public float distanceToPlayer;
 
-    Transform player;
+    [HideInInspector]
+    public Transform player;
 
     [SerializeField] EnemyStats stats;
 
     NotePublisher notePublisher;
 
-    
+
     #region Methods
-    public void Shoot()
+    private void EnemyAttack()
     {
 
     }
-
-    public void Move()
+    public void TakeDamage(float damage)
     {
-        moveCounter++;
-        Vector3 randomVector = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
-        Vector3 agentToRandom = agentObj.transform.position + randomVector;
-        Vector3 dir = (agentToRandom - agentObj.transform.position).normalized;
-        agent.SetDestination(agentObj.transform.position + dir * moveDistance);
+        health -= damage;
+        Debug.Log("This " + enemyName + " has " + health + " HP");
+        Dead();
+    }
 
-        if (agent.velocity.sqrMagnitude > Mathf.Epsilon)
+    private void Dead()
+    {
+        if (health < 0)
         {
-            agentObj.transform.rotation = Quaternion.LookRotation(dir);
+            gameObject.SetActive(false);
         }
-        if (moveCounter == notesToMove) { moveCounter = 0; }
-    }
-
-    public void ActivateHitBox()
-    {
-
-    }
-
-    public void DeactivateHitBox()
-    {
-
     }
     #endregion
-    
+
     #region MonoBehaviour Callbacks
 
     private void Start()
     {
         movementSM = new StateMachine();
 
-        moving = new MoveRandomState(this, movementSM);
-
+        moving = new MoveState(this, movementSM);
+        chargeAttack = new ChargeAttackState(this, movementSM);
+        attack = new AttackState(this, movementSM);
         
 
         enemyName = stats.enemyName;
@@ -88,6 +85,7 @@ public class Character : MonoBehaviour
         notesToMove = stats.notesToMove;
         detectionRange = stats.detectionRange;
         health = stats.health;
+        attackRange = stats.attackRange;
         parent = GetComponent<Transform>();
 
         agentObj = Instantiate(stats.enemyModel, parent);
@@ -102,6 +100,8 @@ public class Character : MonoBehaviour
 
     private void EventUpdate()
     {
+        distanceToPlayer = (agentObj.transform.position - player.position).magnitude;
+        Debug.Log(distanceToPlayer);
         movementSM.CurrentState.NoteEventUpdate();
 
     }
@@ -127,5 +127,8 @@ public class Character : MonoBehaviour
     }
 
     #endregion
+
+
+
 }
 

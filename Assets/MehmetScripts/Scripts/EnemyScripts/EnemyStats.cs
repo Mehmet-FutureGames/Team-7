@@ -23,6 +23,7 @@ public class EnemyStats : ScriptableObject
     public int notesToMove;
     [Space]
     public float attackDamage;
+    public float attackRange;
     public float health;
 
 }
@@ -47,6 +48,7 @@ public class TestCustomInspector : Editor
             script.notesToMove = EditorGUILayout.IntField("Notes to move", script.notesToMove);
             script.attackDamage = EditorGUILayout.FloatField("Attack Damage", script.attackDamage);
             script.health = EditorGUILayout.FloatField("Health", script.health);
+            script.attackRange = EditorGUILayout.FloatField("Attack Range", script.attackRange);
         }
         if (script.movePattern == MovePattern.RandomDirection)
         {
@@ -57,6 +59,7 @@ public class TestCustomInspector : Editor
             script.notesToMove = EditorGUILayout.IntField("Notes to move", script.notesToMove);
             script.attackDamage = EditorGUILayout.FloatField("Attack Damage", script.attackDamage);
             script.health = EditorGUILayout.FloatField("Health", script.health);
+            script.attackRange = EditorGUILayout.FloatField("Attack Range", script.attackRange);
         }
         if (script.movePattern == MovePattern.ProximityDetection)
         {
@@ -67,6 +70,7 @@ public class TestCustomInspector : Editor
             script.notesToMove = EditorGUILayout.IntField("Notes to move", script.notesToMove);
             script.attackDamage = EditorGUILayout.FloatField("Attack Damage", script.attackDamage);
             script.health = EditorGUILayout.FloatField("Health", script.health);
+            script.attackRange = EditorGUILayout.FloatField("Attack Range", script.attackRange);
             script.detectionRange = EditorGUILayout.FloatField("Detection Range", script.detectionRange);
         }
     }
