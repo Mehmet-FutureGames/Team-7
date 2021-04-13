@@ -20,8 +20,7 @@ public class NoteObject : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {        
         if (canBePressed)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
