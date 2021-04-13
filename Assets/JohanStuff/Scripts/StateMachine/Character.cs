@@ -8,6 +8,8 @@ public class Character : MonoBehaviour
     public AttackState attack;
     public ChargeAttackState chargeAttack;
 
+    [HideInInspector]
+    public GameObject area;
 
     string enemyName;
     [HideInInspector]
@@ -89,6 +91,8 @@ public class Character : MonoBehaviour
         parent = GetComponent<Transform>();
 
         agentObj = Instantiate(stats.enemyModel, parent);
+        area = Instantiate(stats.area, agentObj.transform.position+ new Vector3(0,-1,3) , Quaternion.identity, agentObj.transform);
+        area.SetActive(false);
 
         agent = GetComponentInChildren<NavMeshAgent>();
 
@@ -101,7 +105,6 @@ public class Character : MonoBehaviour
     private void EventUpdate()
     {
         distanceToPlayer = (agentObj.transform.position - player.position).magnitude;
-        Debug.Log(distanceToPlayer);
         movementSM.CurrentState.NoteEventUpdate();
 
     }

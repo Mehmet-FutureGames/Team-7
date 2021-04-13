@@ -14,6 +14,7 @@ public class EnemyStats : ScriptableObject
 {
     public MovePattern movePattern;
     public GameObject enemyModel;
+    public GameObject area;
     public string enemyName;
     [Space]
     public float movementSpeed;
@@ -42,6 +43,7 @@ public class TestCustomInspector : Editor
         if (script.movePattern == MovePattern.TowardsPlayer)
         {
             script.enemyModel = (GameObject)EditorGUILayout.ObjectField("Enemy Model", script.enemyModel, typeof(GameObject), true);
+            script.area = (GameObject)EditorGUILayout.ObjectField("area", script.area, typeof(GameObject), true);
             script.enemyName = EditorGUILayout.TextField("Enemy Name", script.enemyName);
             script.movementSpeed = EditorGUILayout.FloatField("Movement Speed", script.movementSpeed);
             script.moveDistance = EditorGUILayout.FloatField("Move Distance", script.moveDistance);

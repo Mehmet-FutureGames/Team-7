@@ -11,6 +11,7 @@ public class AttackState : State
     {
         base.Enter();
         character.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+        character.area.SetActive(false);
     }
 
     public override void PhysicsUpdate()
