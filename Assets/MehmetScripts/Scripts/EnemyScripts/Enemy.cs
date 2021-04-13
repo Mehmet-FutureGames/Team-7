@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
 
         
 
-        player = FindObjectOfType<MovePlayer>().transform;
+        //player = FindObjectOfType<MovePlayer>().transform;
 
         Debug.Log("Fear not " + enemyName + " is here");
         //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -58,11 +58,11 @@ public class Enemy : MonoBehaviour
     {
         movePattern = stats.movePattern;
         notePublisher = FindObjectOfType<NotePublisher>();
-        SetMovePattern();
+        //SetMovePattern();
     }
     private void OnDisable()
     {
-        RemoveMovePattern();
+        //RemoveMovePattern();
     }
 
     #region Movement Patterns
@@ -120,7 +120,7 @@ public class Enemy : MonoBehaviour
         
     }
     #endregion
-
+/*
     void SetMovePattern()
     {
         switch (movePattern)
@@ -162,6 +162,7 @@ public class Enemy : MonoBehaviour
                 break;
         }
     }
+*/
 
 
     private void EnemyAttack()

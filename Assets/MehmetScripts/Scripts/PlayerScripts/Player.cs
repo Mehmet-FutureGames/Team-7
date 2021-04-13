@@ -83,12 +83,12 @@ public class Player : MonoBehaviour
         distanceToClick = stats.distanceToClick;
 
         //Check if moved or not.
-        notePublisher = FindObjectOfType<NotePublisher>();
+       // notePublisher = FindObjectOfType<NotePublisher>();
 
         movePlayer = GetComponent<MovePlayer>();
 
         //Subscribe to noteHit.
-        notePublisher.noteHit += AttackActivated;
+       // notePublisher.noteHit += AttackActivated;
 
         playerAttackRange = GetComponentInChildren<PlayerAttack>();
 

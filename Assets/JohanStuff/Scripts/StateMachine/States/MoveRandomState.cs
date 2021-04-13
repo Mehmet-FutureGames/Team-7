@@ -39,7 +39,6 @@ public class MoveRandomState : State
     public override void NoteEventUpdate()
     {
         base.NoteEventUpdate();
-        if(c)
         character.Move();
     }
 }
