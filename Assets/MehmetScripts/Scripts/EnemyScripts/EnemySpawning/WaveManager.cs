@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    Enemy[] character;
+    Character[] character;
 
 
     Transform enemyContainer;
@@ -30,21 +30,24 @@ public class WaveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       InvokeRepeating("BeginFirstWave", 0, 0.1f);
+        InvokeRepeating("BeginFirstWave", 0, 0.1f);
 
         enemyContainer = GameObject.Find("EnemyContainer").transform;
 
         spawnPoints = FindObjectsOfType<TypeOfEnemy>();
 
-        StartCoroutine(ReferenceStuff());
+        StartCoroutine(ReferenceEnemies());
 
     }
     private void BeginFirstWave()
     {
+        //Goes through all of the spawn points
         for (int i = 0; i < spawnPoints.Length; i++)
         {
             if (amountofEnemiesWanted > amountOfEnemies)
             {
+                //Goes through each spawn points and checks which enemy 
+                //should be spawned at that specific spawnpoint
                 switch (spawnPoints[i].ReturnEnemyType())
                 {
                     case 1:
@@ -63,6 +66,7 @@ public class WaveManager : MonoBehaviour
             }
             else
             {
+                //Stops the first wave
                 Debug.Log(amountofEnemiesWanted + " has been spawned!");
                 CancelInvoke();
             }
@@ -72,6 +76,7 @@ public class WaveManager : MonoBehaviour
 
     public void FindSpawnPoints()
     {
+        //Checks for new spawnpoints
         spawnPoints = FindObjectsOfType<TypeOfEnemy>();
     }
 
@@ -79,11 +84,10 @@ public class WaveManager : MonoBehaviour
     {
         amountOfEnemies--;
     }
-    IEnumerator ReferenceStuff()
+    IEnumerator ReferenceEnemies()
     {
         yield return new WaitForSeconds(1f);
-        character = FindObjectsOfType<Enemy>();
-        Debug.Log(character.Length);
+        character = FindObjectsOfType<Character>();
         for (int i = 0; i < character.Length; i++)
         {
             character[i].enemyDefeated += EnemyDefeated;

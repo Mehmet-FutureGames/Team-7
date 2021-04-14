@@ -62,7 +62,6 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        Debug.Log("This " + enemyName + " has " + health + " HP");
         Dead();
     }
 
@@ -74,7 +73,6 @@ public class Enemy : MonoBehaviour
             if (enemyDefeated != null)
             {
                 enemyDefeated();
-                Debug.Log("Hello");
             }
         }
     }

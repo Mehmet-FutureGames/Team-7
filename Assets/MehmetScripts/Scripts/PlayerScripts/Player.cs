@@ -5,8 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] PlayerStats stats;
-
-    MovePlayer movePlayer;
  
     PlayerAttack playerAttackRange;
 
@@ -18,8 +16,11 @@ public class Player : MonoBehaviour
 
     string playerName;
 
+    [HideInInspector]
     public float health;
+    [HideInInspector]
     public float damage;
+    [HideInInspector]
     public float dashDamage;
     // Start is called before the first frame update
     void Start()
@@ -48,7 +49,6 @@ public class Player : MonoBehaviour
         if(!playerAttackRange.isActiveAndEnabled && hit.transform.CompareTag("Enemy"))
         {
             StartCoroutine(DashAttack());
-            Debug.Log("You dashed!");
         }
     }
 
@@ -66,10 +66,8 @@ public class Player : MonoBehaviour
     {
         playerDashRange.gameObject.SetActive(true);
         GetComponent<MeshRenderer>().material.color = Color.black;
-        Debug.Log("Attacked");
         yield return new WaitForSeconds(1f);
         playerDashRange.gameObject.SetActive(false);
-        Debug.Log("Stop attacking");
         GetComponent<MeshRenderer>().material.color = Color.green;
     }
 
@@ -88,16 +86,12 @@ public class Player : MonoBehaviour
         //Check if moved or not.
         notePublisher = FindObjectOfType<NotePublisher>();
 
-        movePlayer = GetComponent<MovePlayer>();
-
         //Subscribe to noteHit.
         notePublisher.noteHit += AttackActivated;
 
         playerAttackRange = GetComponentInChildren<PlayerAttack>();
-        Debug.Log(playerAttackRange);
 
         playerDashRange = GetComponentInChildren<PlayerDashAttack>();
-        Debug.Log(playerDashRange);
 
         yield return new WaitForSeconds(1);
         playerAttackRange.gameObject.SetActive(false);
