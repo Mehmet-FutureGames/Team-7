@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AI;
 public class Character : MonoBehaviour
 {
+    public Action enemyDefeated;
 
     public StateMachine movementSM;
     public MoveState moving;
@@ -31,7 +33,7 @@ public class Character : MonoBehaviour
     float attackDamage;
     [HideInInspector]
     public float attackRange;
-    float health;
+    [SerializeField] float health;
     [HideInInspector]
     public MovePattern movePattern;
     [HideInInspector]
@@ -69,6 +71,11 @@ public class Character : MonoBehaviour
         if (health < 0)
         {
             gameObject.SetActive(false);
+            if (enemyDefeated != null)
+            {
+                enemyDefeated();
+                Debug.Log("Hello");
+            }
         }
     }
     #endregion
@@ -131,6 +138,8 @@ public class Character : MonoBehaviour
     {
         movementSM.CurrentState.HandleInput();
 
+        Dead();
+
         movementSM.CurrentState.LogicUpdate();
     }
 
@@ -140,8 +149,6 @@ public class Character : MonoBehaviour
     }
 
     #endregion
-
-
 
 }
 

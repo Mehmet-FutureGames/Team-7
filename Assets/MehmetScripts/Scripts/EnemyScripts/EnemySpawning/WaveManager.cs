@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    Character[] character;
+
+
     Transform enemyContainer;
 
     [SerializeField] List<GameObject> enemyVariants;
@@ -27,24 +30,23 @@ public class WaveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       InvokeRepeating("EnemySpawner", 0, 0.1f);
+       InvokeRepeating("BeginFirstWave", 0, 0.1f);
 
-        amountOfEnemiesOnMap = GameObject.FindGameObjectsWithTag("Enemy").Length;
         enemyContainer = GameObject.Find("EnemyContainer").transform;
 
         spawnPoints = FindObjectsOfType<TypeOfEnemy>();
-    }
 
-    private void EnemySpawner()
+        StartCoroutine(ReferenceStuff());
+
+    }
+    private void BeginFirstWave()
     {
-        if (amountofEnemiesWanted > amountOfEnemies)
+        for (int i = 0; i < spawnPoints.Length; i++)
         {
-            for (int i = 0; i < spawnPoints.Length; i++)
+            if (amountofEnemiesWanted > amountOfEnemies)
             {
                 switch (spawnPoints[i].ReturnEnemyType())
                 {
-                    default:
-                        break;
                     case 1:
                         Instantiate(enemyVariants[0], spawnPoints[i].GetComponent<Transform>().position, Quaternion.identity, enemyContainer);
                         amountOfEnemies++;
@@ -53,18 +55,39 @@ public class WaveManager : MonoBehaviour
                         Instantiate(enemyVariants[1], spawnPoints[i].GetComponent<Transform>().position, Quaternion.identity, enemyContainer);
                         amountOfEnemies++;
                         break;
+                    case 3:
+                        Instantiate(enemyVariants[2], spawnPoints[i].GetComponent<Transform>().position, Quaternion.identity, enemyContainer);
+                        amountOfEnemies++;
+                        break;
                 }
             }
+            else
+            {
+                Debug.Log(amountofEnemiesWanted + " has been spawned!");
+                CancelInvoke();
+            }
         }
-        else
-        {
-            Debug.Log(amountofEnemiesWanted + " has been spawned!");
-            CancelInvoke();
-        }
+    
     }
 
     public void FindSpawnPoints()
     {
         spawnPoints = FindObjectsOfType<TypeOfEnemy>();
+    }
+
+    public void EnemyDefeated()
+    {
+        amountOfEnemies--;
+    }
+    IEnumerator ReferenceStuff()
+    {
+        yield return new WaitForSeconds(1f);
+        character = FindObjectsOfType<Character>();
+        Debug.Log(character.Length);
+        for (int i = 0; i < character.Length; i++)
+        {
+            character[i].enemyDefeated += EnemyDefeated;
+        }
+        
     }
 }

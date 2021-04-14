@@ -12,8 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b003b01bd880a44d96e3bab38f6eacf, type: 3}
   m_Name: Pedro
   m_EditorClassIdentifier: 
-  enemyModel: {fileID: 7108466227688549104, guid: e87d65fc58f87844eb1cc722ec38ffd5,
+  movePattern: 0
+  enemyModel: {fileID: 4726573173291459834, guid: b4ab9b445b9fc1a42a7ff41ced933cde,
     type: 3}
+  area: {fileID: 5142904849790710492, guid: 0276f6d96dfb9c141a6591ed02f83c65, type: 3}
   enemyName: Pedro
   movementSpeed: 1
+  moveDistance: 0
+  detectionRange: 0
+  notesToMove: 0
   attackDamage: 1000
+  attackRange: 0
+  health: 0
