@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b003b01bd880a44d96e3bab38f6eacf, type: 3}
   m_Name: TestDummy
   m_EditorClassIdentifier: 
+  enemyName: 
   movePattern: 0
   enemyModel: {fileID: 9136741787267490897, guid: 84c04ddfed3083840b669e65c9d4f3e4,
     type: 3}
-  area: {fileID: 5142904849790710492, guid: 0276f6d96dfb9c141a6591ed02f83c65, type: 3}
-  enemyName: 
+  attackAreaShape: {fileID: 5142904849790710492, guid: 0276f6d96dfb9c141a6591ed02f83c65,
+    type: 3}
+  attackAreaScale: {x: 0, y: 0, z: 0}
+  attackAreaOffset: {x: 0, y: 0, z: 0}
   movementSpeed: 0
   moveDistance: 0
   detectionRange: 0

@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b003b01bd880a44d96e3bab38f6eacf, type: 3}
-  m_Name: FirstEnemy
+  m_Name: Tank
   m_EditorClassIdentifier: 
-  enemyName: Bob
+  enemyName: TankDemonDudeLordMF
   movePattern: 0
   enemyModel: {fileID: 7280686633801961007, guid: 2f2dd6f54256d8541a2b2aebc926adf0,
     type: 3}
   attackAreaShape: {fileID: 5142904849790710492, guid: 0276f6d96dfb9c141a6591ed02f83c65,
     type: 3}
-  attackAreaScale: {x: 3, y: 3, z: 3}
-  attackAreaOffset: {x: 0, y: -1, z: 5}
+  attackAreaScale: {x: 5, y: 5, z: 5}
+  isRanged: 0
   movementSpeed: 1
   moveDistance: 8
-  detectionRange: 0
-  notesToMove: 1
-  attackDamage: 30
-  attackRange: 15
-  health: 5
+  detectionRange: 30
+  notesToMove: 2
+  attackDamage: 10
+  attackRange: 10
+  health: 999999

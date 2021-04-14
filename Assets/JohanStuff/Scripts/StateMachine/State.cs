@@ -7,7 +7,6 @@ public abstract class State : IState
 {
     protected Enemy enemy;
     protected StateMachine stateMachine;
-
     protected State(Enemy enemy, StateMachine stateMachine)
     {
         this.enemy = enemy;
@@ -16,7 +15,6 @@ public abstract class State : IState
 
     public virtual void Enter()
     {
-        
     }
 
     public virtual void HandleInput()

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8318873032841649777}
   - component: {fileID: -5948142190049989769}
   m_Layer: 0
-  m_Name: Pedro
+  m_Name: Tank
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,4 +56,4 @@ MonoBehaviour:
   moveCounter: 0
   distanceToPlayer: 0
   player: {fileID: 0}
-  stats: {fileID: 11400000, guid: 676c8ed06b622b644853ee1e3c849e70, type: 2}
+  stats: {fileID: 11400000, guid: 8a753705f6689b94c9d58afdf9f8cd91, type: 2}

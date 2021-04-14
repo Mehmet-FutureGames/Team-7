@@ -23,8 +23,19 @@ public class EnemyHitArea : MonoBehaviour
             character.playerIsInAttackArea = false;
         }
     }
+    private void OnEnable()
+    {
+        StartCoroutine(wait());
+    }
     private void OnDisable()
     {
         character.playerIsInAttackArea = false;
+    }
+
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(0.0001f);
+        transform.position = character.player.position;
+        
     }
 }
