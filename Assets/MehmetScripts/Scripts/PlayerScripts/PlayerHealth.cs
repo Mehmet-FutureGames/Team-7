@@ -6,17 +6,42 @@ public class PlayerHealth : MonoBehaviour
 {
     Player playerStats;
 
-    [SerializeField]float health;
+    float health;
+
+    [SerializeField] GameObject deadPanel;
 
     private void Start()
     {
-        //playerStats = GetComponentInParent<Player>();
+        playerStats = GetComponentInParent<Player>();
 
-        //health = playerStats.health;
+        StartCoroutine(ReferenceHealth());
+
+        deadPanel.SetActive(false);
+        if(Time.timeScale < 1)
+        {
+            Time.timeScale = 1;
+        }
     }
 
     public void TakeDamage(float damage)
     {
         health -= damage;
+        Debug.Log(health);
+        if(health < 0)
+        {
+            Dead();
+        }
+    }
+
+    private void Dead()
+    {
+        deadPanel.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    IEnumerator ReferenceHealth()
+    {
+        yield return new WaitForSeconds(0.1f);
+        health = playerStats.health;
     }
 }

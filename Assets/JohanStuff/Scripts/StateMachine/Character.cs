@@ -73,7 +73,6 @@ public class Character : MonoBehaviour
             if (enemyDefeated != null)
             {
                 enemyDefeated();
-                Debug.Log("Hello");
             }
         }
     }
