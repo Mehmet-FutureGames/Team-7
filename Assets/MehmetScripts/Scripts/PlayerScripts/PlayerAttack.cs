@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.GetComponentInParent<Character>().TakeDamage(damage);
+            other.GetComponentInParent<Enemy>().TakeDamage(damage);
 
             Debug.Log("I hit an enemy!");
         }

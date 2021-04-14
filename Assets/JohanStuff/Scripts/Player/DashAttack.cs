@@ -34,7 +34,7 @@ public class DashAttack : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponentInParent<Character>().TakeDamage(10);
+            other.gameObject.GetComponentInParent<Enemy>().TakeDamage(10);
             
         }
     }

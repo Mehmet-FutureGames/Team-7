@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.AI;
-public class Character : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public Action enemyDefeated;
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    Character[] character;
+    Enemy[] character;
 
 
     Transform enemyContainer;
@@ -82,7 +82,7 @@ public class WaveManager : MonoBehaviour
     IEnumerator ReferenceStuff()
     {
         yield return new WaitForSeconds(1f);
-        character = FindObjectsOfType<Character>();
+        character = FindObjectsOfType<Enemy>();
         Debug.Log(character.Length);
         for (int i = 0; i < character.Length; i++)
         {

@@ -3,18 +3,18 @@ using UnityEngine;
 public class ChargeAttackState : State
 {
 
-    public ChargeAttackState(Character character, StateMachine stateMachine) : base(character, stateMachine)
+    public ChargeAttackState(Enemy enemy, StateMachine stateMachine) : base(enemy, stateMachine)
     {
     }
 
     public override void Enter()
     {
         base.Enter();
-        character.area.SetActive(true);
+        enemy.area.SetActive(true);
         Debug.Log("Entered ChargeAttackState");
-        character.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.green;
-        Vector3 dirToPlayer = (character.player.position - character.agentObj.transform.position).normalized;
-        character.agentObj.transform.rotation = Quaternion.LookRotation(dirToPlayer);
+        enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.green;
+        Vector3 dirToPlayer = (enemy.player.position - enemy.agentObj.transform.position).normalized;
+        enemy.agentObj.transform.rotation = Quaternion.LookRotation(dirToPlayer);
     }
 
     public override void Exit()
@@ -26,7 +26,7 @@ public class ChargeAttackState : State
     public override void NoteEventUpdate()
     {
         base.NoteEventUpdate();
-        stateMachine.ChangeState(character.attack);
+        stateMachine.ChangeState(enemy.attack);
     }
 
     public override void Action()

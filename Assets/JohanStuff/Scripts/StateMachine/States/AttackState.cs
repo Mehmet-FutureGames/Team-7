@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class AttackState : State
 {
-    public AttackState(Character character, StateMachine stateMachine) : base(character, stateMachine)
+    public AttackState(Enemy enemy, StateMachine stateMachine) : base(enemy, stateMachine)
     {
     }
 
     public override void Enter()
     {
         base.Enter();
-        character.EnemyAttack();
-        character.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
-        character.area.SetActive(false);
+        enemy.EnemyAttack();
+        enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+        enemy.area.SetActive(false);
     }
 
     public override void PhysicsUpdate()
@@ -22,6 +22,6 @@ public class AttackState : State
     public override void NoteEventUpdate()
     {
         base.NoteEventUpdate();
-        stateMachine.ChangeState(character.moving);
+        stateMachine.ChangeState(enemy.moving);
     }
 }
