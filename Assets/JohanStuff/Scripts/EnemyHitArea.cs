@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EnemyHitArea : MonoBehaviour
 {
-    Character character;
+    Enemy character;
     private void Awake()
     {
-        character = FindObjectOfType<Character>();
+        character = FindObjectOfType<Enemy>();
     }
     private void OnTriggerEnter(Collider other)
     {

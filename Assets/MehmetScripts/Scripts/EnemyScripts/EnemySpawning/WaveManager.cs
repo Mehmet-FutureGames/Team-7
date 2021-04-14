@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    Character[] character;
+    Enemy[] enemy;
 
 
     Transform enemyContainer;
@@ -75,7 +75,6 @@ public class WaveManager : MonoBehaviour
             else
             {
                 //Stops the first wave
-                Debug.Log(amountofEnemiesWanted + " has been spawned!");
                 CancelInvoke();
             }
         }
@@ -95,10 +94,10 @@ public class WaveManager : MonoBehaviour
     IEnumerator ReferenceEnemies()
     {
         yield return new WaitForSeconds(1f);
-        character = FindObjectsOfType<Character>();
-        for (int i = 0; i < character.Length; i++)
+        enemy = FindObjectsOfType<Enemy>();
+        for (int i = 0; i < enemy.Length; i++)
         {
-            character[i].enemyDefeated += EnemyDefeated;
+            enemy[i].enemyDefeated += EnemyDefeated;
         }
         
     }

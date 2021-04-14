@@ -5,12 +5,12 @@ public interface IState
 }
 public abstract class State : IState
 {
-    protected Character character;
+    protected Enemy enemy;
     protected StateMachine stateMachine;
 
-    protected State(Character character, StateMachine stateMachine)
+    protected State(Enemy enemy, StateMachine stateMachine)
     {
-        this.character = character;
+        this.enemy = enemy;
         this.stateMachine = stateMachine;
     }
 

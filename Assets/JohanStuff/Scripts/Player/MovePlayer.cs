@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MovePlayer : MonoBehaviour
 {
@@ -54,8 +55,9 @@ public class MovePlayer : MonoBehaviour
             if(MovementValue > Mathf.Epsilon)
             {
                 isMoving = true;
+                gameObject.GetComponent<NavMeshObstacle>().enabled = false;
             }
-            else { isMoving = false; }
+            else { isMoving = false; gameObject.GetComponent<NavMeshObstacle>().enabled = true; }
             
             ////
 
