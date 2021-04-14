@@ -7,7 +7,7 @@ public class PlayerAttack : MonoBehaviour
 {
     float damage;
 
-    public float dashDamage;
+    [HideInInspector] public float dashDamage;
 
     Player playerStats;
 
@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.GetComponentInParent<Enemy>().TakeDamage(damage);
+            other.GetComponentInParent<Character>().TakeDamage(damage);
 
             Debug.Log("I hit an enemy!");
         }

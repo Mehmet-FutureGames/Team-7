@@ -33,19 +33,22 @@ public class Player : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         Physics.Raycast(ray, out hit);
-        float distance = (transform.position - hit.transform.position).sqrMagnitude;
+        float distance = (transform.position - hit.transform.position).magnitude;
 
         if(distance < distanceToClick)
         {
             if (hit.transform.CompareTag("Enemy"))
             {
                 StartCoroutine(AttackingActivated());
+                Debug.Log("You hit an enemy!");
             }
         }
+
         //Checks if the player is moving and the melee range attack isn't activate.
-        if(movePlayer.isMoving && !playerAttackRange.isActiveAndEnabled && hit.transform.CompareTag("Enemy"))
+        if(!playerAttackRange.isActiveAndEnabled && hit.transform.CompareTag("Enemy"))
         {
             StartCoroutine(DashAttack());
+            Debug.Log("You dashed!");
         }
     }
 
@@ -83,16 +86,18 @@ public class Player : MonoBehaviour
         distanceToClick = stats.distanceToClick;
 
         //Check if moved or not.
-       // notePublisher = FindObjectOfType<NotePublisher>();
+        notePublisher = FindObjectOfType<NotePublisher>();
 
         movePlayer = GetComponent<MovePlayer>();
 
         //Subscribe to noteHit.
-       // notePublisher.noteHit += AttackActivated;
+        notePublisher.noteHit += AttackActivated;
 
         playerAttackRange = GetComponentInChildren<PlayerAttack>();
+        Debug.Log(playerAttackRange);
 
         playerDashRange = GetComponentInChildren<PlayerDashAttack>();
+        Debug.Log(playerDashRange);
 
         yield return new WaitForSeconds(1);
         playerAttackRange.gameObject.SetActive(false);

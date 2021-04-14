@@ -17,3 +17,5 @@ MonoBehaviour:
   movementSpeed: 0
   attackDamage: 15
   health: 100
+  dashDamage: 2
+  distanceToClick: 5
