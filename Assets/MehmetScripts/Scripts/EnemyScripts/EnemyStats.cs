@@ -30,7 +30,7 @@ public class EnemyStats : ScriptableObject
 }
 
 
-[CustomEditor(typeof(EnemyStats))]
+/*[CustomEditor(typeof(EnemyStats))]
 public class TestCustomInspector : Editor
 {
 
@@ -77,4 +77,5 @@ public class TestCustomInspector : Editor
         }
     }
 }
+*/
 
