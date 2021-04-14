@@ -8,7 +8,7 @@ public class PlayerDashAttack : PlayerAttack
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.GetComponentInParent<Character>().TakeDamage(dashDamage);
+            other.GetComponentInParent<Enemy>().TakeDamage(dashDamage);
         }
     }
 }

@@ -11,7 +11,6 @@ public class ChargeAttackState : State
     {
         base.Enter();
         enemy.area.SetActive(true);
-        Debug.Log("Entered ChargeAttackState");
         enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.green;
         Vector3 dirToPlayer = (enemy.player.position - enemy.agentObj.transform.position).normalized;
         enemy.agentObj.transform.rotation = Quaternion.LookRotation(dirToPlayer);
