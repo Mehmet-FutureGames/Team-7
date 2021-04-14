@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
     IEnumerator AttackingActivated()
     {
         playerAttackRange.gameObject.SetActive(true);
-        GetComponent<MeshRenderer>().material.color = Color.red;
+        GetComponent<MeshRenderer>().material.color = Color.grey;
         Debug.Log("Attacked");
         yield return new WaitForSeconds(0.5f);
         playerAttackRange.gameObject.SetActive(false);
@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
     IEnumerator DashAttack()
     {
         playerDashRange.gameObject.SetActive(true);
-        GetComponent<MeshRenderer>().material.color = Color.red;
+        GetComponent<MeshRenderer>().material.color = Color.black;
         Debug.Log("Attacked");
         yield return new WaitForSeconds(1f);
         playerDashRange.gameObject.SetActive(false);

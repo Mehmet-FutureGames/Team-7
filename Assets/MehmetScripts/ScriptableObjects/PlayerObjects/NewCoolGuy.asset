@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: NewCoolGuy
   m_EditorClassIdentifier: 
   playerModel: {fileID: 0}
-  playerName: 
+  playerName: New Cool Guy!
   movementSpeed: 0
-  attackDamage: 15
+  attackDamage: 35
   health: 100
-  dashDamage: 2
+  dashDamage: 20
   distanceToClick: 5
