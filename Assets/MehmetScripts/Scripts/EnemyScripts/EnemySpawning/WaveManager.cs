@@ -39,6 +39,14 @@ public class WaveManager : MonoBehaviour
         StartCoroutine(ReferenceEnemies());
 
     }
+
+    void Update()
+    {
+        if(amountOfEnemies <= 0)
+        {
+            InvokeRepeating("BeginFirstWave", 0, 0.1f);
+        }
+    }
     private void BeginFirstWave()
     {
         //Goes through all of the spawn points

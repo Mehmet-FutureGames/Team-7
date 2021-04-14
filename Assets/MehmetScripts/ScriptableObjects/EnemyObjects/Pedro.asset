@@ -17,10 +17,10 @@ MonoBehaviour:
     type: 3}
   area: {fileID: 5142904849790710492, guid: 0276f6d96dfb9c141a6591ed02f83c65, type: 3}
   enemyName: Pedro
-  movementSpeed: 1
-  moveDistance: 5
+  movementSpeed: 50
+  moveDistance: 8
   detectionRange: 0
   notesToMove: 1
-  attackDamage: 1000
+  attackDamage: 15
   attackRange: 5
-  health: 0
+  health: 150
