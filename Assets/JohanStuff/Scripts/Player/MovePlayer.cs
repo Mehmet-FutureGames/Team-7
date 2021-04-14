@@ -50,11 +50,12 @@ public class MovePlayer : MonoBehaviour
 
             ////  This will most likely be used to get the current speed the player is moving. 
             // Example: if(value > 0){ doingDamageIsPossible }
-            float value = (distance* moveSpeedMultiplier * Time.deltaTime) * 10;
-            if(value > 0)
+            float MovementValue = (distance* moveSpeedMultiplier * Time.deltaTime) * 10;
+            if(MovementValue > Mathf.Epsilon)
             {
                 isMoving = true;
             }
+            else { isMoving = false; }
             
             ////
 
@@ -98,7 +99,8 @@ public class MovePlayer : MonoBehaviour
             hitWallPos = pointToNormalPos;
         }
         //////////////////////////////////////////////////////////////////////////////
-            collided = false;
+        collided = false;
+        TurnPlayerTowardsDir();
     }
     private void OnCollisionEnter(Collision other)
     {
@@ -110,5 +112,15 @@ public class MovePlayer : MonoBehaviour
     {
 
     }
-
+    void TurnPlayerTowardsDir()
+    {
+        if (hitWall)
+        {
+            transform.LookAt(hitWallPos);
+        }
+        else
+        {
+            transform.LookAt(mousePos);
+        }
+    }
 }

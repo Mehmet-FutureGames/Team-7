@@ -6,16 +6,16 @@ public class PlayerHealth : MonoBehaviour
 {
     Player playerStats;
 
-    float health;
+    [SerializeField]float health;
 
     private void Start()
     {
-        playerStats = GetComponentInParent<Player>();
+        //playerStats = GetComponentInParent<Player>();
 
-        health = playerStats.health;
+        //health = playerStats.health;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
     }

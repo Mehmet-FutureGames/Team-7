@@ -4,10 +4,13 @@ public class Character : MonoBehaviour
 {
 
     public StateMachine movementSM;
-    public MoveRandomState moving;
+    public MoveState moving;
+    public AttackState attack;
+    public ChargeAttackState chargeAttack;
 
-
-
+    public bool playerIsInAttackArea;
+    [HideInInspector]
+    public GameObject area;
 
     string enemyName;
     [HideInInspector]
@@ -23,62 +26,62 @@ public class Character : MonoBehaviour
     public int notesToMove;
     float detectionRange;
 
-    float attackDamage;
-    float health;
+    
 
-    private MovePattern movePattern;
+    float attackDamage;
+    [HideInInspector]
+    public float attackRange;
+    float health;
+    [HideInInspector]
+    public MovePattern movePattern;
     [HideInInspector]
     public int moveCounter = 0;
     int attackCounter = 0;
 
+    [HideInInspector]
+    public float distanceToPlayer;
 
-    Transform player;
+    [HideInInspector]
+    public Transform player;
 
     [SerializeField] EnemyStats stats;
 
     NotePublisher notePublisher;
 
-    
+
     #region Methods
-    public void Shoot()
+    public void EnemyAttack()
     {
-
-    }
-
-    public void Move()
-    {
-        moveCounter++;
-        Vector3 randomVector = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
-        Vector3 agentToRandom = agentObj.transform.position + randomVector;
-        Vector3 dir = (agentToRandom - agentObj.transform.position).normalized;
-        agent.SetDestination(agentObj.transform.position + dir * moveDistance);
-
-        if (agent.velocity.sqrMagnitude > Mathf.Epsilon)
+        if (playerIsInAttackArea)
         {
-            agentObj.transform.rotation = Quaternion.LookRotation(dir);
+            player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
         }
-        if (moveCounter == notesToMove) { moveCounter = 0; }
+    }
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        Debug.Log("This " + enemyName + " has " + health + " HP");
+        Dead();
     }
 
-    public void ActivateHitBox()
+    private void Dead()
     {
-
-    }
-
-    public void DeactivateHitBox()
-    {
-
+        if (health < 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
     #endregion
-    
+
     #region MonoBehaviour Callbacks
 
     private void Start()
     {
         movementSM = new StateMachine();
 
-        moving = new MoveRandomState(this, movementSM);
-
+        moving = new MoveState(this, movementSM);
+        chargeAttack = new ChargeAttackState(this, movementSM);
+        attack = new AttackState(this, movementSM);
         
 
         enemyName = stats.enemyName;
@@ -88,9 +91,12 @@ public class Character : MonoBehaviour
         notesToMove = stats.notesToMove;
         detectionRange = stats.detectionRange;
         health = stats.health;
+        attackRange = stats.attackRange;
         parent = GetComponent<Transform>();
 
         agentObj = Instantiate(stats.enemyModel, parent);
+        area = Instantiate(stats.area, agentObj.transform.position+ new Vector3(0,-1,3) , Quaternion.identity, agentObj.transform);
+        area.SetActive(false);
 
         agent = GetComponentInChildren<NavMeshAgent>();
 
@@ -102,6 +108,7 @@ public class Character : MonoBehaviour
 
     private void EventUpdate()
     {
+        distanceToPlayer = (agentObj.transform.position - player.position).magnitude;
         movementSM.CurrentState.NoteEventUpdate();
 
     }
@@ -112,6 +119,12 @@ public class Character : MonoBehaviour
         notePublisher = FindObjectOfType<NotePublisher>();
         notePublisher.noteHit += EventUpdate;
         notePublisher.noteNotHit += EventUpdate;
+    }
+
+    private void OnDisable()
+    {
+        notePublisher.noteHit -= EventUpdate;
+        notePublisher.noteNotHit -= EventUpdate;
     }
 
     private void Update()
@@ -127,5 +140,8 @@ public class Character : MonoBehaviour
     }
 
     #endregion
+
+
+
 }
 
