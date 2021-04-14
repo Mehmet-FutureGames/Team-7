@@ -15,9 +15,12 @@ MonoBehaviour:
   movePattern: 0
   enemyModel: {fileID: 7280686633801961007, guid: 2f2dd6f54256d8541a2b2aebc926adf0,
     type: 3}
+  area: {fileID: 5142904849790710492, guid: 0276f6d96dfb9c141a6591ed02f83c65, type: 3}
   enemyName: Bob
   movementSpeed: 1
   moveDistance: 8
-  notesToMove: 2
+  detectionRange: 0
+  notesToMove: 1
   attackDamage: 30
-  health: 0
+  attackRange: 8
+  health: 5
