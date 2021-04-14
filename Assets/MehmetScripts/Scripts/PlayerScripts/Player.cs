@@ -48,7 +48,6 @@ public class Player : MonoBehaviour
         if(!playerAttackRange.isActiveAndEnabled && hit.transform.CompareTag("Enemy"))
         {
             StartCoroutine(DashAttack());
-            Debug.Log("You dashed!");
         }
     }
 
@@ -66,10 +65,8 @@ public class Player : MonoBehaviour
     {
         playerDashRange.gameObject.SetActive(true);
         GetComponent<MeshRenderer>().material.color = Color.black;
-        Debug.Log("Attacked");
         yield return new WaitForSeconds(1f);
         playerDashRange.gameObject.SetActive(false);
-        Debug.Log("Stop attacking");
         GetComponent<MeshRenderer>().material.color = Color.green;
     }
 

@@ -62,7 +62,6 @@ public class Character : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        Debug.Log("This " + enemyName + " has " + health + " HP");
         Dead();
     }
 
