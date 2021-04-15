@@ -43,12 +43,12 @@ public class WaveManager : MonoBehaviour
     {
         if(amountOfEnemies <= 0)
         {
-            InvokeRepeating("BeginFirstWave", 0, 0.1f);
+            SpawnPointPattern();
             StartCoroutine(ReferenceEnemies());
         }
     }
-    #region FirstWave
-    private void BeginFirstWave()
+    #region BeginWaveSpawnEnemies
+    private void BeginWave()
     {
         //Goes through all of the spawn points
         for (int i = 0; i < spawnPoints.Length; i++)
@@ -91,7 +91,7 @@ public class WaveManager : MonoBehaviour
             FindSpawnPoints();
         }
         amountofEnemiesWanted = spawnPoints.Length;
-        BeginFirstWave();
+        BeginWave();
     }
 
     public void FindSpawnPoints()
