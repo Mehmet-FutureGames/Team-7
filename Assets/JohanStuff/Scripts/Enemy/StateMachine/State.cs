@@ -17,6 +17,7 @@ public abstract class State : IState
 
     public virtual void Enter()
     {
+        enemy.moveDistance = enemy.defaultMoveDistance;
     }
 
     public virtual void HandleInput()

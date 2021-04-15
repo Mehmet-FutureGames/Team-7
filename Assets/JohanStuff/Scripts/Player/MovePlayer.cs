@@ -23,6 +23,8 @@ public class MovePlayer : MonoBehaviour
     float distance;
     public float MovementValue;
     ///////////////////////////////////----  Raycast  -----/////////////////////////////////////////////////////////
+    public RaycastHit hit;
+    public Ray ray;
     Vector3 newPosition;
     Vector3 mousePos;
     Vector3 raycastDir;
@@ -62,10 +64,10 @@ public class MovePlayer : MonoBehaviour
             MovementValue = (distance * moveSpeedMultiplier * Time.deltaTime) * 10;
             if (MovementValue > Mathf.Epsilon)
             {
-                isMoving = true;
+                
                 gameObject.GetComponent<NavMeshObstacle>().enabled = false;
             }
-            else { isMoving = false; gameObject.GetComponent<NavMeshObstacle>().enabled = true; }
+            else {  gameObject.GetComponent<NavMeshObstacle>().enabled = true; }
 
             ////
 
@@ -87,12 +89,11 @@ public class MovePlayer : MonoBehaviour
     {
         ///////////////////////////////////////////////////////////////////////////
         //Move the Player to Mouse pos.
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, characterManager.LayerToMovement))
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out this.hit, Mathf.Infinity, characterManager.LayerToMovement))
         {
             hitWall = false;
-            newPosition = hit.point;
+            newPosition = this.hit.point;
             mousePos = newPosition + new Vector3(0, 1, 0);
             raycastDir = (mousePos - transform.position).normalized;
             raycastDistance = (mousePos - transform.position).magnitude;
@@ -100,12 +101,12 @@ public class MovePlayer : MonoBehaviour
 
         /////////////////////////////////////////////////////////////////////////////
         //Move the player to normal point position.
-        RaycastHit hit2;
-        if (Physics.Raycast(transform.position, raycastDir, out hit2, raycastDistance, layer))
+        //RaycastHit hit;
+        if (Physics.Raycast(transform.position, raycastDir, out hit, raycastDistance, layer))
         {
             hitWall = true;
-            Vector3 point = new Vector3(hit2.point.x, 1, hit2.point.z);
-            Vector3 pointToNormalPos = new Vector3(hit2.normal.x, 0, hit2.normal.z) + point;
+            Vector3 point = new Vector3(hit.point.x, 1, hit.point.z);
+            Vector3 pointToNormalPos = new Vector3(hit.normal.x, 0, hit.normal.z) + point;
             mousePos = pointToNormalPos;
         }
         //////////////////////////////////////////////////////////////////////////////
@@ -140,12 +141,13 @@ public class MovePlayer : MonoBehaviour
     }
     IEnumerator Move()
     {
+        isMoving = true;
         while (transform.position != mousePos)
         {
             MoveCharacter();
             yield return new WaitForEndOfFrame();
         }
-
+        isMoving = false;
 
         yield return null;
     }

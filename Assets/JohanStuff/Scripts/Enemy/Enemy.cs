@@ -33,6 +33,8 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public float moveDistance;
     [HideInInspector]
+    public float defaultMoveDistance;
+    [HideInInspector]
     public int notesToMove;
     public float detectionRange;
 
@@ -116,6 +118,7 @@ public class Enemy : MonoBehaviour
         attackAreaScale = stats.attackAreaScale;
         detectionRange = stats.detectionRange;
         isRanged = stats.isRanged;
+        defaultMoveDistance = moveDistance;
     }
     #endregion
 

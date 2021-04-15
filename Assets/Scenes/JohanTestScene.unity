@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657785, g: 0.49641192, b: 0.5748198, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657856, g: 0.49641258, b: 0.57481873, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1535,6 +1535,7 @@ GameObject:
   - component: {fileID: 1087593872}
   - component: {fileID: 1087593880}
   - component: {fileID: 1087593881}
+  - component: {fileID: 1087593882}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1568,6 +1569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 0
+  MovementValue: 0
   layer:
     serializedVersion: 2
     m_Bits: 256
@@ -1792,6 +1794,8 @@ MonoBehaviour:
   health: 0
   damage: 0
   dashDamage: 0
+  dashAttackDuration: 0
+  meleeAttackDuration: 0
 --- !u!208 &1087593881
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -1808,6 +1812,18 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1087593882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087593871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880e3a7719971b64391f60cd0caaaaa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1163573212
 GameObject:
   m_ObjectHideFlags: 0
@@ -2652,8 +2668,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.0270672, y: 1, z: 1}
-  m_Center: {x: -0.63261503, y: 0, z: 0}
+  m_Size: {x: 2.089019, y: 1, z: 1}
+  m_Center: {x: 0.041967668, y: 0, z: 0}
 --- !u!23 &1941677849
 MeshRenderer:
   m_ObjectHideFlags: 0
