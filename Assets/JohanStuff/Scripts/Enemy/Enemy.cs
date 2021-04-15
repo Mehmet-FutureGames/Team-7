@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
 
     private Vector3 attackAreaScale;
 
+    MovePlayer movePlayer;
     float movementSpeed;
     [HideInInspector]
     public float moveDistance;
@@ -132,7 +133,7 @@ public class Enemy : MonoBehaviour
         SetStats();
 
 
-
+        
 
         parent = GetComponent<Transform>();
 
@@ -167,17 +168,17 @@ public class Enemy : MonoBehaviour
     }
     private void OnEnable()
     {
-        
+        movePlayer = FindObjectOfType<MovePlayer>();
         movePattern = stats.movePattern;
         notePublisher = FindObjectOfType<NotePublisher>();
-        notePublisher.noteHit += EventUpdate;
+        movePlayer.playerRegMove += EventUpdate;
         notePublisher.noteNotHit += EventUpdate;
         
     }
 
     private void OnDisable()
     {
-        notePublisher.noteHit -= EventUpdate;
+        movePlayer.playerRegMove -= EventUpdate;
         notePublisher.noteNotHit -= EventUpdate;
     }
 

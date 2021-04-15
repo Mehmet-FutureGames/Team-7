@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class MovePlayer : MonoBehaviour
     bool collided;
 
     public bool isMoving;
+
+    public Action playerRegMove;
     
     private CharacterManager characterManager;
 
@@ -45,30 +48,34 @@ public class MovePlayer : MonoBehaviour
     }
     private void Update()
     {
-        
+        //MoveCharacter();
+    }
+
+    private void MoveCharacter()
+    {
         if (!collided && !hitWall)
         {
             distance = (transform.position - mousePos).magnitude;
 
             ////  This will most likely be used to get the current speed the player is moving. 
             // Example: if(value > 0){ doingDamageIsPossible }
-            MovementValue = (distance* moveSpeedMultiplier * Time.deltaTime) * 10;
-            if(MovementValue > Mathf.Epsilon)
+            MovementValue = (distance * moveSpeedMultiplier * Time.deltaTime) * 10;
+            if (MovementValue > Mathf.Epsilon)
             {
                 isMoving = true;
                 gameObject.GetComponent<NavMeshObstacle>().enabled = false;
             }
             else { isMoving = false; gameObject.GetComponent<NavMeshObstacle>().enabled = true; }
-            
+
             ////
 
             float modifier = (distance + moveSpeedModifier) * moveSpeedMultiplier * Time.deltaTime;
             // move the player to mouse position
             transform.position = Vector3.MoveTowards(transform.position, mousePos, modifier);
         }
-        else if(!collided && hitWall)
+        else if (!collided && hitWall)
         {
-            
+
             // if there's a wall between the player and the mouse position, make the player move to the normal point of the wall.
             distance = (transform.position - mousePos).magnitude;
             float modifier = (distance + moveSpeedModifier) * moveSpeedMultiplier * Time.deltaTime;
@@ -102,7 +109,11 @@ public class MovePlayer : MonoBehaviour
             mousePos = pointToNormalPos;
         }
         //////////////////////////////////////////////////////////////////////////////
-        
+        StartCoroutine(Move());
+        if(playerRegMove != null)
+        {
+            playerRegMove();
+        }
         collided = false;
         TurnPlayerTowardsDir();
     }
@@ -127,4 +138,16 @@ public class MovePlayer : MonoBehaviour
             transform.LookAt(mousePos);
         }
     }
+    IEnumerator Move()
+    {
+        while (transform.position != mousePos)
+        {
+            MoveCharacter();
+            yield return new WaitForEndOfFrame();
+        }
+
+
+        yield return null;
+    }
 }
+

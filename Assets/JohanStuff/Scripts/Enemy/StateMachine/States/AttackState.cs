@@ -11,12 +11,23 @@ public class AttackState : State
     public override void Enter()
     {
         base.Enter();
-        enemy.EnemyAttack();
-        enemy.area.SetActive(false);
+        timer = 0.07f;
+
         enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
         
     }
-    
+    float timer = 0.2f;
+
+    public override void LogicUpdate()
+    {
+        base.LogicUpdate();
+        timer -= Time.deltaTime;
+        if(timer <= 0)
+        {
+            enemy.EnemyAttack();
+            enemy.area.SetActive(false);
+        }
+    }
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();

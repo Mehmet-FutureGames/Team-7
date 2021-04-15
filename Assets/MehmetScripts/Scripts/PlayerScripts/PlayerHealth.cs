@@ -28,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        if(movePlayer.MovementValue < 20) 
+        if(movePlayer.MovementValue < 10) 
         {
             if (playerStats.playerDamageText)
             {
