@@ -9,6 +9,10 @@ public class PlayerAttack : MonoBehaviour
 
     [HideInInspector] public float dashDamage;
 
+    [HideInInspector] float dashDuration;
+
+    [HideInInspector] float meleeDuration;
+
     Player playerStats;
 
     void Start()
@@ -34,5 +38,7 @@ public class PlayerAttack : MonoBehaviour
         //this helps it calm down and actually do the job.
         damage = playerStats.damage;
         dashDamage = playerStats.dashDamage;
+        dashDuration = playerStats.dashAttackDuration;
+        meleeDuration = playerStats.meleeAttackDuration;
     }
 }

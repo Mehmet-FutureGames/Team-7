@@ -7,6 +7,7 @@ public class WaveManager : MonoBehaviour
 {
     Enemy[] enemy;
 
+    bool hasSpawnedPattern = false;
 
     Transform enemyContainer;
 
@@ -43,12 +44,12 @@ public class WaveManager : MonoBehaviour
     {
         if(amountOfEnemies <= 0)
         {
-            InvokeRepeating("BeginFirstWave", 0, 0.1f);
+            SpawnPointPattern();
             StartCoroutine(ReferenceEnemies());
         }
     }
-    #region FirstWave
-    private void BeginFirstWave()
+    #region BeginWaveSpawnEnemies
+    private void BeginWave()
     {
         //Goes through all of the spawn points
         for (int i = 0; i < spawnPoints.Length; i++)
@@ -85,13 +86,17 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnPointPattern()
     {
-        for (int i = 0; i < spawnPointPatterns.Count; i++)
-        {
-            Instantiate(spawnPointPatterns[i], transform.position, Quaternion.identity, transform);
-            FindSpawnPoints();
-        }
-        amountofEnemiesWanted = spawnPoints.Length;
-        BeginFirstWave();
+            for (int i = 0; i < spawnPointPatterns.Count; i++)
+            {
+                if (!hasSpawnedPattern)
+                {
+                Instantiate(spawnPointPatterns[i], transform.position, Quaternion.identity, transform);
+                FindSpawnPoints();
+            }
+            }
+            amountofEnemiesWanted = spawnPoints.Length;
+            BeginWave();
+        hasSpawnedPattern = true;
     }
 
     public void FindSpawnPoints()
