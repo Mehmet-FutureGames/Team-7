@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
         StartCoroutine(ReferenceHealth());
 
         deadPanel.SetActive(false);
-        if(Time.timeScale < 1)
+        if(Time.timeScale < 1 && health > 0)
         {
             Time.timeScale = 1;
         }
@@ -26,11 +26,20 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        Debug.Log(health);
+        if (playerStats.playerDamageText)
+        {
+            ShowFloatingText(damage);
+        }
         if(health < 0)
         {
             Dead();
         }
+    }
+
+    private void ShowFloatingText(float damage)
+    {
+        var text = Instantiate(playerStats.playerDamageText, transform.position, Quaternion.identity, transform);
+        text.GetComponent<TextMesh>().text = "Damage: " + damage.ToString();
     }
 
     private void Dead()

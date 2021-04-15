@@ -6,6 +6,7 @@ using UnityEngine;
     public class PlayerStats : ScriptableObject
     {
         public GameObject playerModel;
+        public GameObject playerDamageText;
         public string playerName;
         [Space]
         public float movementSpeed;

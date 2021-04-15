@@ -73,15 +73,15 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (floatingText)
         {
-            ShowFloatingText();
+            ShowFloatingText(damage);
         }
         Dead();
     }
 
-    private void ShowFloatingText()
+    private void ShowFloatingText(float damage)
     {        
         var text = Instantiate(floatingText, agentObj.transform.position, Quaternion.identity, agentObj.transform);
-        text.GetComponent<TextMesh>().text = "HP: " + health.ToString();
+        text.GetComponent<TextMesh>().text = "Damage: " + damage.ToString();
     }
 
     private void Dead()

@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     string playerName;
 
     [HideInInspector]
+    public GameObject playerDamageText;
+    [HideInInspector]
     public float health;
     [HideInInspector]
     public float damage;
@@ -75,6 +77,7 @@ public class Player : MonoBehaviour
     {
         //References to all the things needed.
         playerName = stats.playerName;
+        playerDamageText = stats.playerDamageText;
 
         //Stats
         damage = stats.attackDamage;
