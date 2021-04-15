@@ -16,6 +16,7 @@ public class EnemyStats : ScriptableObject
     [Space]
     public MovePattern movePattern;
     public GameObject enemyModel;
+    public GameObject floatingText;
     [Space]
     public GameObject attackAreaShape;
     public Vector3 attackAreaScale;

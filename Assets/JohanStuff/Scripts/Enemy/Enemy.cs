@@ -57,6 +57,8 @@ public class Enemy : MonoBehaviour
 
     NotePublisher notePublisher;
 
+    GameObject floatingText;
+
 
     #region Methods
     public void EnemyAttack()
@@ -69,19 +71,35 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        if (floatingText)
+        {
+            ShowFloatingText(damage);
+        }
         Dead();
+    }
+
+    private void ShowFloatingText(float damage)
+    {        
+        var text = Instantiate(floatingText, agentObj.transform.position, Quaternion.identity, agentObj.transform);
+        text.GetComponent<TextMesh>().text = "Damage: " + damage.ToString();
     }
 
     private void Dead()
     {
         if (health < 0)
         {
-            gameObject.SetActive(false);
+            enabled = false;
+            Invoke("DisableGameObject", 1.5f);
             if (enemyDefeated != null)
             {
                 enemyDefeated();
             }
         }
+    }
+
+    private void DisableGameObject()
+    {
+        gameObject.SetActive(false);
     }
 
     private void SetStats()
@@ -120,6 +138,7 @@ public class Enemy : MonoBehaviour
 
         agentObj = Instantiate(stats.enemyModel, parent);
         area = Instantiate(stats.attackAreaShape, agentObj.transform.position, Quaternion.identity, agentObj.transform);
+        floatingText = stats.floatingText;
         area.SetActive(false);
         area.transform.localScale = stats.attackAreaScale;
         //gameObject.GetComponentInChildren<EnemyHitArea>().transform.localScale = stats.attackAreaScale;
@@ -165,8 +184,6 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         movementSM.CurrentState.HandleInput();
-
-        Dead();
 
         movementSM.CurrentState.LogicUpdate();
     }

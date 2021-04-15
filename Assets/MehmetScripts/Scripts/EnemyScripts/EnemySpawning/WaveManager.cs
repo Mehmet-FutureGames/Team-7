@@ -12,33 +12,42 @@ public class WaveManager : MonoBehaviour
 
     [SerializeField] List<GameObject> enemyVariants;
 
+    [SerializeField] List<Transform> spawnPointPatterns;
+
     [Space]
 
     [SerializeField] TypeOfEnemy[] spawnPoints;
     [Space]
     [SerializeField] int amountofEnemiesWanted;
     [Space]
-    [SerializeField] int amountOfEnemiesOnMapWished = 0;
-    [Space]
     [SerializeField] int floorLevel = 0;
     [Space]
     [SerializeField] int waveLevel = 0;
-
-    int amountOfEnemiesOnMap = 0;
 
     [SerializeField] int amountOfEnemies = 0;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("BeginFirstWave", 0, 0.1f);
+        SpawnPointPattern();
 
         enemyContainer = GameObject.Find("EnemyContainer").transform;
 
         spawnPoints = FindObjectsOfType<TypeOfEnemy>();
 
         StartCoroutine(ReferenceEnemies());
+        waveLevel++;
 
     }
+
+    void Update()
+    {
+        if(amountOfEnemies <= 0)
+        {
+            InvokeRepeating("BeginFirstWave", 0, 0.1f);
+            StartCoroutine(ReferenceEnemies());
+        }
+    }
+    #region FirstWave
     private void BeginFirstWave()
     {
         //Goes through all of the spawn points
@@ -69,8 +78,20 @@ public class WaveManager : MonoBehaviour
                 //Stops the first wave
                 CancelInvoke();
             }
+        }    
+    }
+    #endregion
+
+
+    private void SpawnPointPattern()
+    {
+        for (int i = 0; i < spawnPointPatterns.Count; i++)
+        {
+            Instantiate(spawnPointPatterns[i], transform.position, Quaternion.identity, transform);
+            FindSpawnPoints();
         }
-    
+        amountofEnemiesWanted = spawnPoints.Length;
+        BeginFirstWave();
     }
 
     public void FindSpawnPoints()
