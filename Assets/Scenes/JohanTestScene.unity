@@ -98,7 +98,8 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 434be4687cf20e743b390f342991490c,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -569,7 +570,7 @@ PrefabInstance:
     - target: {fileID: 5362714543989075199, guid: 7882c1ed0d7cda743badb31752620dc5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5362714543989075199, guid: 7882c1ed0d7cda743badb31752620dc5,
         type: 3}
@@ -624,7 +625,7 @@ PrefabInstance:
     - target: {fileID: 6599772492999253687, guid: 7882c1ed0d7cda743badb31752620dc5,
         type: 3}
       propertyPath: enemyType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7882c1ed0d7cda743badb31752620dc5, type: 3}
@@ -1499,7 +1500,7 @@ PrefabInstance:
     - target: {fileID: 6599772492999253687, guid: 7882c1ed0d7cda743badb31752620dc5,
         type: 3}
       propertyPath: enemyType
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7882c1ed0d7cda743badb31752620dc5, type: 3}
@@ -1514,7 +1515,6 @@ GameObject:
   - component: {fileID: 1075411968}
   - component: {fileID: 1075411971}
   - component: {fileID: 1075411970}
-  - component: {fileID: 1075411969}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -1536,19 +1536,6 @@ Transform:
   m_Father: {fileID: 1087593877}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1075411969
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1075411967}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1075411970
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1723,7 +1710,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087593871}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: -42.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1997009313}
@@ -2378,7 +2365,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1688708554
 MonoBehaviour:
@@ -2394,6 +2381,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyVariants:
   - {fileID: 2537703995810168917, guid: 7f7fc19b032eed341bfc28f5355ab549, type: 3}
+  - {fileID: 2537703995810168917, guid: 812de75b6a4a6704488036bd747ce95f, type: 3}
+  - {fileID: 2537703995810168917, guid: 3f6e8337c3c67024e8e21187299945c4, type: 3}
   spawnPoints: []
   amountofEnemiesWanted: 3
   amountOfEnemiesOnMapWished: 0
@@ -2458,62 +2447,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a778399c8f9b404284c4159a889759f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1723856486
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1723856488}
-  - component: {fileID: 1723856489}
-  m_Layer: 0
-  m_Name: Bob
-  m_TagString: Enemy
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1723856488
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723856486}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.22, y: 0.82, z: -0.3210516}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1723856489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723856486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1806a6cdb08623a428a4c40597e024b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerIsInAttackArea: 0
-  area: {fileID: 0}
-  agentObj: {fileID: 0}
-  agent: {fileID: 0}
-  moveDistance: 0
-  notesToMove: 0
-  attackRange: 0
-  health: 0
-  movePattern: 0
-  moveCounter: 0
-  distanceToPlayer: 0
-  player: {fileID: 0}
-  stats: {fileID: 11400000, guid: 1e223721773277141a55420ae23610d8, type: 2}
 --- !u!1001 &1774746515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2529,7 +2462,7 @@ PrefabInstance:
     - target: {fileID: 5362714543989075199, guid: 7882c1ed0d7cda743badb31752620dc5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 5362714543989075199, guid: 7882c1ed0d7cda743badb31752620dc5,
         type: 3}

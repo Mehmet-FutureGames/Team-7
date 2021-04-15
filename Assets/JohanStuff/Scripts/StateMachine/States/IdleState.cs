@@ -1,17 +1,15 @@
 using UnityEngine;
 
-public class AttackState : State
+public class IdleState : State
 {
-    public AttackState(Enemy enemy, StateMachine stateMachine) : base(enemy, stateMachine)
+    public IdleState(Enemy enemy, StateMachine stateMachine) : base(enemy, stateMachine)
     {
     }
 
     public override void Enter()
     {
         base.Enter();
-        enemy.EnemyAttack();
-        enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
-        enemy.area.SetActive(false);
+        enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.cyan;
     }
 
     public override void PhysicsUpdate()
@@ -24,7 +22,7 @@ public class AttackState : State
         base.NoteEventUpdate();
         if(enemy.distanceToPlayer <= enemy.attackRange)
         {
-            stateMachine.ChangeState(enemy.idleState);
+            stateMachine.ChangeState(enemy.chargeAttackState);
             return;
         }
         stateMachine.ChangeState(enemy.moveState);

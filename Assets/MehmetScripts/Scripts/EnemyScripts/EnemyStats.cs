@@ -12,11 +12,16 @@ public enum MovePattern
 [CreateAssetMenu(fileName = "New EnemyStats", menuName = "ScriptableObjects/EnemyStats", order = 1)]
 public class EnemyStats : ScriptableObject
 {
-    public MovePattern movePattern;
-    public GameObject enemyModel;
-    public GameObject area;
     public string enemyName;
     [Space]
+    public MovePattern movePattern;
+    public GameObject enemyModel;
+    [Space]
+    public GameObject attackAreaShape;
+    public Vector3 attackAreaScale;
+
+    [Space]
+    public bool isRanged;
     public float movementSpeed;
     public float moveDistance;
     public float detectionRange;

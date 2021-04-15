@@ -24,9 +24,9 @@ public class MoveState : State
     public override void NoteEventUpdate()
     {
         base.NoteEventUpdate();
-        if (enemy.distanceToPlayer < enemy.attackRange)
+        if (enemy.distanceToPlayer <= enemy.attackRange)
         {   
-            stateMachine.ChangeState(enemy.chargeAttack);
+            stateMachine.ChangeState(enemy.idleState);
             return;
         }
         Action();
@@ -39,15 +39,17 @@ public class MoveState : State
         enemy.moveCounter++;
         if (enemy.moveCounter == enemy.notesToMove)
         {
+            Vector3 dirToPlayer;
+            Vector3 randomVector;
+            Vector3 agentToRandom;
+            Vector3 dir;
             switch (enemy.movePattern)
             {
                 case MovePattern.TowardsPlayer:
                     if (enemy.moveCounter == enemy.notesToMove)
                     {
-                        Vector3 dirToPlayer = (enemy.player.position - enemy.agentObj.transform.position).normalized;
-                        float distance = (enemy.player.position - enemy.agentObj.transform.position).magnitude;
-
-                        if (distance < enemy.moveDistance)
+                        dirToPlayer = (enemy.player.position - enemy.agentObj.transform.position).normalized;
+                        if (enemy.distanceToPlayer < enemy.moveDistance)
                         {
                             enemy.agent.SetDestination(enemy.player.position);
                         }
@@ -64,23 +66,41 @@ public class MoveState : State
 
                 case MovePattern.RandomDirection:
                     
-                    Vector3 randomVector = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
-                    Vector3 agentToRandom = enemy.agentObj.transform.position + randomVector;
-                    Vector3 dir = (agentToRandom - enemy.agentObj.transform.position).normalized;
+                    randomVector = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
+                    agentToRandom = enemy.agentObj.transform.position + randomVector;
+                    dir = (agentToRandom - enemy.agentObj.transform.position).normalized;
                     enemy.agent.SetDestination(enemy.agentObj.transform.position + dir * enemy.moveDistance);
-
-                    if (enemy.agent.velocity.sqrMagnitude > Mathf.Epsilon)
-                    {
-                        enemy.agentObj.transform.rotation = Quaternion.LookRotation(dir);
-                    }
+                    
+                    enemy.agentObj.transform.rotation = Quaternion.LookRotation(dir);
+                    
                     if (enemy.moveCounter == enemy.notesToMove) { enemy.moveCounter = 0; }
                     break;
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                 case MovePattern.ProximityDetection:
-
+                    dirToPlayer = (enemy.player.position - enemy.agentObj.transform.position).normalized;
+                    if (enemy.moveCounter == enemy.notesToMove)
+                    {
+                        
+                        if (enemy.distanceToPlayer <= enemy.detectionRange)
+                        {
+                            enemy.agent.SetDestination(enemy.agentObj.transform.position + dirToPlayer * enemy.moveDistance);
+                            enemy.agentObj.transform.rotation = Quaternion.LookRotation(dirToPlayer);
+                        }
+                        else
+                        {
+                            randomVector = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
+                            agentToRandom = enemy.agentObj.transform.position + randomVector;
+                            dir = (agentToRandom - enemy.agentObj.transform.position).normalized;
+                            enemy.agent.SetDestination(enemy.agentObj.transform.position + dir * enemy.moveDistance);
+                            enemy.agentObj.transform.rotation = Quaternion.LookRotation(dir);
+                        }
+                        
+                    }
+                    if (enemy.moveCounter == enemy.notesToMove) { enemy.moveCounter = 0; }
                     break;
-
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                
 
                 default:
                     break;

@@ -6,14 +6,19 @@ public class Enemy : MonoBehaviour
     public Action enemyDefeated;
 
     public StateMachine movementSM;
-    public MoveState moving;
-    public AttackState attack;
-    public ChargeAttackState chargeAttack;
+    public MoveState moveState;
+    public AttackState attackState;
+    public ChargeAttackState chargeAttackState;
+    public IdleState idleState;
+    public SecondChargeAttackState secondChargeAttackState;
 
     public bool playerIsInAttackArea;
     [HideInInspector]
     public GameObject area;
 
+
+    [HideInInspector]
+    public bool isRanged;
     string enemyName;
     [HideInInspector]
     public GameObject agentObj;
@@ -21,12 +26,14 @@ public class Enemy : MonoBehaviour
     public NavMeshAgent agent;
     Transform parent;
 
+    private Vector3 attackAreaScale;
+
     float movementSpeed;
     [HideInInspector]
     public float moveDistance;
     [HideInInspector]
     public int notesToMove;
-    float detectionRange;
+    public float detectionRange;
 
     
 
@@ -76,19 +83,9 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-    #endregion
 
-    #region MonoBehaviour Callbacks
-
-    private void Start()
+    private void SetStats()
     {
-        movementSM = new StateMachine();
-
-        moving = new MoveState(this, movementSM);
-        chargeAttack = new ChargeAttackState(this, movementSM);
-        attack = new AttackState(this, movementSM);
-        
-
         enemyName = stats.enemyName;
         movementSpeed = stats.movementSpeed;
         moveDistance = stats.moveDistance;
@@ -97,33 +94,66 @@ public class Enemy : MonoBehaviour
         detectionRange = stats.detectionRange;
         health = stats.health;
         attackRange = stats.attackRange;
+        attackAreaScale = stats.attackAreaScale;
+        detectionRange = stats.detectionRange;
+        isRanged = stats.isRanged;
+    }
+    #endregion
+
+    #region MonoBehaviour Callbacks
+
+    private void Start()
+    {
+        movementSM = new StateMachine();
+
+        moveState = new MoveState(this, movementSM);
+        chargeAttackState = new ChargeAttackState(this, movementSM);
+        attackState = new AttackState(this, movementSM);
+        idleState = new IdleState(this, movementSM);
+        secondChargeAttackState = new SecondChargeAttackState(this, movementSM);
+        SetStats();
+
+
+
+
         parent = GetComponent<Transform>();
 
         agentObj = Instantiate(stats.enemyModel, parent);
-        area = Instantiate(stats.area, agentObj.transform.position+ new Vector3(0,-1,3) , Quaternion.identity, agentObj.transform);
+        area = Instantiate(stats.attackAreaShape, agentObj.transform.position, Quaternion.identity, agentObj.transform);
         area.SetActive(false);
-
+        area.transform.localScale = stats.attackAreaScale;
+        //gameObject.GetComponentInChildren<EnemyHitArea>().transform.localScale = stats.attackAreaScale;
         agent = GetComponentInChildren<NavMeshAgent>();
 
         player = FindObjectOfType<MovePlayer>().transform;
 
         Debug.Log("Fear not " + enemyName + " is here");
-        movementSM.Initialize(moving);
+        movementSM.Initialize(moveState);
     }
+
+
 
     private void EventUpdate()
     {
         distanceToPlayer = (agentObj.transform.position - player.position).magnitude;
         movementSM.CurrentState.NoteEventUpdate();
 
+
     }
 
+    private void Awake()
+    {
+        
+
+    }
     private void OnEnable()
     {
+        
         movePattern = stats.movePattern;
         notePublisher = FindObjectOfType<NotePublisher>();
         notePublisher.noteHit += EventUpdate;
         notePublisher.noteNotHit += EventUpdate;
+        
     }
 
     private void OnDisable()
