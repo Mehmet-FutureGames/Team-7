@@ -17,7 +17,8 @@ public class MovePlayer : MonoBehaviour
     float moveSpeedModifier;
     float moveSpeedMultiplier;
 
-
+    float distance;
+    public float MovementValue;
     ///////////////////////////////////----  Raycast  -----/////////////////////////////////////////////////////////
     Vector3 newPosition;
     Vector3 mousePos;
@@ -47,11 +48,11 @@ public class MovePlayer : MonoBehaviour
         
         if (!collided && !hitWall)
         {
-            float distance = (transform.position - mousePos).magnitude;
+            distance = (transform.position - mousePos).magnitude;
 
             ////  This will most likely be used to get the current speed the player is moving. 
             // Example: if(value > 0){ doingDamageIsPossible }
-            float MovementValue = (distance* moveSpeedMultiplier * Time.deltaTime) * 10;
+            MovementValue = (distance* moveSpeedMultiplier * Time.deltaTime) * 10;
             if(MovementValue > Mathf.Epsilon)
             {
                 isMoving = true;
@@ -69,9 +70,9 @@ public class MovePlayer : MonoBehaviour
         {
             
             // if there's a wall between the player and the mouse position, make the player move to the normal point of the wall.
-            float distance = (transform.position - hitWallPos).magnitude;
+            distance = (transform.position - mousePos).magnitude;
             float modifier = (distance + moveSpeedModifier) * moveSpeedMultiplier * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, hitWallPos, modifier);
+            transform.position = Vector3.MoveTowards(transform.position, mousePos, modifier);
         }
     }
 
@@ -98,9 +99,10 @@ public class MovePlayer : MonoBehaviour
             hitWall = true;
             Vector3 point = new Vector3(hit2.point.x, 1, hit2.point.z);
             Vector3 pointToNormalPos = new Vector3(hit2.normal.x, 0, hit2.normal.z) + point;
-            hitWallPos = pointToNormalPos;
+            mousePos = pointToNormalPos;
         }
         //////////////////////////////////////////////////////////////////////////////
+        
         collided = false;
         TurnPlayerTowardsDir();
     }
@@ -118,7 +120,7 @@ public class MovePlayer : MonoBehaviour
     {
         if (hitWall)
         {
-            transform.LookAt(hitWallPos);
+            transform.LookAt(mousePos);
         }
         else
         {

@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackState : State
@@ -10,10 +12,11 @@ public class AttackState : State
     {
         base.Enter();
         enemy.EnemyAttack();
-        enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
         enemy.area.SetActive(false);
+        enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+        
     }
-
+    
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();

@@ -10,10 +10,12 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] GameObject deadPanel;
 
+    MovePlayer movePlayer;
+
     private void Start()
     {
         playerStats = GetComponentInParent<Player>();
-
+        movePlayer = FindObjectOfType<MovePlayer>();
         StartCoroutine(ReferenceHealth());
 
         deadPanel.SetActive(false);
@@ -26,14 +28,19 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        if (playerStats.playerDamageText)
+        if(movePlayer.MovementValue < 20) 
         {
-            ShowFloatingText(damage);
+            if (playerStats.playerDamageText)
+            {
+                ShowFloatingText(damage);
+            }
+            if (health < 0)
+            {
+                Dead();
+            }
         }
-        if(health < 0)
-        {
-            Dead();
-        }
+
+
     }
 
     private void ShowFloatingText(float damage)
