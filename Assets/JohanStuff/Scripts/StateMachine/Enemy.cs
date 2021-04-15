@@ -88,12 +88,18 @@ public class Enemy : MonoBehaviour
     {
         if (health < 0)
         {
-            gameObject.SetActive(false);
+            enabled = false;
+            Invoke("DisableGameObject", 1.5f);
             if (enemyDefeated != null)
             {
                 enemyDefeated();
             }
         }
+    }
+
+    private void DisableGameObject()
+    {
+        gameObject.SetActive(false);
     }
 
     private void SetStats()
@@ -178,8 +184,6 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         movementSM.CurrentState.HandleInput();
-
-        Dead();
 
         movementSM.CurrentState.LogicUpdate();
     }
