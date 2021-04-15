@@ -24,6 +24,10 @@ public class Player : MonoBehaviour
     public float damage;
     [HideInInspector]
     public float dashDamage;
+    [HideInInspector]
+    public float dashAttackDuration;
+    [HideInInspector]
+    public float meleeAttackDuration;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +62,7 @@ public class Player : MonoBehaviour
         playerAttackRange.gameObject.SetActive(true);
         GetComponent<MeshRenderer>().material.color = Color.grey;
         Debug.Log("Attacked");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(meleeAttackDuration);
         playerAttackRange.gameObject.SetActive(false);
         Debug.Log("Stop attacking");
         GetComponent<MeshRenderer>().material.color = Color.green;
@@ -67,7 +71,7 @@ public class Player : MonoBehaviour
     {
         playerDashRange.gameObject.SetActive(true);
         GetComponent<MeshRenderer>().material.color = Color.black;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(dashAttackDuration);
         playerDashRange.gameObject.SetActive(false);
         GetComponent<MeshRenderer>().material.color = Color.green;
     }
@@ -82,6 +86,9 @@ public class Player : MonoBehaviour
         damage = stats.attackDamage;
         dashDamage = stats.dashDamage;
         health = stats.health;
+
+        dashAttackDuration = stats.dashAttackDuration;
+        meleeAttackDuration = stats.meleeAttackDuration;
 
         distanceToClick = stats.distanceToClick;
 

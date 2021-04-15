@@ -15,16 +15,8 @@ public class PressAnyKey : MonoBehaviour
         hasStarted = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartGame()
     {
-        if (!hasStarted)
-        {
-            if (Input.anyKeyDown)
-            {
-                hasStarted = true;
-                audio.Play();
-            }
-        }
+        hasStarted = true;
     }
 }

@@ -6,21 +6,25 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject TextPanel;
+
+    PressAnyKey musicStart;
     private void Start()
     {
         StartCoroutine(ShowAndStopShowingText());
+
+        musicStart = GetComponent<PressAnyKey>();
     }
     public void RetryButton()
     {
         SceneManager.LoadScene(0);
     }
-
-
     IEnumerator ShowAndStopShowingText()
     {
         Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(5f);
         TextPanel.SetActive(false);
+        musicStart.audio.Play();
+        musicStart.StartGame();
         Time.timeScale = 1;
     }
 

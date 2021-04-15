@@ -14,7 +14,6 @@ public class EnemyHitArea : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             character.playerIsInAttackArea = true;
-            Debug.Log("Player entered" + character.name);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -22,7 +21,6 @@ public class EnemyHitArea : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             character.playerIsInAttackArea = false;
-            Debug.Log("Player exit" + character.name);
         }
     }
     private void OnEnable()

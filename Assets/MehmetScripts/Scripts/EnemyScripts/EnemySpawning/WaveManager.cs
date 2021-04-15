@@ -7,6 +7,7 @@ public class WaveManager : MonoBehaviour
 {
     Enemy[] enemy;
 
+    bool hasSpawnedPattern = false;
 
     Transform enemyContainer;
 
@@ -85,13 +86,17 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnPointPattern()
     {
-        for (int i = 0; i < spawnPointPatterns.Count; i++)
-        {
-            Instantiate(spawnPointPatterns[i], transform.position, Quaternion.identity, transform);
-            FindSpawnPoints();
-        }
-        amountofEnemiesWanted = spawnPoints.Length;
-        BeginWave();
+            for (int i = 0; i < spawnPointPatterns.Count; i++)
+            {
+                if (!hasSpawnedPattern)
+                {
+                Instantiate(spawnPointPatterns[i], transform.position, Quaternion.identity, transform);
+                FindSpawnPoints();
+            }
+            }
+            amountofEnemiesWanted = spawnPoints.Length;
+            BeginWave();
+        hasSpawnedPattern = true;
     }
 
     public void FindSpawnPoints()
