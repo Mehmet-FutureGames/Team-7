@@ -106,8 +106,5 @@ public class WaveManager : MonoBehaviour
         enemy.enemyDefeated -= EnemyDefeated;
     }
 
-    public void Subscribe(Enemy enemy)
-    {
-        enemy.enemyDefeated += EnemyDefeated;
-    }
+
 }
