@@ -20,6 +20,6 @@ MonoBehaviour:
   attackDamage: 35
   health: 100
   dashDamage: 20
-  meleeAttackDuration: 1
-  dashAttackDuration: 1
+  meleeAttackDuration: 0.5
+  dashAttackDuration: 0.8
   distanceToClick: 5

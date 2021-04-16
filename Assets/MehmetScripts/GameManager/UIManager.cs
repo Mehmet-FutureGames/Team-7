@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] GameObject TextPanel;
+    GameObject TextPanel;
 
     PressAnyKey musicStart;
     private void Start()
@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
         StartCoroutine(ShowAndStopShowingText());
 
         musicStart = GetComponent<PressAnyKey>();
+
+        TextPanel = GameObject.Find("UIPanel");
     }
     public void RetryButton()
     {

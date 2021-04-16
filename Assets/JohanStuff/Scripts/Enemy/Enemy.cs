@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public ChargeAttackState chargeAttackState;
     public IdleState idleState;
     public SecondChargeAttackState secondChargeAttackState;
+    WaveManager manager;
 
     public bool playerIsInAttackArea;
     [HideInInspector]
@@ -28,12 +29,11 @@ public class Enemy : MonoBehaviour
 
     private Vector3 attackAreaScale;
 
-    MovePlayer movePlayer;
+    
+
     float movementSpeed;
     [HideInInspector]
     public float moveDistance;
-    [HideInInspector]
-    public float defaultMoveDistance;
     [HideInInspector]
     public int notesToMove;
     public float detectionRange;
@@ -49,6 +49,9 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public int moveCounter = 0;
     int attackCounter = 0;
+
+
+    public bool hasSubscribedToDeath = false;
 
     [HideInInspector]
     public float distanceToPlayer;
@@ -89,14 +92,15 @@ public class Enemy : MonoBehaviour
 
     private void Dead()
     {
-        if (health < 0)
+        if (health <= 0)
         {
-            enabled = false;
-            Invoke("DisableGameObject", 1.5f);
             if (enemyDefeated != null)
             {
                 enemyDefeated();
             }
+            enabled = false;
+            Invoke("DisableGameObject", 1.5f);
+
         }
     }
 
@@ -118,7 +122,6 @@ public class Enemy : MonoBehaviour
         attackAreaScale = stats.attackAreaScale;
         detectionRange = stats.detectionRange;
         isRanged = stats.isRanged;
-        defaultMoveDistance = moveDistance;
     }
     #endregion
 
@@ -135,8 +138,7 @@ public class Enemy : MonoBehaviour
         secondChargeAttackState = new SecondChargeAttackState(this, movementSM);
         SetStats();
 
-
-        
+        manager = FindObjectOfType<WaveManager>();
 
         parent = GetComponent<Transform>();
 
@@ -165,23 +167,24 @@ public class Enemy : MonoBehaviour
     }
 
     private void Awake()
-    {
-        
+    {        
 
     }
     private void OnEnable()
     {
-        movePlayer = FindObjectOfType<MovePlayer>();
+        manager = FindObjectOfType<WaveManager>();
+        manager.Subscribe(this);
         movePattern = stats.movePattern;
         notePublisher = FindObjectOfType<NotePublisher>();
-        movePlayer.playerRegMove += EventUpdate;
+        notePublisher.noteHit += EventUpdate;
         notePublisher.noteNotHit += EventUpdate;
         
     }
 
     private void OnDisable()
     {
-        movePlayer.playerRegMove -= EventUpdate;
+        manager.UnSubscribe(this);
+        notePublisher.noteHit -= EventUpdate;
         notePublisher.noteNotHit -= EventUpdate;
     }
 
