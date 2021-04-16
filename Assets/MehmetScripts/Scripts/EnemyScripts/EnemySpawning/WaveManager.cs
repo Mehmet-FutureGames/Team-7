@@ -119,4 +119,9 @@ public class WaveManager : MonoBehaviour
         }
         
     }
+
+    public void Subscribe(Enemy enemy)
+    {
+        enemy.enemyDefeated += EnemyDefeated;
+    }
 }
