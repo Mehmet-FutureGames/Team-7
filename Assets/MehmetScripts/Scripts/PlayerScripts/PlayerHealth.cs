@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
 
     float health;
 
-    [SerializeField] GameObject deadPanel;
+    GameObject deadPanel;
 
     private void Start()
     {
@@ -16,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
 
         StartCoroutine(ReferenceHealth());
 
+        deadPanel = GameObject.Find("DeadPanel");
         deadPanel.SetActive(false);
         if(Time.timeScale < 1 && health > 0)
         {

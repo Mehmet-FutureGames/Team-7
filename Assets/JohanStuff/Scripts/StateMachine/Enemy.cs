@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public ChargeAttackState chargeAttackState;
     public IdleState idleState;
     public SecondChargeAttackState secondChargeAttackState;
+    WaveManager manager;
 
     public bool playerIsInAttackArea;
     [HideInInspector]
@@ -27,6 +28,8 @@ public class Enemy : MonoBehaviour
     Transform parent;
 
     private Vector3 attackAreaScale;
+
+    
 
     float movementSpeed;
     [HideInInspector]
@@ -46,6 +49,9 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public int moveCounter = 0;
     int attackCounter = 0;
+
+
+    public bool hasSubscribedToDeath = false;
 
     [HideInInspector]
     public float distanceToPlayer;
@@ -86,14 +92,15 @@ public class Enemy : MonoBehaviour
 
     private void Dead()
     {
-        if (health < 0)
+        if (health <= 0)
         {
-            enabled = false;
-            Invoke("DisableGameObject", 1.5f);
             if (enemyDefeated != null)
             {
                 enemyDefeated();
             }
+            enabled = false;
+            Invoke("DisableGameObject", 1.5f);
+
         }
     }
 
@@ -131,8 +138,7 @@ public class Enemy : MonoBehaviour
         secondChargeAttackState = new SecondChargeAttackState(this, movementSM);
         SetStats();
 
-
-
+        manager = FindObjectOfType<WaveManager>();
 
         parent = GetComponent<Transform>();
 
@@ -161,13 +167,13 @@ public class Enemy : MonoBehaviour
     }
 
     private void Awake()
-    {
-        
+    {        
 
     }
     private void OnEnable()
     {
-        
+        manager = FindObjectOfType<WaveManager>();
+        manager.Subscribe(this);
         movePattern = stats.movePattern;
         notePublisher = FindObjectOfType<NotePublisher>();
         notePublisher.noteHit += EventUpdate;
@@ -177,6 +183,7 @@ public class Enemy : MonoBehaviour
 
     private void OnDisable()
     {
+        manager.UnSubscribe(this);
         notePublisher.noteHit -= EventUpdate;
         notePublisher.noteNotHit -= EventUpdate;
     }

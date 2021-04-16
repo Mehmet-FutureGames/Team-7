@@ -61,10 +61,8 @@ public class Player : MonoBehaviour
     {
         playerAttackRange.gameObject.SetActive(true);
         GetComponent<MeshRenderer>().material.color = Color.grey;
-        Debug.Log("Attacked");
         yield return new WaitForSeconds(meleeAttackDuration);
         playerAttackRange.gameObject.SetActive(false);
-        Debug.Log("Stop attacking");
         GetComponent<MeshRenderer>().material.color = Color.green;
     }
     IEnumerator DashAttack()

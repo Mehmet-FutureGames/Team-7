@@ -9,6 +9,8 @@ public class WaveManager : MonoBehaviour
 
     bool hasSpawnedPattern = false;
 
+    bool hasCompletedWave = false;
+
     Transform enemyContainer;
 
     [SerializeField] List<GameObject> enemyVariants;
@@ -35,18 +37,8 @@ public class WaveManager : MonoBehaviour
 
         spawnPoints = FindObjectsOfType<TypeOfEnemy>();
 
-        StartCoroutine(ReferenceEnemies());
         waveLevel++;
 
-    }
-
-    void Update()
-    {
-        if(amountOfEnemies <= 0)
-        {
-            SpawnPointPattern();
-            StartCoroutine(ReferenceEnemies());
-        }
     }
     #region BeginWaveSpawnEnemies
     private void BeginWave()
@@ -54,8 +46,6 @@ public class WaveManager : MonoBehaviour
         //Goes through all of the spawn points
         for (int i = 0; i < spawnPoints.Length; i++)
         {
-            if (amountofEnemiesWanted > amountOfEnemies)
-            {
                 //Goes through each spawn points and checks which enemy 
                 //should be spawned at that specific spawnpoint
                 switch (spawnPoints[i].ReturnEnemyType())
@@ -73,12 +63,6 @@ public class WaveManager : MonoBehaviour
                         amountOfEnemies++;
                         break;
                 }
-            }
-            else
-            {
-                //Stops the first wave
-                CancelInvoke();
-            }
         }    
     }
     #endregion
@@ -92,7 +76,7 @@ public class WaveManager : MonoBehaviour
                 {
                 Instantiate(spawnPointPatterns[i], transform.position, Quaternion.identity, transform);
                 FindSpawnPoints();
-            }
+                }
             }
             amountofEnemiesWanted = spawnPoints.Length;
             BeginWave();
@@ -108,15 +92,17 @@ public class WaveManager : MonoBehaviour
     public void EnemyDefeated()
     {
         amountOfEnemies--;
-    }
-    IEnumerator ReferenceEnemies()
-    {
-        yield return new WaitForSeconds(1f);
-        enemy = FindObjectsOfType<Enemy>();
-        for (int i = 0; i < enemy.Length; i++)
+        if (amountOfEnemies < 3)
         {
-            enemy[i].enemyDefeated += EnemyDefeated;
+            SpawnPointPattern();
         }
-        
+    }
+    public void Subscribe(Enemy enemy)
+    {
+        enemy.enemyDefeated += EnemyDefeated;
+    }
+    public void UnSubscribe(Enemy enemy) 
+    {
+        enemy.enemyDefeated -= EnemyDefeated;
     }
 }
