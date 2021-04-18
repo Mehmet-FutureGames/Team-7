@@ -59,6 +59,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] EnemyStats stats;
 
     NotePublisher notePublisher;
+    ComboHandler comboHandler;
 
     GameObject floatingText;
 
@@ -76,16 +77,20 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (floatingText)
         {
+            comboHandler.AddToCombo(1);
             ShowFloatingText(damage);
         }
         Dead();
     }
 
+
     private void ShowFloatingText(float damage)
     {        
         var text = Instantiate(floatingText, agentObj.transform.position, Quaternion.identity, agentObj.transform);
-        text.GetComponent<TextMesh>().text = "Damage: " + damage.ToString();
+        text.GetComponent<TextMesh>().text = damage.ToString();
     }
+
+
 
     private void Dead()
     {
@@ -171,6 +176,7 @@ public class Enemy : MonoBehaviour
     }
     private void OnEnable()
     {
+        comboHandler = FindObjectOfType<ComboHandler>();
         movePlayer = FindObjectOfType<MovePlayer>();
         movePattern = stats.movePattern;
         notePublisher = FindObjectOfType<NotePublisher>();

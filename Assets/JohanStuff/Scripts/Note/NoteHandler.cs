@@ -32,7 +32,7 @@ public class NoteHandler : MonoBehaviour
             timer += Time.fixedDeltaTime;
             if (timer >= (60/noteManager.beatTempo) * noteManager.difficultyMultiplier)
             {
-                notePooler.SpawnFormPool("Note", notePooler.transform.position, Quaternion.identity, noteManager.StartScale);
+                notePooler.SpawnFormPool("Note", notePooler.transform.position, Quaternion.identity);
                 timer -= (60/noteManager.beatTempo) * noteManager.difficultyMultiplier;
             }
         }

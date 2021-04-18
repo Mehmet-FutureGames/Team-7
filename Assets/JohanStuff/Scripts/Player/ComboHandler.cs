@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ComboHandler : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class ComboHandler : MonoBehaviour
     // Start is called before the first frame update
 
     [HideInInspector]
-    public int combo = 0;
+    public int Combo { get; private set; }
+    [SerializeField] Text displayCombo;
     private bool hitNote;
 
     private void Awake()
@@ -25,7 +27,7 @@ public class ComboHandler : MonoBehaviour
     }
     private void Update()
     {
-        //if () { }
+        
     }
     private void OnDisable()
     {
@@ -33,10 +35,23 @@ public class ComboHandler : MonoBehaviour
         publisher.noteNotHit -= MissedNote;
     }
 
+    public void SetCombo(int combo)
+    {
+        Combo = combo;
+        displayCombo.text = "Combo: " + Combo.ToString();
+    }
+
+    public void AddToCombo(int combo)
+    {
+        Combo += combo;
+        displayCombo.text = "Combo: " + Combo.ToString();
+    }
+
     void MissedNote()
     {
-        combo = 0;
+        Combo = 0;
         hitNote = false;
+        displayCombo.text = "Combo: " + Combo.ToString();
     }
     void HitNote()
     {

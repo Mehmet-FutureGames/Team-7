@@ -29,7 +29,6 @@ public class DashAttack : MonoBehaviour
             isActive = false;
         }
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))

@@ -42,7 +42,7 @@ public class NotePooler : MonoBehaviour
         }
     }
 
-    public GameObject SpawnFormPool(string tag, Vector3 position, Quaternion rotation, Vector3 scale)
+    public GameObject SpawnFormPool(string tag, Vector3 position, Quaternion rotation)
     {
         if (!poolDictionary.ContainsKey(tag))
         {
@@ -55,7 +55,7 @@ public class NotePooler : MonoBehaviour
         objectToSpawn.SetActive(true);
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
-        objectToSpawn.transform.localScale = scale;
+        //objectToSpawn.transform.localScale = scale;
 
         poolDictionary[tag].Enqueue(objectToSpawn);
         return objectToSpawn;
