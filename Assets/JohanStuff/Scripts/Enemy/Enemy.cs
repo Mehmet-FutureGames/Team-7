@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public NavMeshAgent agent;
     Transform parent;
-
+    private GameObject coin;
     private Vector3 attackAreaScale;
 
     MovePlayer movePlayer;
@@ -96,6 +96,7 @@ public class Enemy : MonoBehaviour
     {
         if (health < 0)
         {
+            agentObj.GetComponent<Collider>().enabled = false;
             enabled = false;
             Invoke("DisableGameObject", 1.5f);
             if (enemyDefeated != null)
@@ -107,6 +108,7 @@ public class Enemy : MonoBehaviour
 
     private void DisableGameObject()
     {
+        InstantiateCoin();
         gameObject.SetActive(false);
     }
 
@@ -187,6 +189,7 @@ public class Enemy : MonoBehaviour
 
     private void OnDisable()
     {
+        
         movePlayer.playerRegMove -= EventUpdate;
         notePublisher.noteNotHit -= EventUpdate;
     }
@@ -202,7 +205,11 @@ public class Enemy : MonoBehaviour
     {
         movementSM.CurrentState.PhysicsUpdate();
     }
-
+    void InstantiateCoin()
+    {
+        var coinPrefab = Resources.Load("Coin") as GameObject;
+        var coin = GameObject.Instantiate(coinPrefab, agentObj.transform.position, transform.rotation);
+    }
     #endregion
 
 }
