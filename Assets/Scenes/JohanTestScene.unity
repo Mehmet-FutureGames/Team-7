@@ -799,6 +799,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7982927050098970959}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2145074115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1592661818090006660, guid: 458f36d2f5eedb44a857344ab45652d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1592661817242151055}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2145074118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145074115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6d06fe35d444b4caaa614dbf5ceda3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &87044961634913796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -865,6 +883,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: OverlayCam
+      objectReference: {fileID: 0}
+    - target: {fileID: 87044961701089135, guid: 9cddfa94a8dbb5f498fac657b403b928,
+        type: 3}
+      propertyPath: pools.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cddfa94a8dbb5f498fac657b403b928, type: 3}

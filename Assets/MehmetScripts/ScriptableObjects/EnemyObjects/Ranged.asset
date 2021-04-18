@@ -28,4 +28,4 @@ MonoBehaviour:
   notesToMove: 1
   attackDamage: 10
   attackRange: 30
-  health: 50
+  health: 10
