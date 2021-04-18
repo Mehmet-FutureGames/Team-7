@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ComboHandler : MonoBehaviour
 {
     NotePublisher publisher;
+    EnemyPublisher enemyPublisher;
     MovePlayer movePlayer;
     // Start is called before the first frame update
 
@@ -16,12 +17,14 @@ public class ComboHandler : MonoBehaviour
 
     private void Awake()
     {
+        enemyPublisher = FindObjectOfType<EnemyPublisher>();
         publisher = FindObjectOfType<NotePublisher>();
         movePlayer = FindObjectOfType<MovePlayer>();
     }
 
     private void OnEnable()
     {
+        enemyPublisher.enemyTakeDamage += AddToCombo;
         publisher.noteHit += HitNote;
         publisher.noteNotHit += MissedNote;
     }
@@ -41,9 +44,9 @@ public class ComboHandler : MonoBehaviour
         displayCombo.text = "Combo: " + Combo.ToString();
     }
 
-    public void AddToCombo(int combo)
+    public void AddToCombo()
     {
-        Combo += combo;
+        Combo += 1;
         displayCombo.text = "Combo: " + Combo.ToString();
     }
 

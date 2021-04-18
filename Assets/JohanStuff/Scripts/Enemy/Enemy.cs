@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
+    EnemyPublisher enemyPublisher;
     public Action enemyDefeated;
 
     public StateMachine movementSM;
@@ -59,7 +60,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] EnemyStats stats;
 
     NotePublisher notePublisher;
-    ComboHandler comboHandler;
 
     GameObject floatingText;
 
@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (floatingText)
         {
-            comboHandler.AddToCombo(1);
+            enemyPublisher.OnEnemyTakeDamage(); // Sends event upon taking damage. Subscribers: ComboHandler
             ShowFloatingText(damage);
         }
         Dead();
@@ -178,7 +178,7 @@ public class Enemy : MonoBehaviour
     }
     private void OnEnable()
     {
-        comboHandler = FindObjectOfType<ComboHandler>();
+        enemyPublisher = FindObjectOfType<EnemyPublisher>();
         movePlayer = FindObjectOfType<MovePlayer>();
         movePattern = stats.movePattern;
         notePublisher = FindObjectOfType<NotePublisher>();
