@@ -112,6 +112,7 @@ public class Enemy : MonoBehaviour
     {
         InstantiateCoin();
         gameObject.SetActive(false);
+        Destroy(gameObject,1);
     }
 
     private void SetStats()
@@ -159,7 +160,6 @@ public class Enemy : MonoBehaviour
 
         player = FindObjectOfType<MovePlayer>().transform;
 
-        Debug.Log("Fear not " + enemyName + " is here");
         movementSM.Initialize(moveState);
     }
 

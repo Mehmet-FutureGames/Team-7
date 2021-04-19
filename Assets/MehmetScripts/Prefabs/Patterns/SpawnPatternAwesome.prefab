@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8470090771960676430}
   m_Layer: 0
   m_Name: SpawnPatternAwesome
-  m_TagString: Untagged
+  m_TagString: PatternSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

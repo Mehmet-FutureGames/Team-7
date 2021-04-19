@@ -57,10 +57,12 @@ public class WaveManager : MonoBehaviour
     private void SpawnPointPattern()
     {
         int randomPattern = UnityEngine.Random.Range(0, spawnPointPatterns.Count);
+        Debug.Log(randomPattern);
         if (!hasSpawnedPattern)
         {
             Instantiate(spawnPointPatterns[randomPattern], transform.position, Quaternion.identity, transform);
             FindSpawnPoints();
+            Debug.Log("Spawned new pattern");
         }            
             amountofEnemiesWanted = spawnPoints.Length;
             BeginWave();
@@ -81,14 +83,10 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    private void DestroySpawnPoints()
+    private void DestroySpawnPattern()
     {
-        
-        for (int i = 0; i < spawnPoints.Length; i++)
-        {
-            Destroy(spawnPoints[i].gameObject);
-        }
-        
+        var spawnPattern = GameObject.FindGameObjectWithTag("PatternSpawner");
+        Destroy(spawnPattern);
     }
 
     public void FindSpawnPoints()
@@ -102,8 +100,9 @@ public class WaveManager : MonoBehaviour
         amountOfEnemies--;
         if (amountOfEnemies < 3)
         {
+            DestroySpawnPattern();
+            hasSpawnedPattern = false;
             SpawnPointPattern();
-            DestroySpawnPoints();
             ProgressWave();
         }
     }
