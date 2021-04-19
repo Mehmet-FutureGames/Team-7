@@ -40,7 +40,7 @@ public class MovePlayer : MonoBehaviour
     {
         mousePos = transform.position;
         publisher = FindObjectOfType<NotePublisher>();
-        publisher.noteHit += MovePlayerToMousePos;
+        publisher.noteHit += MovePlayerToMousePos1;
         player = GetComponent<Player>();
     }
 
@@ -89,8 +89,12 @@ public class MovePlayer : MonoBehaviour
             }
         }
     }
+    private void MovePlayerToMousePos1()
+    {
+        Invoke("MovePlayerToMousePos", 0.1f);
+    }
 
-    void MovePlayerToMousePos()
+    private void MovePlayerToMousePos()
     {
         if (!player.isAttacking)
         {
@@ -105,6 +109,7 @@ public class MovePlayer : MonoBehaviour
                 raycastDir = (mousePos - transform.position).normalized;
                 raycastDistance = (mousePos - transform.position).magnitude;
             }
+        }
 
             /////////////////////////////////////////////////////////////////////////////
             //Move the player to normal point position.
@@ -124,8 +129,9 @@ public class MovePlayer : MonoBehaviour
                 playerRegMove();
             }
             collided = false;
+        
             TurnPlayerTowardsDir();
-        }
+        
     }
     private void OnCollisionEnter(Collision other)
     {
