@@ -731,7 +731,8 @@ MonoBehaviour:
   spawnPoints: []
   amountofEnemiesWanted: 10
   floorLevel: 0
-  waveLevel: 0
+  numberOfWaves: 0
+  waveMaximum: 0
   amountOfEnemies: 0
 --- !u!114 &1715096865 stripped
 MonoBehaviour:
@@ -925,6 +926,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7753023273115067104, guid: a1a29c4f959c6a94297623fce0b429ed,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 951
+      objectReference: {fileID: 0}
     - target: {fileID: 7753023273115067105, guid: a1a29c4f959c6a94297623fce0b429ed,
         type: 3}
       propertyPath: m_RootOrder
@@ -1058,6 +1064,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7914652014459963324, guid: 8bbdca35cac70f143b906cf2b0652137,
+        type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 512
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}

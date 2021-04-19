@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] PlayerStats stats;
 
-    [SerializeField] LayerMask enemyLayer;
+    [SerializeField] int enemyLayer;
  
     PlayerAttack playerAttackRange;
 
@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        enemyLayer = 9;
         StartCoroutine(References());
     }
 
@@ -43,28 +44,30 @@ public class Player : MonoBehaviour
         //Shoots a ray and stores the information in the raycastHit variable.
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        Physics.Raycast(ray, out hit, enemyLayer);
-        float distance = (transform.position - hit.transform.position).magnitude;
-        if(hit.collider == null)
+        if(Physics.Raycast(ray, out hit))
         {
-            Debug.Log("you missed everything");
-        }
-
-        if(distance < distanceToClick)
-        {
-            Debug.Log(hit.collider.tag);
+            Debug.Log("Hit layer: " + hit.collider.gameObject.layer);
+            Debug.Log("Layer to hit: " + enemyLayer.ToString());
+            if (hit.collider.gameObject.layer == enemyLayer)
             {
-                var enemyPos = hit.transform.position;
-                transform.LookAt(new Vector3(enemyPos.x,1,enemyPos.z));
-                StartCoroutine(AttackingActivated());
+                float distance = (transform.position - hit.transform.position).magnitude;
+                if (distance < distanceToClick)
+                {
+                    Debug.Log(hit.collider.tag);
+                    {
+                        var enemyPos = hit.transform.position;
+                        transform.LookAt(new Vector3(enemyPos.x, 1, enemyPos.z));
+                        StartCoroutine(AttackingActivated());
+                    }
+                }
             }
+            //Checks if the player is moving and the melee range attack isn't activate.
         }
-
-        //Checks if the player is moving and the melee range attack isn't activate.
-        if(!playerAttackRange.isActiveAndEnabled)
+        else if (!playerAttackRange.isActiveAndEnabled)
         {
             StartCoroutine(DashAttack());
         }
+
     }
 
     IEnumerator AttackingActivated()
