@@ -9,8 +9,6 @@ public class WaveManager : MonoBehaviour
 
     bool hasSpawnedPattern = false;
 
-    bool hasCompletedWave = false;
-
     Transform enemyContainer;
 
     [SerializeField] List<GameObject> enemyVariants;
@@ -24,9 +22,12 @@ public class WaveManager : MonoBehaviour
     [SerializeField] int amountofEnemiesWanted;
     [Space]
     [SerializeField] int floorLevel = 0;
+    int waveLevel = 0;
     [Space]
-    [SerializeField] int waveLevel = 0;
-
+    [SerializeField] int numberOfWaves = 0;
+    [Space]
+    [SerializeField] int waveMaximum = 0;
+    [Space]
     [SerializeField] int amountOfEnemies = 0;
     // Start is called before the first frame update
     void Start()
@@ -55,22 +56,39 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnPointPattern()
     {
-            for (int i = 0; i < spawnPointPatterns.Count; i++)
-            {
-                if (!hasSpawnedPattern)
-                {
-                Instantiate(spawnPointPatterns[i], transform.position, Quaternion.identity, transform);
-                FindSpawnPoints();
-                }
-            }
+        int randomPattern = UnityEngine.Random.Range(0, spawnPointPatterns.Count);
+        if (!hasSpawnedPattern)
+        {
+            Instantiate(spawnPointPatterns[randomPattern], transform.position, Quaternion.identity, transform);
+            FindSpawnPoints();
+        }            
             amountofEnemiesWanted = spawnPoints.Length;
             BeginWave();
         hasSpawnedPattern = true;
     }
 
-    private int ProgressWave()
+    public int ProgressWave()
     {
+        waveMaximum = waveLevel - 1;
         return waveLevel++;
+    }
+    private void FinishFloor()
+    {
+        if(waveLevel >= numberOfWaves)
+        {
+            //Add behaviour for what happens when you finish a level.
+            floorLevel++;
+        }
+    }
+
+    private void DestroySpawnPoints()
+    {
+        
+        for (int i = 0; i < spawnPoints.Length; i++)
+        {
+            Destroy(spawnPoints[i].gameObject);
+        }
+        
     }
 
     public void FindSpawnPoints()
@@ -85,6 +103,7 @@ public class WaveManager : MonoBehaviour
         if (amountOfEnemies < 3)
         {
             SpawnPointPattern();
+            DestroySpawnPoints();
             ProgressWave();
         }
     }
