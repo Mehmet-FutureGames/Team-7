@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
         playerAttackRange = GetComponentInChildren<PlayerAttack>();
 
         playerDashRange = GetComponentInChildren<PlayerDashAttack>();
-        playerAttackRange.gameObject.transform.localScale *= distanceToClick;
+        //playerAttackRange.gameObject.transform.localScale *= distanceToClick;
         yield return new WaitForSeconds(1);
         playerAttackRange.gameObject.SetActive(false);
         playerDashRange.gameObject.SetActive(false);
