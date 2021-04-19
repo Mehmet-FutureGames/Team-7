@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class EnemyHitArea : MonoBehaviour
 {
-    Enemy character;
+    Enemy enemy;
     private void Awake()
     {
-        character = GetComponentInParent<Enemy>();
+        enemy = GetComponentInParent<Enemy>();
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            character.playerIsInAttackArea = true;
+            enemy.playerIsInAttackArea = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            character.playerIsInAttackArea = false;
+            enemy.playerIsInAttackArea = false;
         }
     }
     private void OnEnable()
@@ -29,13 +29,13 @@ public class EnemyHitArea : MonoBehaviour
     }
     private void OnDisable()
     {
-        character.playerIsInAttackArea = false;
+        enemy.playerIsInAttackArea = false;
     }
 
     IEnumerator wait()
     {
         yield return new WaitForSeconds(0.0001f);
-        transform.position = character.player.position;
+        transform.position = enemy.player.position;
         
     }
 }

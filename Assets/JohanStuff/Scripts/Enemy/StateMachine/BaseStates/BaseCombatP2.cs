@@ -1,20 +1,15 @@
 using UnityEngine;
 
-public class ChargeAttackState : State
+public class BaseCombatP2 : State
 {
 
-    public ChargeAttackState(Enemy enemy, StateMachine stateMachine) : base(enemy, stateMachine)
+    public BaseCombatP2(Enemy enemy, StateMachine stateMachine) : base(enemy, stateMachine)
     {
     }
-    
+
     public override void Enter()
     {
-        if (enemy.isRanged)
-        {
-            enemy.area.gameObject.GetComponent<MeshRenderer>().material.color = new Color(1f,1f,0f,0.2f);
-
-        }
-        else { enemy.area.gameObject.GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f, 0.2f); }
+        enemy.area.gameObject.GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f, 0.2f);
         enemy.area.SetActive(true);
         //enemy.area.transform.position = enemy.player.localPosition;
         enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.green;
@@ -31,13 +26,7 @@ public class ChargeAttackState : State
     public override void NoteEventUpdate()
     {
         base.NoteEventUpdate();
-        if(enemy.isRanged)
-        {
-            enemy.area.SetActive(false);
-            stateMachine.ChangeState(enemy.secondChargeAttackState);
-            return;
-        }
-        stateMachine.ChangeState(enemy.attackState);
+        stateMachine.ChangeState(enemy.combatPhase3);
     }
 
     public override void Action()

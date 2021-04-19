@@ -374,6 +374,7 @@ MonoBehaviour:
   dashDamage: 0
   dashAttackDuration: 0
   meleeAttackDuration: 0
+  isAttacking: 0
 --- !u!1 &7914652014496845978
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,6 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashDamage: 0
+  playerStats: {fileID: 0}
 --- !u!1 &7914652014773267332
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashDamage: 0
+  playerStats: {fileID: 0}
 --- !u!1 &7914652015172397948
 GameObject:
   m_ObjectHideFlags: 0
