@@ -45,6 +45,10 @@ public class Player : MonoBehaviour
         RaycastHit hit;
         Physics.Raycast(ray, out hit, enemyLayer);
         float distance = (transform.position - hit.transform.position).magnitude;
+        if(hit.collider == null)
+        {
+            Debug.Log("you missed everything");
+        }
 
         if(distance < distanceToClick)
         {
