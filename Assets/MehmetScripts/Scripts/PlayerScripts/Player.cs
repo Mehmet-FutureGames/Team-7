@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] PlayerStats stats;
+
+    [SerializeField] LayerMask enemyLayer;
  
     PlayerAttack playerAttackRange;
 
@@ -41,14 +43,19 @@ public class Player : MonoBehaviour
         //Shoots a ray and stores the information in the raycastHit variable.
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        Physics.Raycast(ray, out hit);
+        Physics.Raycast(ray, out hit, enemyLayer);
         float distance = (transform.position - hit.transform.position).magnitude;
+        if(hit.collider == null)
+        {
+            Debug.Log("you missed everything");
+        }
 
         if(distance < distanceToClick)
         {
-            Debug.Log(distance);
-            if (hit.collider.CompareTag("Enemy"))
+            Debug.Log(hit.collider.tag);
             {
+                var enemyPos = hit.transform.position;
+                transform.LookAt(new Vector3(enemyPos.x,1,enemyPos.z));
                 StartCoroutine(AttackingActivated());
             }
         }

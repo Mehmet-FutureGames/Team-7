@@ -7,6 +7,8 @@ public class UIManager : MonoBehaviour
 {
     GameObject TextPanel;
 
+    bool skip = false;
+
     PressAnyKey musicStart;
     private void Start()
     {
@@ -15,19 +17,41 @@ public class UIManager : MonoBehaviour
         musicStart = GetComponent<PressAnyKey>();
 
         TextPanel = GameObject.Find("UIPanel");
+
+        skip = true;
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            SkipText();
+        }
     }
     public void RetryButton()
     {
         SceneManager.LoadScene(0);
     }
+
+    private void SkipText()
+    {
+        if (skip)
+        {
+            StopAllCoroutines();
+            Time.timeScale = 0;
+            TextPanel.SetActive(false);
+            musicStart.audio.Play();
+            musicStart.StartGame();
+            Time.timeScale = 1;
+        }
+    }
     IEnumerator ShowAndStopShowingText()
     {
-        Time.timeScale = 0;
-        yield return new WaitForSecondsRealtime(5f);
-        TextPanel.SetActive(false);
-        musicStart.audio.Play();
-        musicStart.StartGame();
-        Time.timeScale = 1;
+            Time.timeScale = 0;
+            yield return new WaitForSecondsRealtime(5f);
+            TextPanel.SetActive(false);
+            musicStart.audio.Play();
+            musicStart.StartGame();
+            Time.timeScale = 1;        
     }
 
 }

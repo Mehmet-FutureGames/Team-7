@@ -29,10 +29,6 @@ public class ComboHandler : MonoBehaviour
         publisher.noteHit += HitNote;
         publisher.noteNotHit += MissedNote;
     }
-    private void Update()
-    {
-        
-    }
     private void OnDisable()
     {
         publisher.noteHit -= HitNote;

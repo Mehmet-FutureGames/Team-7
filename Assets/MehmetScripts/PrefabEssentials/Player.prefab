@@ -368,6 +368,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: ddca5f02b76c7fe4d8220e09539b68a9, type: 2}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
   playerDamageText: {fileID: 0}
   health: 0
   damage: 0
