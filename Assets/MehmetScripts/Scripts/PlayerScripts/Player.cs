@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
     {
         enemyLayer = 9;
         StartCoroutine(References());
+        
     }
 
     public void AttackActivated()
@@ -61,11 +62,12 @@ public class Player : MonoBehaviour
                     }
                 }
             }
+            else if (!playerAttackRange.isActiveAndEnabled)
+            {
+                StartCoroutine(DashAttack());
+            }
+
             //Checks if the player is moving and the melee range attack isn't activate.
-        }
-        else if (!playerAttackRange.isActiveAndEnabled)
-        {
-            StartCoroutine(DashAttack());
         }
 
     }
@@ -89,6 +91,7 @@ public class Player : MonoBehaviour
 
     IEnumerator References()
     {
+
         //References to all the things needed.
         playerName = stats.playerName;
         playerDamageText = stats.playerDamageText;
@@ -112,7 +115,7 @@ public class Player : MonoBehaviour
         playerAttackRange = GetComponentInChildren<PlayerAttack>();
 
         playerDashRange = GetComponentInChildren<PlayerDashAttack>();
-
+        playerAttackRange.gameObject.transform.localScale *= distanceToClick;
         yield return new WaitForSeconds(1);
         playerAttackRange.gameObject.SetActive(false);
         playerDashRange.gameObject.SetActive(false);
