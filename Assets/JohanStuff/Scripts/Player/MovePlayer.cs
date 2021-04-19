@@ -40,7 +40,7 @@ public class MovePlayer : MonoBehaviour
     {
         mousePos = transform.position;
         publisher = FindObjectOfType<NotePublisher>();
-        publisher.noteHit += MovePlayerToMousePos1;
+        publisher.noteHit += DelayMove;
         player = GetComponent<Player>();
     }
 
@@ -89,7 +89,7 @@ public class MovePlayer : MonoBehaviour
             }
         }
     }
-    private void MovePlayerToMousePos1()
+    private void DelayMove()
     {
         Invoke("MovePlayerToMousePos", 0.001f);
     }

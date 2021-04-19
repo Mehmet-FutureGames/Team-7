@@ -42,15 +42,14 @@ public class Player : MonoBehaviour
     {
         //Shoots a ray and stores the information in the raycastHit variable.
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Vector3 test = ray.origin;
-        Vector3 test2 = ray.direction;
+        Vector3 originRay = ray.origin;
+        Vector3 directonRay = ray.direction;
         RaycastHit hit;
-        if(Physics.Raycast(test, test2, out hit, Mathf.Infinity, enemyLayer))
+        if(Physics.Raycast(originRay, directonRay, out hit, Mathf.Infinity, enemyLayer))
         {            
                 float distance = (transform.position - hit.transform.position).magnitude;
                 if (distance < distanceToClick)
                 {
-                    Debug.Log(hit.collider.tag);
                     {
                         var enemyPos = hit.transform.position;
                         transform.LookAt(new Vector3(enemyPos.x, 1, enemyPos.z));
