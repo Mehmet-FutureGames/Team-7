@@ -406,14 +406,15 @@ MonoBehaviour:
   enemyVariants:
   - {fileID: 2537703995810168917, guid: 7f7fc19b032eed341bfc28f5355ab549, type: 3}
   - {fileID: 2537703995810168917, guid: 812de75b6a4a6704488036bd747ce95f, type: 3}
-  - {fileID: 2537703995810168917, guid: 3f6e8337c3c67024e8e21187299945c4, type: 3}
+  - {fileID: 8744423220382229699, guid: ac3568e37f30e9949b32b772b3a82984, type: 3}
   spawnPointPatterns:
   - {fileID: 8937352819964575240, guid: 297395403f218704cb77ed03f7021cb9, type: 3}
   - {fileID: 119074322144275586, guid: 61513ee081151d946988c1652eaddcff, type: 3}
   spawnPoints: []
   amountofEnemiesWanted: 10
   floorLevel: 0
-  waveLevel: 0
+  numberOfWaves: 0
+  waveMaximum: 0
   amountOfEnemies: 0
 --- !u!4 &895567340
 Transform:

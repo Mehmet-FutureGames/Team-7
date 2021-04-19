@@ -14,15 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: 
   movePattern: 0
-  enemyModel: {fileID: 0}
+  enemyModel: {fileID: 7280686633801961007, guid: 2f2dd6f54256d8541a2b2aebc926adf0,
+    type: 3}
   floatingText: {fileID: 0}
-  attackAreaShape: {fileID: 0}
-  attackAreaScale: {x: 0, y: 0, z: 0}
-  isRanged: 0
-  movementSpeed: 0
-  moveDistance: 0
-  detectionRange: 0
-  notesToMove: 0
-  attackDamage: 0
-  attackRange: 0
-  health: 0
+  attackAreaShape: {fileID: 5142904849790710492, guid: 0276f6d96dfb9c141a6591ed02f83c65,
+    type: 3}
+  attackAreaScale: {x: 8, y: 8, z: 8}
+  isRanged: 1
+  movementSpeed: 5
+  moveDistance: 5
+  detectionRange: 30
+  notesToMove: 1
+  attackDamage: 10
+  attackRange: 30
+  health: 50
