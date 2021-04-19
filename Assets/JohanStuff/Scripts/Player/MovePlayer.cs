@@ -91,7 +91,7 @@ public class MovePlayer : MonoBehaviour
     }
     private void MovePlayerToMousePos1()
     {
-        Invoke("MovePlayerToMousePos", 0.1f);
+        Invoke("MovePlayerToMousePos", 0.001f);
     }
 
     private void MovePlayerToMousePos()
