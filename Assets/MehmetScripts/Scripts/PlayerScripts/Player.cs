@@ -46,10 +46,7 @@ public class Player : MonoBehaviour
         Vector3 test2 = ray.direction;
         RaycastHit hit;
         if(Physics.Raycast(test, test2, out hit, Mathf.Infinity, enemyLayer))
-        {
-            Debug.Log("Hit layer: " + hit.collider.gameObject.layer);
-            Debug.Log("Layer to hit: " + enemyLayer.ToString());
-            
+        {            
                 float distance = (transform.position - hit.transform.position).magnitude;
                 if (distance < distanceToClick)
                 {
@@ -60,8 +57,7 @@ public class Player : MonoBehaviour
                         StartCoroutine(AttackingActivated());
                     }
                 }            
-
-            //Checks if the player is moving and the melee range attack isn't activate.
+        //Checks if the player is moving and the melee range attack isn't activate.
         }
         else if (!playerAttackRange.isActiveAndEnabled)
         {
