@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] PlayerStats stats;
 
-    [SerializeField] int enemyLayer;
+    [SerializeField] LayerMask enemyLayer;
  
     PlayerAttack playerAttackRange;
 
@@ -35,22 +35,21 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemyLayer = 9;
-        StartCoroutine(References());
-        
+        StartCoroutine(References());        
     }
 
     public void AttackActivated()
     {
         //Shoots a ray and stores the information in the raycastHit variable.
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Vector3 test = ray.origin;
+        Vector3 test2 = ray.direction;
         RaycastHit hit;
-        if(Physics.Raycast(ray, out hit))
+        if(Physics.Raycast(test, test2, out hit, Mathf.Infinity, enemyLayer))
         {
             Debug.Log("Hit layer: " + hit.collider.gameObject.layer);
             Debug.Log("Layer to hit: " + enemyLayer.ToString());
-            if (hit.collider.gameObject.layer == enemyLayer)
-            {
+            
                 float distance = (transform.position - hit.transform.position).magnitude;
                 if (distance < distanceToClick)
                 {
@@ -60,14 +59,13 @@ public class Player : MonoBehaviour
                         transform.LookAt(new Vector3(enemyPos.x, 1, enemyPos.z));
                         StartCoroutine(AttackingActivated());
                     }
-                }
-            }
-            else if (!playerAttackRange.isActiveAndEnabled)
-            {
-                StartCoroutine(DashAttack());
-            }
+                }            
 
             //Checks if the player is moving and the melee range attack isn't activate.
+        }
+        else if (!playerAttackRange.isActiveAndEnabled)
+        {
+            StartCoroutine(DashAttack());
         }
 
     }
