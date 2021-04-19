@@ -63,6 +63,8 @@ public class Enemy : MonoBehaviour
 
     GameObject floatingText;
 
+    WaveManager manager;
+
 
     #region Methods
     public void EnemyAttack()
@@ -96,13 +98,13 @@ public class Enemy : MonoBehaviour
     {
         if (health < 0)
         {
-            agentObj.GetComponent<Collider>().enabled = false;
-            enabled = false;
-            Invoke("DisableGameObject", 1.5f);
             if (enemyDefeated != null)
             {
                 enemyDefeated();
             }
+            agentObj.GetComponent<Collider>().enabled = false;
+            enabled = false;
+            Invoke("DisableGameObject", 1.5f);
         }
     }
 
@@ -178,6 +180,8 @@ public class Enemy : MonoBehaviour
     }
     private void OnEnable()
     {
+        manager = FindObjectOfType<WaveManager>();
+        manager.Subscribe(this);
         enemyPublisher = FindObjectOfType<EnemyPublisher>();
         movePlayer = FindObjectOfType<MovePlayer>();
         movePattern = stats.movePattern;
@@ -192,6 +196,7 @@ public class Enemy : MonoBehaviour
         
         movePlayer.playerRegMove -= EventUpdate;
         notePublisher.noteNotHit -= EventUpdate;
+        manager.UnSubscribe(this);
     }
 
     private void Update()
