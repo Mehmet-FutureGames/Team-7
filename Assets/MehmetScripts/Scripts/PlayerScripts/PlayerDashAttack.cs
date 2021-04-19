@@ -11,4 +11,9 @@ public class PlayerDashAttack : PlayerAttack
             other.GetComponentInParent<Enemy>().TakeDamage(dashDamage);
         }
     }
+    private void OnEnable()
+    {
+        playerStats = GetComponentInParent<Player>();
+        playerStats.isAttacking = false;
+    }
 }

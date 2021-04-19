@@ -16,14 +16,15 @@ MonoBehaviour:
   movePattern: 0
   enemyModel: {fileID: 7280686633801961007, guid: 2f2dd6f54256d8541a2b2aebc926adf0,
     type: 3}
+  floatingText: {fileID: 0}
   attackAreaShape: {fileID: 5142904849790710492, guid: 0276f6d96dfb9c141a6591ed02f83c65,
     type: 3}
   attackAreaScale: {x: 3, y: 3, z: 3}
-  attackAreaOffset: {x: 0, y: -1, z: 5}
+  isRanged: 0
   movementSpeed: 1
   moveDistance: 8
   detectionRange: 0
   notesToMove: 1
-  attackDamage: 30
+  attackDamage: 0
   attackRange: 15
-  health: 5
+  health: 100

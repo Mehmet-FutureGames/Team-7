@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
     public float dashAttackDuration;
     [HideInInspector]
     public float meleeAttackDuration;
+
+    public bool isAttacking = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +46,8 @@ public class Player : MonoBehaviour
 
         if(distance < distanceToClick)
         {
-            if (hit.transform.CompareTag("Enemy"))
+            Debug.Log(distance);
+            if (hit.collider.CompareTag("Enemy"))
             {
                 StartCoroutine(AttackingActivated());
             }

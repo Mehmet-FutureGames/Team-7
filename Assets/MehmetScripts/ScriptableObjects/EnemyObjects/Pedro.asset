@@ -26,6 +26,6 @@ MonoBehaviour:
   moveDistance: 8
   detectionRange: 20
   notesToMove: 1
-  attackDamage: 10
+  attackDamage: 0
   attackRange: 8
-  health: 10
+  health: 100
