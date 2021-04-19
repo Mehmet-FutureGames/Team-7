@@ -11,8 +11,8 @@ public class CameraManager : MonoBehaviour
     public float camFollowSpeed;
     public Vector3 cameraOffset;
 
-    private void Start()
+    private void Awake()
     {
-        player = GameObject.Find("Player").transform;
+        player = FindObjectOfType<Player>().transform;
     }
 }
