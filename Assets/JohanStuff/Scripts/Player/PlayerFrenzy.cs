@@ -9,7 +9,17 @@ public class PlayerFrenzy : MonoBehaviour
     [SerializeField] Text text;
     [SerializeField]int maxFrenzy;
     [SerializeField]int minFrenzy;
-    int currentFrenzy;
+    private int currentFrenzy;
+
+    public int CurrentFrenzy
+    {
+        get { return currentFrenzy; }
+        set 
+        { 
+            currentFrenzy = value;
+            text.text = "Frenzy: " + currentFrenzy.ToString();
+        }
+    }
 
     private void Awake()
     {
