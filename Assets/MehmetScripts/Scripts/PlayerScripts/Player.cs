@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public GameObject playerDamageText;
     [HideInInspector]
     public float health;
+    [HideInInspector]
     public float damage;
     [HideInInspector]
     public float dashDamage;

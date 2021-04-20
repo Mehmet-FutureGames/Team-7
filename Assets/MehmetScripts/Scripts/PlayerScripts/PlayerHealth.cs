@@ -61,4 +61,9 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         health = playerStats.health;
     }
+
+    public void UpgradeHealth(float upgradedHealth)
+    {
+        health += upgradedHealth;
+    }
 }
