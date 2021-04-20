@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
     {
         StartCoroutine(References());        
     }
-
+    #region Attacks
     public void AttackActivated()
     {
         //Shoots a ray and stores the information in the raycastHit variable.
@@ -64,6 +64,7 @@ public class Player : MonoBehaviour
         }
 
     }
+    #endregion
 
     IEnumerator AttackingActivated()
     {

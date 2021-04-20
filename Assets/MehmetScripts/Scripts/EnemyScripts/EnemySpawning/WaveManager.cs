@@ -15,7 +15,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] List<GameObject> enemyVariants;
     [Space]
 
-    [SerializeField] List<Transform> spawnPointPatterns;
+    [SerializeField] List<Transform> spawnPointPatternsEasy;
     [Space]
 
     [SerializeField] List<Transform> spawnPointPatternsMedium;
@@ -24,10 +24,8 @@ public class WaveManager : MonoBehaviour
     [SerializeField] List<Transform> spawnPointPatternsHard;
     [Space]
 
-    [SerializeField] TypeOfEnemy[] spawnPoints;
-    [Space]
-    [SerializeField] int amountofEnemiesWanted;
-    [Space]
+    TypeOfEnemy[] spawnPoints;
+    int amountofEnemiesWanted;
     [SerializeField] int floorLevel = 0;
     [Space]
     [SerializeField]int waveLevel = 0;
@@ -39,8 +37,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] int numberOfWavesForHardLevel = 0;
     [Space]
     [SerializeField] int waveMaximum = 0;
-    [Space]
-    [SerializeField] int amountOfEnemies = 0;
+    int amountOfEnemies = 0;
     #region StartFunction
     // Start is called before the first frame update
     void Start()
@@ -67,15 +64,15 @@ public class WaveManager : MonoBehaviour
     }
     #endregion
 
-
+    #region spawnPatterns
     private void SpawnPointPattern()
     {
         if (!hasSpawnedPattern)
         {
             if (waveLevel < numberOfWavesForEasyLevel)
             {
-                randomPattern = Random.Range(0, spawnPointPatterns.Count);
-                Instantiate(spawnPointPatterns[randomPattern], transform.position, Quaternion.identity, transform);
+                randomPattern = Random.Range(0, spawnPointPatternsEasy.Count);
+                Instantiate(spawnPointPatternsEasy[randomPattern], transform.position, Quaternion.identity, transform);
                 FindSpawnPoints();
                 Debug.Log("Spawned new pattern");
                 Debug.Log("Now spawning: Easy Enemies");
@@ -98,21 +95,20 @@ public class WaveManager : MonoBehaviour
             }
         }
             amountofEnemiesWanted = spawnPoints.Length;
-            BeginWave();
+        Invoke("BeginWave", 2f);
         hasSpawnedPattern = true;
     }
+    #endregion
 
     public int ProgressWave()
     {
         return waveLevel++;
     }
-    private void FinishFloor()
+    public void FinishFloor()
     {
-        if(waveLevel >= waveMaximum)
-        {
-            //Add behaviour for what happens when you finish a level.
-            floorLevel++;
-        }
+        //Add behaviour for what happens when you finish a level.
+        Debug.Log("You finished the first floor! Go to X position to contiune!");
+        floorLevel++;        
     }
 
     private void DestroySpawnPattern()
@@ -122,7 +118,7 @@ public class WaveManager : MonoBehaviour
         Destroy(spawnPattern, 0.1f);
     }
 
-    public void FindSpawnPoints()
+    private void FindSpawnPoints()
     {
         //Checks for new spawnpoints
         spawnPoints = FindObjectsOfType<TypeOfEnemy>();
@@ -131,12 +127,16 @@ public class WaveManager : MonoBehaviour
     public void EnemyDefeated()
     {
         amountOfEnemies--;
-        if (amountOfEnemies < 3)
+        if (amountOfEnemies < 3 && waveLevel != waveMaximum)
         {
             DestroySpawnPattern();
             hasSpawnedPattern = false;
             SpawnPointPattern();
             ProgressWave();
+        }
+        else if(amountOfEnemies <= 0 && waveLevel >= waveMaximum)
+        {
+            FinishFloor();
         }
     }
     public void Subscribe(Enemy enemy)
