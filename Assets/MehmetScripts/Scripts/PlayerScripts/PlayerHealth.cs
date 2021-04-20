@@ -6,7 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     Player playerStats;
 
-    float health;
+    public float health;
 
     GameObject deadPanel;
 
@@ -16,7 +16,8 @@ public class PlayerHealth : MonoBehaviour
     {
         playerStats = GetComponentInParent<Player>();
         movePlayer = FindObjectOfType<MovePlayer>();
-        StartCoroutine(ReferenceHealth());
+
+        health = playerStats.health;
 
         deadPanel = GameObject.Find("DeadPanel");
         deadPanel.SetActive(false);
@@ -56,9 +57,8 @@ public class PlayerHealth : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    IEnumerator ReferenceHealth()
+    public void UpgradeHealth(float upgradedHealth)
     {
-        yield return new WaitForSeconds(0.1f);
-        health = playerStats.health;
+        health += upgradedHealth;
     }
 }

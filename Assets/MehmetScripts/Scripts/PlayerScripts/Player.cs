@@ -22,7 +22,6 @@ public class Player : MonoBehaviour
     public GameObject playerDamageText;
     [HideInInspector]
     public float health;
-    [HideInInspector]
     public float damage;
     [HideInInspector]
     public float dashDamage;
@@ -45,8 +44,10 @@ public class Player : MonoBehaviour
         Vector3 originRay = ray.origin;
         Vector3 directonRay = ray.direction;
         RaycastHit hit;
+
+        
         if(Physics.Raycast(originRay, directonRay, out hit, Mathf.Infinity, enemyLayer))
-        {            
+        {       
                 float distance = (transform.position - hit.transform.position).magnitude;
                 if (distance < distanceToClick)
                 {
@@ -85,7 +86,7 @@ public class Player : MonoBehaviour
 
     IEnumerator References()
     {
-        Instantiate(stats.playerModel, transform);
+        //Instantiate(stats.playerModel, transform);
 
         //References to all the things needed.
         playerName = stats.playerName;
@@ -114,5 +115,29 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1);
         playerAttackRange.gameObject.SetActive(false);
         playerDashRange.gameObject.SetActive(false);
+    }
+    IEnumerator UpgradeDamageMeleeActivator(float damage)
+    {
+        playerAttackRange.gameObject.SetActive(true);
+        playerAttackRange.damage += damage;
+        yield return new WaitForSeconds(0.01f);
+        playerAttackRange.gameObject.SetActive(false);
+    }
+    
+    IEnumerator UpgradeDamageDashActivator(float damage)
+    {
+        playerDashRange.gameObject.SetActive(true);
+        playerDashRange.dashDamage += damage;
+        yield return new WaitForSeconds(0.01f);
+        playerDashRange.gameObject.SetActive(false);
+    }
+
+    public void UpgradeDamageMelee(float damage)
+    {
+        StartCoroutine(UpgradeDamageMeleeActivator(damage));
+    }
+    public void UpgradeDamageDash(float damage)
+    {
+        StartCoroutine(UpgradeDamageDashActivator(damage));
     }
 }
