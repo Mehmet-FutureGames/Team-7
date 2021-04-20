@@ -110,8 +110,8 @@ public class Enemy : MonoBehaviour
             {
                 enemyDefeated();
             }
-            agentObj.GetComponent<Collider>().enabled = false;
             enabled = false;
+            agentObj.GetComponent<Collider>().enabled = false;
             Invoke("DisableGameObject", 1.5f);
         }
     }
