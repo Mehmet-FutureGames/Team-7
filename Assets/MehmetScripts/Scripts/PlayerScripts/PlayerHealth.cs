@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     Player playerStats;
-
     float health;
 
     GameObject deadPanel;
@@ -28,20 +27,21 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
-        if(movePlayer.MovementValue < 10) 
+        if (!PlayerBlock.isBlocking)
         {
-            if (playerStats.playerDamageText)
+            health -= damage;
+            if (movePlayer.MovementValue < 10)
             {
-                ShowFloatingText(damage);
-            }
-            if (health < 0)
-            {
-                Dead();
+                if (playerStats.playerDamageText)
+                {
+                    ShowFloatingText(damage);
+                }
+                if (health < 0)
+                {
+                    Dead();
+                }
             }
         }
-
-
     }
 
     private void ShowFloatingText(float damage)

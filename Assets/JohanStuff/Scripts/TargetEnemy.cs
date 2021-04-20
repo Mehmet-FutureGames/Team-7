@@ -6,32 +6,37 @@ public class TargetEnemy : MonoBehaviour
 {
     NotePublisher notePublisher;
     MovePlayer movePlayer;
+    public LayerMask layer;
+    public static bool hasTarget;
+    private Vector3 enemyPos;
+    public static Vector3 stopPos;
     void Start()
     {
         movePlayer = FindObjectOfType<MovePlayer>();
         notePublisher = FindObjectOfType<NotePublisher>();
-        movePlayer.playerRegMove += Target;
+        //movePlayer.playerRegMove += Target;
+        notePublisher.noteHit += Target;
+        hasTarget = false;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void Target()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        Physics.Raycast(ray, out hit);
-        Enemy enemy;
-        if (hit.collider.gameObject.CompareTag("Enemy"))
+        if(Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity, layer))
         {
-            enemy = hit.collider.gameObject.transform.parent.GetComponent<Enemy>();
-            enemy.moveDistance = 0;
+            Enemy enemy;
+            if (hit.collider.gameObject.CompareTag("Enemy"))
+            {
+                enemy = hit.collider.gameObject.transform.parent.GetComponent<Enemy>();
+                enemy.moveDistance = 0;
+                enemyPos = hit.collider.transform.position;
+                Vector3 enemyToPlayerDir = (transform.position - enemyPos).normalized;
+                stopPos = enemyPos + enemyToPlayerDir * 2;
+                hasTarget = true;
+            }
         }
-        
-
-
+        else { hasTarget = false; }
     }
+
+    
 }
