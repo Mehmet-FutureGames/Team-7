@@ -127,7 +127,7 @@ public class WaveManager : MonoBehaviour
     public void EnemyDefeated()
     {
         amountOfEnemies--;
-        if (amountOfEnemies < 3 && waveLevel != waveMaximum)
+        if (amountOfEnemies < 3 && waveLevel <= waveMaximum)
         {
             DestroySpawnPattern();
             hasSpawnedPattern = false;
