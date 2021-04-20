@@ -85,6 +85,7 @@ public class Player : MonoBehaviour
 
     IEnumerator References()
     {
+        Instantiate(stats.playerModel, transform);
 
         //References to all the things needed.
         playerName = stats.playerName;
