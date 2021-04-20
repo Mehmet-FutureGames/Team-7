@@ -219,7 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   disableAfterSeconds: 1.5
-  upwardForce: 300
+  upwardForce: 350
   speedModifier: 50
 --- !u!54 &7833079114985998068
 Rigidbody:

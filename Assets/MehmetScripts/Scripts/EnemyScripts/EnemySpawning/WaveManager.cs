@@ -9,8 +9,6 @@ public class WaveManager : MonoBehaviour
 
     bool hasSpawnedPattern = false;
 
-    bool hasCompletedWave = false;
-
     Transform enemyContainer;
 
     [SerializeField] List<GameObject> enemyVariants;
@@ -24,9 +22,12 @@ public class WaveManager : MonoBehaviour
     [SerializeField] int amountofEnemiesWanted;
     [Space]
     [SerializeField] int floorLevel = 0;
+    int waveLevel = 0;
     [Space]
-    [SerializeField] int waveLevel = 0;
-
+    [SerializeField] int numberOfWaves = 0;
+    [Space]
+    [SerializeField] int waveMaximum = 0;
+    [Space]
     [SerializeField] int amountOfEnemies = 0;
     // Start is called before the first frame update
     void Start()
@@ -46,23 +47,8 @@ public class WaveManager : MonoBehaviour
         //Goes through all of the spawn points
         for (int i = 0; i < spawnPoints.Length; i++)
         {
-                //Goes through each spawn points and checks which enemy 
-                //should be spawned at that specific spawnpoint
-                switch (spawnPoints[i].ReturnEnemyType())
-                {
-                    case 1:
-                        Instantiate(enemyVariants[0], spawnPoints[i].GetComponent<Transform>().position, Quaternion.identity, enemyContainer);
-                        amountOfEnemies++;
-                        break;
-                    case 2:
-                        Instantiate(enemyVariants[1], spawnPoints[i].GetComponent<Transform>().position, Quaternion.identity, enemyContainer);
-                        amountOfEnemies++;
-                        break;
-                    case 3:
-                        Instantiate(enemyVariants[2], spawnPoints[i].GetComponent<Transform>().position, Quaternion.identity, enemyContainer);
-                        amountOfEnemies++;
-                        break;
-                }
+            Instantiate(enemyVariants[spawnPoints[i].ReturnEnemyType()], spawnPoints[i].GetComponent<Transform>().position, Quaternion.identity, enemyContainer);
+            amountOfEnemies++;
         }    
     }
     #endregion
@@ -70,17 +56,37 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnPointPattern()
     {
-            for (int i = 0; i < spawnPointPatterns.Count; i++)
-            {
-                if (!hasSpawnedPattern)
-                {
-                Instantiate(spawnPointPatterns[i], transform.position, Quaternion.identity, transform);
-                FindSpawnPoints();
-                }
-            }
+        int randomPattern = UnityEngine.Random.Range(0, spawnPointPatterns.Count);
+        Debug.Log(randomPattern);
+        if (!hasSpawnedPattern)
+        {
+            Instantiate(spawnPointPatterns[randomPattern], transform.position, Quaternion.identity, transform);
+            FindSpawnPoints();
+            Debug.Log("Spawned new pattern");
+        }            
             amountofEnemiesWanted = spawnPoints.Length;
             BeginWave();
         hasSpawnedPattern = true;
+    }
+
+    public int ProgressWave()
+    {
+        waveMaximum = waveLevel - 1;
+        return waveLevel++;
+    }
+    private void FinishFloor()
+    {
+        if(waveLevel >= numberOfWaves)
+        {
+            //Add behaviour for what happens when you finish a level.
+            floorLevel++;
+        }
+    }
+
+    private void DestroySpawnPattern()
+    {
+        var spawnPattern = GameObject.FindGameObjectWithTag("PatternSpawner");
+        Destroy(spawnPattern);
     }
 
     public void FindSpawnPoints()
@@ -94,7 +100,10 @@ public class WaveManager : MonoBehaviour
         amountOfEnemies--;
         if (amountOfEnemies < 3)
         {
+            DestroySpawnPattern();
+            hasSpawnedPattern = false;
             SpawnPointPattern();
+            ProgressWave();
         }
     }
     public void Subscribe(Enemy enemy)

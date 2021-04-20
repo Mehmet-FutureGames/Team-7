@@ -8,7 +8,8 @@ public class ComboHandler : MonoBehaviour
     NotePublisher publisher;
     EnemyPublisher enemyPublisher;
     MovePlayer movePlayer;
-    // Start is called before the first frame update
+    float coinMult;
+    float frenzyMult;
 
     [HideInInspector]
     public int Combo { get; private set; }
@@ -27,10 +28,6 @@ public class ComboHandler : MonoBehaviour
         enemyPublisher.enemyTakeDamage += AddToCombo;
         publisher.noteHit += HitNote;
         publisher.noteNotHit += MissedNote;
-    }
-    private void Update()
-    {
-        
     }
     private void OnDisable()
     {

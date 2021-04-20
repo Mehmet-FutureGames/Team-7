@@ -6,12 +6,18 @@ public class Enemy : MonoBehaviour
     EnemyPublisher enemyPublisher;
     public Action enemyDefeated;
 
+
+    #region States
     public StateMachine movementSM;
-    public MoveState moveState;
-    public AttackState attackState;
-    public ChargeAttackState chargeAttackState;
-    public IdleState idleState;
-    public SecondChargeAttackState secondChargeAttackState;
+
+    public State moveState;
+    public State combatPhase1;
+    public State combatPhase2;
+    public State combatPhase3;
+    public State combatPhase4;
+    public State combatPhase5;
+    public State combatPhase6;
+    #endregion
 
     public bool playerIsInAttackArea;
     [HideInInspector]
@@ -48,6 +54,8 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public MovePattern movePattern;
     [HideInInspector]
+    public EnemyType enemyType;
+    [HideInInspector]
     public int moveCounter = 0;
     int attackCounter = 0;
 
@@ -62,6 +70,8 @@ public class Enemy : MonoBehaviour
     NotePublisher notePublisher;
 
     GameObject floatingText;
+
+    WaveManager manager;
 
 
     #region Methods
@@ -96,13 +106,13 @@ public class Enemy : MonoBehaviour
     {
         if (health < 0)
         {
-            agentObj.GetComponent<Collider>().enabled = false;
-            enabled = false;
-            Invoke("DisableGameObject", 1.5f);
             if (enemyDefeated != null)
             {
                 enemyDefeated();
             }
+            agentObj.GetComponent<Collider>().enabled = false;
+            enabled = false;
+            Invoke("DisableGameObject", 1.5f);
         }
     }
 
@@ -134,12 +144,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         movementSM = new StateMachine();
-
-        moveState = new MoveState(this, movementSM);
-        chargeAttackState = new ChargeAttackState(this, movementSM);
-        attackState = new AttackState(this, movementSM);
-        idleState = new IdleState(this, movementSM);
-        secondChargeAttackState = new SecondChargeAttackState(this, movementSM);
+        InitializeEnemyType.Instance.Initialize(this, movementSM);
         SetStats();
 
 
@@ -158,10 +163,13 @@ public class Enemy : MonoBehaviour
         player = FindObjectOfType<MovePlayer>().transform;
 
         Debug.Log("Fear not " + enemyName + " is here");
-        movementSM.Initialize(moveState);
+        InitializeState(moveState);
     }
 
-
+    void InitializeState(State state)
+    {
+        movementSM.Initialize(state);
+    }
 
     private void EventUpdate()
     {
@@ -178,9 +186,12 @@ public class Enemy : MonoBehaviour
     }
     private void OnEnable()
     {
+        manager = FindObjectOfType<WaveManager>();
+        manager.Subscribe(this);
         enemyPublisher = FindObjectOfType<EnemyPublisher>();
         movePlayer = FindObjectOfType<MovePlayer>();
         movePattern = stats.movePattern;
+        enemyType = stats.enemyType;
         notePublisher = FindObjectOfType<NotePublisher>();
         movePlayer.playerRegMove += EventUpdate;
         notePublisher.noteNotHit += EventUpdate;
@@ -192,6 +203,7 @@ public class Enemy : MonoBehaviour
         
         movePlayer.playerRegMove -= EventUpdate;
         notePublisher.noteNotHit -= EventUpdate;
+        manager.UnSubscribe(this);
     }
 
     private void Update()

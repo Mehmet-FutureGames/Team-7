@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 8966836274532626867}
   - component: {fileID: 8966836274532626828}
   - component: {fileID: 8966836274532626829}
+  - component: {fileID: 524446087}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -173,6 +174,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a778399c8f9b404284c4159a889759f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &524446087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8966836274532626866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dd19badcce3b54d9c1c6d732aa0c6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8966836274875272974
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,6 +196,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8966836274875272968}
   - component: {fileID: 8966836274875272975}
+  - component: {fileID: 1552725692}
+  - component: {fileID: 652394862}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -221,6 +236,34 @@ MonoBehaviour:
   LayerToMovement:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &1552725692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8966836274875272974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1c017c129bf0d4ba5df3c5bd978ef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayCombo: {fileID: 0}
+--- !u!114 &652394862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8966836274875272974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27fbc1b0d8194fb489ca261ef5d70702, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  maxFrenzy: 50
+  minFrenzy: 0
 --- !u!1 &8966836275058985840
 GameObject:
   m_ObjectHideFlags: 0

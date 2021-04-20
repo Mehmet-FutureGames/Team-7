@@ -13,12 +13,10 @@ public class PlayerAttack : MonoBehaviour
 
     [HideInInspector] float meleeDuration;
 
-    Player playerStats;
+    [HideInInspector] public Player playerStats;
 
     void Start()
     {
-        playerStats = GetComponentInParent<Player>();
-
         Invoke("DamageReference", 0.1f);
     }
 
@@ -27,8 +25,6 @@ public class PlayerAttack : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.GetComponentInParent<Enemy>().TakeDamage(damage);
-
-            Debug.Log("I hit an enemy!");
         }
     }
 
@@ -40,5 +36,14 @@ public class PlayerAttack : MonoBehaviour
         dashDamage = playerStats.dashDamage;
         dashDuration = playerStats.dashAttackDuration;
         meleeDuration = playerStats.meleeAttackDuration;
+    }
+    private void OnEnable()
+    {
+        playerStats = GetComponentInParent<Player>();
+        playerStats.isAttacking = true;
+    }
+    private void OnDisable()
+    {
+        playerStats.isAttacking = false;
     }
 }

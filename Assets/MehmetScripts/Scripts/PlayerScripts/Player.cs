@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] PlayerStats stats;
+
+    [SerializeField] LayerMask enemyLayer;
  
     PlayerAttack playerAttackRange;
 
@@ -28,33 +30,39 @@ public class Player : MonoBehaviour
     public float dashAttackDuration;
     [HideInInspector]
     public float meleeAttackDuration;
+
+    public bool isAttacking = false;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(References());
+        StartCoroutine(References());        
     }
 
     public void AttackActivated()
     {
         //Shoots a ray and stores the information in the raycastHit variable.
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Vector3 originRay = ray.origin;
+        Vector3 directonRay = ray.direction;
         RaycastHit hit;
-        Physics.Raycast(ray, out hit);
-        float distance = (transform.position - hit.transform.position).magnitude;
-
-        if(distance < distanceToClick)
-        {
-            if (hit.transform.CompareTag("Enemy"))
-            {
-                StartCoroutine(AttackingActivated());
-            }
-        }
-
+        if(Physics.Raycast(originRay, directonRay, out hit, Mathf.Infinity, enemyLayer))
+        {            
+                float distance = (transform.position - hit.transform.position).magnitude;
+                if (distance < distanceToClick)
+                {
+                    {
+                        var enemyPos = hit.transform.position;
+                        transform.LookAt(new Vector3(enemyPos.x, 1, enemyPos.z));
+                        StartCoroutine(AttackingActivated());
+                    }
+                }            
         //Checks if the player is moving and the melee range attack isn't activate.
-        if(!playerAttackRange.isActiveAndEnabled)
+        }
+        else if (!playerAttackRange.isActiveAndEnabled)
         {
             StartCoroutine(DashAttack());
         }
+
     }
 
     IEnumerator AttackingActivated()
@@ -76,6 +84,7 @@ public class Player : MonoBehaviour
 
     IEnumerator References()
     {
+
         //References to all the things needed.
         playerName = stats.playerName;
         playerDamageText = stats.playerDamageText;
@@ -99,7 +108,7 @@ public class Player : MonoBehaviour
         playerAttackRange = GetComponentInChildren<PlayerAttack>();
 
         playerDashRange = GetComponentInChildren<PlayerDashAttack>();
-
+        //playerAttackRange.gameObject.transform.localScale *= distanceToClick;
         yield return new WaitForSeconds(1);
         playerAttackRange.gameObject.SetActive(false);
         playerDashRange.gameObject.SetActive(false);
