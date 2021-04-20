@@ -689,7 +689,7 @@ PrefabInstance:
     - target: {fileID: 1649089030391468689, guid: aa2e4855a1388ae418297309c10dfc94,
         type: 3}
       propertyPath: waveMaximum
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1649089030391468689, guid: aa2e4855a1388ae418297309c10dfc94,
         type: 3}
@@ -704,12 +704,17 @@ PrefabInstance:
     - target: {fileID: 1649089030391468689, guid: aa2e4855a1388ae418297309c10dfc94,
         type: 3}
       propertyPath: numberOfWavesForHardLevel
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1649089030391468689, guid: aa2e4855a1388ae418297309c10dfc94,
         type: 3}
       propertyPath: numberOfWavesForMediumLevel
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649089030391468689, guid: aa2e4855a1388ae418297309c10dfc94,
+        type: 3}
+      propertyPath: spawnPointPatternsEasy.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1649089030391468689, guid: aa2e4855a1388ae418297309c10dfc94,
         type: 3}
@@ -721,6 +726,18 @@ PrefabInstance:
       propertyPath: spawnPointPatternsMedium.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1649089030391468689, guid: aa2e4855a1388ae418297309c10dfc94,
+        type: 3}
+      propertyPath: spawnPointPatternsEasy.Array.data[0]
+      value: 
+      objectReference: {fileID: 119074322144275586, guid: b8b3e41f99dd5af40976d1bc0c51eb29,
+        type: 3}
+    - target: {fileID: 1649089030391468689, guid: aa2e4855a1388ae418297309c10dfc94,
+        type: 3}
+      propertyPath: spawnPointPatternsEasy.Array.data[1]
+      value: 
+      objectReference: {fileID: 119074322144275586, guid: 61513ee081151d946988c1652eaddcff,
+        type: 3}
     - target: {fileID: 1649089030391468689, guid: aa2e4855a1388ae418297309c10dfc94,
         type: 3}
       propertyPath: spawnPointPatternsHard.Array.data[0]
@@ -1078,6 +1095,36 @@ PrefabInstance:
     - target: {fileID: 7914652014459963313, guid: 8bbdca35cac70f143b906cf2b0652137,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7914652014459963318, guid: 8bbdca35cac70f143b906cf2b0652137,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7914652014459963319, guid: 8bbdca35cac70f143b906cf2b0652137,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7914652014496845979, guid: 8bbdca35cac70f143b906cf2b0652137,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.2083027
+      objectReference: {fileID: 0}
+    - target: {fileID: 7914652014496845979, guid: 8bbdca35cac70f143b906cf2b0652137,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.2083027
+      objectReference: {fileID: 0}
+    - target: {fileID: 7914652014496845979, guid: 8bbdca35cac70f143b906cf2b0652137,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5.28491
+      objectReference: {fileID: 0}
+    - target: {fileID: 7914652015172397948, guid: 8bbdca35cac70f143b906cf2b0652137,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
