@@ -29,7 +29,8 @@ public class UIManager : MonoBehaviour
     }
     public void RetryButton()
     {
-        SceneManager.LoadScene(0);
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.buildIndex);
     }
 
     private void SkipText()
