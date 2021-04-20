@@ -73,8 +73,6 @@ public class Enemy : MonoBehaviour
 
     WaveManager manager;
 
-    bool hasBeenKilled = false;
-
 
     #region Methods
     public void EnemyAttack()
@@ -108,14 +106,13 @@ public class Enemy : MonoBehaviour
     {
         if (health < 0)
         {
-                if (enemyDefeated != null)
-                {
-                    enemyDefeated();
-                }
-                manager.UnSubscribe(this);
-                enabled = false;
-                agentObj.GetComponent<Collider>().enabled = false;
-                Invoke("DisableGameObject", 1.5f);            
+            if (enemyDefeated != null)
+            {
+                enemyDefeated();
+            }
+            enabled = false;
+            agentObj.GetComponent<Collider>().enabled = false;
+            Invoke("DisableGameObject", 1.5f);
         }
     }
 
@@ -178,6 +175,7 @@ public class Enemy : MonoBehaviour
     private void EventUpdate()
     {
         distanceToPlayer = (agentObj.transform.position - player.position).magnitude;
+        
         movementSM.CurrentState.NoteEventUpdate();
 
 
@@ -199,13 +197,17 @@ public class Enemy : MonoBehaviour
         notePublisher = FindObjectOfType<NotePublisher>();
         movePlayer.playerRegMove += EventUpdate;
         notePublisher.noteNotHit += EventUpdate;
+        notePublisher.noteHitBlock += EventUpdate;
         
     }
 
     private void OnDisable()
-    {        
+    {
+        
         movePlayer.playerRegMove -= EventUpdate;
         notePublisher.noteNotHit -= EventUpdate;
+        notePublisher.noteHitBlock -= EventUpdate;
+        manager.UnSubscribe(this);
     }
 
     private void Update()

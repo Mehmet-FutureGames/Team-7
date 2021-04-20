@@ -9,13 +9,13 @@ public class PlayerFrenzy : MonoBehaviour
     [SerializeField] Text text;
     [SerializeField]int maxFrenzy;
     [SerializeField]int minFrenzy;
-    private int currentFrenzy;
+    [SerializeField]private int currentFrenzy;
 
     public int CurrentFrenzy
     {
         get { return currentFrenzy; }
         set 
-        { 
+        {
             currentFrenzy = value;
             text.text = "Frenzy: " + currentFrenzy.ToString();
         }
@@ -25,6 +25,7 @@ public class PlayerFrenzy : MonoBehaviour
     {
         enemyPublisher = FindObjectOfType<EnemyPublisher>();
         enemyPublisher.enemyTakeDamage += AddFrenzy;
+        currentFrenzy = 0;
     }
 
     void AddFrenzy()

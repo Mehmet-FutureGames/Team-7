@@ -10,6 +10,7 @@ TagManager:
   - SpawnPoints
   - PatternSpawner
   - Note
+  - SuperActivator
   layers:
   - Default
   - TransparentFX
