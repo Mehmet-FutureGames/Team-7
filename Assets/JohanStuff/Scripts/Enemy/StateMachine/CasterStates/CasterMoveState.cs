@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-public class MoveState : State
+public class CasterMoveState : State
 {
-    
-    public MoveState(Enemy enemy, StateMachine stateMachine) : base(enemy, stateMachine)
+
+    public CasterMoveState(Enemy enemy, StateMachine stateMachine) : base(enemy, stateMachine)
     {
     }
 
@@ -25,12 +25,12 @@ public class MoveState : State
     {
         base.NoteEventUpdate();
         if (enemy.distanceToPlayer <= enemy.attackRange)
-        {   
-            stateMachine.ChangeState(enemy.idleState);
+        {
+            stateMachine.ChangeState(enemy.combatPhase1);
             return;
         }
         Action();
-        
+
     }
 
     public override void Action()
@@ -65,14 +65,14 @@ public class MoveState : State
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                 case MovePattern.RandomDirection:
-                    
+
                     randomVector = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
                     agentToRandom = enemy.agentObj.transform.position + randomVector;
                     dir = (agentToRandom - enemy.agentObj.transform.position).normalized;
                     enemy.agent.SetDestination(enemy.agentObj.transform.position + dir * enemy.moveDistance);
-                    
+
                     enemy.agentObj.transform.rotation = Quaternion.LookRotation(dir);
-                    
+
                     if (enemy.moveCounter == enemy.notesToMove) { enemy.moveCounter = 0; }
                     break;
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -81,7 +81,7 @@ public class MoveState : State
                     dirToPlayer = (enemy.player.position - enemy.agentObj.transform.position).normalized;
                     if (enemy.moveCounter == enemy.notesToMove)
                     {
-                        
+
                         if (enemy.distanceToPlayer <= enemy.detectionRange)
                         {
                             enemy.agent.SetDestination(enemy.agentObj.transform.position + dirToPlayer * enemy.moveDistance);
@@ -95,12 +95,12 @@ public class MoveState : State
                             enemy.agent.SetDestination(enemy.agentObj.transform.position + dir * enemy.moveDistance);
                             enemy.agentObj.transform.rotation = Quaternion.LookRotation(dir);
                         }
-                        
+
                     }
                     if (enemy.moveCounter == enemy.notesToMove) { enemy.moveCounter = 0; }
                     break;
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                
+
 
                 default:
                     break;

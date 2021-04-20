@@ -55,6 +55,7 @@ MonoBehaviour:
   attackRange: 0
   health: 0
   movePattern: 0
+  enemyType: 0
   moveCounter: 0
   distanceToPlayer: 0
   player: {fileID: 0}

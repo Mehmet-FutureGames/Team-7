@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerFrenzy : MonoBehaviour
 {
     EnemyPublisher enemyPublisher;
-    int maxFrenzy;
-    int minFrenzy;
+    [SerializeField] Text text;
+    [SerializeField]int maxFrenzy;
+    [SerializeField]int minFrenzy;
     int currentFrenzy;
 
     private void Awake()
@@ -17,7 +19,9 @@ public class PlayerFrenzy : MonoBehaviour
 
     void AddFrenzy()
     {
-        currentFrenzy += 1;
+        currentFrenzy = Mathf.Clamp(currentFrenzy + 1, minFrenzy, maxFrenzy);
+        
+        text.text = "Frenzy: " + currentFrenzy.ToString();
     }
 
 

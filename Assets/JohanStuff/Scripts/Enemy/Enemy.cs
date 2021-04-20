@@ -6,12 +6,18 @@ public class Enemy : MonoBehaviour
     EnemyPublisher enemyPublisher;
     public Action enemyDefeated;
 
+
+    #region States
     public StateMachine movementSM;
-    public MoveState moveState;
-    public AttackState attackState;
-    public ChargeAttackState chargeAttackState;
-    public IdleState idleState;
-    public SecondChargeAttackState secondChargeAttackState;
+
+    public State moveState;
+    public State combatPhase1;
+    public State combatPhase2;
+    public State combatPhase3;
+    public State combatPhase4;
+    public State combatPhase5;
+    public State combatPhase6;
+    #endregion
 
     public bool playerIsInAttackArea;
     [HideInInspector]
@@ -47,6 +53,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] float health;
     [HideInInspector]
     public MovePattern movePattern;
+    [HideInInspector]
+    public EnemyType enemyType;
     [HideInInspector]
     public int moveCounter = 0;
     int attackCounter = 0;
@@ -112,7 +120,7 @@ public class Enemy : MonoBehaviour
     {
         InstantiateCoin();
         gameObject.SetActive(false);
-        Destroy(gameObject,1);
+        Destroy(gameObject, 1f);
     }
 
     private void SetStats()
@@ -137,12 +145,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         movementSM = new StateMachine();
-
-        moveState = new MoveState(this, movementSM);
-        chargeAttackState = new ChargeAttackState(this, movementSM);
-        attackState = new AttackState(this, movementSM);
-        idleState = new IdleState(this, movementSM);
-        secondChargeAttackState = new SecondChargeAttackState(this, movementSM);
+        InitializeEnemyType.Instance.Initialize(this, movementSM);
         SetStats();
 
 
@@ -160,10 +163,14 @@ public class Enemy : MonoBehaviour
 
         player = FindObjectOfType<MovePlayer>().transform;
 
-        movementSM.Initialize(moveState);
+        Debug.Log("Fear not " + enemyName + " is here");
+        InitializeState(moveState);
     }
 
-
+    void InitializeState(State state)
+    {
+        movementSM.Initialize(state);
+    }
 
     private void EventUpdate()
     {
@@ -185,6 +192,7 @@ public class Enemy : MonoBehaviour
         enemyPublisher = FindObjectOfType<EnemyPublisher>();
         movePlayer = FindObjectOfType<MovePlayer>();
         movePattern = stats.movePattern;
+        enemyType = stats.enemyType;
         notePublisher = FindObjectOfType<NotePublisher>();
         movePlayer.playerRegMove += EventUpdate;
         notePublisher.noteNotHit += EventUpdate;

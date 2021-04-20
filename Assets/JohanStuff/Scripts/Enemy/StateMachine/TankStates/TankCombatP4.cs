@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class IdleState : State
+public class TankCombatP4 : State
 {
-    public IdleState(Enemy enemy, StateMachine stateMachine) : base(enemy, stateMachine)
+    public TankCombatP4(Enemy enemy, StateMachine stateMachine) : base(enemy, stateMachine)
     {
     }
 
@@ -20,11 +20,13 @@ public class IdleState : State
     public override void NoteEventUpdate()
     {
         base.NoteEventUpdate();
-        if(enemy.distanceToPlayer <= enemy.attackRange)
+        if (enemy.distanceToPlayer <= enemy.attackRange)
         {
-            stateMachine.ChangeState(enemy.chargeAttackState);
+            stateMachine.ChangeState(enemy.combatPhase5);
             return;
         }
         stateMachine.ChangeState(enemy.moveState);
     }
 }
+
+

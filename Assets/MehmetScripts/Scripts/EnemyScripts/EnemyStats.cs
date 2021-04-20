@@ -9,12 +9,19 @@ public enum MovePattern
     RandomDirection,
     ProximityDetection
 }
+public enum EnemyType
+{
+    Base,
+    Caster,
+    Tanky
+}
 [CreateAssetMenu(fileName = "New EnemyStats", menuName = "ScriptableObjects/EnemyStats", order = 1)]
 public class EnemyStats : ScriptableObject
 {
     public string enemyName;
     [Space]
     public MovePattern movePattern;
+    public EnemyType enemyType;
     public GameObject enemyModel;
     public GameObject floatingText;
     [Space]
