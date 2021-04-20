@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,12 +8,20 @@ public class WaveManager : MonoBehaviour
 
     bool hasSpawnedPattern = false;
 
+    int randomPattern;
+
     Transform enemyContainer;
 
     [SerializeField] List<GameObject> enemyVariants;
+    [Space]
 
     [SerializeField] List<Transform> spawnPointPatterns;
+    [Space]
 
+    [SerializeField] List<Transform> spawnPointPatternsMedium;
+    [Space]
+
+    [SerializeField] List<Transform> spawnPointPatternsHard;
     [Space]
 
     [SerializeField] TypeOfEnemy[] spawnPoints;
@@ -22,13 +29,19 @@ public class WaveManager : MonoBehaviour
     [SerializeField] int amountofEnemiesWanted;
     [Space]
     [SerializeField] int floorLevel = 0;
-    int waveLevel = 0;
     [Space]
-    [SerializeField] int numberOfWaves = 0;
+    [SerializeField]int waveLevel = 0;
+    [Space]
+    [SerializeField] int numberOfWavesForEasyLevel = 0;
+    [Space]
+    [SerializeField] int numberOfWavesForMediumLevel = 0;
+    [Space]
+    [SerializeField] int numberOfWavesForHardLevel = 0;
     [Space]
     [SerializeField] int waveMaximum = 0;
     [Space]
     [SerializeField] int amountOfEnemies = 0;
+    #region StartFunction
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +54,7 @@ public class WaveManager : MonoBehaviour
         waveLevel++;
 
     }
+    #endregion
     #region BeginWaveSpawnEnemies
     private void BeginWave()
     {
@@ -56,14 +70,33 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnPointPattern()
     {
-        int randomPattern = UnityEngine.Random.Range(0, spawnPointPatterns.Count);
-        Debug.Log(randomPattern);
         if (!hasSpawnedPattern)
         {
-            Instantiate(spawnPointPatterns[randomPattern], transform.position, Quaternion.identity, transform);
-            FindSpawnPoints();
-            Debug.Log("Spawned new pattern");
-        }            
+            if (waveLevel < numberOfWavesForEasyLevel)
+            {
+                randomPattern = Random.Range(0, spawnPointPatterns.Count);
+                Instantiate(spawnPointPatterns[randomPattern], transform.position, Quaternion.identity, transform);
+                FindSpawnPoints();
+                Debug.Log("Spawned new pattern");
+                Debug.Log("Now spawning: Easy Enemies");
+            }
+            else if (waveLevel < numberOfWavesForMediumLevel)
+            {
+                randomPattern = Random.Range(0, spawnPointPatternsMedium.Count);
+                Instantiate(spawnPointPatternsMedium[randomPattern], transform.position, Quaternion.identity, transform);
+                FindSpawnPoints();
+                Debug.Log("Spawned new pattern");
+                Debug.Log("Now spawning: Medium Enemies");
+            }
+            else if (waveLevel < numberOfWavesForHardLevel)
+            {
+                randomPattern = Random.Range(0, spawnPointPatternsHard.Count);
+                Instantiate(spawnPointPatternsHard[randomPattern], transform.position, Quaternion.identity, transform);
+                FindSpawnPoints();
+                Debug.Log("Spawned new pattern");
+                Debug.Log("Now spawning: Hard Enemies");
+            }
+        }
             amountofEnemiesWanted = spawnPoints.Length;
             BeginWave();
         hasSpawnedPattern = true;
@@ -71,12 +104,11 @@ public class WaveManager : MonoBehaviour
 
     public int ProgressWave()
     {
-        waveMaximum = waveLevel - 1;
         return waveLevel++;
     }
     private void FinishFloor()
     {
-        if(waveLevel >= numberOfWaves)
+        if(waveLevel >= waveMaximum)
         {
             //Add behaviour for what happens when you finish a level.
             floorLevel++;
@@ -86,7 +118,8 @@ public class WaveManager : MonoBehaviour
     private void DestroySpawnPattern()
     {
         var spawnPattern = GameObject.FindGameObjectWithTag("PatternSpawner");
-        Destroy(spawnPattern);
+        spawnPattern.SetActive(false);
+        Destroy(spawnPattern, 0.1f);
     }
 
     public void FindSpawnPoints()

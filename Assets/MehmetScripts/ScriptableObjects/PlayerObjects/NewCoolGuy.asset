@@ -22,4 +22,4 @@ MonoBehaviour:
   dashDamage: 20
   meleeAttackDuration: 0.8
   dashAttackDuration: 0.8
-  distanceToClick: 20
+  distanceToClick: 4
