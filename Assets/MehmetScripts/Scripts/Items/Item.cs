@@ -40,17 +40,17 @@ public class Item : MonoBehaviour
         if (itemType == ItemType.HealthUpgrade) 
         {
             player.GetComponent<PlayerHealth>().UpgradeHealth(upgradeAmount);
-            //gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
         else if(itemType == ItemType.AttackUpgrade)
         {
             player.GetComponent<Player>().UpgradeDamageMelee(upgradeAmount);
-            //gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
-        else if (itemType == ItemType.AttackUpgrade)
+        else if (itemType == ItemType.DashAttackUpgrade)
         {
             player.GetComponent<Player>().UpgradeDamageDash(upgradeAmount);
-            //gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 }
