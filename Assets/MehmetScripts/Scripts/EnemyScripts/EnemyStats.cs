@@ -9,13 +9,27 @@ public enum MovePattern
     RandomDirection,
     ProximityDetection
 }
+public enum EnemyType
+{
+    Base,
+    Caster,
+    Tanky
+}
 [CreateAssetMenu(fileName = "New EnemyStats", menuName = "ScriptableObjects/EnemyStats", order = 1)]
 public class EnemyStats : ScriptableObject
 {
-    public MovePattern movePattern;
-    public GameObject enemyModel;
     public string enemyName;
     [Space]
+    public MovePattern movePattern;
+    public EnemyType enemyType;
+    public GameObject enemyModel;
+    public GameObject floatingText;
+    [Space]
+    public GameObject attackAreaShape;
+    public Vector3 attackAreaScale;
+
+    [Space]
+    public bool isRanged;
     public float movementSpeed;
     public float moveDistance;
     public float detectionRange;
@@ -23,12 +37,13 @@ public class EnemyStats : ScriptableObject
     public int notesToMove;
     [Space]
     public float attackDamage;
+    public float attackRange;
     public float health;
 
 }
 
 
-[CustomEditor(typeof(EnemyStats))]
+/*[CustomEditor(typeof(EnemyStats))]
 public class TestCustomInspector : Editor
 {
 
@@ -41,12 +56,14 @@ public class TestCustomInspector : Editor
         if (script.movePattern == MovePattern.TowardsPlayer)
         {
             script.enemyModel = (GameObject)EditorGUILayout.ObjectField("Enemy Model", script.enemyModel, typeof(GameObject), true);
+            script.area = (GameObject)EditorGUILayout.ObjectField("area", script.area, typeof(GameObject), true);
             script.enemyName = EditorGUILayout.TextField("Enemy Name", script.enemyName);
             script.movementSpeed = EditorGUILayout.FloatField("Movement Speed", script.movementSpeed);
             script.moveDistance = EditorGUILayout.FloatField("Move Distance", script.moveDistance);
             script.notesToMove = EditorGUILayout.IntField("Notes to move", script.notesToMove);
             script.attackDamage = EditorGUILayout.FloatField("Attack Damage", script.attackDamage);
             script.health = EditorGUILayout.FloatField("Health", script.health);
+            script.attackRange = EditorGUILayout.FloatField("Attack Range", script.attackRange);
         }
         if (script.movePattern == MovePattern.RandomDirection)
         {
@@ -57,6 +74,7 @@ public class TestCustomInspector : Editor
             script.notesToMove = EditorGUILayout.IntField("Notes to move", script.notesToMove);
             script.attackDamage = EditorGUILayout.FloatField("Attack Damage", script.attackDamage);
             script.health = EditorGUILayout.FloatField("Health", script.health);
+            script.attackRange = EditorGUILayout.FloatField("Attack Range", script.attackRange);
         }
         if (script.movePattern == MovePattern.ProximityDetection)
         {
@@ -67,8 +85,10 @@ public class TestCustomInspector : Editor
             script.notesToMove = EditorGUILayout.IntField("Notes to move", script.notesToMove);
             script.attackDamage = EditorGUILayout.FloatField("Attack Damage", script.attackDamage);
             script.health = EditorGUILayout.FloatField("Health", script.health);
+            script.attackRange = EditorGUILayout.FloatField("Attack Range", script.attackRange);
             script.detectionRange = EditorGUILayout.FloatField("Detection Range", script.detectionRange);
         }
     }
 }
+*/
 

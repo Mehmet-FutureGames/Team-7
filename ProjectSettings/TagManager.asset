@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Activator
   - Obstacle
+  - Enemy
+  - SpawnPoints
+  - PatternSpawner
+  - Note
   layers:
   - Default
   - TransparentFX
@@ -16,7 +20,7 @@ TagManager:
   - Overlay
   - Ground
   - Obstacle
-  - 
+  - Enemy
   - 
   - 
   - 
