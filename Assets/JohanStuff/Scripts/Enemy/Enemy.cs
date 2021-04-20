@@ -120,6 +120,7 @@ public class Enemy : MonoBehaviour
     {
         InstantiateCoin();
         gameObject.SetActive(false);
+        Destroy(gameObject, 1f);
     }
 
     private void SetStats()
