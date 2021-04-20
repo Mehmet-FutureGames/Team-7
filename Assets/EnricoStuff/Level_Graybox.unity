@@ -471,26 +471,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyVariants:
   - {fileID: 4839025464020082310, guid: d1ec307304b8b8d4ea9ccabacf527855, type: 3}
-  - {fileID: 2537703995810168917, guid: 812de75b6a4a6704488036bd747ce95f, type: 3}
+  - {fileID: 207381485540389465, guid: 6e2f5b5d7b9d52c4089051c65677c867, type: 3}
   - {fileID: 8744423220382229699, guid: ac3568e37f30e9949b32b772b3a82984, type: 3}
-  spawnPointPatterns:
-  - {fileID: 8937352819964575240, guid: 297395403f218704cb77ed03f7021cb9, type: 3}
-  - {fileID: 119074322144275586, guid: 61513ee081151d946988c1652eaddcff, type: 3}
+  spawnPointPatternsEasy:
+  - {fileID: 4117254152123635958, guid: 4bdc00db512fb5b4d99192023ea10e6e, type: 3}
+  - {fileID: 4552019393022861366, guid: c6d350fd46bdb7242ae8a7819f5af4c6, type: 3}
+  - {fileID: 4117145708883176778, guid: 17da9ca68601cf54fac2851538da27f3, type: 3}
   spawnPointPatternsMedium:
-  - {fileID: 8937352819964575240, guid: 297395403f218704cb77ed03f7021cb9, type: 3}
   - {fileID: 1480928172835067155, guid: c236bd84dd925e84583b5ea11653d582, type: 3}
+  - {fileID: 8937352819964575240, guid: 297395403f218704cb77ed03f7021cb9, type: 3}
   spawnPointPatternsHard:
   - {fileID: 8937352819964575240, guid: 297395403f218704cb77ed03f7021cb9, type: 3}
   - {fileID: 1480928172835067155, guid: c236bd84dd925e84583b5ea11653d582, type: 3}
-  spawnPoints: []
-  amountofEnemiesWanted: 10
   floorLevel: 0
   waveLevel: 0
-  numberOfWavesForEasyLevel: 1
-  numberOfWavesForMediumLevel: 1
-  numberOfWavesForHardLevel: 1
-  waveMaximum: 3
-  amountOfEnemies: 0
+  numberOfWavesForEasyLevel: 2
+  numberOfWavesForMediumLevel: 5
+  numberOfWavesForHardLevel: 0
+  waveMaximum: 4
 --- !u!4 &895567340
 Transform:
   m_ObjectHideFlags: 0
