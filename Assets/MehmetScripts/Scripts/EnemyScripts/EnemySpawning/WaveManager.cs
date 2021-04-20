@@ -58,8 +58,11 @@ public class WaveManager : MonoBehaviour
         //Goes through all of the spawn points
         for (int i = 0; i < spawnPoints.Length; i++)
         {
-            Instantiate(enemyVariants[spawnPoints[i].ReturnEnemyType()], spawnPoints[i].GetComponent<Transform>().position, Quaternion.identity, enemyContainer);
-            amountOfEnemies++;
+            if (waveLevel < waveMaximum)
+            {
+                Instantiate(enemyVariants[spawnPoints[i].ReturnEnemyType()], spawnPoints[i].GetComponent<Transform>().position, Quaternion.identity, enemyContainer);
+                amountOfEnemies++;
+            }
         }    
     }
     #endregion
@@ -95,8 +98,9 @@ public class WaveManager : MonoBehaviour
             }
         }
             amountofEnemiesWanted = spawnPoints.Length;
-        Invoke("BeginWave", 2f);
-        hasSpawnedPattern = true;
+            Invoke("BeginWave", 2f);
+            hasSpawnedPattern = true;
+        
     }
     #endregion
 
@@ -127,14 +131,14 @@ public class WaveManager : MonoBehaviour
     public void EnemyDefeated()
     {
         amountOfEnemies--;
-        if (amountOfEnemies < 3 && waveLevel != waveMaximum)
+        if (amountOfEnemies < 3 && waveLevel < waveMaximum)
         {
             DestroySpawnPattern();
             hasSpawnedPattern = false;
             SpawnPointPattern();
             ProgressWave();
         }
-        else if(amountOfEnemies <= 0 && waveLevel >= waveMaximum)
+        else if (amountOfEnemies <= 0 && waveLevel >= waveMaximum)
         {
             FinishFloor();
         }
