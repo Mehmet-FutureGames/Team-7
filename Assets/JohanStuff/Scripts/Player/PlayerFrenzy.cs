@@ -7,14 +7,10 @@ public class PlayerFrenzy : MonoBehaviour
 {
     EnemyPublisher enemyPublisher;
     [SerializeField] Text text;
-    [SerializeField] int maxFrenzy;
+    public int maxFrenzy;
     [SerializeField] int minFrenzy;
     [SerializeField] private int currentFrenzy;
-    private void Update()
-    {
-
-    }
-
+    
     public int CurrentFrenzy
     {
         get { return currentFrenzy; }
@@ -24,6 +20,7 @@ public class PlayerFrenzy : MonoBehaviour
             text.text = "Frenzy: " + currentFrenzy.ToString();
         }
     }
+    
 
     private void Awake()
     {
