@@ -10,6 +10,10 @@ public class PlayerFrenzy : MonoBehaviour
     [SerializeField] int maxFrenzy;
     [SerializeField] int minFrenzy;
     [SerializeField] private int currentFrenzy;
+    private void Update()
+    {
+
+    }
 
     public int CurrentFrenzy
     {
