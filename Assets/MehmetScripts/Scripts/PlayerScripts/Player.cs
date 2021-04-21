@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    
     [SerializeField] PlayerStats stats;
 
     [SerializeField] LayerMask enemyLayer;
- 
+
+    #region VariableSetInScriptableObject
     PlayerAttack playerAttackRange;
 
     PlayerDashAttack playerDashRange;
@@ -30,8 +32,12 @@ public class Player : MonoBehaviour
     public float dashAttackDuration;
     [HideInInspector]
     public float meleeAttackDuration;
+    [HideInInspector]
+    float dashAttackCooldown;
+    #endregion
 
     public bool isAttacking = false;
+    bool canDashAttack = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,14 +66,23 @@ public class Player : MonoBehaviour
                 }            
         //Checks if the player is moving and the melee range attack isn't activate.
         }
-        else if (!playerAttackRange.isActiveAndEnabled)
+        else if (!playerAttackRange.isActiveAndEnabled && canDashAttack)
         {
             StartCoroutine(DashAttack());
+            StartCoroutine(StartCooldown());
         }
 
     }
     #endregion
 
+    IEnumerator StartCooldown()
+    {
+        canDashAttack = false;
+        yield return new WaitForSeconds(dashAttackCooldown);
+        canDashAttack = true;
+    }
+
+    #region Attacks
     IEnumerator AttackingActivated()
     {
         playerAttackRange.gameObject.SetActive(true);
@@ -84,7 +99,8 @@ public class Player : MonoBehaviour
         playerDashRange.gameObject.SetActive(false);
         GetComponent<MeshRenderer>().material.color = Color.green;
     }
-
+    #endregion
+    #region References
     IEnumerator References()
     {
         //Instantiate(stats.playerModel, transform);
@@ -100,6 +116,8 @@ public class Player : MonoBehaviour
 
         dashAttackDuration = stats.dashAttackDuration;
         meleeAttackDuration = stats.meleeAttackDuration;
+
+        dashAttackCooldown = stats.dashAttackCooldown;
 
         distanceToClick = stats.distanceToClick;
 
@@ -117,6 +135,8 @@ public class Player : MonoBehaviour
         playerAttackRange.gameObject.SetActive(false);
         playerDashRange.gameObject.SetActive(false);
     }
+    #endregion
+    #region UpgradeStats
     IEnumerator UpgradeDamageMeleeActivator(float damage)
     {
         playerAttackRange.gameObject.SetActive(true);
@@ -141,4 +161,5 @@ public class Player : MonoBehaviour
     {
         StartCoroutine(UpgradeDamageDashActivator(damage));
     }
+    #endregion
 }

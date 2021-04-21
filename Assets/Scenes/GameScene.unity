@@ -1120,6 +1120,14 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 901536279}
+    - target: {fileID: 1649082607, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}
+      propertyPath: maxFrenzy
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649082607, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}
+      propertyPath: minFrenzy
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7914652014459963307, guid: 8bbdca35cac70f143b906cf2b0652137,
         type: 3}
       propertyPath: m_Name

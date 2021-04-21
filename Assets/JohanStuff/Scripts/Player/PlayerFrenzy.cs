@@ -7,9 +7,9 @@ public class PlayerFrenzy : MonoBehaviour
 {
     EnemyPublisher enemyPublisher;
     [SerializeField] Text text;
-    [SerializeField]int maxFrenzy;
-    [SerializeField]int minFrenzy;
-    [SerializeField]private int currentFrenzy;
+    [SerializeField] int maxFrenzy;
+    [SerializeField] int minFrenzy;
+    [SerializeField] private int currentFrenzy;
 
     public int CurrentFrenzy
     {

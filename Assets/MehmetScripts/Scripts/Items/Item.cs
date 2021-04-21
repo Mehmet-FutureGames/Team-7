@@ -13,7 +13,8 @@ public class Item : MonoBehaviour
 
     private void Awake()
     {
-        if(itemStats.itemModel != null)
+        #region spawnItemModel
+        if (itemStats.itemModel != null)
         {
             Instantiate(itemStats.itemModel,transform.position,Quaternion.identity,transform);
         }
@@ -21,6 +22,7 @@ public class Item : MonoBehaviour
         {
             Debug.LogError("Item model is missing! Add it in the scriptable object: " + itemStats.name);
         }
+        #endregion
         itemName = itemStats.nameItem;
         upgradeAmount = itemStats.upgradeAmount;
         itemType = itemStats.itemType;
@@ -34,7 +36,6 @@ public class Item : MonoBehaviour
             UpgradeStats(other);
         }
     }
-
     private void UpgradeStats(Collider player)
     {
         if (itemType == ItemType.HealthUpgrade) 
@@ -51,6 +52,10 @@ public class Item : MonoBehaviour
         {
             player.GetComponent<Player>().UpgradeDamageDash(upgradeAmount);
             gameObject.SetActive(false);
+        }
+        else if(itemType == ItemType.FrenzyUpgrade)
+        {
+
         }
     }
 }
