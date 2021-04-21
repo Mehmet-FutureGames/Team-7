@@ -26,11 +26,13 @@ public class MovePlayer : MonoBehaviour
     public RaycastHit hit;
     public Ray ray;
     Vector3 newPosition;
+    Vector3 lookDir;
     Vector3 mousePos;
     Vector3 raycastDir;
     float raycastDistance;
     bool hitWall;
     [SerializeField] LayerMask layer;
+    [SerializeField] LayerMask enemyLayer;
 
     Player player;
 
@@ -106,53 +108,44 @@ public class MovePlayer : MonoBehaviour
                 hitWall = false;
                 newPosition = this.hit.point;
                 mousePos = newPosition + new Vector3(0, 1, 0);
+                lookDir = newPosition + new Vector3(0, 1, 0);
                 raycastDir = (mousePos - transform.position).normalized;
                 raycastDistance = (mousePos - transform.position).magnitude;
             }
         }
-
-            /////////////////////////////////////////////////////////////////////////////
-            //Move the player to normal point position.
-            //RaycastHit hit;
-            if (Physics.Raycast(transform.position, raycastDir, out hit, raycastDistance, layer))
-            {
-                hitWall = true;
-                Vector3 point = new Vector3(hit.point.x, 1, hit.point.z);
-                Vector3 pointToNormalPos = new Vector3(hit.normal.x, 0, hit.normal.z) + point;
-                mousePos = pointToNormalPos;
-            }
-            //////////////////////////////////////////////////////////////////////////////
-            StartCoroutine(Move());
-
-            if (playerRegMove != null)
-            {
-                playerRegMove();
-            }
-            collided = false;
-        
-            TurnPlayerTowardsDir();
+        /////////////////////////////////////////////////////////////////////////////
+        //Move the player to normal point position.
+        //RaycastHit hit;
+        if (Physics.Raycast(transform.position, raycastDir, out hit, raycastDistance, layer))
+        {
+            hitWall = true;
+            Vector3 point = new Vector3(hit.point.x, 1, hit.point.z);
+            Vector3 pointToNormalPos = new Vector3(hit.normal.x, 0, hit.normal.z) + point;
+            mousePos = pointToNormalPos;
+        }
+        if(!hitWall && TargetEnemy.hasTarget)
+        {
+            mousePos = TargetEnemy.stopPos;
+        }
+        //////////////////////////////////////////////////////////////////////////////
+        SendPlayerRegMove();
+        StartCoroutine(Move());
+        collided = false;
+        TurnPlayerTowardsDir();
         
     }
-    private void OnCollisionEnter(Collision other)
+    void SendPlayerRegMove()
     {
-        Debug.Log("Collision");
-    }
-
-
-    private void OnCollisionStay(Collision other)
-    {
-
+        if (playerRegMove != null)
+        {
+            playerRegMove();
+        }
     }
     void TurnPlayerTowardsDir()
     {
-        if (hitWall)
-        {
-            transform.LookAt(mousePos);
-        }
-        else
-        {
-            transform.LookAt(mousePos);
-        }
+
+            transform.LookAt(new Vector3(lookDir.x,transform.position.y,lookDir.z));
+
     }
     IEnumerator Move()
     {

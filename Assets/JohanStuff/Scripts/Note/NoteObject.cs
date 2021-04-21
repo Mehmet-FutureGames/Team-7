@@ -7,6 +7,7 @@ public class NoteObject : MonoBehaviour
 {
     private NotePublisher publisher;
     public bool canBePressed;
+    public bool perfectHit;
     public bool deActivated;
 
     NoteManager noteManager;
@@ -40,6 +41,13 @@ public class NoteObject : MonoBehaviour
                 canBePressed = false;
                 NoteMiss.Instance.TriggerCountZero();
             }
+            else if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                publisher.NoteHitBlock();
+                gameObject.SetActive(false);
+                canBePressed = false;
+                NoteMiss.Instance.TriggerCountZero();
+            }
         }
     }
     private void FixedUpdate()
@@ -51,10 +59,13 @@ public class NoteObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
         if (other.CompareTag("Activator"))
         {
             canBePressed = true;
+        }
+        if (other.CompareTag("SuperActivator")) 
+        {
+            perfectHit = true;
         }
     }
 
@@ -66,6 +77,10 @@ public class NoteObject : MonoBehaviour
             publisher.NoteNotHit();
             canBePressed = false;
             gameObject.SetActive(false);
+        }
+        if (other.CompareTag("SuperActivator"))
+        {
+            perfectHit = false;
         }
     }
     

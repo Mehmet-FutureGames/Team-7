@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    
     [SerializeField] PlayerStats stats;
 
     [SerializeField] LayerMask enemyLayer;
- 
+
+    #region VariableSetInScriptableObject
     PlayerAttack playerAttackRange;
 
     PlayerDashAttack playerDashRange;
+
+    PlayerFrenzy playerFrenzy;
 
     NotePublisher notePublisher;
 
@@ -30,12 +34,19 @@ public class Player : MonoBehaviour
     public float dashAttackDuration;
     [HideInInspector]
     public float meleeAttackDuration;
+    [HideInInspector]
+    float dashAttackCooldown;
+    [HideInInspector]
+    int dashAttackFrenzyCost;
+
+    [SerializeField] bool doesntReachTarget = false;
+    #endregion
 
     public bool isAttacking = false;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(References());        
+        StartCoroutine(References());
     }
     #region Attacks
     public void AttackActivated()
@@ -45,27 +56,34 @@ public class Player : MonoBehaviour
         Vector3 originRay = ray.origin;
         Vector3 directonRay = ray.direction;
         RaycastHit hit;
+
+        
         if(Physics.Raycast(originRay, directonRay, out hit, Mathf.Infinity, enemyLayer))
-        {            
-                float distance = (transform.position - hit.transform.position).magnitude;
+        {       
+        float distance = (transform.position - hit.transform.position).magnitude;
                 if (distance < distanceToClick)
                 {
                     {
-                        var enemyPos = hit.transform.position;
+                        var enemyPos = hit.collider.gameObject.transform.position;
                         transform.LookAt(new Vector3(enemyPos.x, 1, enemyPos.z));
+                        doesntReachTarget = false;
                         StartCoroutine(AttackingActivated());
                     }
-                }            
+                }
+                else
+                {
+                doesntReachTarget = true;
+                }
         //Checks if the player is moving and the melee range attack isn't activate.
         }
-        else if (!playerAttackRange.isActiveAndEnabled)
+        if (!playerAttackRange.isActiveAndEnabled && playerFrenzy.CurrentFrenzy >= dashAttackFrenzyCost && doesntReachTarget)
         {
-            StartCoroutine(DashAttack());
+            StartCoroutine(DashAttack());                            
         }
-
     }
     #endregion
 
+    #region Attacks
     IEnumerator AttackingActivated()
     {
         playerAttackRange.gameObject.SetActive(true);
@@ -78,13 +96,16 @@ public class Player : MonoBehaviour
     {
         playerDashRange.gameObject.SetActive(true);
         GetComponent<MeshRenderer>().material.color = Color.black;
+        playerFrenzy.CurrentFrenzy -= dashAttackFrenzyCost;
         yield return new WaitForSeconds(dashAttackDuration);
         playerDashRange.gameObject.SetActive(false);
         GetComponent<MeshRenderer>().material.color = Color.green;
     }
-
+    #endregion
+    #region References
     IEnumerator References()
     {
+        //Instantiate(stats.playerModel, transform);
 
         //References to all the things needed.
         playerName = stats.playerName;
@@ -106,6 +127,10 @@ public class Player : MonoBehaviour
         //Subscribe to noteHit.
         notePublisher.noteHit += AttackActivated;
 
+        playerFrenzy = GetComponent<PlayerFrenzy>();
+
+        dashAttackFrenzyCost = stats.dashAttackFrenzyCost;
+
         playerAttackRange = GetComponentInChildren<PlayerAttack>();
 
         playerDashRange = GetComponentInChildren<PlayerDashAttack>();
@@ -114,4 +139,31 @@ public class Player : MonoBehaviour
         playerAttackRange.gameObject.SetActive(false);
         playerDashRange.gameObject.SetActive(false);
     }
+    #endregion
+    #region UpgradeStats
+    IEnumerator UpgradeDamageMeleeActivator(float damage)
+    {
+        playerAttackRange.gameObject.SetActive(true);
+        playerAttackRange.damage += damage;
+        yield return new WaitForSeconds(0.01f);
+        playerAttackRange.gameObject.SetActive(false);
+    }
+    
+    IEnumerator UpgradeDamageDashActivator(float damage)
+    {
+        playerDashRange.gameObject.SetActive(true);
+        playerDashRange.dashDamage += damage;
+        yield return new WaitForSeconds(0.01f);
+        playerDashRange.gameObject.SetActive(false);
+    }
+
+    public void UpgradeDamageMelee(float damage)
+    {
+        StartCoroutine(UpgradeDamageMeleeActivator(damage));
+    }
+    public void UpgradeDamageDash(float damage)
+    {
+        StartCoroutine(UpgradeDamageDashActivator(damage));
+    }
+    #endregion
 }

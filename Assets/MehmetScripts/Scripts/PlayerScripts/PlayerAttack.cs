@@ -5,9 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(CapsuleCollider))]
 public class PlayerAttack : MonoBehaviour
 {
-    float damage;
-
-    [HideInInspector] public float dashDamage;
+    public float damage;
 
     [HideInInspector] float dashDuration;
 
@@ -33,7 +31,6 @@ public class PlayerAttack : MonoBehaviour
         //Unity doesn't like to reference stuff at the same time as setting other variables
         //this helps it calm down and actually do the job.
         damage = playerStats.damage;
-        dashDamage = playerStats.dashDamage;
         dashDuration = playerStats.dashAttackDuration;
         meleeDuration = playerStats.meleeAttackDuration;
     }

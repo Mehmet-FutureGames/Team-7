@@ -92,9 +92,9 @@ GameObject:
   - component: {fileID: 2217413876439280864}
   - component: {fileID: 3251180322099192573}
   - component: {fileID: 3977417932620202723}
-  - component: {fileID: 884174185538051395}
   - component: {fileID: 3609276070442173174}
   - component: {fileID: 714521377272584951}
+  - component: {fileID: 5720821663650395500}
   m_Layer: 9
   m_Name: Capsule
   m_TagString: Enemy
@@ -166,20 +166,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &884174185538051395
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7280686633801961007}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &3609276070442173174
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -218,3 +204,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &5720821663650395500
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280686633801961007}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.321315, y: 2, z: 1.8108581}
+  m_Center: {x: -0.03555338, y: 0, z: 0.05820833}

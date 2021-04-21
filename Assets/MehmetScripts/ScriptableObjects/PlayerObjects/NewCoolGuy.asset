@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a0a8eb1dde53c84fa29e79686573e89, type: 3}
   m_Name: NewCoolGuy
   m_EditorClassIdentifier: 
-  playerModel: {fileID: 0}
+  playerModel: {fileID: 1534689193196670, guid: 2b8c202f3d8aab24f80a30b09b342ec4,
+    type: 3}
   playerDamageText: {fileID: 3411471724750393966, guid: 06a5d40551cdc894daaf72510bb45db9,
     type: 3}
   playerName: New Cool Guy!
@@ -22,4 +23,5 @@ MonoBehaviour:
   dashDamage: 10
   meleeAttackDuration: 0.8
   dashAttackDuration: 0.8
-  distanceToClick: 4
+  dashAttackFrenzyCost: 5
+  distanceToClick: 6
