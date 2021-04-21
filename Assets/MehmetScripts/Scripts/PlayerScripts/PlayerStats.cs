@@ -16,6 +16,7 @@ using UnityEditor;
         public float dashDamage;
         public float meleeAttackDuration;
         public float dashAttackDuration;
+        public float dashAttackCooldown;
         [Space]
         public int distanceToClick;
     }

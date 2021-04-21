@@ -110,8 +110,8 @@ public class Enemy : MonoBehaviour
             {
                 enemyDefeated();
             }
-            agentObj.GetComponent<Collider>().enabled = false;
             enabled = false;
+            agentObj.GetComponent<Collider>().enabled = false;
             Invoke("DisableGameObject", 1.5f);
         }
     }
@@ -175,6 +175,7 @@ public class Enemy : MonoBehaviour
     private void EventUpdate()
     {
         distanceToPlayer = (agentObj.transform.position - player.position).magnitude;
+        
         movementSM.CurrentState.NoteEventUpdate();
 
 
@@ -196,6 +197,7 @@ public class Enemy : MonoBehaviour
         notePublisher = FindObjectOfType<NotePublisher>();
         movePlayer.playerRegMove += EventUpdate;
         notePublisher.noteNotHit += EventUpdate;
+        notePublisher.noteHitBlock += EventUpdate;
         
     }
 
@@ -204,6 +206,7 @@ public class Enemy : MonoBehaviour
         
         movePlayer.playerRegMove -= EventUpdate;
         notePublisher.noteNotHit -= EventUpdate;
+        notePublisher.noteHitBlock -= EventUpdate;
         manager.UnSubscribe(this);
     }
 

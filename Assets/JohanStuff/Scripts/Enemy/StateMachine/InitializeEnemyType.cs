@@ -33,12 +33,12 @@ public class InitializeEnemyType : MonoBehaviour
                 enemy.combatPhase5 = new TankCombatP5(enemy, stateMachine);
                 enemy.combatPhase6 = new TankCombatP6(enemy, stateMachine);
                 break;
-                enemy.moveState = new CasterMoveState(enemy, stateMachine);
-                enemy.combatPhase1 = new BaseCombatP1(enemy, stateMachine);
-                enemy.combatPhase2 = new BaseCombatP2(enemy, stateMachine);
-                enemy.combatPhase3 = new BaseCombatP3(enemy, stateMachine);
-                enemy.combatPhase4 = new CasterCombatP4(enemy, stateMachine);
             case EnemyType.Caster:
+                enemy.moveState = new CasterMoveState(enemy, stateMachine);
+                enemy.combatPhase1 = new CasterCombatP1(enemy, stateMachine);
+                enemy.combatPhase2 = new CasterCombatP2(enemy, stateMachine);
+                enemy.combatPhase3 = new CasterCombatP3(enemy, stateMachine);
+                enemy.combatPhase4 = new CasterCombatP4(enemy, stateMachine);
                 break;
 
             default:
