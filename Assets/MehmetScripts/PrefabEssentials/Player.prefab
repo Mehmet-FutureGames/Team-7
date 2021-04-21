@@ -495,7 +495,7 @@ MonoBehaviour:
   text: {fileID: 0}
   maxFrenzy: 50
   minFrenzy: 0
-  currentFrenzy: 50
+  currentFrenzy: 0
 --- !u!114 &1649082608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,7 +538,7 @@ Transform:
   m_GameObject: {fileID: 7914652014496845978}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.46300006, z: 0.164}
-  m_LocalScale: {x: 1.2890682, y: 1.2890682, z: 3.0849981}
+  m_LocalScale: {x: 2.2083027, y: 2.2083027, z: 5.28491}
   m_Children: []
   m_Father: {fileID: 7914652014459963313}
   m_RootOrder: 1
@@ -614,9 +614,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 0
-  m_Center: {x: 0, y: 0, z: 0.62}
+  m_Height: 4.2269354
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 1.7334676}
 --- !u!114 &7914652014773267334
 MonoBehaviour:
   m_ObjectHideFlags: 0
