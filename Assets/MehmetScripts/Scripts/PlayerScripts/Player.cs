@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
 
     PlayerDashAttack playerDashRange;
 
+    PlayerFrenzy playerFrenzy;
+
     NotePublisher notePublisher;
 
     int distanceToClick;
@@ -34,10 +36,13 @@ public class Player : MonoBehaviour
     public float meleeAttackDuration;
     [HideInInspector]
     float dashAttackCooldown;
+    [HideInInspector]
+    int dashAttackFrenzyCost;
+
+    [SerializeField] bool doesntReachTarget = false;
     #endregion
 
     public bool isAttacking = false;
-    bool canDashAttack = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,28 +64,24 @@ public class Player : MonoBehaviour
                 if (distance < distanceToClick)
                 {
                     {
-                        var enemyPos = hit.transform.position;
+                        var enemyPos = hit.collider.gameObject.transform.position;
                         transform.LookAt(new Vector3(enemyPos.x, 1, enemyPos.z));
+                        doesntReachTarget = false;
                         StartCoroutine(AttackingActivated());
                     }
-                }            
+                }
+                else
+                {
+                doesntReachTarget = true;
+                }
         //Checks if the player is moving and the melee range attack isn't activate.
         }
-        else if (!playerAttackRange.isActiveAndEnabled && canDashAttack)
+        if (!playerAttackRange.isActiveAndEnabled && playerFrenzy.CurrentFrenzy >= dashAttackFrenzyCost && doesntReachTarget)
         {
-            StartCoroutine(DashAttack());
-            StartCoroutine(StartCooldown());
+            StartCoroutine(DashAttack());                            
         }
-
     }
     #endregion
-
-    IEnumerator StartCooldown()
-    {
-        canDashAttack = false;
-        yield return new WaitForSeconds(dashAttackCooldown);
-        canDashAttack = true;
-    }
 
     #region Attacks
     IEnumerator AttackingActivated()
@@ -95,6 +96,7 @@ public class Player : MonoBehaviour
     {
         playerDashRange.gameObject.SetActive(true);
         GetComponent<MeshRenderer>().material.color = Color.black;
+        playerFrenzy.CurrentFrenzy -= dashAttackFrenzyCost;
         yield return new WaitForSeconds(dashAttackDuration);
         playerDashRange.gameObject.SetActive(false);
         GetComponent<MeshRenderer>().material.color = Color.green;
@@ -117,8 +119,6 @@ public class Player : MonoBehaviour
         dashAttackDuration = stats.dashAttackDuration;
         meleeAttackDuration = stats.meleeAttackDuration;
 
-        dashAttackCooldown = stats.dashAttackCooldown;
-
         distanceToClick = stats.distanceToClick;
 
         //Check if moved or not.
@@ -126,6 +126,10 @@ public class Player : MonoBehaviour
 
         //Subscribe to noteHit.
         notePublisher.noteHit += AttackActivated;
+
+        playerFrenzy = GetComponent<PlayerFrenzy>();
+
+        dashAttackFrenzyCost = stats.dashAttackFrenzyCost;
 
         playerAttackRange = GetComponentInChildren<PlayerAttack>();
 

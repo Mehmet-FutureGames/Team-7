@@ -41,16 +41,19 @@ public class Item : MonoBehaviour
         if (itemType == ItemType.HealthUpgrade) 
         {
             player.GetComponent<PlayerHealth>().UpgradeHealth(upgradeAmount);
+            Debug.Log("Upgraded Health!");
             gameObject.SetActive(false);
         }
         else if(itemType == ItemType.AttackUpgrade)
         {
             player.GetComponent<Player>().UpgradeDamageMelee(upgradeAmount);
+            Debug.Log("Upgraded Melee Attack!");
             gameObject.SetActive(false);
         }
         else if (itemType == ItemType.DashAttackUpgrade)
         {
             player.GetComponent<Player>().UpgradeDamageDash(upgradeAmount);
+            Debug.Log("Upgraded Dash Attack!");
             gameObject.SetActive(false);
         }
         else if(itemType == ItemType.FrenzyUpgrade)

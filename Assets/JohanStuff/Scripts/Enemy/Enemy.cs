@@ -134,7 +134,6 @@ public class Enemy : MonoBehaviour
         health = stats.health;
         attackRange = stats.attackRange;
         attackAreaScale = stats.attackAreaScale;
-        detectionRange = stats.detectionRange;
         isRanged = stats.isRanged;
         defaultMoveDistance = moveDistance;
     }
