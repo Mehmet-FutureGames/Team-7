@@ -58,7 +58,10 @@ public class Item : MonoBehaviour
         }
         else if(itemType == ItemType.FrenzyUpgrade)
         {
-
+            int upgrade = (int)upgradeAmount;
+            player.GetComponent<PlayerFrenzy>().maxFrenzy += upgrade;
+            Debug.Log("Upgraded Max Frenzy!");
+            gameObject.SetActive(false);
         }
     }
 }
