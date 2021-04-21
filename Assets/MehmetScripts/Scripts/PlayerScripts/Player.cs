@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
         
         if(Physics.Raycast(originRay, directonRay, out hit, Mathf.Infinity, enemyLayer))
         {       
-                float distance = (transform.position - hit.transform.position).magnitude;
+        float distance = (transform.position - hit.transform.position).magnitude;
                 if (distance < distanceToClick)
                 {
                     {
