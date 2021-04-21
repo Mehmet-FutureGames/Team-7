@@ -64,7 +64,7 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator ReferenceHealth()
     {
         yield return new WaitForSeconds(0.1f);
-        currentHealth = playerStats.health;
+        currentHealth = playerStats.maxHealth;
     }
 
     public void UpgradeHealth(float upgradedHealth)

@@ -6,6 +6,8 @@ public class WaveManager : MonoBehaviour
 {
     Enemy[] enemy;
 
+    LevelManager manager;
+
     bool hasSpawnedPattern = false;
 
     int randomPattern;
@@ -24,11 +26,13 @@ public class WaveManager : MonoBehaviour
     [SerializeField] List<Transform> spawnPointPatternsHard;
     [Space]
 
+    [SerializeField] GameObject door;
+    [Space]
+
     TypeOfEnemy[] spawnPoints;
     int amountofEnemiesWanted;
-    [SerializeField] int floorLevel = 0;
-    [Space]
-    [SerializeField]int waveLevel = 0;
+    int floorLevel = 0;
+    [SerializeField] int waveLevel = 0;
     [Space]
     [SerializeField] int numberOfWavesForEasyLevel = 0;
     [Space]
@@ -43,6 +47,8 @@ public class WaveManager : MonoBehaviour
     void Start()
     {
         SpawnPointPattern();
+
+        manager = FindObjectOfType<LevelManager>();
 
         enemyContainer = GameObject.Find("EnemyContainer").transform;
 
@@ -112,7 +118,9 @@ public class WaveManager : MonoBehaviour
     {
         //Add behaviour for what happens when you finish a level.
         Debug.Log("You finished the first floor! Go to X position to contiune!");
-        floorLevel++;        
+        floorLevel++;
+        Instantiate(door);
+        PlayerPrefs.SetInt("floorLevel", floorLevel);
     }
 
     private void DestroySpawnPattern()

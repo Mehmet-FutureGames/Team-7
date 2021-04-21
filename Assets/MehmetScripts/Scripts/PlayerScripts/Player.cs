@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public GameObject playerDamageText;
     [HideInInspector]
-    public float health;
+    public float maxHealth;
     [HideInInspector]
     public float damage;
     [HideInInspector]
@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
         //Stats
         damage = stats.attackDamage;
         dashDamage = stats.dashDamage;
-        health = stats.health;
+        maxHealth = stats.health;
 
         dashAttackDuration = stats.dashAttackDuration;
         meleeAttackDuration = stats.meleeAttackDuration;

@@ -18,6 +18,7 @@ public class NotePooler : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        DontDestroyOnLoad(this);
     }
 
     public List<Pool> pools;
