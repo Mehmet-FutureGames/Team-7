@@ -82,6 +82,13 @@ public class Enemy : MonoBehaviour
             player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
         }
     }
+    public void EnemyRangedAttack()
+    {
+        if (playerIsInAttackArea)
+        {
+            player.GetComponent<PlayerHealth>().TakeRangedDamage(attackDamage);
+        }
+    }
     public void TakeDamage(float damage)
     {
         health -= damage;

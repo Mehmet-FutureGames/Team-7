@@ -48,6 +48,21 @@ public class PlayerHealth : MonoBehaviour
             }
         }
     }
+    public void TakeRangedDamage(float damage)
+    {
+        currentHealth -= damage;
+        if (movePlayer.MovementValue < 10)
+        {
+            if (playerStats.playerDamageText)
+            {
+                ShowFloatingText(damage);
+            }
+            if (currentHealth < 0)
+            {
+                Dead();
+            }
+        }
+    }
 
     private void ShowFloatingText(float damage)
     {
