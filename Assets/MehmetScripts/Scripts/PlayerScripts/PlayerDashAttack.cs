@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDashAttack : PlayerAttack
+[RequireComponent(typeof(CapsuleCollider))]
+public class PlayerDashAttack : MonoBehaviour
 {
-    public override void OnTriggerEnter(Collider other)
+    public float dashDamage;
+
+    Player playerStats;
+
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
@@ -14,6 +19,11 @@ public class PlayerDashAttack : PlayerAttack
     private void OnEnable()
     {
         playerStats = GetComponentInParent<Player>();
+        dashDamage = playerStats.dashDamage;
         playerStats.isAttacking = false;
+    }
+    public void UpgradeDamage()
+    {
+        dashDamage = playerStats.dashDamage;
     }
 }

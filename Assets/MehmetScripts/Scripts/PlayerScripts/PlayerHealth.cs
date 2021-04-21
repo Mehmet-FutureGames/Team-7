@@ -5,8 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     Player playerStats;
-
-    float health;
+    float currentHealth;
 
     GameObject deadPanel;
 
@@ -20,7 +19,12 @@ public class PlayerHealth : MonoBehaviour
 
         deadPanel = GameObject.Find("DeadPanel");
         deadPanel.SetActive(false);
-        if(Time.timeScale < 1 && health > 0)
+        RespawnDEV();
+    }
+
+    private void RespawnDEV()
+    {
+        if (Time.timeScale < 1 && currentHealth > 0)
         {
             Time.timeScale = 1;
         }
@@ -28,20 +32,21 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
-        if(movePlayer.MovementValue < 10) 
+        if (!PlayerBlock.isBlocking)
         {
-            if (playerStats.playerDamageText)
+            currentHealth -= damage;
+            if (movePlayer.MovementValue < 10)
             {
-                ShowFloatingText(damage);
-            }
-            if (health < 0)
-            {
-                Dead();
+                if (playerStats.playerDamageText)
+                {
+                    ShowFloatingText(damage);
+                }
+                if (currentHealth < 0)
+                {
+                    Dead();
+                }
             }
         }
-
-
     }
 
     private void ShowFloatingText(float damage)
@@ -59,6 +64,11 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator ReferenceHealth()
     {
         yield return new WaitForSeconds(0.1f);
-        health = playerStats.health;
+        currentHealth = playerStats.health;
+    }
+
+    public void UpgradeHealth(float upgradedHealth)
+    {
+        currentHealth += upgradedHealth;
     }
 }

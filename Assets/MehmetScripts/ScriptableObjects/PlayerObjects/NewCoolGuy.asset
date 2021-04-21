@@ -23,4 +23,5 @@ MonoBehaviour:
   dashDamage: 20
   meleeAttackDuration: 0.8
   dashAttackDuration: 0.8
-  distanceToClick: 4
+  dashAttackFrenzyCost: 5
+  distanceToClick: 6
