@@ -27,7 +27,6 @@ public class NoteManager : MonoBehaviour
     public GameObject notePrefab;
 
 
-
     private void Start()
     {
         SetDifficulty();
