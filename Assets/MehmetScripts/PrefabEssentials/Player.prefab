@@ -478,6 +478,7 @@ MonoBehaviour:
   dashDamage: 0
   dashAttackDuration: 0
   meleeAttackDuration: 0
+  doesntReachTarget: 0
   isAttacking: 0
 --- !u!114 &1649082607
 MonoBehaviour:
@@ -537,7 +538,7 @@ Transform:
   m_GameObject: {fileID: 7914652014496845978}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.46300006, z: 0.164}
-  m_LocalScale: {x: 1.2890682, y: 1.2890682, z: 3.0849981}
+  m_LocalScale: {x: 2.2083027, y: 2.2083027, z: 5.28491}
   m_Children: []
   m_Father: {fileID: 7914652014459963313}
   m_RootOrder: 1
@@ -569,7 +570,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashDamage: 0
-  playerStats: {fileID: 0}
 --- !u!1 &7914652014773267332
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,9 +614,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 4.2269354
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0.62}
+  m_Center: {x: 0, y: 0, z: 1.7334676}
 --- !u!114 &7914652014773267334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -629,7 +629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58d279ee774de24dabc1aae5db5de22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashDamage: 0
+  damage: 0
   playerStats: {fileID: 0}
 --- !u!95 &883496051
 Animator:
