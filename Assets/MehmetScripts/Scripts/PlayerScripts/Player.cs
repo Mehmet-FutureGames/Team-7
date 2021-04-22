@@ -75,20 +75,20 @@ public class Player : MonoBehaviour
         
         if(Physics.Raycast(originRay, directonRay, out hit, Mathf.Infinity, enemyLayer))
         {       
-        float distance = (transform.position - hit.transform.position).magnitude;
-                if (distance < distanceToClick)
+            float distance = (transform.position - hit.transform.position).magnitude;
+            if (distance < distanceToClick)
+            {
                 {
-                    {
-                        var enemyPos = hit.collider.gameObject.transform.position;
-                        transform.LookAt(new Vector3(enemyPos.x, 1, enemyPos.z));
-                        doesntReachTarget = false;
-                        StartCoroutine(AttackingActivated());
-                    }
+                    var enemyPos = hit.collider.gameObject.transform.position;
+                    transform.LookAt(new Vector3(enemyPos.x, 1, enemyPos.z));
+                    doesntReachTarget = false;
+                    StartCoroutine(AttackingActivated());
                 }
-                else
-                {
-                doesntReachTarget = true;
-                }
+            }
+            else
+            {
+            doesntReachTarget = true;
+            }
         //Checks if the player is moving and the melee range attack isn't activate.
         }
         if (Physics.Raycast(transform.position, (movePlayer.mousePos- transform.position).normalized, out hit, (movePlayer.mousePos - transform.position).magnitude, enemyLayer))
