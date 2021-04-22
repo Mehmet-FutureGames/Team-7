@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: UncoolStats42
   m_EditorClassIdentifier: 
   playerModel: {fileID: 0}
-  playerDamageText: {fileID: 0}
-  playerName: 
+  playerDamageText: {fileID: 3411471724750393966, guid: 06a5d40551cdc894daaf72510bb45db9,
+    type: 3}
+  playerName: John Cena
   movementSpeed: 0
-  attackDamage: 0
-  health: 0
-  dashDamage: 0
-  meleeAttackDuration: 0
-  dashAttackDuration: 0
-  dashAttackFrenzyCost: 0
-  distanceToClick: 0
+  attackDamage: 20
+  health: 175
+  dashDamage: 5
+  meleeAttackDuration: 1
+  maxFrenzy: 20
+  dashAttackDuration: 1
+  dashAttackFrenzyCost: 2
+  distanceToClick: 6

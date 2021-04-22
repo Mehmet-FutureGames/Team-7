@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class CharacterStats : MonoBehaviour
 {
-    [SerializeField] PlayerStats stats;
+    public PlayerStats stats;
+
+    [SerializeField] int currentSelectedCharacter;
 
     [SerializeField] Text playerHealth;
 
@@ -13,8 +15,15 @@ public class CharacterStats : MonoBehaviour
 
     [SerializeField] Text playerFrenzy;
 
-    private void Start()
+    [SerializeField] Text playerName;
+    private void OnEnable()
     {
+        PlayerPrefs.SetInt("selectedCharacter", currentSelectedCharacter);
+
+        Debug.Log("Selected Character: " + currentSelectedCharacter);
+
+        playerName.text = stats.playerName;
+
         playerHealth.text = stats.health.ToString();
 
         playerDamage.text = stats.attackDamage.ToString();
@@ -22,12 +31,12 @@ public class CharacterStats : MonoBehaviour
         playerFrenzy.text = stats.maxFrenzy.ToString();
     }
 
-
-    public void UpgradeStats()
+    public void UpdateText()
     {
-        if(gameObject.activeInHierarchy == true)
-        {
+        playerHealth.text = stats.health.ToString();
 
-        }
+        playerDamage.text = stats.attackDamage.ToString();
+
+        playerFrenzy.text = stats.maxFrenzy.ToString();
     }
 }

@@ -46,6 +46,19 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(PlayerPrefs.GetInt("selectedCharacter") == 0)
+        {
+            stats = Resources.Load("PlayerObjects/NewCoolGuy") as PlayerStats;
+        }
+        else if(PlayerPrefs.GetInt("selectedCharacter") == 1)
+        {
+            stats = Resources.Load("PlayerObjects/UncoolStats42") as PlayerStats;
+        }
+        else if(PlayerPrefs.GetInt("selectedCharacter") == 2)
+        {
+            stats = Resources.Load("PlayerObjects/BigTankyBoi") as PlayerStats;
+        }
+
         StartCoroutine(References());
     }
     #region Attacks

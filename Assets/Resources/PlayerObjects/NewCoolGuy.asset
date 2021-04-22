@@ -18,11 +18,11 @@ MonoBehaviour:
     type: 3}
   playerName: New Cool Guy!
   movementSpeed: 0
-  attackDamage: 35
-  health: 100
+  attackDamage: 85
+  health: 155
   dashDamage: 10
-  meleeAttackDuration: 0.8
-  maxFrenzy: 100
-  dashAttackDuration: 0.8
+  meleeAttackDuration: 1
+  maxFrenzy: 155
+  dashAttackDuration: 1
   dashAttackFrenzyCost: 5
   distanceToClick: 6
