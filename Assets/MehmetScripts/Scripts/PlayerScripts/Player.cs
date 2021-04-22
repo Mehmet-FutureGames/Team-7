@@ -59,7 +59,6 @@ public class Player : MonoBehaviour
         {
             stats = Resources.Load("PlayerObjects/BigTankyBoi") as PlayerStats;
         }
-
         StartCoroutine(References());
     }
     #region Attacks
