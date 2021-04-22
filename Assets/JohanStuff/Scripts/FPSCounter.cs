@@ -20,7 +20,7 @@ public class FPSCounter : MonoBehaviour
         {
             int fps = (int)(1f / Time.unscaledDeltaTime);
             text.text = "FPS: " + fps.ToString();
-            timer = Time.unscaledTime + 0.5f;
+            timer = Time.unscaledTime + 0.05f;
         }
         
     }
