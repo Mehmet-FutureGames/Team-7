@@ -10,21 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b003b01bd880a44d96e3bab38f6eacf, type: 3}
-  m_Name: Ugo
+  m_Name: Tank_Enemy
   m_EditorClassIdentifier: 
-  enemyName: 
+  enemyName: Tank
   movePattern: 0
-  enemyModel: {fileID: 7280686633801961007, guid: 2f2dd6f54256d8541a2b2aebc926adf0,
+  enemyType: 0
+  enemyModel: {fileID: 2888515345859990231, guid: 304c54bd49b1a8d498dec8d08557536b,
     type: 3}
-  floatingText: {fileID: 0}
+  floatingText: {fileID: 7834719628194316170, guid: 2f7ade109394de44e8c41a4781951eaf,
+    type: 3}
   attackAreaShape: {fileID: 5142904849790710492, guid: 0276f6d96dfb9c141a6591ed02f83c65,
     type: 3}
-  attackAreaScale: {x: 8, y: 8, z: 8}
-  isRanged: 1
-  movementSpeed: 5
-  moveDistance: 5
-  detectionRange: 30
-  notesToMove: 1
-  attackDamage: 10
-  attackRange: 30
-  health: 50
+  attackAreaScale: {x: 5, y: 5, z: 5}
+  isRanged: 0
+  movementSpeed: 2
+  moveDistance: 8
+  detectionRange: 100
+  notesToMove: 2
+  attackDamage: 30
+  attackRange: 8
+  health: 150
