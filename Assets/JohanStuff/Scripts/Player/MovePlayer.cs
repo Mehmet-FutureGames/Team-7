@@ -16,7 +16,6 @@ public class MovePlayer : MonoBehaviour
     
     private CharacterManager characterManager;
 
-
     float moveSpeedModifier;
     float moveSpeedMultiplier;
 
@@ -27,7 +26,7 @@ public class MovePlayer : MonoBehaviour
     public Ray ray;
     Vector3 newPosition;
     Vector3 lookDir;
-    Vector3 mousePos;
+    [HideInInspector] public Vector3 mousePos;
     Vector3 raycastDir;
     float raycastDistance;
     bool hitWall;

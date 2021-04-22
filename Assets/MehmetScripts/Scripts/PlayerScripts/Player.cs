@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] LayerMask enemyLayer;
 
+    MovePlayer movePlayer;
+
     #region VariableSetInScriptableObject
     PlayerAttack playerAttackRange;
 
@@ -89,10 +91,14 @@ public class Player : MonoBehaviour
                 }
         //Checks if the player is moving and the melee range attack isn't activate.
         }
-        if (!playerAttackRange.isActiveAndEnabled && playerFrenzy.CurrentFrenzy >= dashAttackFrenzyCost && doesntReachTarget)
+        if (Physics.Raycast(transform.position, (movePlayer.mousePos- transform.position).normalized, out hit, (movePlayer.mousePos - transform.position).magnitude, enemyLayer))
         {
-            StartCoroutine(DashAttack());                            
+            if (!playerAttackRange.isActiveAndEnabled && playerFrenzy.CurrentFrenzy >= dashAttackFrenzyCost)
+            {
+                StartCoroutine(DashAttack());
+            }
         }
+
     }
     #endregion
 
@@ -121,7 +127,7 @@ public class Player : MonoBehaviour
     IEnumerator References()
     {
         //Instantiate(stats.playerModel, transform);
-
+        movePlayer = GetComponent<MovePlayer>();
         //References to all the things needed.
         playerName = stats.playerName;
         playerDamageText = stats.playerDamageText;
@@ -140,8 +146,8 @@ public class Player : MonoBehaviour
         notePublisher = FindObjectOfType<NotePublisher>();
 
         //Subscribe to noteHit.
-        notePublisher.noteHit += AttackActivated;
-
+        //notePublisher.noteHit += AttackActivated;
+        movePlayer.playerRegMove += AttackActivated;
         playerFrenzy = GetComponent<PlayerFrenzy>();
 
         dashAttackFrenzyCost = stats.dashAttackFrenzyCost;
