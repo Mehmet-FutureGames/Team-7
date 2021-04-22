@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/CharacterChange.unity
     guid: 2ed4081ccc1327f4d81c09012efdb37c
   - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 2dae91d30edcc1645ad787fed5449eae
+  - enabled: 1
     path: Assets/Scenes/JohanTestScene.unity
     guid: ebc338b4e4261d146ae845f38e400cc4
   m_configObjects: {}

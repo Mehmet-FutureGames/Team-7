@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerFrenzy : MonoBehaviour
 {
+    PlayerStats stats;
     EnemyPublisher enemyPublisher;
     [SerializeField] Text text;
     public int maxFrenzy;
@@ -23,6 +24,8 @@ public class PlayerFrenzy : MonoBehaviour
 
     private void Awake()
     {
+        stats = GetComponent<Player>().stats;
+        maxFrenzy = stats.maxFrenzy;
         enemyPublisher = FindObjectOfType<EnemyPublisher>();
         enemyPublisher.enemyTakeDamage += AddFrenzy;
         currentFrenzy = 0;

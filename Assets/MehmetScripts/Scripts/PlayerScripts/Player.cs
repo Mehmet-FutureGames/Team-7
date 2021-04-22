@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     
-    [SerializeField] PlayerStats stats;
+    public PlayerStats stats;
 
     [SerializeField] LayerMask enemyLayer;
 

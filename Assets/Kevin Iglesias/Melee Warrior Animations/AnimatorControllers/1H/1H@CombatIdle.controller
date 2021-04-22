@@ -76,8 +76,7 @@ AnimatorState:
   m_Name: CombatIdle
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions:
-  - {fileID: -5494897527578754054}
+  m_Transitions: []
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 1
@@ -105,9 +104,6 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 1102065955112158006}
     m_Position: {x: 280, y: 80, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 9217862728447352157}
-    m_Position: {x: 130, y: 200, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
