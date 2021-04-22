@@ -15889,7 +15889,7 @@ MonoBehaviour:
   - {fileID: 7032528002559152155, guid: 580bf5ff858c5404aa98c054548d04e8, type: 3}
   spawnPointPatternsHard:
   - {fileID: 3988522872170154558, guid: ee6d814ebf79af644b081977e1479d64, type: 3}
-  floorLevel: 0
+  door: {fileID: 0}
   waveLevel: 0
   numberOfWavesForEasyLevel: 2
   numberOfWavesForMediumLevel: 4
@@ -17934,6 +17934,10 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 413140286}
+    - target: {fileID: 1649082607, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}
+      propertyPath: frenzyBar
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1649082607, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}
       propertyPath: maxFrenzy
       value: 20
@@ -20103,6 +20107,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 853789863, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7982927049351044176, guid: 4693bb05872ed41469aefc057d451c49,
         type: 3}
       propertyPath: m_Pivot.x

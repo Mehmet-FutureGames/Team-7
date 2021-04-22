@@ -51,12 +51,27 @@ public class PlayerHealth : MonoBehaviour
             }
         }
     }
+    public void TakeRangedDamage(float damage)
+    {
+        currentHealth -= damage;
+        if (movePlayer.MovementValue < 10)
+        {
+            if (playerStats.playerDamageText)
+            {
+                ShowFloatingText(damage);
+            }
+            if (currentHealth < 0)
+            {
+                Dead();
+            }
+        }
+    }
 
     private void ShowFloatingText(float damage)
     {
         var text = Instantiate(playerStats.playerDamageText, transform.position, Quaternion.identity, transform);
         text.GetComponent<TextMesh>().text = "Damage: " + damage.ToString();
-        healthBar.fillAmount = currentHealth / playerStats.health;
+        healthBar.fillAmount = currentHealth / playerStats.maxHealth;
     }
 
     private void Dead()
@@ -68,7 +83,7 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator ReferenceHealth()
     {
         yield return new WaitForSeconds(0.1f);
-        currentHealth = playerStats.health;
+        currentHealth = playerStats.maxHealth;
     }
 
     public void UpgradeHealth(float upgradedHealth)

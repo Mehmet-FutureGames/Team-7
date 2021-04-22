@@ -15,6 +15,7 @@ using UnityEditor;
         public float health;
         public float dashDamage;
         public float meleeAttackDuration;
+        public float maxFrenzy;
     [Space]
     [Tooltip("Determines how long you can dash for")]
         public float dashAttackDuration;

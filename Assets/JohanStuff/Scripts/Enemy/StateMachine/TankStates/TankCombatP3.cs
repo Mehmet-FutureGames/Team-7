@@ -9,8 +9,8 @@ public class TankCombatP3 : State
     public override void Enter()
     {
         base.Enter();
-        timer = 0.07f;
-
+        timer = 0.08f;
+        enemy.animator.SetTrigger("PerformAttack");
         enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
     }
     float timer;
