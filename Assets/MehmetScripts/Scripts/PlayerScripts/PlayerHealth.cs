@@ -71,7 +71,7 @@ public class PlayerHealth : MonoBehaviour
     {
         var text = Instantiate(playerStats.playerDamageText, transform.position, Quaternion.identity, transform);
         text.GetComponent<TextMesh>().text = "Damage: " + damage.ToString();
-        healthBar.fillAmount = currentHealth / playerStats.health;
+        healthBar.fillAmount = currentHealth / playerStats.maxHealth;
     }
 
     private void Dead()
