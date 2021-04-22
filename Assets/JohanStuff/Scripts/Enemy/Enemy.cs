@@ -111,7 +111,7 @@ public class Enemy : MonoBehaviour
 
     private void Dead()
     {
-        if (health < 0)
+        if (health <= 0)
         {
             if (enemyDefeated != null)
             {

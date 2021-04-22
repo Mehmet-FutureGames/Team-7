@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     float currentHealth;
 
     GameObject deadPanel;
+    Image healthBar;
 
     MovePlayer movePlayer;
 
@@ -18,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
         StartCoroutine(ReferenceHealth());
 
         deadPanel = GameObject.Find("DeadPanel");
+        healthBar = GameObject.Find("HealthBar").GetComponent<Image>();
         deadPanel.SetActive(false);
         RespawnDEV();
     }
@@ -41,7 +44,7 @@ public class PlayerHealth : MonoBehaviour
                 {
                     ShowFloatingText(damage);
                 }
-                if (currentHealth < 0)
+                if (currentHealth <= 0)
                 {
                     Dead();
                 }
@@ -68,6 +71,7 @@ public class PlayerHealth : MonoBehaviour
     {
         var text = Instantiate(playerStats.playerDamageText, transform.position, Quaternion.identity, transform);
         text.GetComponent<TextMesh>().text = "Damage: " + damage.ToString();
+        healthBar.fillAmount = currentHealth / playerStats.health;
     }
 
     private void Dead()

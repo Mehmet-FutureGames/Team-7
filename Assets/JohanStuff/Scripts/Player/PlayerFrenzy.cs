@@ -5,27 +5,27 @@ using UnityEngine.UI;
 
 public class PlayerFrenzy : MonoBehaviour
 {
-    PlayerStats stats;
     EnemyPublisher enemyPublisher;
-    [SerializeField] Text text;
-    public int maxFrenzy;
-    [SerializeField] int minFrenzy;
-    [SerializeField] private int currentFrenzy;
+    //[SerializeField] Text text;
+    public Image frenzyBar;
+    public float maxFrenzy;
+    [SerializeField] float minFrenzy;
+    [SerializeField] private float currentFrenzy;
 
-    public int CurrentFrenzy
+    public float CurrentFrenzy
     {
         get { return currentFrenzy; }
         set 
         {
             currentFrenzy = value;
-            text.text = "Frenzy: " + currentFrenzy.ToString();
+            frenzyBar.fillAmount = currentFrenzy / maxFrenzy;
+            //text.text = "Frenzy: " + currentFrenzy.ToString();
         }
     }
 
     private void Awake()
     {
-        stats = GetComponent<Player>().stats;
-        maxFrenzy = (int)stats.maxFrenzy;
+        frenzyBar = GameObject.Find("FrenzyBar").GetComponent<Image>(); ;
         enemyPublisher = FindObjectOfType<EnemyPublisher>();
         enemyPublisher.enemyTakeDamage += AddFrenzy;
         currentFrenzy = 0;
@@ -34,8 +34,8 @@ public class PlayerFrenzy : MonoBehaviour
     void AddFrenzy()
     {
         currentFrenzy = Mathf.Clamp(currentFrenzy + 1, minFrenzy, maxFrenzy);
-        
-        text.text = "Frenzy: " + currentFrenzy.ToString();
+        frenzyBar.fillAmount = currentFrenzy / maxFrenzy;
+        //text.text = "Frenzy: " + currentFrenzy.ToString();
     }
 
 
