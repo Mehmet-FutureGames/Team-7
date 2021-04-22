@@ -56,7 +56,6 @@ public class PlayerStatsMenu : MonoBehaviour
         #endregion
         ChangeCharacters();
         currentCharacterSelected = currentCharacter;
-
     }
     public void UpgradeStatsHealth()
     {
