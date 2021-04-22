@@ -14,6 +14,7 @@ public class TankCombatP2 : State
         enemy.area.gameObject.GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f, 0.2f);
         enemy.area.SetActive(true);
         enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.green;
+        enemy.animator.SetTrigger("PrepareAttack");
 
     }
 

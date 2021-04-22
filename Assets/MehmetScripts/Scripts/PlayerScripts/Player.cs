@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
     #endregion
 
     public bool isAttacking = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,6 +87,7 @@ public class Player : MonoBehaviour
     #region Attacks
     IEnumerator AttackingActivated()
     {
+        PlayerAnm.Instance.AttackTrigger();
         playerAttackRange.gameObject.SetActive(true);
         GetComponent<MeshRenderer>().material.color = Color.grey;
         yield return new WaitForSeconds(meleeAttackDuration);
@@ -94,6 +96,7 @@ public class Player : MonoBehaviour
     }
     IEnumerator DashAttack()
     {
+        PlayerAnm.Instance.DashTrigger();
         playerDashRange.gameObject.SetActive(true);
         GetComponent<MeshRenderer>().material.color = Color.black;
         playerFrenzy.CurrentFrenzy -= dashAttackFrenzyCost;
