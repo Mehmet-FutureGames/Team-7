@@ -5,7 +5,7 @@ public class Enemy : MonoBehaviour
 {
     EnemyPublisher enemyPublisher;
     public Action enemyDefeated;
-
+    public Animator animator;
 
     #region States
     public StateMachine movementSM;
@@ -161,6 +161,7 @@ public class Enemy : MonoBehaviour
 
         agentObj = Instantiate(stats.enemyModel, parent);
         area = Instantiate(stats.attackAreaShape, agentObj.transform.position, Quaternion.identity, agentObj.transform);
+        animator = agentObj.GetComponentInChildren<Animator>();
         floatingText = stats.floatingText;
         area.SetActive(false);
         area.transform.localScale = stats.attackAreaScale;
@@ -194,6 +195,7 @@ public class Enemy : MonoBehaviour
     }
     private void OnEnable()
     {
+        
         manager = FindObjectOfType<WaveManager>();
         manager.Subscribe(this);
         enemyPublisher = FindObjectOfType<EnemyPublisher>();
