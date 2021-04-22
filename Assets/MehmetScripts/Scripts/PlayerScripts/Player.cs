@@ -95,7 +95,7 @@ public class Player : MonoBehaviour
         {
             if (!playerAttackRange.isActiveAndEnabled && playerFrenzy.CurrentFrenzy >= dashAttackFrenzyCost)
             {
-                StartCoroutine(DashAttack());
+                Invoke("DashAttack", 0.01f);
             }
         }
 
@@ -112,15 +112,20 @@ public class Player : MonoBehaviour
         playerAttackRange.gameObject.SetActive(false);
         GetComponent<MeshRenderer>().material.color = Color.green;
     }
-    IEnumerator DashAttack()
+    private void  DashAttack()
     {
-        PlayerAnm.Instance.DashTrigger();
-        playerDashRange.gameObject.SetActive(true);
-        GetComponent<MeshRenderer>().material.color = Color.black;
-        playerFrenzy.CurrentFrenzy -= dashAttackFrenzyCost;
-        yield return new WaitForSeconds(dashAttackDuration);
-        playerDashRange.gameObject.SetActive(false);
-        GetComponent<MeshRenderer>().material.color = Color.green;
+        if (movePlayer.isMoving)
+        {
+            PlayerAnm.Instance.DashTrigger();
+            playerDashRange.gameObject.SetActive(true);
+            GetComponent<MeshRenderer>().material.color = Color.black;
+            playerFrenzy.CurrentFrenzy -= dashAttackFrenzyCost;
+        }
+        else
+        {
+            playerDashRange.gameObject.SetActive(false);
+            GetComponent<MeshRenderer>().material.color = Color.green;
+        }
     }
     #endregion
     #region References
