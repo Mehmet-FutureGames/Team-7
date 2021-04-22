@@ -22,6 +22,7 @@ MonoBehaviour:
   health: 100
   dashDamage: 20
   meleeAttackDuration: 0.8
+  maxFrenzy: 100
   dashAttackDuration: 0.8
   dashAttackFrenzyCost: 5
   distanceToClick: 6

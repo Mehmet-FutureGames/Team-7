@@ -25,7 +25,7 @@ public class PlayerFrenzy : MonoBehaviour
     private void Awake()
     {
         stats = GetComponent<Player>().stats;
-        maxFrenzy = stats.maxFrenzy;
+        maxFrenzy = (int)stats.maxFrenzy;
         enemyPublisher = FindObjectOfType<EnemyPublisher>();
         enemyPublisher.enemyTakeDamage += AddFrenzy;
         currentFrenzy = 0;
