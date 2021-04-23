@@ -1922,6 +1922,10 @@ PrefabInstance:
       propertyPath: displayCombo
       value: 
       objectReference: {fileID: 7006475}
+    - target: {fileID: 1552725692, guid: 9a8011c633929384e963bdb55c94dcf7, type: 3}
+      propertyPath: comboDepletionMult
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 8966836273629194616, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: player

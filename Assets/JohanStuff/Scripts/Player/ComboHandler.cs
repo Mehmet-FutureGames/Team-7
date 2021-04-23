@@ -15,14 +15,15 @@ public class ComboHandler : MonoBehaviour
     public int Combo { get; private set; }
     [SerializeField] Text displayCombo;
     private bool hitNote;
+    [Range(0.01f, 2)]
+    public float comboDepletionMult;
 
     private void Update()
     {
-        timer = Mathf.Clamp(timer - Time.deltaTime, slider.minValue, slider.maxValue);
+        timer = Mathf.Clamp(timer - Time.deltaTime * comboDepletionMult, slider.minValue, slider.maxValue);
         slider.value = timer;
         if (timer <= slider.minValue)
         {
-            slider.gameObject.SetActive(false);
             SetCombo(0);
         }
     }
@@ -48,6 +49,10 @@ public class ComboHandler : MonoBehaviour
 
     public void SetCombo(int combo)
     {
+        if(combo <= 0)
+        {
+            slider.gameObject.SetActive(false);
+        }
         Combo = combo;
         displayCombo.text = "Combo: " + Combo.ToString();
     }
