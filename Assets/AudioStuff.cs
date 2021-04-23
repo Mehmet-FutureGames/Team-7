@@ -19,7 +19,7 @@ public class AudioStuff : MonoBehaviour
     private float samples;
 
     public int spectrumIndex;
-    /*
+    
     private void Start()
     {
         SetSamples();
@@ -33,11 +33,11 @@ public class AudioStuff : MonoBehaviour
         AudioListener.GetSpectrumData(spectrum, 0, fFTWindow);
         if (spectrum != null && spectrum.Length > 0)
         {
-            spectrumValue = spectrum[spectrumIndex] * 100;
+            spectrumValue = spectrum[spectrumIndex]* 10;
         }
 
     }
-    */
+    
     void SetSamples()
     {
         switch (chooseSamples)

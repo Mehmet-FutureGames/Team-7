@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] LayerMask enemyLayer;
 
+    MovePlayer movePlayer;
+
     #region VariableSetInScriptableObject
     PlayerAttack playerAttackRange;
 
@@ -59,7 +61,6 @@ public class Player : MonoBehaviour
         {
             stats = Resources.Load("PlayerObjects/BigTankyBoi") as PlayerStats;
         }
-
         StartCoroutine(References());
     }
     #region Attacks
@@ -74,26 +75,30 @@ public class Player : MonoBehaviour
         
         if(Physics.Raycast(originRay, directonRay, out hit, Mathf.Infinity, enemyLayer))
         {       
-        float distance = (transform.position - hit.transform.position).magnitude;
-                if (distance < distanceToClick)
+            float distance = (transform.position - hit.transform.position).magnitude;
+            if (distance < distanceToClick)
+            {
                 {
-                    {
-                        var enemyPos = hit.collider.gameObject.transform.position;
-                        transform.LookAt(new Vector3(enemyPos.x, 1, enemyPos.z));
-                        doesntReachTarget = false;
-                        StartCoroutine(AttackingActivated());
-                    }
+                    var enemyPos = hit.collider.gameObject.transform.position;
+                    transform.LookAt(new Vector3(enemyPos.x, 1, enemyPos.z));
+                    doesntReachTarget = false;
+                    StartCoroutine(AttackingActivated());
                 }
-                else
-                {
-                doesntReachTarget = true;
-                }
+            }
+            else
+            {
+            doesntReachTarget = true;
+            }
         //Checks if the player is moving and the melee range attack isn't activate.
         }
-        if (!playerAttackRange.isActiveAndEnabled && playerFrenzy.CurrentFrenzy >= dashAttackFrenzyCost && doesntReachTarget)
+        if (Physics.Raycast(transform.position, (movePlayer.mousePos- transform.position).normalized, out hit, (movePlayer.mousePos - transform.position).magnitude, enemyLayer))
         {
-            StartCoroutine(DashAttack());                            
+            if (!playerAttackRange.isActiveAndEnabled && playerFrenzy.CurrentFrenzy >= dashAttackFrenzyCost)
+            {
+                Invoke("DashAttack", 0.01f);
+            }
         }
+
     }
     #endregion
 
@@ -107,22 +112,27 @@ public class Player : MonoBehaviour
         playerAttackRange.gameObject.SetActive(false);
         GetComponent<MeshRenderer>().material.color = Color.green;
     }
-    IEnumerator DashAttack()
+    private void  DashAttack()
     {
-        PlayerAnm.Instance.DashTrigger();
-        playerDashRange.gameObject.SetActive(true);
-        GetComponent<MeshRenderer>().material.color = Color.black;
-        playerFrenzy.CurrentFrenzy -= dashAttackFrenzyCost;
-        yield return new WaitForSeconds(dashAttackDuration);
-        playerDashRange.gameObject.SetActive(false);
-        GetComponent<MeshRenderer>().material.color = Color.green;
+        if (movePlayer.isMoving)
+        {
+            PlayerAnm.Instance.DashTrigger();
+            playerDashRange.gameObject.SetActive(true);
+            GetComponent<MeshRenderer>().material.color = Color.black;
+            playerFrenzy.CurrentFrenzy -= dashAttackFrenzyCost;
+        }
+        else
+        {
+            playerDashRange.gameObject.SetActive(false);
+            GetComponent<MeshRenderer>().material.color = Color.green;
+        }
     }
     #endregion
     #region References
     IEnumerator References()
     {
         //Instantiate(stats.playerModel, transform);
-
+        movePlayer = GetComponent<MovePlayer>();
         //References to all the things needed.
         playerName = stats.playerName;
         playerDamageText = stats.playerDamageText;
@@ -141,8 +151,8 @@ public class Player : MonoBehaviour
         notePublisher = FindObjectOfType<NotePublisher>();
 
         //Subscribe to noteHit.
-        notePublisher.noteHit += AttackActivated;
-
+        //notePublisher.noteHit += AttackActivated;
+        movePlayer.playerRegMove += AttackActivated;
         playerFrenzy = GetComponent<PlayerFrenzy>();
 
         dashAttackFrenzyCost = stats.dashAttackFrenzyCost;

@@ -32,7 +32,7 @@ public class ReadSpectrumValue : MonoBehaviour
             tValue = AudioStuff.spectrumValue;
             timer = setTimer;
         }
-        transform.position = Vector3.SmoothDamp(transform.position, new Vector3(0, tValue, 0), ref restScale, Time.deltaTime * speed);
+        transform.localScale = Vector3.SmoothDamp(transform.localScale, new Vector3(0.2f, 2.5f + tValue, 0.1f), ref restScale, Time.deltaTime * speed);
     }
 
 }

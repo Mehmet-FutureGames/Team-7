@@ -29,7 +29,6 @@ public class PlayerBlock : MonoBehaviour
         {
             if (cooldownReady)
             {
-
                 mesh.enabled = true;
                 childObj.GetComponent<MeshRenderer>().enabled = true;
                 cooldownReady = false;

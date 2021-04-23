@@ -32,7 +32,7 @@ public class WaveManager : MonoBehaviour
     TypeOfEnemy[] spawnPoints;
     int amountofEnemiesWanted;
     int floorLevel = 0;
-    [SerializeField] int waveLevel = 0;
+    public int waveLevel = 0;
     [Space]
     [SerializeField] int numberOfWavesForEasyLevel = 0;
     [Space]
@@ -40,7 +40,7 @@ public class WaveManager : MonoBehaviour
     [Space]
     [SerializeField] int numberOfWavesForHardLevel = 0;
     [Space]
-    [SerializeField] int waveMaximum = 0;
+    public int waveMaximum = 0;
     int amountOfEnemies = 0;
     #region StartFunction
     // Start is called before the first frame update
@@ -103,10 +103,9 @@ public class WaveManager : MonoBehaviour
                 Debug.Log("Now spawning: Hard Enemies");
             }
         }
-            amountofEnemiesWanted = spawnPoints.Length;
-            Invoke("BeginWave", 2f);
-            hasSpawnedPattern = true;
-        
+        amountofEnemiesWanted = spawnPoints.Length;
+        Invoke("BeginWave", 2f);
+        hasSpawnedPattern = true;        
     }
     #endregion
 
