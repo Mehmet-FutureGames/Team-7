@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
         }
         StartCoroutine(References());
     }
-    #region Attacks
+    #region AttacksActivation
     public void AttackActivated()
     {
         //Shoots a ray and stores the information in the raycastHit variable.
@@ -144,6 +144,8 @@ public class Player : MonoBehaviour
         damage = stats.attackDamage;
         dashDamage = stats.dashDamage;
         maxHealth = stats.health;
+
+        Debug.Log(maxHealth);
 
         dashAttackDuration = stats.dashAttackDuration;
         meleeAttackDuration = stats.meleeAttackDuration;
