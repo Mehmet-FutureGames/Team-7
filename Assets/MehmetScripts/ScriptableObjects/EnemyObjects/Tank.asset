@@ -30,3 +30,4 @@ MonoBehaviour:
   attackDamage: 0
   attackRange: 10
   health: 100
+  noteDropChance: 50

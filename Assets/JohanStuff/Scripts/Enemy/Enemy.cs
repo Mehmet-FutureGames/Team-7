@@ -6,7 +6,6 @@ public class Enemy : MonoBehaviour
     EnemyPublisher enemyPublisher;
     public Action enemyDefeated;
     public Animator animator;
-
     #region States
     public StateMachine movementSM;
 
@@ -18,12 +17,9 @@ public class Enemy : MonoBehaviour
     public State combatPhase5;
     public State combatPhase6;
     #endregion
-
     public bool playerIsInAttackArea;
     [HideInInspector]
     public GameObject area;
-
-
     [HideInInspector]
     public bool isRanged;
     string enemyName;
@@ -44,6 +40,9 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public int notesToMove;
     public float detectionRange;
+
+    float noteDropChance;
+    bool noteWillDrop = false;
 
     
 
@@ -125,6 +124,10 @@ public class Enemy : MonoBehaviour
 
     private void DisableGameObject()
     {
+        if (noteWillDrop)
+        {
+            // Drop Note
+        }
         InstantiateCoin();
         gameObject.SetActive(false);
         Destroy(gameObject, 1f);
@@ -143,6 +146,17 @@ public class Enemy : MonoBehaviour
         attackAreaScale = stats.attackAreaScale;
         isRanged = stats.isRanged;
         defaultMoveDistance = moveDistance;
+        noteDropChance = stats.noteDropChance;
+    }
+    void SetDropNote()
+    {
+        float chance = UnityEngine.Random.Range(0, 100f);
+        //Debug.Log(chance);
+        if(chance <= noteDropChance)
+        {
+            noteWillDrop = true;
+        }
+        else { noteWillDrop = false;}
     }
     #endregion
 
@@ -153,7 +167,7 @@ public class Enemy : MonoBehaviour
         movementSM = new StateMachine();
         InitializeEnemyType.Instance.Initialize(this, movementSM);
         SetStats();
-
+        SetDropNote();
 
         
 
@@ -231,8 +245,7 @@ public class Enemy : MonoBehaviour
     }
     void InstantiateCoin()
     {
-        var coinPrefab = Resources.Load("Coin") as GameObject;
-        var coin = GameObject.Instantiate(coinPrefab, agentObj.transform.position, transform.rotation);
+        GameObject coin = GameObject.Instantiate(CoinPrefabLoader.Instance.coinPrefab, agentObj.transform.position, transform.rotation);
     }
     #endregion
 

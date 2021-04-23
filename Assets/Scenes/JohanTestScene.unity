@@ -1402,13 +1402,32 @@ MonoBehaviour:
   numberOfWavesForMediumLevel: 2
   numberOfWavesForHardLevel: 3
   waveMaximum: 4
+--- !u!1 &1695597443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8966836274532626866, guid: 9a8011c633929384e963bdb55c94dcf7,
+    type: 3}
+  m_PrefabInstance: {fileID: 8966836273895505068}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1695597447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695597443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ef029e936ced04bb6142a59b0c2fe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinPrefab: {fileID: 0}
 --- !u!114 &1715096865 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8966836274532626829, guid: 9a8011c633929384e963bdb55c94dcf7,
     type: 3}
   m_PrefabInstance: {fileID: 8966836273895505068}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1695597443}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a778399c8f9b404284c4159a889759f, type: 3}

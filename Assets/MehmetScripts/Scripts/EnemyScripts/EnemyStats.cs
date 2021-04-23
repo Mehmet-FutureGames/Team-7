@@ -39,6 +39,9 @@ public class EnemyStats : ScriptableObject
     public float attackDamage;
     public float attackRange;
     public float health;
+    [Space]
+    [Range(0f,100f)]
+    public float noteDropChance;
 
 }
 
