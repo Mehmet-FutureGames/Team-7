@@ -136,9 +136,10 @@ public class MovePlayer : MonoBehaviour
     }
     void TurnPlayerTowardsDir()
     {
-
-            transform.LookAt(new Vector3(lookDir.x,transform.position.y,lookDir.z));
-
+        if (!player.isAttacking)
+        {
+            transform.LookAt(new Vector3(lookDir.x, transform.position.y, lookDir.z));
+        }
     }
     IEnumerator Move()
     {
