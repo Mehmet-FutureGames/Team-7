@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     GameObject TextPanel;
+
+    [SerializeField] Text waveText;
+
+    NotePublisher notePublisher;
+
+    WaveManager manager;
 
     bool skip = false;
 
@@ -15,6 +22,13 @@ public class UIManager : MonoBehaviour
         StartCoroutine(ShowAndStopShowingText());
 
         musicStart = GetComponent<PressAnyKey>();
+
+        manager = FindObjectOfType<WaveManager>();
+
+        notePublisher = FindObjectOfType<NotePublisher>();
+
+        notePublisher.noteHit += UpdateWaveLevel;
+        notePublisher.noteNotHit += UpdateWaveLevel;
 
         TextPanel = GameObject.Find("UIPanel");
 
@@ -31,6 +45,16 @@ public class UIManager : MonoBehaviour
     {
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.buildIndex);
+    }
+
+    private void UpdateWaveLevel()
+    {
+        waveText.text = "Wave: " + manager.waveLevel + "/" + manager.waveMaximum;
+        if(manager.waveLevel >= manager.waveMaximum)
+        {
+            waveText.text = "Hurry! Kill the final enemies and hurry to the door! Contiune on to the next floor!";
+            waveText.alignment = TextAnchor.MiddleCenter;
+        }
     }
 
     private void SkipText()
