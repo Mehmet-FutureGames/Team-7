@@ -36,7 +36,6 @@ public class TargetEnemy : MonoBehaviour
                 enemyPos = hit.collider.transform.position;
                 Vector3 dir = (enemyPos - transform.position).normalized;
                 float length = (enemyPos - transform.position).magnitude;
-                Debug.DrawRay(transform.position, dir * length, Color.red, 500);
                 if (Physics.Raycast(transform.position, dir, out hit, length, layer))
                 {
                     Vector3 hitPoint = hit.point;
