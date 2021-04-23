@@ -12,11 +12,23 @@ public class ComboHandler : MonoBehaviour
     float frenzyMult;
     float timer;
     [SerializeField] Slider slider;
-    public int Combo { get; private set; }
     [SerializeField] Text displayCombo;
     private bool hitNote;
     [Range(0.01f, 2)]
     public float comboDepletionMult;
+    public static float ComboMult;
+
+    private int combo;
+    public int Combo 
+    {
+        get { return combo; }
+        private set 
+        { 
+            combo = value;
+            ComboMult = combo * 0.01f;
+        }
+    }
+
 
     private void Update()
     {

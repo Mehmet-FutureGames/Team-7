@@ -116,6 +116,7 @@ public class Enemy : MonoBehaviour
             {
                 enemyDefeated();
             }
+            SetDropNote(ComboHandler.ComboMult);
             agentObj.GetComponent<Collider>().enabled = false;
             enabled = false;
             Invoke("DisableGameObject", 1.5f);
@@ -148,10 +149,11 @@ public class Enemy : MonoBehaviour
         defaultMoveDistance = moveDistance;
         noteDropChance = stats.noteDropChance;
     }
-    void SetDropNote()
+    void SetDropNote(float combo)
     {
         float chance = UnityEngine.Random.Range(0, 100f);
-        //Debug.Log(chance);
+        noteDropChance = Mathf.Clamp(noteDropChance * (combo + 1), 0f, 100f) ;
+        Debug.Log(noteDropChance);
         if(chance <= noteDropChance)
         {
             noteWillDrop = true;
@@ -167,7 +169,7 @@ public class Enemy : MonoBehaviour
         movementSM = new StateMachine();
         InitializeEnemyType.Instance.Initialize(this, movementSM);
         SetStats();
-        SetDropNote();
+        
 
         
 
