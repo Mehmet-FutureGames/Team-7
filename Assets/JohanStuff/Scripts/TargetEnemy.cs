@@ -10,6 +10,10 @@ public class TargetEnemy : MonoBehaviour
     public static bool hasTarget;
     private Vector3 enemyPos;
     public static Vector3 stopPos;
+
+    [Range(0, 5)]
+    [SerializeField]float stopDistance;
+
     void Start()
     {
         movePlayer = FindObjectOfType<MovePlayer>();
@@ -30,8 +34,14 @@ public class TargetEnemy : MonoBehaviour
                 enemy = hit.collider.gameObject.transform.parent.GetComponent<Enemy>();
                 enemy.moveDistance = 0;
                 enemyPos = hit.collider.transform.position;
-                Vector3 enemyToPlayerDir = (transform.position - enemyPos).normalized;
-                stopPos = enemyPos + enemyToPlayerDir * 2;
+                Vector3 dir = (enemyPos - transform.position).normalized;
+                float length = (enemyPos - transform.position).magnitude;
+                Debug.DrawRay(transform.position, dir * length, Color.red, 500);
+                if (Physics.Raycast(transform.position, dir, out hit, length, layer))
+                {
+                    Vector3 hitPoint = hit.point;
+                    stopPos = hitPoint + (transform.position - hit.point).normalized * stopDistance;
+                }
                 hasTarget = true;
             }
         }

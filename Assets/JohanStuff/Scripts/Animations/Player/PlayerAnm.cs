@@ -29,6 +29,15 @@ public class PlayerAnm : MonoBehaviour
     {
         anim.SetTrigger("TriggerAttack");
     }
+    public void StartAttacking() 
+    {
+        player.StartAttacking();
+    }
+    public void StopAttacking()
+    {
+        player.StopAttacking();
+        player.isAttacking = false;
+    }
 
     private void Update()
     {

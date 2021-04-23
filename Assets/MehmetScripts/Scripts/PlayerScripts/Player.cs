@@ -80,9 +80,9 @@ public class Player : MonoBehaviour
             {
                 {
                     var enemyPos = hit.collider.gameObject.transform.position;
-                    transform.LookAt(new Vector3(enemyPos.x, 1, enemyPos.z));
+                    transform.LookAt(new Vector3(enemyPos.x, transform.position.y, enemyPos.z));
                     doesntReachTarget = false;
-                    StartCoroutine(AttackingActivated());
+                    AttackingActivated();
                 }
             }
             else
@@ -103,14 +103,17 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Attacks
-    IEnumerator AttackingActivated()
+    void AttackingActivated()
     {
         PlayerAnm.Instance.AttackTrigger();
+    }
+    public void StartAttacking()
+    {
         playerAttackRange.gameObject.SetActive(true);
-        GetComponent<MeshRenderer>().material.color = Color.grey;
-        yield return new WaitForSeconds(meleeAttackDuration);
+    }
+    public void StopAttacking()
+    {
         playerAttackRange.gameObject.SetActive(false);
-        GetComponent<MeshRenderer>().material.color = Color.green;
     }
     private void  DashAttack()
     {
