@@ -1640,18 +1640,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1141781323, guid: a1a29c4f959c6a94297623fce0b429ed, type: 3}
-      propertyPath: fFTWindow
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1141781323, guid: a1a29c4f959c6a94297623fce0b429ed, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1141781323, guid: a1a29c4f959c6a94297623fce0b429ed, type: 3}
-      propertyPath: chooseSamples
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7753023273115067105, guid: a1a29c4f959c6a94297623fce0b429ed,
         type: 3}
       propertyPath: m_RootOrder
@@ -1975,6 +1963,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1087593877}
+    - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: beatTempo
+      value: 97
+      objectReference: {fileID: 0}
     - target: {fileID: 8966836274532626828, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: audio

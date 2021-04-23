@@ -35,6 +35,8 @@ public class MovePlayer : MonoBehaviour
 
     Player player;
 
+    Camera camera;
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void Awake()
@@ -43,6 +45,7 @@ public class MovePlayer : MonoBehaviour
         publisher = FindObjectOfType<NotePublisher>();
         publisher.noteHit += DelayMove;
         player = GetComponent<Player>();
+        camera = Camera.main;
     }
 
     private void Start()
@@ -50,10 +53,6 @@ public class MovePlayer : MonoBehaviour
         characterManager = FindObjectOfType<CharacterManager>();
         moveSpeedModifier = characterManager.playerMovementSpeedModifier;
         moveSpeedMultiplier = characterManager.playerMovementSpeedMultiplier;
-    }
-    private void Update()
-    {
-        //MoveCharacter();
     }
 
     private void MoveCharacter()
@@ -96,7 +95,7 @@ public class MovePlayer : MonoBehaviour
     {
         ///////////////////////////////////////////////////////////////////////////
         //Move the Player to Mouse pos.
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        ray = camera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out this.hit, Mathf.Infinity, characterManager.LayerToMovement))
         {
             hitWall = false;

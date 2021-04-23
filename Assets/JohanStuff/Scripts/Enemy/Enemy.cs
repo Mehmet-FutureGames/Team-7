@@ -152,7 +152,7 @@ public class Enemy : MonoBehaviour
     void SetDropNote(float combo)
     {
         float chance = UnityEngine.Random.Range(0, 100f);
-        noteDropChance = Mathf.Clamp(noteDropChance * (combo + 1), 0f, 100f) ;
+        noteDropChance = Mathf.Clamp(noteDropChance * (combo + 1), 0f, 100f);
         Debug.Log(noteDropChance);
         if(chance <= noteDropChance)
         {

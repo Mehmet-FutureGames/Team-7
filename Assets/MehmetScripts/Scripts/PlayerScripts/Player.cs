@@ -46,6 +46,8 @@ public class Player : MonoBehaviour
 
     public bool isAttacking = false;
 
+    Camera camera;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,13 +63,14 @@ public class Player : MonoBehaviour
         {
             stats = Resources.Load("PlayerObjects/BigTankyBoi") as PlayerStats;
         }
+        camera = Camera.main;
         StartCoroutine(References());
     }
     #region AttacksActivation
     public void AttackActivated()
     {
         //Shoots a ray and stores the information in the raycastHit variable.
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
         Vector3 originRay = ray.origin;
         Vector3 directonRay = ray.direction;
         RaycastHit hit;
