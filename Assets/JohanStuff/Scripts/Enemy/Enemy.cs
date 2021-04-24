@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public NavMeshAgent agent;
     Transform parent;
-    private Vector3 attackAreaScale;
+    public Vector3 attackAreaScale;
 
     MovePlayer movePlayer;
     float movementSpeed;

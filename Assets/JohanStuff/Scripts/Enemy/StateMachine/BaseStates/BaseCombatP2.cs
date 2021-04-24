@@ -13,7 +13,8 @@ public class BaseCombatP2 : State
         enemy.area.SetActive(true);
         Vector3 dirToPlayer = (enemy.player.position - enemy.agentObj.transform.position).normalized;
         enemy.agentObj.transform.rotation = Quaternion.LookRotation(dirToPlayer);
-        enemy.area.transform.position = enemy.player.position;
+        //enemy.area.transform.position = enemy.player.position;
+        enemy.area.transform.position = enemy.agentObj.transform.position + (dirToPlayer * enemy.attackAreaScale.z);
         enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.green;
         
     }
