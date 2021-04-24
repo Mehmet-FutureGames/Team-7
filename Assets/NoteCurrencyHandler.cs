@@ -9,18 +9,26 @@ public class NoteCurrencyHandler : MonoBehaviour
     int noteCurrency;
     [SerializeField] Text text;
 
+    public int NoteCurrency
+    {
+        get { return noteCurrency; }
+        set 
+        {
+            noteCurrency = value;
+            PlayerPrefs.SetInt("NoteCurrency", noteCurrency);
+        }
+    }
 
     private void Start()
     {
         noteCurrency = PlayerPrefs.GetInt("NoteCurrency");
-        SetText(noteCurrency);
+        SetText(NoteCurrency);
     }
 
     public void AddNoteCurrency(int amount)
     {
-        noteCurrency += amount;
-        PlayerPrefs.SetInt("NoteCurrency", noteCurrency);
-        SetText(noteCurrency);
+        NoteCurrency += amount;
+        SetText(NoteCurrency);
     }
 
     private void SetText(int amount)
