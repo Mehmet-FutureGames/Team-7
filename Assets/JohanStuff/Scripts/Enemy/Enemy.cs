@@ -258,6 +258,10 @@ public class Enemy : MonoBehaviour
 
     void SpawnCoin(int amount)
     {
+        if(coinMinDropCount >= coinMaxDropCount)
+        {
+            amount = coinMinDropCount;
+        }
         if(amount > 0)
         {
             for (int i = 0; i < amount; i++)

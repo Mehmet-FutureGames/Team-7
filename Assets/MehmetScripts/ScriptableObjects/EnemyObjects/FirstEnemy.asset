@@ -31,4 +31,5 @@ MonoBehaviour:
   health: 100
   noteDropChance: 0
   coinMinDropCount: 0
-  coinMaxDropCount: 0
+  coinMaxDropCount: 10
+  coinValue: 0
