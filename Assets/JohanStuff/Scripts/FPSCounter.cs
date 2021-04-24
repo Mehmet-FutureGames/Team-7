@@ -11,8 +11,7 @@ public class FPSCounter : MonoBehaviour
     int fps;
     void Start()
     {
-        
-        Application.targetFrameRate = 100;
+        //Application.targetFrameRate = 200;
         text = GetComponent<Text>();
     }
 

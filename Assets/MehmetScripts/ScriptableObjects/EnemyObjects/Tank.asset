@@ -31,3 +31,6 @@ MonoBehaviour:
   attackRange: 10
   health: 100
   noteDropChance: 50
+  coinMinDropCount: 0
+  coinMaxDropCount: 10
+  coinValue: 1

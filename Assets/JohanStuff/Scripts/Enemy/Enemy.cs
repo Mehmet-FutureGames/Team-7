@@ -28,7 +28,6 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public NavMeshAgent agent;
     Transform parent;
-    private GameObject coin;
     private Vector3 attackAreaScale;
 
     MovePlayer movePlayer;
@@ -44,7 +43,9 @@ public class Enemy : MonoBehaviour
     float noteDropChance;
     bool noteWillDrop = false;
 
-    
+    private int coinMinDropCount;
+    private int coinMaxDropCount;
+    private float coinValue;
 
     float attackDamage;
     [HideInInspector]
@@ -129,7 +130,7 @@ public class Enemy : MonoBehaviour
         {
             // Drop Note
         }
-        InstantiateCoin();
+        SpawnCoin(UnityEngine.Random.Range(coinMinDropCount, coinMaxDropCount + 1));
         gameObject.SetActive(false);
         Destroy(gameObject, 1f);
     }
@@ -148,7 +149,10 @@ public class Enemy : MonoBehaviour
         isRanged = stats.isRanged;
         defaultMoveDistance = moveDistance;
         noteDropChance = stats.noteDropChance;
-    }
+        coinMinDropCount = stats.coinMinDropCount;
+        coinMaxDropCount = stats.coinMaxDropCount;
+        coinValue = stats.coinValue;
+}
     void SetDropNote(float combo)
     {
         float chance = UnityEngine.Random.Range(0, 100f);
@@ -245,9 +249,17 @@ public class Enemy : MonoBehaviour
     {
         movementSM.CurrentState.PhysicsUpdate();
     }
-    void InstantiateCoin()
+    void SpawnCoin(int amount)
     {
-        GameObject coin = GameObject.Instantiate(CoinPrefabLoader.Instance.coinPrefab, agentObj.transform.position, transform.rotation);
+        if(amount > 0)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                GameObject coin = ObjectPooler.Instance.SpawnFormPool("Coin", agentObj.transform.position, transform.rotation);
+                coin.GetComponent<CoinDrop>().SetCoinValue(coinValue * (ComboHandler.ComboMult + 1));
+            }
+        }
+
     }
     #endregion
 

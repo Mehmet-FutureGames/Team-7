@@ -1,5 +1,57 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5650319300485639701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2950503951455444802}
+  - component: {fileID: 7392083757195482691}
+  m_Layer: 0
+  m_Name: ObjectPooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2950503951455444802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5650319300485639701}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8966836275058985841}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7392083757195482691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5650319300485639701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 080613b62d013dc42aec1dcc4f96b8b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Note
+    prefab: {fileID: 1068030649841422632, guid: 9605936e9ead1da4d8c2c6a2bb432f2f,
+      type: 3}
+    size: 20
+  - tag: Coin
+    prefab: {fileID: 1633827657075649395, guid: 7a068700145b0f94e89d2d8e419cb7ca,
+      type: 3}
+    size: 30
 --- !u!1 &8966836273629194622
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +145,7 @@ MonoBehaviour:
   StartScale: {x: 0.2, y: 5, z: 0.2}
   downScaleMultiplier: 0.14
   difficulty: 0
-  beatTempo: 120
+  beatTempo: 97
   difficultyMultiplier: 0
   notePrefab: {fileID: 1068030649841422632, guid: 9605936e9ead1da4d8c2c6a2bb432f2f,
     type: 3}
@@ -250,6 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
   displayCombo: {fileID: 0}
+  comboDepletionMult: 0.01
 --- !u!1 &8966836275058985840
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,6 +334,7 @@ Transform:
   - {fileID: 8966836274875272968}
   - {fileID: 8966836273629194623}
   - {fileID: 8966836274532626867}
+  - {fileID: 2950503951455444802}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
