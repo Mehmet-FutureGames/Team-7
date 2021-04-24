@@ -52,6 +52,10 @@ MonoBehaviour:
     prefab: {fileID: 1633827657075649395, guid: 7a068700145b0f94e89d2d8e419cb7ca,
       type: 3}
     size: 30
+  - tag: NoteCurrency
+    prefab: {fileID: 2885724536750924555, guid: e3aa2730f77db8740889c8252f5e64fa,
+      type: 3}
+    size: 10
 --- !u!1 &8966836273629194622
 GameObject:
   m_ObjectHideFlags: 0

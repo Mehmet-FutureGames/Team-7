@@ -12,6 +12,7 @@ TagManager:
   - Note
   - SuperActivator
   - Coin
+  - NoteCurrency
   layers:
   - Default
   - TransparentFX

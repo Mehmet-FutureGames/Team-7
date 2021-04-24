@@ -129,6 +129,7 @@ public class Enemy : MonoBehaviour
         if (noteWillDrop)
         {
             // Drop Note
+            SpawnNoteCurrency();
         }
         SpawnCoin(UnityEngine.Random.Range(coinMinDropCount, coinMaxDropCount + 1));
         gameObject.SetActive(false);
@@ -249,6 +250,12 @@ public class Enemy : MonoBehaviour
     {
         movementSM.CurrentState.PhysicsUpdate();
     }
+
+    void SpawnNoteCurrency()
+    {
+        GameObject noteCurrency = ObjectPooler.Instance.SpawnFormPool("NoteCurrency", agentObj.transform.position, transform.rotation);
+    }
+
     void SpawnCoin(int amount)
     {
         if(amount > 0)
@@ -259,7 +266,6 @@ public class Enemy : MonoBehaviour
                 coin.GetComponent<CoinDrop>().SetCoinValue(coinValue * (ComboHandler.ComboMult + 1));
             }
         }
-
     }
     #endregion
 
