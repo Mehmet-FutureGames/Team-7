@@ -18,8 +18,10 @@ MonoBehaviour:
   playerName: Player
   movementSpeed: 0
   attackDamage: 25
-  health: 100
+  health: 2000
   dashDamage: 10
   meleeAttackDuration: 0.8
+  maxFrenzy: 0
   dashAttackDuration: 0.8
+  dashAttackFrenzyCost: 0
   distanceToClick: 4
