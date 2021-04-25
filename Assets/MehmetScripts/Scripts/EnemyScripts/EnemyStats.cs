@@ -39,6 +39,16 @@ public class EnemyStats : ScriptableObject
     public float attackDamage;
     public float attackRange;
     public float health;
+    [Space]
+    [Range(0f,100f)]
+    public float noteDropChance;
+    [Space]
+    [Space]
+    [Range(0,10)]
+    public int coinMinDropCount;
+    [Range(0,10)]
+    public int coinMaxDropCount;
+    public float coinValue;
 
 }
 

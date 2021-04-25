@@ -16,14 +16,14 @@ public class NoteHandler : MonoBehaviour
 
     NoteManager noteManager;
 
-    NotePooler notePooler;
+    ObjectPooler notePooler;
 
     private void Start()
     {
         noteManager = FindObjectOfType<NoteManager>();
         notePrefab = noteManager.notePrefab;
         noteManager.SetDifficulty();
-        notePooler = NotePooler.Instance;
+        notePooler = ObjectPooler.Instance;
     }
     void FixedUpdate()
     {
@@ -32,7 +32,7 @@ public class NoteHandler : MonoBehaviour
             timer += Time.fixedDeltaTime;
             if (timer >= (60/noteManager.beatTempo) * noteManager.difficultyMultiplier)
             {
-                notePooler.SpawnFormPool("Note", notePooler.transform.position, Quaternion.identity);
+                notePooler.SpawnFormPool("Note", transform.position, Quaternion.identity);
                 timer -= (60/noteManager.beatTempo) * noteManager.difficultyMultiplier;
             }
         }

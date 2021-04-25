@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Bob
   movePattern: 0
+  enemyType: 0
   enemyModel: {fileID: 7280686633801961007, guid: 2f2dd6f54256d8541a2b2aebc926adf0,
     type: 3}
   floatingText: {fileID: 0}
@@ -28,3 +29,7 @@ MonoBehaviour:
   attackDamage: 0
   attackRange: 15
   health: 100
+  noteDropChance: 0
+  coinMinDropCount: 0
+  coinMaxDropCount: 10
+  coinValue: 0

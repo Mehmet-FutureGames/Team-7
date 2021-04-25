@@ -37,9 +37,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        comboHandler.AddToCombo();
         if (!PlayerBlock.isBlocking)
         {
+            comboHandler.SetCombo(0);
             currentHealth -= damage;
             if (movePlayer.MovementValue < 10)
             {
@@ -52,6 +52,10 @@ public class PlayerHealth : MonoBehaviour
                     Dead();
                 }
             }
+        }
+        else
+        {
+            comboHandler.AddToCombo();
         }
     }
     public void TakeRangedDamage(float damage)
