@@ -711,18 +711,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 607492262}
-        m_TargetAssemblyTypeName: PlayerStatsMenu, Assembly-CSharp
-        m_MethodName: UpdateText
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &239424588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1131,18 +1119,6 @@ MonoBehaviour:
       - m_Target: {fileID: 607492262}
         m_TargetAssemblyTypeName: PlayerStatsMenu, Assembly-CSharp
         m_MethodName: SelectCharacter
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 607492262}
-        m_TargetAssemblyTypeName: PlayerStatsMenu, Assembly-CSharp
-        m_MethodName: UpdateText
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1687,7 +1663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
-  notesCost: 1
+  notesCost: 0
   characters:
   - {fileID: 132582835}
   - {fileID: 376389740}
@@ -4234,18 +4210,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 607492262}
-        m_TargetAssemblyTypeName: PlayerStatsMenu, Assembly-CSharp
-        m_MethodName: UpdateText
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1586472333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5257,7 +5221,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2101742553}
   m_OnClick:
     m_PersistentCalls:

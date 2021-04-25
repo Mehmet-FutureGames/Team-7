@@ -16,16 +16,26 @@ public class PlayerStatsMenu : MonoBehaviour
 
     int currentCharacterSelected;
 
+    JSONObject playerStatsJson;
+
     int notes;
 
     [SerializeField] List<GameObject> characters = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
+        currentCharacterSelected = 0;
         ChangeCharacters();
         notes = PlayerPrefs.GetInt("NoteCurrency");
         notesText = GameObject.Find("NotesAmount").GetComponent<Text>();
-        if(File.Exists(Application.persistentDataPath + "/PlayerData.json")) LoadData();
+        if (!File.Exists(Application.persistentDataPath + "/PlayerData.json"))
+        {
+            playerStatsJson = new JSONObject();
+        }
+        else
+        {
+            LoadData();
+        }
         notesText.text = notes.ToString();
     }
 
@@ -69,6 +79,7 @@ public class PlayerStatsMenu : MonoBehaviour
         #endregion
         ChangeCharacters();
         currentCharacterSelected = currentCharacter;
+        PlayerPrefs.SetInt("currentSelectedCharacter", currentCharacterSelected);
     }
 
     public void ChangeName(string name)
@@ -108,43 +119,56 @@ public class PlayerStatsMenu : MonoBehaviour
     #region SavingAndLoadingStats
     public void SaveData()
     {
-        string path = Application.persistentDataPath + "/PlayerData.json";
-
+        string path = Application.persistentDataPath + "/PlayerData.json";        
+        
         JSONObject playerStats = new JSONObject();
+
+
         playerStats.Add("Name", stats.playerName);
         playerStats.Add("Health", stats.health);
         playerStats.Add("Damage", stats.attackDamage);
         playerStats.Add("Frenzy", stats.maxFrenzy);
 
-        File.WriteAllText(path, playerStats.ToString());
-        Debug.Log(playerStats);
+        playerStatsJson.Add("character-" + currentCharacterSelected, playerStats);
+
+        File.WriteAllText(path, playerStatsJson.ToString());
     }
     public void LoadData()
     {
         string path = Application.persistentDataPath + "/PlayerData.json";
         string jsonString = File.ReadAllText(path);
-        JSONObject playerStatsJson = (JSONObject)JSON.Parse(jsonString);
 
-        stats.playerName = playerStatsJson["Name"];
-        stats.health = playerStatsJson["Health"];
-        stats.attackDamage = playerStatsJson["Damage"];
-        stats.maxFrenzy = playerStatsJson["Frenzy"];
+        try
+        {
+            playerStatsJson = (JSONObject)JSON.Parse(jsonString);
 
+            var currentCharacter = playerStatsJson["character-" + currentCharacterSelected];
+            stats.playerName = currentCharacter["Name"];
+            stats.health = currentCharacter["Health"];
+            stats.attackDamage = currentCharacter["Damage"];
+            stats.maxFrenzy = currentCharacter["Frenzy"];
+        }
+        catch (System.Exception)
+        {
+            stats.playerName = "Pick a name!";
+            stats.health = 100;
+            stats.attackDamage = 20;
+            stats.maxFrenzy = 10;
+
+            playerStatsJson = new JSONObject();            
+        }
         characters[currentCharacterSelected].GetComponent<CharacterStats>().UpdateText();
     }
 
     public void DeleteSaveFile()
     {
-        File.Delete(Application.persistentDataPath + "/PlayerData.json");
-
         stats.playerName = "Pick a name!";
         stats.health = 100;
         stats.attackDamage = 20;
         stats.maxFrenzy = 10;
+        SaveData();
 
         characters[currentCharacterSelected].GetComponent<CharacterStats>().UpdateText();
-
-        Debug.Log("File deleted");
     }
     #endregion
 }

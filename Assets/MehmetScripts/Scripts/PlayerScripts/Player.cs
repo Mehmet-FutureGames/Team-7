@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
 
     string playerName;
 
+    ObjectReferences playerChooser;
+
     [HideInInspector]
     public GameObject playerDamageText;
     [HideInInspector]
@@ -45,6 +47,8 @@ public class Player : MonoBehaviour
     #endregion
 
     public bool isAttacking = false;
+
+    int selectedCharacter;
 
     Camera camera;
 
@@ -125,14 +129,34 @@ public class Player : MonoBehaviour
     #region References
     IEnumerator References()
     {
+        playerChooser = GetComponent<ObjectReferences>();
+        selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
+        switch (selectedCharacter)
+        {
+            default:
+                stats = playerChooser.stats[0];
+                break;
+            case 0:
+                stats = playerChooser.stats[0];
+                break;
+            case 1:
+                stats = playerChooser.stats[1];
+                break;
+            case 2:
+                stats = playerChooser.stats[2];
+                break;
+        }
         //Instantiate(stats.playerModel, transform);
         movePlayer = GetComponent<MovePlayer>();
+
+
         //References to all the things needed.
         playerName = stats.playerName;
         playerDamageText = stats.playerDamageText;
 
         //Stats
         damage = stats.attackDamage;
+        Debug.Log(damage);
         dashDamage = stats.dashDamage;
         maxHealth = stats.health;
 
