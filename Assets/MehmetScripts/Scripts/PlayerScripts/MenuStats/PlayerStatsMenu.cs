@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 using SimpleJSON;
 
 public class PlayerStatsMenu : MonoBehaviour
@@ -9,23 +10,23 @@ public class PlayerStatsMenu : MonoBehaviour
 
     [SerializeField] PlayerStats stats;
 
+    [SerializeField] int notesCost;
+
+    Text notesText;
+
     int currentCharacterSelected;
 
-    
+    int notes;
 
     [SerializeField] List<GameObject> characters = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
         ChangeCharacters();
+        notes = PlayerPrefs.GetInt("NoteCurrency");
+        notesText = GameObject.Find("NotesAmount").GetComponent<Text>();
         if(File.Exists(Application.persistentDataPath + "/PlayerData.json")) LoadData();
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            LoadData();
-        }
+        notesText.text = notes.ToString();
     }
 
     public void ChangeCharacters()
@@ -81,20 +82,26 @@ public class PlayerStatsMenu : MonoBehaviour
     {
         //statsToUpgrade checks which button is pressed and upgrades
         //according to the number!
-        if(statsToUpgrade == 0)
+        if (notes >= notesCost)
         {
-            stats.health += 5;
-            Debug.Log("Upgraded health!");            
-        }
-        else if(statsToUpgrade == 1)
-        {
-            stats.attackDamage += 5;
-            Debug.Log("Upgraded damage!");            
-        }
-        else if(statsToUpgrade == 2)
-        {
-            stats.maxFrenzy += 5;
-            Debug.Log("Upgraded frenzy!");            
+            notes -= notesCost;
+            PlayerPrefs.SetInt("NoteCurrency", notes);
+            notesText.text = notes.ToString();
+            if (statsToUpgrade == 0)
+            {
+                stats.health += 5;
+                Debug.Log("Upgraded health!");
+            }
+            else if (statsToUpgrade == 1)
+            {
+                stats.attackDamage += 5;
+                Debug.Log("Upgraded damage!");
+            }
+            else if (statsToUpgrade == 2)
+            {
+                stats.maxFrenzy += 5;
+                Debug.Log("Upgraded frenzy!");
+            }
         }
         characters[currentCharacterSelected].GetComponent<CharacterStats>().UpdateText();
     }
