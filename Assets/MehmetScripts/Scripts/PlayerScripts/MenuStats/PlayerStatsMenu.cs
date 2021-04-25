@@ -11,12 +11,14 @@ public class PlayerStatsMenu : MonoBehaviour
 
     int currentCharacterSelected;
 
+    
+
     [SerializeField] List<GameObject> characters = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
         ChangeCharacters();
-        LoadData();
+        if(File.Exists(Application.persistentDataPath + "/PlayerData.json")) LoadData();
     }
     private void Update()
     {
@@ -67,25 +69,36 @@ public class PlayerStatsMenu : MonoBehaviour
         ChangeCharacters();
         currentCharacterSelected = currentCharacter;
     }
-    public void UpgradeStatsHealth()
+
+    public void ChangeName(string name)
     {
-        stats.health += 5;
-        Debug.Log("Upgraded stats!");
-        characters[currentCharacterSelected].GetComponent<CharacterStats>().UpdateText();
-    }
-    public void UpgradeStatsDamage()
-    {
-        stats.attackDamage += 5;
-        Debug.Log("Upgraded stats!");
-        characters[currentCharacterSelected].GetComponent<CharacterStats>().UpdateText();
-    }
-    public void UpgradeStatsFrenzy()
-    {
-        stats.maxFrenzy += 5;
-        Debug.Log("Upgraded stats!");
+        stats.playerName = name;
+
         characters[currentCharacterSelected].GetComponent<CharacterStats>().UpdateText();
     }
 
+    public void UpgradeStats(int statsToUpgrade)
+    {
+        //statsToUpgrade checks which button is pressed and upgrades
+        //according to the number!
+        if(statsToUpgrade == 0)
+        {
+            stats.health += 5;
+            Debug.Log("Upgraded health!");            
+        }
+        else if(statsToUpgrade == 1)
+        {
+            stats.attackDamage += 5;
+            Debug.Log("Upgraded damage!");            
+        }
+        else if(statsToUpgrade == 2)
+        {
+            stats.maxFrenzy += 5;
+            Debug.Log("Upgraded frenzy!");            
+        }
+        characters[currentCharacterSelected].GetComponent<CharacterStats>().UpdateText();
+    }
+    #region SavingAndLoadingStats
     public void SaveData()
     {
         string path = Application.persistentDataPath + "/PlayerData.json";
@@ -112,4 +125,19 @@ public class PlayerStatsMenu : MonoBehaviour
 
         characters[currentCharacterSelected].GetComponent<CharacterStats>().UpdateText();
     }
+
+    public void DeleteSaveFile()
+    {
+        File.Delete(Application.persistentDataPath + "/PlayerData.json");
+
+        stats.playerName = "Pick a name!";
+        stats.health = 100;
+        stats.attackDamage = 20;
+        stats.maxFrenzy = 10;
+
+        characters[currentCharacterSelected].GetComponent<CharacterStats>().UpdateText();
+
+        Debug.Log("File deleted");
+    }
+    #endregion
 }
