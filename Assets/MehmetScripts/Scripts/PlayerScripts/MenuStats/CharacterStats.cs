@@ -38,5 +38,7 @@ public class CharacterStats : MonoBehaviour
         playerDamage.text = stats.attackDamage.ToString();
 
         playerFrenzy.text = stats.maxFrenzy.ToString();
+
+        playerName.text = stats.playerName;
     }
 }

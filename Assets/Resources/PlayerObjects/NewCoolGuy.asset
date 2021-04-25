@@ -16,13 +16,13 @@ MonoBehaviour:
     type: 3}
   playerDamageText: {fileID: 3411471724750393966, guid: 06a5d40551cdc894daaf72510bb45db9,
     type: 3}
-  playerName: New Cool Guy!
+  playerName: HelloGuys
   movementSpeed: 0
-  attackDamage: 20
-  health: 100
+  attackDamage: 100
+  health: 65
   dashDamage: 10
   meleeAttackDuration: 1
-  maxFrenzy: 155
+  maxFrenzy: 100
   dashAttackDuration: 1
   dashAttackFrenzyCost: 5
   distanceToClick: 6

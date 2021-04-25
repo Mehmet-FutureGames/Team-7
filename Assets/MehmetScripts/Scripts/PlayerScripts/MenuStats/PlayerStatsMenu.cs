@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using SimpleJSON;
 
 public class PlayerStatsMenu : MonoBehaviour
 {
@@ -13,7 +15,15 @@ public class PlayerStatsMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ChangeCharacters();        
+        ChangeCharacters();
+        LoadData();
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadData();
+        }
     }
 
     public void ChangeCharacters()
@@ -73,6 +83,33 @@ public class PlayerStatsMenu : MonoBehaviour
     {
         stats.maxFrenzy += 5;
         Debug.Log("Upgraded stats!");
+        characters[currentCharacterSelected].GetComponent<CharacterStats>().UpdateText();
+    }
+
+    public void SaveData()
+    {
+        string path = Application.persistentDataPath + "/PlayerData.json";
+
+        JSONObject playerStats = new JSONObject();
+        playerStats.Add("Name", stats.playerName);
+        playerStats.Add("Health", stats.health);
+        playerStats.Add("Damage", stats.attackDamage);
+        playerStats.Add("Frenzy", stats.maxFrenzy);
+
+        File.WriteAllText(path, playerStats.ToString());
+        Debug.Log(playerStats);
+    }
+    public void LoadData()
+    {
+        string path = Application.persistentDataPath + "/PlayerData.json";
+        string jsonString = File.ReadAllText(path);
+        JSONObject playerStatsJson = (JSONObject)JSON.Parse(jsonString);
+
+        stats.playerName = playerStatsJson["Name"];
+        stats.health = playerStatsJson["Health"];
+        stats.attackDamage = playerStatsJson["Damage"];
+        stats.maxFrenzy = playerStatsJson["Frenzy"];
+
         characters[currentCharacterSelected].GetComponent<CharacterStats>().UpdateText();
     }
 }
