@@ -190,8 +190,6 @@ public class Enemy : MonoBehaviour
         agent = GetComponentInChildren<NavMeshAgent>();
 
         player = FindObjectOfType<MovePlayer>().transform;
-
-        Debug.Log("Fear not " + enemyName + " is here");
         InitializeState(moveState);
     }
 
