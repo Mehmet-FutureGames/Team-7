@@ -28,6 +28,9 @@ public class PlayerStatsMenu : MonoBehaviour
         ChangeCharacters();
         notes = PlayerPrefs.GetInt("NoteCurrency");
         notesText = GameObject.Find("NotesAmount").GetComponent<Text>();
+
+        //If file doesn't exist. Create empty JSONObject.
+
         if (!File.Exists(Application.persistentDataPath + "/PlayerData.json"))
         {
             playerStatsJson = new JSONObject();
@@ -123,8 +126,6 @@ public class PlayerStatsMenu : MonoBehaviour
         
         JSONObject playerStats = new JSONObject();
 
-
-        playerStats.Add("Name", stats.playerName);
         playerStats.Add("Health", stats.health);
         playerStats.Add("Damage", stats.attackDamage);
         playerStats.Add("Frenzy", stats.maxFrenzy);
@@ -143,7 +144,6 @@ public class PlayerStatsMenu : MonoBehaviour
             playerStatsJson = (JSONObject)JSON.Parse(jsonString);
 
             var currentCharacter = playerStatsJson["character-" + currentCharacterSelected];
-            stats.playerName = currentCharacter["Name"];
             stats.health = currentCharacter["Health"];
             stats.attackDamage = currentCharacter["Damage"];
             stats.maxFrenzy = currentCharacter["Frenzy"];

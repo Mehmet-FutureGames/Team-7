@@ -20,8 +20,6 @@ public class CharacterStats : MonoBehaviour
     {
         PlayerPrefs.SetInt("selectedCharacter", currentSelectedCharacter);
 
-        Debug.Log("Selected Character: " + currentSelectedCharacter);
-
         playerName.text = stats.playerName;
 
         playerHealth.text = stats.health.ToString();
