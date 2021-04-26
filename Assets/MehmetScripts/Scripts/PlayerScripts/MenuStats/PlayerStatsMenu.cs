@@ -18,6 +18,8 @@ public class PlayerStatsMenu : MonoBehaviour
 
     JSONObject playerStatsJson;
 
+    string savedPlayerName;
+
     int notes;
 
     [SerializeField] List<GameObject> characters = new List<GameObject>();
@@ -28,6 +30,7 @@ public class PlayerStatsMenu : MonoBehaviour
         ChangeCharacters();
         notes = PlayerPrefs.GetInt("NoteCurrency");
         notesText = GameObject.Find("NotesAmount").GetComponent<Text>();
+        savedPlayerName = stats.playerName;
 
         //If file doesn't exist. Create empty JSONObject.
 
@@ -83,6 +86,7 @@ public class PlayerStatsMenu : MonoBehaviour
         ChangeCharacters();
         currentCharacterSelected = currentCharacter;
         PlayerPrefs.SetInt("currentSelectedCharacter", currentCharacterSelected);
+        savedPlayerName = stats.playerName;
     }
 
     public void ChangeName(string name)
@@ -150,7 +154,7 @@ public class PlayerStatsMenu : MonoBehaviour
         }
         catch (System.Exception)
         {
-            stats.playerName = "Pick a name!";
+            stats.playerName = savedPlayerName;
             stats.health = 100;
             stats.attackDamage = 20;
             stats.maxFrenzy = 10;
@@ -162,7 +166,7 @@ public class PlayerStatsMenu : MonoBehaviour
 
     public void DeleteSaveFile()
     {
-        stats.playerName = "Pick a name!";
+        stats.playerName = savedPlayerName;
         stats.health = 100;
         stats.attackDamage = 20;
         stats.maxFrenzy = 10;
