@@ -9,8 +9,7 @@ public class CasterCombatP4 : State
     public override void Enter()
     {
         base.Enter();
-        timer = 0.07f;
-
+        timer = 0.08f;
         enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
     }
     float timer;
@@ -27,7 +26,7 @@ public class CasterCombatP4 : State
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            enemy.EnemyAttack();
+            enemy.EnemyRangedAttack();
             enemy.area.SetActive(false);
         }
     }

@@ -6,6 +6,8 @@ public class WaveManager : MonoBehaviour
 {
     Enemy[] enemy;
 
+    LevelManager manager;
+
     bool hasSpawnedPattern = false;
 
     int randomPattern;
@@ -24,11 +26,13 @@ public class WaveManager : MonoBehaviour
     [SerializeField] List<Transform> spawnPointPatternsHard;
     [Space]
 
+    [SerializeField] GameObject door;
+    [Space]
+
     TypeOfEnemy[] spawnPoints;
     int amountofEnemiesWanted;
-    [SerializeField] int floorLevel = 0;
-    [Space]
-    [SerializeField]int waveLevel = 0;
+    int floorLevel = 0;
+    public int waveLevel = 0;
     [Space]
     [SerializeField] int numberOfWavesForEasyLevel = 0;
     [Space]
@@ -36,13 +40,15 @@ public class WaveManager : MonoBehaviour
     [Space]
     [SerializeField] int numberOfWavesForHardLevel = 0;
     [Space]
-    [SerializeField] int waveMaximum = 0;
+    public int waveMaximum = 0;
     int amountOfEnemies = 0;
     #region StartFunction
     // Start is called before the first frame update
     void Start()
     {
         SpawnPointPattern();
+
+        manager = FindObjectOfType<LevelManager>();
 
         enemyContainer = GameObject.Find("EnemyContainer").transform;
 
@@ -77,30 +83,23 @@ public class WaveManager : MonoBehaviour
                 randomPattern = Random.Range(0, spawnPointPatternsEasy.Count);
                 Instantiate(spawnPointPatternsEasy[randomPattern], transform.position, Quaternion.identity, transform);
                 FindSpawnPoints();
-                Debug.Log("Spawned new pattern");
-                Debug.Log("Now spawning: Easy Enemies");
             }
             else if (waveLevel < numberOfWavesForMediumLevel)
             {
                 randomPattern = Random.Range(0, spawnPointPatternsMedium.Count);
                 Instantiate(spawnPointPatternsMedium[randomPattern], transform.position, Quaternion.identity, transform);
                 FindSpawnPoints();
-                Debug.Log("Spawned new pattern");
-                Debug.Log("Now spawning: Medium Enemies");
             }
             else if (waveLevel < numberOfWavesForHardLevel)
             {
                 randomPattern = Random.Range(0, spawnPointPatternsHard.Count);
                 Instantiate(spawnPointPatternsHard[randomPattern], transform.position, Quaternion.identity, transform);
                 FindSpawnPoints();
-                Debug.Log("Spawned new pattern");
-                Debug.Log("Now spawning: Hard Enemies");
             }
         }
-            amountofEnemiesWanted = spawnPoints.Length;
-            Invoke("BeginWave", 2f);
-            hasSpawnedPattern = true;
-        
+        amountofEnemiesWanted = spawnPoints.Length;
+        Invoke("BeginWave", 2f);
+        hasSpawnedPattern = true;        
     }
     #endregion
 
@@ -111,8 +110,10 @@ public class WaveManager : MonoBehaviour
     public void FinishFloor()
     {
         //Add behaviour for what happens when you finish a level.
-        Debug.Log("You finished the first floor! Go to X position to contiune!");
-        floorLevel++;        
+        Debug.Log("You finished the first floor! Go to X position to continue!");
+        floorLevel++;
+        Instantiate(door);
+        PlayerPrefs.SetInt("floorLevel", floorLevel);
     }
 
     private void DestroySpawnPattern()

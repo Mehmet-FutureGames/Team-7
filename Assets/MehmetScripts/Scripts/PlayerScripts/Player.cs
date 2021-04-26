@@ -5,14 +5,18 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     
-    [SerializeField] PlayerStats stats;
+    public PlayerStats stats;
 
     [SerializeField] LayerMask enemyLayer;
+
+    MovePlayer movePlayer;
 
     #region VariableSetInScriptableObject
     PlayerAttack playerAttackRange;
 
     PlayerDashAttack playerDashRange;
+
+    PlayerFrenzy playerFrenzy;
 
     NotePublisher notePublisher;
 
@@ -20,10 +24,12 @@ public class Player : MonoBehaviour
 
     string playerName;
 
+    ObjectReferences playerChooser;
+
     [HideInInspector]
     public GameObject playerDamageText;
     [HideInInspector]
-    public float health;
+    public float maxHealth;
     [HideInInspector]
     public float damage;
     [HideInInspector]
@@ -34,20 +40,29 @@ public class Player : MonoBehaviour
     public float meleeAttackDuration;
     [HideInInspector]
     float dashAttackCooldown;
+    [HideInInspector]
+    int dashAttackFrenzyCost;
+
+    [SerializeField] bool doesntReachTarget = false;
     #endregion
 
     public bool isAttacking = false;
-    bool canDashAttack = true;
+
+    int selectedCharacter;
+
+    Camera camera;
+
     // Start is called before the first frame update
     void Start()
     {
+        camera = Camera.main;
         StartCoroutine(References());
     }
-    #region Attacks
+    #region AttacksActivation
     public void AttackActivated()
     {
         //Shoots a ray and stores the information in the raycastHit variable.
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
         Vector3 originRay = ray.origin;
         Vector3 directonRay = ray.direction;
         RaycastHit hit;
@@ -55,55 +70,85 @@ public class Player : MonoBehaviour
         
         if(Physics.Raycast(originRay, directonRay, out hit, Mathf.Infinity, enemyLayer))
         {       
-                float distance = (transform.position - hit.transform.position).magnitude;
-                if (distance < distanceToClick)
+            float distance = (transform.position - hit.transform.position).magnitude;
+            if (distance < distanceToClick)
+            {
                 {
-                    {
-                        var enemyPos = hit.transform.position;
-                        transform.LookAt(new Vector3(enemyPos.x, 1, enemyPos.z));
-                        StartCoroutine(AttackingActivated());
-                    }
-                }            
+                    var enemyPos = hit.collider.gameObject.transform.position;
+                    transform.LookAt(new Vector3(enemyPos.x, transform.position.y, enemyPos.z));
+                    doesntReachTarget = false;
+                    AttackingActivated();
+                }
+            }
+            else
+            {
+            doesntReachTarget = true;
+            }
         //Checks if the player is moving and the melee range attack isn't activate.
         }
-        else if (!playerAttackRange.isActiveAndEnabled && canDashAttack)
+        if (Physics.Raycast(transform.position, (movePlayer.mousePos- transform.position).normalized, out hit, (movePlayer.mousePos - transform.position).magnitude, enemyLayer))
         {
-            StartCoroutine(DashAttack());
-            StartCoroutine(StartCooldown());
+            if (!playerAttackRange.isActiveAndEnabled && playerFrenzy.CurrentFrenzy >= dashAttackFrenzyCost)
+            {
+                Invoke("DashAttack", 0.01f);
+            }
         }
 
     }
     #endregion
 
-    IEnumerator StartCooldown()
-    {
-        canDashAttack = false;
-        yield return new WaitForSeconds(dashAttackCooldown);
-        canDashAttack = true;
-    }
-
     #region Attacks
-    IEnumerator AttackingActivated()
+    void AttackingActivated()
+    {
+        PlayerAnm.Instance.AttackTrigger();
+    }
+    public void StartAttacking()
     {
         playerAttackRange.gameObject.SetActive(true);
-        GetComponent<MeshRenderer>().material.color = Color.grey;
-        yield return new WaitForSeconds(meleeAttackDuration);
-        playerAttackRange.gameObject.SetActive(false);
-        GetComponent<MeshRenderer>().material.color = Color.green;
     }
-    IEnumerator DashAttack()
+    public void StopAttacking()
     {
-        playerDashRange.gameObject.SetActive(true);
-        GetComponent<MeshRenderer>().material.color = Color.black;
-        yield return new WaitForSeconds(dashAttackDuration);
-        playerDashRange.gameObject.SetActive(false);
-        GetComponent<MeshRenderer>().material.color = Color.green;
+        playerAttackRange.gameObject.SetActive(false);
+    }
+    private void  DashAttack()
+    {
+        if (movePlayer.isMoving)
+        {
+            PlayerAnm.Instance.DashTrigger();
+            playerDashRange.gameObject.SetActive(true);
+            GetComponent<MeshRenderer>().material.color = Color.black;
+            playerFrenzy.CurrentFrenzy -= dashAttackFrenzyCost;
+        }
+        else
+        {
+            playerDashRange.gameObject.SetActive(false);
+            GetComponent<MeshRenderer>().material.color = Color.green;
+        }
     }
     #endregion
     #region References
     IEnumerator References()
     {
+        playerChooser = GetComponent<ObjectReferences>();
+        selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
+        switch (selectedCharacter)
+        {
+            default:
+                stats = playerChooser.stats[0];
+                break;
+            case 0:
+                stats = playerChooser.stats[0];
+                break;
+            case 1:
+                stats = playerChooser.stats[1];
+                break;
+            case 2:
+                stats = playerChooser.stats[2];
+                break;
+        }
         //Instantiate(stats.playerModel, transform);
+        movePlayer = GetComponent<MovePlayer>();
+
 
         //References to all the things needed.
         playerName = stats.playerName;
@@ -111,13 +156,14 @@ public class Player : MonoBehaviour
 
         //Stats
         damage = stats.attackDamage;
+        Debug.Log(damage);
         dashDamage = stats.dashDamage;
-        health = stats.health;
+        maxHealth = stats.health;
+
+        Debug.Log(maxHealth);
 
         dashAttackDuration = stats.dashAttackDuration;
         meleeAttackDuration = stats.meleeAttackDuration;
-
-        dashAttackCooldown = stats.dashAttackCooldown;
 
         distanceToClick = stats.distanceToClick;
 
@@ -125,7 +171,11 @@ public class Player : MonoBehaviour
         notePublisher = FindObjectOfType<NotePublisher>();
 
         //Subscribe to noteHit.
-        notePublisher.noteHit += AttackActivated;
+        //notePublisher.noteHit += AttackActivated;
+        movePlayer.playerRegMove += AttackActivated;
+        playerFrenzy = GetComponent<PlayerFrenzy>();
+
+        dashAttackFrenzyCost = stats.dashAttackFrenzyCost;
 
         playerAttackRange = GetComponentInChildren<PlayerAttack>();
 

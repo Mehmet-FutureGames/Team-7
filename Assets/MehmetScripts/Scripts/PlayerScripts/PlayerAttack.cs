@@ -36,6 +36,7 @@ public class PlayerAttack : MonoBehaviour
     }
     private void OnEnable()
     {
+        
         playerStats = GetComponentInParent<Player>();
         playerStats.isAttacking = true;
     }

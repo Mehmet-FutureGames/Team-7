@@ -5,8 +5,7 @@ public class Enemy : MonoBehaviour
 {
     EnemyPublisher enemyPublisher;
     public Action enemyDefeated;
-
-
+    public Animator animator;
     #region States
     public StateMachine movementSM;
 
@@ -18,12 +17,9 @@ public class Enemy : MonoBehaviour
     public State combatPhase5;
     public State combatPhase6;
     #endregion
-
     public bool playerIsInAttackArea;
     [HideInInspector]
     public GameObject area;
-
-
     [HideInInspector]
     public bool isRanged;
     string enemyName;
@@ -32,8 +28,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public NavMeshAgent agent;
     Transform parent;
-    private GameObject coin;
-    private Vector3 attackAreaScale;
+    public Vector3 attackAreaScale;
 
     MovePlayer movePlayer;
     float movementSpeed;
@@ -45,7 +40,12 @@ public class Enemy : MonoBehaviour
     public int notesToMove;
     public float detectionRange;
 
-    
+    float noteDropChance;
+    bool noteWillDrop = false;
+
+    private int coinMinDropCount;
+    private int coinMaxDropCount;
+    private float coinValue;
 
     float attackDamage;
     [HideInInspector]
@@ -82,6 +82,13 @@ public class Enemy : MonoBehaviour
             player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
         }
     }
+    public void EnemyRangedAttack()
+    {
+        if (playerIsInAttackArea)
+        {
+            player.GetComponent<PlayerHealth>().TakeRangedDamage(attackDamage);
+        }
+    }
     public void TakeDamage(float damage)
     {
         health -= damage;
@@ -104,21 +111,27 @@ public class Enemy : MonoBehaviour
 
     private void Dead()
     {
-        if (health < 0)
+        if (health <= 0)
         {
             if (enemyDefeated != null)
             {
                 enemyDefeated();
             }
-            enabled = false;
+            SetDropNote(ComboHandler.ComboMult);
             agentObj.GetComponent<Collider>().enabled = false;
+            enabled = false;
             Invoke("DisableGameObject", 1.5f);
         }
     }
 
     private void DisableGameObject()
     {
-        InstantiateCoin();
+        if (noteWillDrop)
+        {
+            // Drop Note
+            SpawnNoteCurrency();
+        }
+        SpawnCoin(UnityEngine.Random.Range(coinMinDropCount, coinMaxDropCount + 1));
         gameObject.SetActive(false);
         Destroy(gameObject, 1f);
     }
@@ -134,9 +147,23 @@ public class Enemy : MonoBehaviour
         health = stats.health;
         attackRange = stats.attackRange;
         attackAreaScale = stats.attackAreaScale;
-        detectionRange = stats.detectionRange;
         isRanged = stats.isRanged;
         defaultMoveDistance = moveDistance;
+        noteDropChance = stats.noteDropChance;
+        coinMinDropCount = stats.coinMinDropCount;
+        coinMaxDropCount = stats.coinMaxDropCount;
+        coinValue = stats.coinValue;
+}
+    void SetDropNote(float combo)
+    {
+        float chance = UnityEngine.Random.Range(0, 100f);
+        noteDropChance = Mathf.Clamp(noteDropChance * (combo + 1), 0f, 100f);
+        Debug.Log(noteDropChance);
+        if(chance <= noteDropChance)
+        {
+            noteWillDrop = true;
+        }
+        else { noteWillDrop = false;}
     }
     #endregion
 
@@ -147,7 +174,7 @@ public class Enemy : MonoBehaviour
         movementSM = new StateMachine();
         InitializeEnemyType.Instance.Initialize(this, movementSM);
         SetStats();
-
+        
 
         
 
@@ -155,6 +182,7 @@ public class Enemy : MonoBehaviour
 
         agentObj = Instantiate(stats.enemyModel, parent);
         area = Instantiate(stats.attackAreaShape, agentObj.transform.position, Quaternion.identity, agentObj.transform);
+        animator = agentObj.GetComponentInChildren<Animator>();
         floatingText = stats.floatingText;
         area.SetActive(false);
         area.transform.localScale = stats.attackAreaScale;
@@ -162,8 +190,6 @@ public class Enemy : MonoBehaviour
         agent = GetComponentInChildren<NavMeshAgent>();
 
         player = FindObjectOfType<MovePlayer>().transform;
-
-        Debug.Log("Fear not " + enemyName + " is here");
         InitializeState(moveState);
     }
 
@@ -188,6 +214,7 @@ public class Enemy : MonoBehaviour
     }
     private void OnEnable()
     {
+        
         manager = FindObjectOfType<WaveManager>();
         manager.Subscribe(this);
         enemyPublisher = FindObjectOfType<EnemyPublisher>();
@@ -221,10 +248,26 @@ public class Enemy : MonoBehaviour
     {
         movementSM.CurrentState.PhysicsUpdate();
     }
-    void InstantiateCoin()
+
+    void SpawnNoteCurrency()
     {
-        var coinPrefab = Resources.Load("Coin") as GameObject;
-        var coin = GameObject.Instantiate(coinPrefab, agentObj.transform.position, transform.rotation);
+        GameObject noteCurrency = ObjectPooler.Instance.SpawnFormPool("NoteCurrency", agentObj.transform.position, transform.rotation);
+    }
+
+    void SpawnCoin(int amount)
+    {
+        if(coinMinDropCount >= coinMaxDropCount)
+        {
+            amount = coinMinDropCount;
+        }
+        if(amount > 0)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                GameObject coin = ObjectPooler.Instance.SpawnFormPool("Coin", agentObj.transform.position, transform.rotation);
+                coin.GetComponent<CoinDrop>().SetCoinValue(coinValue * (ComboHandler.ComboMult + 1));
+            }
+        }
     }
     #endregion
 

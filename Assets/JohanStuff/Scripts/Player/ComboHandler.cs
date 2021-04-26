@@ -10,11 +10,35 @@ public class ComboHandler : MonoBehaviour
     MovePlayer movePlayer;
     float coinMult;
     float frenzyMult;
-
-    [HideInInspector]
-    public int Combo { get; private set; }
+    float timer;
+    [SerializeField] Slider slider;
     [SerializeField] Text displayCombo;
     private bool hitNote;
+    [Range(0.01f, 2)]
+    public float comboDepletionMult;
+    public static float ComboMult;
+
+    private int combo;
+    public int Combo 
+    {
+        get { return combo; }
+        private set 
+        { 
+            combo = value;
+            ComboMult = combo * 0.01f;
+        }
+    }
+
+
+    private void Update()
+    {
+        timer = Mathf.Clamp(timer - Time.deltaTime * comboDepletionMult, slider.minValue, slider.maxValue);
+        slider.value = timer;
+        if (timer <= slider.minValue)
+        {
+            SetCombo(0);
+        }
+    }
 
     private void Awake()
     {
@@ -37,12 +61,18 @@ public class ComboHandler : MonoBehaviour
 
     public void SetCombo(int combo)
     {
+        if(combo <= 0)
+        {
+            slider.gameObject.SetActive(false);
+        }
         Combo = combo;
         displayCombo.text = "Combo: " + Combo.ToString();
     }
 
     public void AddToCombo()
     {
+        slider.gameObject.SetActive(true);
+        timer = slider.maxValue;
         Combo += 1;
         displayCombo.text = "Combo: " + Combo.ToString();
     }

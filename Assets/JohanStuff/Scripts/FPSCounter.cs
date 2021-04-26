@@ -8,8 +8,10 @@ public class FPSCounter : MonoBehaviour
     private Text text;
 
     private float timer;
+    int fps;
     void Start()
     {
+        //Application.targetFrameRate = 200;
         text = GetComponent<Text>();
     }
 
@@ -18,10 +20,9 @@ public class FPSCounter : MonoBehaviour
     {
         if(Time.unscaledTime > timer)
         {
-            int fps = (int)(1f / Time.unscaledDeltaTime);
+            fps = (int)(1f / Time.unscaledDeltaTime);
             text.text = "FPS: " + fps.ToString();
-            timer = Time.unscaledTime + 0.5f;
+            timer = Time.unscaledTime + 0.05f;
         }
-        
     }
 }

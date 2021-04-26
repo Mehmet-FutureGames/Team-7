@@ -63,10 +63,6 @@ public class NoteObject : MonoBehaviour
         {
             canBePressed = true;
         }
-        if (other.CompareTag("SuperActivator")) 
-        {
-            perfectHit = true;
-        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -77,10 +73,6 @@ public class NoteObject : MonoBehaviour
             publisher.NoteNotHit();
             canBePressed = false;
             gameObject.SetActive(false);
-        }
-        if (other.CompareTag("SuperActivator"))
-        {
-            perfectHit = false;
         }
     }
     

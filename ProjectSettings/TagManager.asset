@@ -11,6 +11,8 @@ TagManager:
   - PatternSpawner
   - Note
   - SuperActivator
+  - Coin
+  - NoteCurrency
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -8,16 +9,20 @@ public class PlayerHealth : MonoBehaviour
     float currentHealth;
 
     GameObject deadPanel;
+    Image healthBar;
 
     MovePlayer movePlayer;
+
+    ComboHandler comboHandler;
 
     private void Start()
     {
         playerStats = GetComponentInParent<Player>();
         movePlayer = FindObjectOfType<MovePlayer>();
         StartCoroutine(ReferenceHealth());
-
+        comboHandler = FindObjectOfType<ComboHandler>();
         deadPanel = GameObject.Find("DeadPanel");
+        healthBar = GameObject.Find("HealthBar").GetComponent<Image>();
         deadPanel.SetActive(false);
         RespawnDEV();
     }
@@ -34,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!PlayerBlock.isBlocking)
         {
+            comboHandler.SetCombo(0);
             currentHealth -= damage;
             if (movePlayer.MovementValue < 10)
             {
@@ -41,10 +47,29 @@ public class PlayerHealth : MonoBehaviour
                 {
                     ShowFloatingText(damage);
                 }
-                if (currentHealth < 0)
+                if (currentHealth <= 0)
                 {
                     Dead();
                 }
+            }
+        }
+        else
+        {
+            comboHandler.AddToCombo();
+        }
+    }
+    public void TakeRangedDamage(float damage)
+    {
+        currentHealth -= damage;
+        if (movePlayer.MovementValue < 10)
+        {
+            if (playerStats.playerDamageText)
+            {
+                ShowFloatingText(damage);
+            }
+            if (currentHealth < 0)
+            {
+                Dead();
             }
         }
     }
@@ -53,6 +78,7 @@ public class PlayerHealth : MonoBehaviour
     {
         var text = Instantiate(playerStats.playerDamageText, transform.position, Quaternion.identity, transform);
         text.GetComponent<TextMesh>().text = "Damage: " + damage.ToString();
+        healthBar.fillAmount = currentHealth / playerStats.maxHealth;
     }
 
     private void Dead()
@@ -64,7 +90,7 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator ReferenceHealth()
     {
         yield return new WaitForSeconds(0.1f);
-        currentHealth = playerStats.health;
+        currentHealth = playerStats.maxHealth;
     }
 
     public void UpgradeHealth(float upgradedHealth)

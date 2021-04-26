@@ -10,10 +10,10 @@ public class TankMoveState : State
     public override void Enter()
     {
         base.Enter();
-        enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.yellow;
     }
     public override void LogicUpdate()
     {
+        enemy.animator.SetFloat("Blend", enemy.agent.velocity.magnitude);
     }
 
     public override void Exit()

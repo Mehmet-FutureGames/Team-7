@@ -676,6 +676,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 388111518}
+    - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: difficulty
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8966836274532626828, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: audio
@@ -1212,6 +1217,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 5.28491
+      objectReference: {fileID: 0}
+    - target: {fileID: 7914652014773267335, guid: 8bbdca35cac70f143b906cf2b0652137,
+        type: 3}
+      propertyPath: m_Height
+      value: 4.2269354
+      objectReference: {fileID: 0}
+    - target: {fileID: 7914652014773267335, guid: 8bbdca35cac70f143b906cf2b0652137,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 1.7334676
       objectReference: {fileID: 0}
     - target: {fileID: 7914652015172397948, guid: 8bbdca35cac70f143b906cf2b0652137,
         type: 3}

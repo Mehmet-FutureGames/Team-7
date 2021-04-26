@@ -25,7 +25,7 @@ public class EnemyHitArea : MonoBehaviour
     }
     private void OnEnable()
     {
-        StartCoroutine(wait());
+        //StartCoroutine(wait());
     }
     private void OnDisable()
     {
