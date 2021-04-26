@@ -21,6 +21,7 @@ public class NoteObject : MonoBehaviour
     void Start()
     {
         publisher = FindObjectOfType<NotePublisher>();
+        publisher.buttonHitAttack += ButtonAttack;
     }
     private void OnEnable()
     {
@@ -93,7 +94,6 @@ public class NoteObject : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
         timer += Time.fixedDeltaTime;
         transform.localScale = Vector3.Lerp(noteManager.StartScale, Vector3.zero, noteManager.downScaleMultiplier * timer);
     }

@@ -59,6 +59,7 @@ public class Player : MonoBehaviour
     {
         camera = Camera.main;
         StartCoroutine(References());
+        
     }
     #region AttacksActivation
     public void DashAttackActivated()
@@ -91,6 +92,7 @@ public class Player : MonoBehaviour
 
         public void NormalAttackActivated()
         {
+            notePublisher.NoteButtonHitAttack();
             if(EnemyTransforms != null)
             {
                 Transform closestEnemy = GetClosestEnemy(EnemyTransforms);
