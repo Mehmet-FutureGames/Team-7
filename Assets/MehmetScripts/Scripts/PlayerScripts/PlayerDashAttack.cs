@@ -13,7 +13,7 @@ public class PlayerDashAttack : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.GetComponentInParent<Enemy>().TakeDamage(dashDamage);
+            other.GetComponentInParent<Enemy>().TakeDamage(dashDamage, true);
         }
     }
     private void OnEnable()

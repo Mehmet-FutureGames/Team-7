@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.GetComponentInParent<Enemy>().TakeDamage(damage);
+            other.GetComponentInParent<Enemy>().TakeDamage(damage, false);
         }
     }
 

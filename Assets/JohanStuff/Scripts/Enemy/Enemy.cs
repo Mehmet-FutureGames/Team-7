@@ -89,12 +89,20 @@ public class Enemy : MonoBehaviour
             player.GetComponent<PlayerHealth>().TakeRangedDamage(attackDamage);
         }
     }
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, bool isDash)
     {
         health -= damage;
         if (floatingText)
         {
-            enemyPublisher.OnEnemyTakeDamage(); // Sends event upon taking damage. Subscribers: ComboHandler
+            GameObject blood = ObjectPooler.Instance.SpawnFormPool("Blood", agentObj.transform.position, transform.rotation);
+            if (!isDash)
+            {
+                PlayerFrenzy.Instance.AddFrenzy();
+                ComboHandler.Instance.AddToCombo();
+            }
+            else { ComboHandler.Instance.AddToCombo(); }
+            
+            //enemyPublisher.OnEnemyTakeDamage(); // Sends event upon taking damage. Subscribers: ComboHandler
             ShowFloatingText(damage);
         }
         Dead();
