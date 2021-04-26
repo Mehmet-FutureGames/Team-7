@@ -60,26 +60,9 @@ public class PlayerStatsMenu : MonoBehaviour
     {
         characters[currentCharacterSelected].SetActive(true);
         #region weirdIfStatementsTOBEFIXED
-        switch (currentCharacterSelected)
+        for (int i = 0; i < characters.Count; i++)
         {
-            default:
-                characters[0].SetActive(true);
-                break;
-            case 0:
-                characters[0].SetActive(true);
-                characters[1].SetActive(false);
-                characters[2].SetActive(false);
-                break;
-            case 1:
-                characters[0].SetActive(false);
-                characters[1].SetActive(true);
-                characters[2].SetActive(false);
-                break;
-            case 2:
-                characters[0].SetActive(false);
-                characters[1].SetActive(false);
-                characters[2].SetActive(true);
-                break;
+            characters[i].SetActive(i == currentCharacterSelected);
         }
         #endregion
         ChangeCharacters();
