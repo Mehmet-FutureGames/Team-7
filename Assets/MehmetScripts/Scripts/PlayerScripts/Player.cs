@@ -89,20 +89,19 @@ public class Player : MonoBehaviour
 
     }
 #if UNITY_ANDROID
-        private void Subscribe()
+    private void Subscribe()
     {
-        
+        notePublisher.noteHitAttack += NormalAttackActivated;
     }
-        public void NormalAttackActivated()
+    public void NormalAttackActivated()
+    {
+        if(EnemyTransforms.Count > 0)
         {
-            if(EnemyTransforms.Count > 0)
-            {
-                notePublisher.NoteButtonHitAttack();
-                Transform closestEnemy = GetClosestEnemy(EnemyTransforms);
-                transform.LookAt(new Vector3(closestEnemy.position.x, transform.position.y, closestEnemy.position.z));
-                AttackingActivated();
-            }
+            Transform closestEnemy = GetClosestEnemy(EnemyTransforms);
+            transform.LookAt(new Vector3(closestEnemy.position.x, transform.position.y, closestEnemy.position.z));
+            AttackingActivated();
         }
+    }
 
 #endif
 #if UNITY_STANDALONE
