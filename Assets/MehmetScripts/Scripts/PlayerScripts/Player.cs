@@ -24,8 +24,6 @@ public class Player : MonoBehaviour
 
     string playerName;
 
-    ObjectReferences playerChooser;
-
     [HideInInspector]
     public GameObject playerDamageText;
     [HideInInspector]
@@ -48,21 +46,28 @@ public class Player : MonoBehaviour
 
     public bool isAttacking = false;
 
-    int selectedCharacter;
-
-    Camera camera;
-
     // Start is called before the first frame update
     void Start()
     {
-        camera = Camera.main;
+        /*if(PlayerPrefs.GetInt("selectedCharacter") == 0)
+        {
+            stats = Resources.Load("PlayerObjects/NewCoolGuy") as PlayerStats;
+        }
+        else if(PlayerPrefs.GetInt("selectedCharacter") == 1)
+        {
+            stats = Resources.Load("PlayerObjects/UncoolStats42") as PlayerStats;
+        }
+        else if(PlayerPrefs.GetInt("selectedCharacter") == 2)
+        {
+            stats = Resources.Load("PlayerObjects/BigTankyBoi") as PlayerStats;
+        }*/
         StartCoroutine(References());
     }
     #region AttacksActivation
     public void AttackActivated()
     {
         //Shoots a ray and stores the information in the raycastHit variable.
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Vector3 originRay = ray.origin;
         Vector3 directonRay = ray.direction;
         RaycastHit hit;
@@ -129,34 +134,14 @@ public class Player : MonoBehaviour
     #region References
     IEnumerator References()
     {
-        playerChooser = GetComponent<ObjectReferences>();
-        selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
-        switch (selectedCharacter)
-        {
-            default:
-                stats = playerChooser.stats[0];
-                break;
-            case 0:
-                stats = playerChooser.stats[0];
-                break;
-            case 1:
-                stats = playerChooser.stats[1];
-                break;
-            case 2:
-                stats = playerChooser.stats[2];
-                break;
-        }
         //Instantiate(stats.playerModel, transform);
         movePlayer = GetComponent<MovePlayer>();
-
-
         //References to all the things needed.
         playerName = stats.playerName;
         playerDamageText = stats.playerDamageText;
 
         //Stats
         damage = stats.attackDamage;
-        Debug.Log(damage);
         dashDamage = stats.dashDamage;
         maxHealth = stats.health;
 
