@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class NoteObject : MonoBehaviour
 {
@@ -34,27 +35,35 @@ public class NoteObject : MonoBehaviour
     {        
         if (canBePressed && deActivated == false)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (EventSystem.current.IsPointerOverGameObject())
             {
-                publisher.NoteHit();
-                gameObject.SetActive(false);
-                canBePressed = false;
-                NoteMiss.Instance.TriggerCountZero();
+
             }
-            else if (Input.GetKeyDown(KeyCode.Mouse1))
+            else
             {
-                publisher.NoteHitBlock();
-                gameObject.SetActive(false);
-                canBePressed = false;
-                NoteMiss.Instance.TriggerCountZero();
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    publisher.NoteHit();
+                    gameObject.SetActive(false);
+                    canBePressed = false;
+                    NoteMiss.Instance.TriggerCountZero();
+                }
+                else if (Input.GetKeyDown(KeyCode.Mouse1))
+                {
+                    publisher.NoteHitBlock();
+                    gameObject.SetActive(false);
+                    canBePressed = false;
+                    NoteMiss.Instance.TriggerCountZero();
+                }
+                else if (Input.GetKeyDown(KeyCode.Z))
+                {
+                    publisher.NoteHitAttack();
+                    gameObject.SetActive(false);
+                    canBePressed = false;
+                    NoteMiss.Instance.TriggerCountZero();
+                }
             }
-            else if (Input.GetKeyDown(KeyCode.Z))
-            {
-                publisher.NoteHitAttack();
-                gameObject.SetActive(false);
-                canBePressed = false;
-                NoteMiss.Instance.TriggerCountZero();
-            }
+
         }
     }
     private void FixedUpdate()

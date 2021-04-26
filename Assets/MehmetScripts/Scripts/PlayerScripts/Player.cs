@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    
+    public static List<Transform> EnemyTransforms = new List<Transform>();
+
     public PlayerStats stats;
 
     [SerializeField] LayerMask ground;
@@ -87,10 +88,12 @@ public class Player : MonoBehaviour
 
     }
 
-    private void NormalAttackActivated()
+    public void NormalAttackActivated()
     {
+        
         if(SystemInfo.deviceType == DeviceType.Desktop)
         {
+            Debug.Log(EnemyTransforms.Count);
             //Shoots a ray and stores the information in the raycastHit variable.
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
             Vector3 originRay = ray.origin;
@@ -102,7 +105,30 @@ public class Player : MonoBehaviour
                 //Checks if the player is moving and the melee range attack isn't activate.
             }
         }
+        
+        if(SystemInfo.deviceType == DeviceType.Handheld)
+        {
+            Transform closestEnemy = GetClosestEnemy(EnemyTransforms);
+            transform.LookAt(new Vector3(closestEnemy.position.x, transform.position.y, closestEnemy.position.z));
+            AttackingActivated();
+        }
 
+    }
+
+    Transform GetClosestEnemy(List<Transform> enemyTransforms)
+    {
+        Transform closestEnemy = null;
+        float minDistance = Mathf.Infinity;
+        for (int i = 0; i < EnemyTransforms.Count; i++)
+        {
+            float distance = Vector3.Distance(enemyTransforms[i].position, transform.position);
+            if(distance < minDistance)
+            {
+                closestEnemy = enemyTransforms[i];
+                minDistance = distance;
+            }
+        }
+        return closestEnemy;
     }
     #endregion
 
