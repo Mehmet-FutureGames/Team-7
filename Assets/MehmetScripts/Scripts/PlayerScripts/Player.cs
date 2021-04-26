@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] LayerMask ground;
     [SerializeField] LayerMask enemyLayer;
 
+    ObjectReferences playerChoose;
+
     MovePlayer movePlayer;
     RaycastHit hit;
     #region VariableSetInScriptableObject
@@ -47,23 +49,13 @@ public class Player : MonoBehaviour
 
     public bool isAttacking = false;
 
+    int selectedCharacter;
+
     Camera camera;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(PlayerPrefs.GetInt("selectedCharacter") == 0)
-        {
-            stats = Resources.Load("PlayerObjects/NewCoolGuy") as PlayerStats;
-        }
-        else if(PlayerPrefs.GetInt("selectedCharacter") == 1)
-        {
-            stats = Resources.Load("PlayerObjects/UncoolStats42") as PlayerStats;
-        }
-        else if(PlayerPrefs.GetInt("selectedCharacter") == 2)
-        {
-            stats = Resources.Load("PlayerObjects/BigTankyBoi") as PlayerStats;
-        }
         camera = Camera.main;
         StartCoroutine(References());
     }
@@ -144,6 +136,23 @@ public class Player : MonoBehaviour
     #region References
     IEnumerator References()
     {
+        selectedCharacter = PlayerPrefs.GetInt("currentSelectedCharacter");
+        playerChoose = GetComponent<ObjectReferences>();
+        switch (selectedCharacter)
+        {
+            default:
+                playerChoose.stats[0] = stats;
+                break;
+            case 0:
+                playerChoose.stats[0] = stats;
+                break;
+            case 1:
+                playerChoose.stats[1] = stats;
+                break;
+            case 2:
+                playerChoose.stats[2] = stats;
+                break;
+        }
         //Instantiate(stats.playerModel, transform);
         movePlayer = GetComponent<MovePlayer>();
         //References to all the things needed.
