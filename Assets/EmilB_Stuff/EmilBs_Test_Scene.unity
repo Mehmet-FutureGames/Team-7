@@ -1930,24 +1930,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 458f36d2f5eedb44a857344ab45652d1, type: 3}
---- !u!1 &124387870 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1592661818090006660, guid: 458f36d2f5eedb44a857344ab45652d1,
-    type: 3}
-  m_PrefabInstance: {fileID: 124387869}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &124387871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124387870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b6d06fe35d444b4caaa614dbf5ceda3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &125244694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16863,7 +16845,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819439417}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.838024, y: 8.767412, z: -22.028305}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -28657,16 +28639,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1027687571, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.0002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027687571, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -904.21
+      value: -996.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027687571, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00012207031
       objectReference: {fileID: 0}
     - target: {fileID: 1027687571, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 452.11
+      value: 498.13
       objectReference: {fileID: 0}
     - target: {fileID: 1027687572, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
       propertyPath: m_FontData.m_Alignment
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7982927049351044176, guid: 4693bb05872ed41469aefc057d451c49,
         type: 3}

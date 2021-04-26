@@ -17,8 +17,8 @@ MonoBehaviour:
     type: 3}
   playerName: Player
   movementSpeed: 0
-  attackDamage: 50
-  health: 100
+  attackDamage: 25
+  health: 2000
   dashDamage: 10
   meleeAttackDuration: 0.8
   maxFrenzy: 0

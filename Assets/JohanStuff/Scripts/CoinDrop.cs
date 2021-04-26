@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LootFollow : MonoBehaviour
+public class CoinDrop : MonoBehaviour
 {
     public Transform player;
 
@@ -11,15 +11,26 @@ public class LootFollow : MonoBehaviour
     [SerializeField] float upwardForce;
     public float speedModifier;
     
+    private float randomZVal;
+    private float randomXVal;
+
+    float coinValue;
+
     bool follow;
     Rigidbody rb;
-    private void Start()
+    private void Awake()
     {
+        randomXVal = Random.Range(-100f, 100f);
+        randomZVal = Random.Range(-200f, 200f);
         player = FindObjectOfType<Player>().transform;
         rb = GetComponent<Rigidbody>();
+    }
+    private void OnEnable()
+    {
         GetComponent<SphereCollider>().enabled = false;
         follow = false;
-        rb.AddForce(Vector3.up * upwardForce);
+        rb.isKinematic = false;
+        rb.AddForce(new Vector3(randomXVal, 1 * upwardForce, randomZVal));
         Invoke("SetFollow", disableAfterSeconds);
     }
 
@@ -42,8 +53,14 @@ public class LootFollow : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(this.gameObject);
+            other.gameObject.GetComponent<PlayerCoinHandler>().AddCoins(coinValue);
+            gameObject.SetActive(false);
         }
+    }
+
+    public void SetCoinValue(float value)
+    {
+        coinValue = value;
     }
 
 }
