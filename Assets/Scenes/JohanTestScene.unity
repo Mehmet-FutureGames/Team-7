@@ -1784,14 +1784,6 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 1690020782}
-    - target: {fileID: 1649082608, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}
-      propertyPath: stopDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649082608, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}
-      propertyPath: enemyLayer.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
     - target: {fileID: 1832600824, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}
       propertyPath: text
       value: 
