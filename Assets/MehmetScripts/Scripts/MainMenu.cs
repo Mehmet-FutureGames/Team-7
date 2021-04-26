@@ -5,10 +5,6 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    private void Start()
-    {
-        Debug.Log("hello world");
-    }
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -16,14 +12,11 @@ public class MainMenu : MonoBehaviour
 
     public void Settings()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene("SettingsUI");
     }
-
-
 
     public void QuitGame()
     {
-        Debug.Log("Quit");
         Application.Quit();
     }
 }

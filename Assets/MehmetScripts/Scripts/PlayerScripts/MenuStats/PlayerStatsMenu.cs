@@ -14,9 +14,11 @@ public class PlayerStatsMenu : MonoBehaviour
 
     Text notesText;
 
-    int currentCharacterSelected;
+    [SerializeField] int currentCharacterSelected;
 
     JSONObject playerStatsJson;
+
+    string savedPlayerName;
 
     int notes;
 
@@ -28,6 +30,10 @@ public class PlayerStatsMenu : MonoBehaviour
         ChangeCharacters();
         notes = PlayerPrefs.GetInt("NoteCurrency");
         notesText = GameObject.Find("NotesAmount").GetComponent<Text>();
+        savedPlayerName = stats.playerName;
+
+        //If file doesn't exist. Create empty JSONObject.
+
         if (!File.Exists(Application.persistentDataPath + "/PlayerData.json"))
         {
             playerStatsJson = new JSONObject();
@@ -50,36 +56,28 @@ public class PlayerStatsMenu : MonoBehaviour
         }
     }
 
-    public void SelectCharacter(int currentCharacter)
+    public void SelectCharacter()
     {
-        characters[currentCharacter].SetActive(true);
+        characters[currentCharacterSelected].SetActive(true);
         #region weirdIfStatementsTOBEFIXED
-        if (currentCharacter >= 2)
+        for (int i = 0; i < characters.Count; i++)
         {
-            characters[2].SetActive(true);
-            characters[1].SetActive(false);
-            characters[0].SetActive(false);
-        }
-        else if(currentCharacter <= 0)
-        {
-            characters[0].SetActive(true);
-            characters[2].SetActive(false);
-            characters[1].SetActive(false);
-        }
-        else if(currentCharacter >= 1)
-        {
-            characters[2].SetActive(false);
-            characters[1].SetActive(true);
-            characters[0].SetActive(false);
-        }
-        else
-        {
-            characters[--currentCharacter].SetActive(false);
+            characters[i].SetActive(i == currentCharacterSelected);
         }
         #endregion
         ChangeCharacters();
-        currentCharacterSelected = currentCharacter;
         PlayerPrefs.SetInt("currentSelectedCharacter", currentCharacterSelected);
+        savedPlayerName = stats.playerName;
+    }
+    public void SelectCharacterMinus()
+    {
+        currentCharacterSelected = Mathf.Clamp(--currentCharacterSelected, 0, 2);
+        SelectCharacter();
+    }
+    public void SelectCharacterPlus()
+    {
+        currentCharacterSelected = Mathf.Clamp(++currentCharacterSelected, 0, 2);
+        SelectCharacter();
     }
 
     public void ChangeName(string name)
@@ -123,8 +121,6 @@ public class PlayerStatsMenu : MonoBehaviour
         
         JSONObject playerStats = new JSONObject();
 
-
-        playerStats.Add("Name", stats.playerName);
         playerStats.Add("Health", stats.health);
         playerStats.Add("Damage", stats.attackDamage);
         playerStats.Add("Frenzy", stats.maxFrenzy);
@@ -137,20 +133,18 @@ public class PlayerStatsMenu : MonoBehaviour
     {
         string path = Application.persistentDataPath + "/PlayerData.json";
         string jsonString = File.ReadAllText(path);
-
         try
         {
             playerStatsJson = (JSONObject)JSON.Parse(jsonString);
 
             var currentCharacter = playerStatsJson["character-" + currentCharacterSelected];
-            stats.playerName = currentCharacter["Name"];
             stats.health = currentCharacter["Health"];
             stats.attackDamage = currentCharacter["Damage"];
             stats.maxFrenzy = currentCharacter["Frenzy"];
         }
         catch (System.Exception)
         {
-            stats.playerName = "Pick a name!";
+            stats.playerName = savedPlayerName;
             stats.health = 100;
             stats.attackDamage = 20;
             stats.maxFrenzy = 10;
@@ -162,7 +156,7 @@ public class PlayerStatsMenu : MonoBehaviour
 
     public void DeleteSaveFile()
     {
-        stats.playerName = "Pick a name!";
+        stats.playerName = savedPlayerName;
         stats.health = 100;
         stats.attackDamage = 20;
         stats.maxFrenzy = 10;

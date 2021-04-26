@@ -1100,6 +1100,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: Cool Restart Button
       objectReference: {fileID: 0}
+    - target: {fileID: 8840224516020580053, guid: 4693bb05872ed41469aefc057d451c49,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
 --- !u!114 &1784592472 stripped
@@ -1235,3 +1240,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}
+--- !u!1 &2048524913 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7914652014459963307, guid: 8bbdca35cac70f143b906cf2b0652137,
+    type: 3}
+  m_PrefabInstance: {fileID: 2048524912}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2048524914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048524913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0c14d3e6dbd9a4aab0443b03834682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats:
+  - {fileID: 11400000, guid: ddca5f02b76c7fe4d8220e09539b68a9, type: 2}
+  - {fileID: 11400000, guid: 09636d656b4c0b140bad743fc19ed32a, type: 2}
+  - {fileID: 11400000, guid: a6c5e591e81fade47ae6b5d752f36744, type: 2}

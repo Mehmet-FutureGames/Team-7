@@ -7,10 +7,13 @@ public class Player : MonoBehaviour
     
     public PlayerStats stats;
 
+    [SerializeField] LayerMask ground;
     [SerializeField] LayerMask enemyLayer;
 
-    MovePlayer movePlayer;
+    ObjectReferences playerChoose;
 
+    MovePlayer movePlayer;
+    RaycastHit hit;
     #region VariableSetInScriptableObject
     PlayerAttack playerAttackRange;
 
@@ -46,33 +49,20 @@ public class Player : MonoBehaviour
 
     public bool isAttacking = false;
 
+    int selectedCharacter;
+
+    Camera camera;
+
     // Start is called before the first frame update
     void Start()
     {
-        /*if(PlayerPrefs.GetInt("selectedCharacter") == 0)
-        {
-            stats = Resources.Load("PlayerObjects/NewCoolGuy") as PlayerStats;
-        }
-        else if(PlayerPrefs.GetInt("selectedCharacter") == 1)
-        {
-            stats = Resources.Load("PlayerObjects/UncoolStats42") as PlayerStats;
-        }
-        else if(PlayerPrefs.GetInt("selectedCharacter") == 2)
-        {
-            stats = Resources.Load("PlayerObjects/BigTankyBoi") as PlayerStats;
-        }*/
+        camera = Camera.main;
         StartCoroutine(References());
     }
     #region AttacksActivation
-    public void AttackActivated()
+    public void DashAttackActivated()
     {
-        //Shoots a ray and stores the information in the raycastHit variable.
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Vector3 originRay = ray.origin;
-        Vector3 directonRay = ray.direction;
-        RaycastHit hit;
-
-        
+        /*
         if(Physics.Raycast(originRay, directonRay, out hit, Mathf.Infinity, enemyLayer))
         {       
             float distance = (transform.position - hit.transform.position).magnitude;
@@ -81,21 +71,35 @@ public class Player : MonoBehaviour
                 {
                     var enemyPos = hit.collider.gameObject.transform.position;
                     transform.LookAt(new Vector3(enemyPos.x, transform.position.y, enemyPos.z));
-                    doesntReachTarget = false;
                     AttackingActivated();
                 }
             }
-            else
-            {
-            doesntReachTarget = true;
-            }
         //Checks if the player is moving and the melee range attack isn't activate.
         }
-        if (Physics.Raycast(transform.position, (movePlayer.mousePos- transform.position).normalized, out hit, (movePlayer.mousePos - transform.position).magnitude, enemyLayer))
+        */
+        if (Physics.Raycast(transform.position, (movePlayer.mousePos - transform.position).normalized, out hit, (movePlayer.mousePos - transform.position).magnitude, enemyLayer))
         {
             if (!playerAttackRange.isActiveAndEnabled && playerFrenzy.CurrentFrenzy >= dashAttackFrenzyCost)
             {
                 Invoke("DashAttack", 0.01f);
+            }
+        }
+
+    }
+
+    private void NormalAttackActivated()
+    {
+        if(SystemInfo.deviceType == DeviceType.Desktop)
+        {
+            //Shoots a ray and stores the information in the raycastHit variable.
+            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+            Vector3 originRay = ray.origin;
+            Vector3 directonRay = ray.direction;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
+            {
+                transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
+                AttackingActivated();
+                //Checks if the player is moving and the melee range attack isn't activate.
             }
         }
 
@@ -134,6 +138,23 @@ public class Player : MonoBehaviour
     #region References
     IEnumerator References()
     {
+        selectedCharacter = PlayerPrefs.GetInt("currentSelectedCharacter");
+        playerChoose = GetComponent<ObjectReferences>();
+        switch (selectedCharacter)
+        {
+            default:
+                playerChoose.stats[0] = stats;
+                break;
+            case 0:
+                playerChoose.stats[0] = stats;
+                break;
+            case 1:
+                playerChoose.stats[1] = stats;
+                break;
+            case 2:
+                playerChoose.stats[2] = stats;
+                break;
+        }
         //Instantiate(stats.playerModel, transform);
         movePlayer = GetComponent<MovePlayer>();
         //References to all the things needed.
@@ -157,7 +178,8 @@ public class Player : MonoBehaviour
 
         //Subscribe to noteHit.
         //notePublisher.noteHit += AttackActivated;
-        movePlayer.playerRegMove += AttackActivated;
+        movePlayer.playerRegMove += DashAttackActivated;
+        notePublisher.noteHitAttack += NormalAttackActivated;
         playerFrenzy = GetComponent<PlayerFrenzy>();
 
         dashAttackFrenzyCost = stats.dashAttackFrenzyCost;

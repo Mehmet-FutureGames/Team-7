@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 1649082608}
   - component: {fileID: 94064105}
   - component: {fileID: 1832600824}
+  - component: {fileID: 6430466938662035385}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -473,12 +474,9 @@ MonoBehaviour:
   isMoving: 0
   MovementValue: 0
   mousePos: {x: 0, y: 0, z: 0}
-  layer:
+  groundLayer:
     serializedVersion: 2
-    m_Bits: 256
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
 --- !u!114 &7914652014459963316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,6 +502,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: ddca5f02b76c7fe4d8220e09539b68a9, type: 2}
+  ground:
+    serializedVersion: 2
+    m_Bits: 128
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -543,10 +544,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880e3a7719971b64391f60cd0caaaaa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layer:
+  enemyLayer:
     serializedVersion: 2
     m_Bits: 512
-  stopDistance: 1
+  stopDistance: 5
 --- !u!114 &94064105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,6 +575,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 0}
+--- !u!114 &6430466938662035385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7914652014459963307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0c14d3e6dbd9a4aab0443b03834682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats:
+  - {fileID: 11400000, guid: ddca5f02b76c7fe4d8220e09539b68a9, type: 2}
+  - {fileID: 11400000, guid: 09636d656b4c0b140bad743fc19ed32a, type: 2}
+  - {fileID: 11400000, guid: a6c5e591e81fade47ae6b5d752f36744, type: 2}
 --- !u!1 &7914652014496845978
 GameObject:
   m_ObjectHideFlags: 0
