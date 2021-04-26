@@ -30,42 +30,60 @@ public class NoteObject : MonoBehaviour
         gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
     }
 
-    // Update is called once per frame
+#if UNITY_STANDALONE
     void Update()
-    {        
+    {
         if (canBePressed && deActivated == false)
         {
-            if (EventSystem.current.IsPointerOverGameObject())
-            {
-
-            }
-            else
-            {
-                if (Input.GetKeyDown(KeyCode.Mouse0))
-                {
-                    publisher.NoteHit();
-                    gameObject.SetActive(false);
-                    canBePressed = false;
-                    NoteMiss.Instance.TriggerCountZero();
-                }
-                else if (Input.GetKeyDown(KeyCode.Mouse1))
-                {
-                    publisher.NoteHitBlock();
-                    gameObject.SetActive(false);
-                    canBePressed = false;
-                    NoteMiss.Instance.TriggerCountZero();
-                }
-                else if (Input.GetKeyDown(KeyCode.Z))
-                {
-                    publisher.NoteHitAttack();
-                    gameObject.SetActive(false);
-                    canBePressed = false;
-                    NoteMiss.Instance.TriggerCountZero();
-                }
-            }
-
+            DesktopInput();
         }
     }
+#endif
+#if UNITY_ANDROID
+    void Update()
+    {
+        if (canBePressed && deActivated == false)
+        {
+            AndroidInput();
+        }
+    }
+#endif
+    private void AndroidInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            publisher.NoteHit();
+            gameObject.SetActive(false);
+            canBePressed = false;
+            NoteMiss.Instance.TriggerCountZero();
+        }
+    }
+
+    private void DesktopInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            publisher.NoteHit();
+            gameObject.SetActive(false);
+            canBePressed = false;
+            NoteMiss.Instance.TriggerCountZero();
+        }
+        else if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            publisher.NoteHitBlock();
+            gameObject.SetActive(false);
+            canBePressed = false;
+            NoteMiss.Instance.TriggerCountZero();
+        }
+        else if (Input.GetKeyDown(KeyCode.Z))
+        {
+            publisher.NoteHitAttack();
+            gameObject.SetActive(false);
+            canBePressed = false;
+            NoteMiss.Instance.TriggerCountZero();
+        }
+    }
+
     private void FixedUpdate()
     {
         
