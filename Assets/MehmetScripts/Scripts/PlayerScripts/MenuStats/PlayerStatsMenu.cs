@@ -14,7 +14,7 @@ public class PlayerStatsMenu : MonoBehaviour
 
     Text notesText;
 
-    int currentCharacterSelected;
+    [SerializeField] int currentCharacterSelected;
 
     JSONObject playerStatsJson;
 
@@ -56,37 +56,45 @@ public class PlayerStatsMenu : MonoBehaviour
         }
     }
 
-    public void SelectCharacter(int currentCharacter)
+    public void SelectCharacter()
     {
-        characters[currentCharacter].SetActive(true);
+        characters[currentCharacterSelected].SetActive(true);
         #region weirdIfStatementsTOBEFIXED
-        if (currentCharacter >= 2)
+        switch (currentCharacterSelected)
         {
-            characters[2].SetActive(true);
-            characters[1].SetActive(false);
-            characters[0].SetActive(false);
-        }
-        else if(currentCharacter <= 0)
-        {
-            characters[0].SetActive(true);
-            characters[2].SetActive(false);
-            characters[1].SetActive(false);
-        }
-        else if(currentCharacter >= 1)
-        {
-            characters[2].SetActive(false);
-            characters[1].SetActive(true);
-            characters[0].SetActive(false);
-        }
-        else
-        {
-            characters[--currentCharacter].SetActive(false);
+            default:
+                characters[0].SetActive(true);
+                break;
+            case 0:
+                characters[0].SetActive(true);
+                characters[1].SetActive(false);
+                characters[2].SetActive(false);
+                break;
+            case 1:
+                characters[0].SetActive(false);
+                characters[1].SetActive(true);
+                characters[2].SetActive(false);
+                break;
+            case 2:
+                characters[0].SetActive(false);
+                characters[1].SetActive(false);
+                characters[2].SetActive(true);
+                break;
         }
         #endregion
         ChangeCharacters();
-        currentCharacterSelected = currentCharacter;
         PlayerPrefs.SetInt("currentSelectedCharacter", currentCharacterSelected);
         savedPlayerName = stats.playerName;
+    }
+    public void SelectCharacterMinus()
+    {
+        currentCharacterSelected = Mathf.Clamp(--currentCharacterSelected, 0, 2);
+        SelectCharacter();
+    }
+    public void SelectCharacterPlus()
+    {
+        currentCharacterSelected = Mathf.Clamp(++currentCharacterSelected, 0, 2);
+        SelectCharacter();
     }
 
     public void ChangeName(string name)
@@ -142,7 +150,6 @@ public class PlayerStatsMenu : MonoBehaviour
     {
         string path = Application.persistentDataPath + "/PlayerData.json";
         string jsonString = File.ReadAllText(path);
-
         try
         {
             playerStatsJson = (JSONObject)JSON.Parse(jsonString);
