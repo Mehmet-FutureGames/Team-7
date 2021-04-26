@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
 {
     Player playerStats;
     float currentHealth;
+    float defaultMaxHealth = 100f;
 
     GameObject deadPanel;
     Image healthBar;
@@ -91,10 +92,13 @@ public class PlayerHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         currentHealth = playerStats.maxHealth;
+        healthBar.transform.parent.localScale = new Vector2(healthBar.transform.parent.localScale.x * (playerStats.maxHealth / defaultMaxHealth), healthBar.transform.parent.localScale.y);
+        
     }
 
     public void UpgradeHealth(float upgradedHealth)
     {
-        currentHealth += upgradedHealth;
+        playerStats.maxHealth += upgradedHealth;
+        healthBar.transform.parent.localScale = new Vector2(healthBar.transform.parent.localScale.x * (playerStats.maxHealth / defaultMaxHealth), healthBar.transform.parent.localScale.y);
     }
 }
