@@ -364,6 +364,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 94064105, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1339794385}
     - target: {fileID: 264865413, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.6233833
@@ -392,6 +396,10 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 1378560774}
+    - target: {fileID: 1832600824, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 425422950}
     - target: {fileID: 7914652014459963307, guid: 8bbdca35cac70f143b906cf2b0652137,
         type: 3}
       propertyPath: m_Name
@@ -8503,6 +8511,18 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 65394883088621108, guid: be3d7781242d5f34bbc4a55e5066da00, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: be3d7781242d5f34bbc4a55e5066da00, type: 3}
+--- !u!114 &425422950 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1622786483, guid: 4693bb05872ed41469aefc057d451c49,
+    type: 3}
+  m_PrefabInstance: {fileID: 1378560772}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &426337216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27570,6 +27590,18 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 65394883088621108, guid: be3d7781242d5f34bbc4a55e5066da00, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: be3d7781242d5f34bbc4a55e5066da00, type: 3}
+--- !u!114 &1339794385 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1690020782, guid: 4693bb05872ed41469aefc057d451c49,
+    type: 3}
+  m_PrefabInstance: {fileID: 1378560772}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1345312701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34444,6 +34476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 1378560773}
   displayCombo: {fileID: 1378560776}
+  comboDepletionMult: 0
 --- !u!4 &1621187240 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4286769401227930, guid: be3d7781242d5f34bbc4a55e5066da00,
