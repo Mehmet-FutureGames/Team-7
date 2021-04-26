@@ -88,14 +88,7 @@ public class MovePlayer : MonoBehaviour
     }
     private void DelayMove()
     {
-        if (EventSystem.current.IsPointerOverGameObject()){
-
-        }
-        else
-        {
-            Invoke("MovePlayerToMousePos", 0.001f);
-        }
-           
+        Invoke("MovePlayerToMousePos", 0.001f);
     }
 
     private void MovePlayerToMousePos()
