@@ -76,6 +76,13 @@ public class NoteObject : MonoBehaviour
             canBePressed = false;
             NoteMiss.Instance.TriggerCountZero();
     }
+    public void ButtonBlock()
+    {
+        publisher.NoteHitBlock();
+        gameObject.SetActive(false);
+        canBePressed = false;
+        NoteMiss.Instance.TriggerCountZero();
+    }
     private void DesktopInput()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))

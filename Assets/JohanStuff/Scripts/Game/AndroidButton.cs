@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AndroidAttackButton : MonoBehaviour
+public class AndroidButton : MonoBehaviour
 {
 
 #if UNITY_STANDALONE
