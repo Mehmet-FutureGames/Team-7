@@ -53,7 +53,7 @@ public class NoteObject : MonoBehaviour
 #endif
     private void AndroidInput()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
+        if (OverGUICheck.Instance.IsPointerOverUIObject())
         {
 
         }

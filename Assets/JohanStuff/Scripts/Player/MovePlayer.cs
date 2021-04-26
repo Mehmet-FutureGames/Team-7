@@ -88,7 +88,7 @@ public class MovePlayer : MonoBehaviour
     }
     private void DelayMove()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
+        if (OverGUICheck.Instance.IsPointerOverUIObject())
         {
 
         }
