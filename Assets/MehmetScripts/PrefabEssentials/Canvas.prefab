@@ -551,6 +551,7 @@ GameObject:
   - component: {fileID: 1590809800}
   - component: {fileID: 1590809799}
   - component: {fileID: 1590809798}
+  - component: {fileID: 6071669256268581480}
   m_Layer: 5
   m_Name: AttackButton
   m_TagString: Untagged
@@ -660,8 +661,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7914652014459963324, guid: 8bbdca35cac70f143b906cf2b0652137,
-          type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: NormalAttackActivated
         m_Mode: 1
@@ -673,6 +673,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6071669256268581480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590809796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d14cc4f6e9b774da9031972404aa1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1622786481
 GameObject:
   m_ObjectHideFlags: 0
