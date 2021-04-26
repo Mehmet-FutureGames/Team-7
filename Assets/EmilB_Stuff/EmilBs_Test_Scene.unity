@@ -28656,6 +28656,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1027687571, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -904.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027687571, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 452.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027687572, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7982927049351044176, guid: 4693bb05872ed41469aefc057d451c49,
         type: 3}
       propertyPath: m_Pivot.x
@@ -34337,6 +34349,11 @@ PrefabInstance:
       propertyPath: audio
       value: 
       objectReference: {fileID: 1440590602}
+    - target: {fileID: 8966836274532626829, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: waveText
+      value: 
+      objectReference: {fileID: 1378560774}
     - target: {fileID: 8966836274532626829, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: TextPanel

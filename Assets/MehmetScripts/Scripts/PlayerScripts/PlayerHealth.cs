@@ -96,5 +96,6 @@ public class PlayerHealth : MonoBehaviour
     {
         playerStats.maxHealth += upgradedHealth;
         healthBar.transform.parent.localScale = new Vector2(healthBar.transform.parent.localScale.x * (playerStats.maxHealth / defaultMaxHealth), healthBar.transform.parent.localScale.y);
+        healthBar.fillAmount = currentHealth / playerStats.maxHealth;
     }
 }
