@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
 
     MovePlayer movePlayer;
 
+    ObjectReferences playerChoose;
+
     #region VariableSetInScriptableObject
     PlayerAttack playerAttackRange;
 
@@ -44,23 +46,13 @@ public class Player : MonoBehaviour
     [SerializeField] bool doesntReachTarget = false;
     #endregion
 
+    int currentSelectedCharacter;
+
     public bool isAttacking = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        /*if(PlayerPrefs.GetInt("selectedCharacter") == 0)
-        {
-            stats = Resources.Load("PlayerObjects/NewCoolGuy") as PlayerStats;
-        }
-        else if(PlayerPrefs.GetInt("selectedCharacter") == 1)
-        {
-            stats = Resources.Load("PlayerObjects/UncoolStats42") as PlayerStats;
-        }
-        else if(PlayerPrefs.GetInt("selectedCharacter") == 2)
-        {
-            stats = Resources.Load("PlayerObjects/BigTankyBoi") as PlayerStats;
-        }*/
         StartCoroutine(References());
     }
     #region AttacksActivation
@@ -134,6 +126,22 @@ public class Player : MonoBehaviour
     #region References
     IEnumerator References()
     {
+        currentSelectedCharacter = PlayerPrefs.GetInt("currentSelectedCharacter");
+        playerChoose = GetComponent<ObjectReferences>();
+        switch (currentSelectedCharacter)
+        {
+            default:
+                stats = playerChoose.stats[0];
+                break;
+            case 0:
+                stats = playerChoose.stats[0];
+                break;
+            case 1:
+                stats = playerChoose.stats[1];
+                break;
+            case 2: stats = stats = playerChoose.stats[2];
+                break;
+        }
         //Instantiate(stats.playerModel, transform);
         movePlayer = GetComponent<MovePlayer>();
         //References to all the things needed.
@@ -144,8 +152,6 @@ public class Player : MonoBehaviour
         damage = stats.attackDamage;
         dashDamage = stats.dashDamage;
         maxHealth = stats.health;
-
-        Debug.Log(maxHealth);
 
         dashAttackDuration = stats.dashAttackDuration;
         meleeAttackDuration = stats.meleeAttackDuration;
