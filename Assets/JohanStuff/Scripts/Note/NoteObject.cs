@@ -59,6 +59,13 @@ public class NoteObject : MonoBehaviour
         }
     }
 
+    public void ButtonAttack()
+    {
+        publisher.NoteHitAttack();
+        gameObject.SetActive(false);
+        canBePressed = false;
+        NoteMiss.Instance.TriggerCountZero();
+    }
     private void DesktopInput()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))

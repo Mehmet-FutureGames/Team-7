@@ -90,17 +90,19 @@ public class Player : MonoBehaviour
 #if UNITY_ANDROID
 
         public void NormalAttackActivated()
-    {
-        Transform closestEnemy = GetClosestEnemy(EnemyTransforms);
-        transform.LookAt(new Vector3(closestEnemy.position.x, transform.position.y, closestEnemy.position.z));
-        AttackingActivated();
-    }
+        {
+            if(EnemyTransforms != null)
+            {
+                Transform closestEnemy = GetClosestEnemy(EnemyTransforms);
+                transform.LookAt(new Vector3(closestEnemy.position.x, transform.position.y, closestEnemy.position.z));
+                AttackingActivated();
+            }
+        }
 
 #endif
 #if UNITY_STANDALONE
     public void NormalAttackActivated()
     {
-        Debug.Log(EnemyTransforms.Count);
         //Shoots a ray and stores the information in the raycastHit variable.
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
         Vector3 originRay = ray.origin;
