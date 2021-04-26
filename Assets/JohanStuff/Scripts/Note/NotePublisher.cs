@@ -9,6 +9,8 @@ public class NotePublisher : MonoBehaviour
     public Action noteHit;
     public Action noteNotHit;
     public Action noteHitBlock;
+    public Action noteHitAttack;
+    public Action buttonHitAttack;
     public void NoteHit()
     {
         if(noteHit != null)
@@ -28,6 +30,20 @@ public class NotePublisher : MonoBehaviour
         if(noteHitBlock != null)
         {
             noteHitBlock();
+        }
+    }
+    public void NoteHitAttack()
+    {
+        if (noteHitAttack != null)
+        {
+            noteHitAttack();
+        }
+    }
+    public void NoteButtonHitAttack()
+    {
+        if (buttonHitAttack != null)
+        {
+            buttonHitAttack();
         }
     }
 }

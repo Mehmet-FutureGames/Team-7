@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class MovePlayer : MonoBehaviour
 {
@@ -30,8 +31,7 @@ public class MovePlayer : MonoBehaviour
     Vector3 raycastDir;
     float raycastDistance;
     bool hitWall;
-    [SerializeField] LayerMask layer;
-    [SerializeField] LayerMask enemyLayer;
+    [SerializeField] LayerMask groundLayer;
 
     Player player;
 
@@ -108,7 +108,7 @@ public class MovePlayer : MonoBehaviour
         /////////////////////////////////////////////////////////////////////////////
         //Move the player to normal point position.
         //RaycastHit hit;
-        if (Physics.Raycast(transform.position, raycastDir, out hit, raycastDistance, layer))
+        if (Physics.Raycast(transform.position, raycastDir, out hit, raycastDistance, groundLayer))
         {
             hitWall = true;
             Vector3 point = new Vector3(hit.point.x, 1, hit.point.z);

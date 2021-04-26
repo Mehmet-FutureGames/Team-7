@@ -220,7 +220,7 @@ MonoBehaviour:
   player: {fileID: 0}
   disableAfterSeconds: 1.5
   upwardForce: 350
-  speedModifier: 50
+  speedModifier: 10
 --- !u!54 &7833079114985998068
 Rigidbody:
   m_ObjectHideFlags: 0

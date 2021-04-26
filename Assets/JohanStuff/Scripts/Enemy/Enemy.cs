@@ -117,6 +117,7 @@ public class Enemy : MonoBehaviour
             {
                 enemyDefeated();
             }
+            Player.EnemyTransforms.Remove(agentObj.transform);
             SetDropNote(ComboHandler.ComboMult);
             agentObj.GetComponent<Collider>().enabled = false;
             enabled = false;
@@ -181,6 +182,7 @@ public class Enemy : MonoBehaviour
         parent = GetComponent<Transform>();
 
         agentObj = Instantiate(stats.enemyModel, parent);
+        Player.EnemyTransforms.Add(agentObj.transform);
         area = Instantiate(stats.attackAreaShape, agentObj.transform.position, Quaternion.identity, agentObj.transform);
         animator = agentObj.GetComponentInChildren<Animator>();
         floatingText = stats.floatingText;
@@ -214,7 +216,6 @@ public class Enemy : MonoBehaviour
     }
     private void OnEnable()
     {
-        
         manager = FindObjectOfType<WaveManager>();
         manager.Subscribe(this);
         enemyPublisher = FindObjectOfType<EnemyPublisher>();
@@ -225,7 +226,8 @@ public class Enemy : MonoBehaviour
         movePlayer.playerRegMove += EventUpdate;
         notePublisher.noteNotHit += EventUpdate;
         notePublisher.noteHitBlock += EventUpdate;
-        
+        notePublisher.noteHitAttack += EventUpdate;
+
     }
 
     private void OnDisable()
@@ -234,6 +236,7 @@ public class Enemy : MonoBehaviour
         movePlayer.playerRegMove -= EventUpdate;
         notePublisher.noteNotHit -= EventUpdate;
         notePublisher.noteHitBlock -= EventUpdate;
+        notePublisher.noteHitAttack -= EventUpdate;
         manager.UnSubscribe(this);
     }
 

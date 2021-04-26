@@ -6,7 +6,7 @@ public class TargetEnemy : MonoBehaviour
 {
     NotePublisher notePublisher;
     MovePlayer movePlayer;
-    public LayerMask layer;
+    public LayerMask enemyLayer;
     public static bool hasTarget;
     private Vector3 enemyPos;
     public static Vector3 stopPos;
@@ -26,7 +26,7 @@ public class TargetEnemy : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if(Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity, layer))
+        if(Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity, enemyLayer))
         {
             Enemy enemy;
             if (hit.collider.gameObject.CompareTag("Enemy"))
@@ -34,13 +34,9 @@ public class TargetEnemy : MonoBehaviour
                 enemy = hit.collider.gameObject.transform.parent.GetComponent<Enemy>();
                 enemy.moveDistance = 0;
                 enemyPos = hit.collider.transform.position;
-                Vector3 dir = (enemyPos - transform.position).normalized;
+                Vector3 dir = (transform.position - enemyPos).normalized;
                 float length = (enemyPos - transform.position).magnitude;
-                if (Physics.Raycast(transform.position, dir, out hit, length, layer))
-                {
-                    Vector3 hitPoint = hit.point;
-                    stopPos = hitPoint + (transform.position - hit.point).normalized * stopDistance;
-                }
+                stopPos = enemyPos + dir * stopDistance;
                 hasTarget = true;
             }
         }
