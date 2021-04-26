@@ -92,7 +92,6 @@ public class Player : MonoBehaviour
 
         //Shoots a ray and stores the information in the raycastHit variable.
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-        Debug.Log(ray);
         Vector3 originRay = ray.origin;
         Vector3 directonRay = ray.direction;
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
