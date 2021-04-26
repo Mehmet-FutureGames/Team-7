@@ -34,12 +34,12 @@ public class CoinDrop : MonoBehaviour
         Invoke("SetFollow", disableAfterSeconds);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         float distance = (player.position - transform.position).magnitude;
         if(distance < 30 && follow == true)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, player.position, ref velocity, speedModifier * Time.deltaTime);
+            transform.position = Vector3.SmoothDamp(transform.position, player.position, ref velocity, speedModifier * Time.fixedDeltaTime);
         }
     }
     void SetFollow()

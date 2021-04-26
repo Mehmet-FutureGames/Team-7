@@ -89,17 +89,20 @@ public class Player : MonoBehaviour
 
     private void NormalAttackActivated()
     {
-
-        //Shoots a ray and stores the information in the raycastHit variable.
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-        Vector3 originRay = ray.origin;
-        Vector3 directonRay = ray.direction;
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
+        if(SystemInfo.deviceType == DeviceType.Desktop)
         {
-            transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
-            AttackingActivated();
-            //Checks if the player is moving and the melee range attack isn't activate.
+            //Shoots a ray and stores the information in the raycastHit variable.
+            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+            Vector3 originRay = ray.origin;
+            Vector3 directonRay = ray.direction;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
+            {
+                transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
+                AttackingActivated();
+                //Checks if the player is moving and the melee range attack isn't activate.
+            }
         }
+
     }
     #endregion
 
