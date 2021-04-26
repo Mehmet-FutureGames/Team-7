@@ -508,6 +508,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a068700145b0f94e89d2d8e419cb7ca, type: 3}
+--- !u!1 &682902328 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1590809796, guid: 4693bb05872ed41469aefc057d451c49,
+    type: 3}
+  m_PrefabInstance: {fileID: 7982927050098970959}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &682902334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682902328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd0dbdf8d7e645741a2d929b385816bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &694509259
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,18 +686,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1035249958 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7914652014459963324, guid: 8bbdca35cac70f143b906cf2b0652137,
-    type: 3}
-  m_PrefabInstance: {fileID: 7914652013380770340}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 605c62a76994ce44588b84cae0ff8272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1043414003
@@ -1870,9 +1876,45 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1590809798, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590809798, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590809798, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1035249958}
+      objectReference: {fileID: 682902334}
+    - target: {fileID: 1590809798, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 682902334}
+    - target: {fileID: 1590809798, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590809798, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PressButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590809798, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PressButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590809798, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GetNoteList, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590809798, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GetNoteList, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590809798, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7982927049351044176, guid: 4693bb05872ed41469aefc057d451c49,
         type: 3}
       propertyPath: m_Pivot.x
