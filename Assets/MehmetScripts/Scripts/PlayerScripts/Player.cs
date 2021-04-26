@@ -89,20 +89,26 @@ public class Player : MonoBehaviour
 
     }
 #if UNITY_ANDROID
-
-        public void NormalAttackActivated()
+    private void Subscribe()
+    {
+        notePublisher.noteHitAttack += NormalAttackActivated;
+    }
+    public void NormalAttackActivated()
+    {
+        if(EnemyTransforms.Count > 0)
         {
-            notePublisher.NoteButtonHitAttack();
-            if(EnemyTransforms != null)
-            {
-                Transform closestEnemy = GetClosestEnemy(EnemyTransforms);
-                transform.LookAt(new Vector3(closestEnemy.position.x, transform.position.y, closestEnemy.position.z));
-                AttackingActivated();
-            }
+            Transform closestEnemy = GetClosestEnemy(EnemyTransforms);
+            transform.LookAt(new Vector3(closestEnemy.position.x, transform.position.y, closestEnemy.position.z));
+            AttackingActivated();
         }
+    }
 
 #endif
 #if UNITY_STANDALONE
+        private void Subscribe()
+    {
+        notePublisher.noteHitAttack += NormalAttackActivated;
+    }
     public void NormalAttackActivated()
     {
         //Shoots a ray and stores the information in the raycastHit variable.
@@ -210,7 +216,7 @@ public class Player : MonoBehaviour
         //Subscribe to noteHit.
         //notePublisher.noteHit += AttackActivated;
         movePlayer.playerRegMove += DashAttackActivated;
-        notePublisher.noteHitAttack += NormalAttackActivated;
+        Subscribe();
         playerFrenzy = GetComponent<PlayerFrenzy>();
 
         dashAttackFrenzyCost = stats.dashAttackFrenzyCost;
