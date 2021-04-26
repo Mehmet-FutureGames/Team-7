@@ -660,7 +660,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7914652014459963324, guid: 8bbdca35cac70f143b906cf2b0652137,
+          type: 3}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: NormalAttackActivated
         m_Mode: 1
