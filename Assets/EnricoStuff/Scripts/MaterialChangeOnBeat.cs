@@ -18,6 +18,7 @@ public class MaterialChangeOnBeat : MonoBehaviour
         //movePlayer.playerRegMove += EventUpdate;
         notePublisher.noteNotHit += EventUpdate;
         notePublisher.noteHitBlock += EventUpdate;
+        notePublisher.noteHitAttack += EventUpdate;
         movePlayer.playerRegMove += EventUpdate;
         material.SetTextureOffset("_BaseMap", offSet1);
     }

@@ -48,6 +48,13 @@ public class NoteObject : MonoBehaviour
                 canBePressed = false;
                 NoteMiss.Instance.TriggerCountZero();
             }
+            else if (Input.GetKeyDown(KeyCode.Z))
+            {
+                publisher.NoteHitAttack();
+                gameObject.SetActive(false);
+                canBePressed = false;
+                NoteMiss.Instance.TriggerCountZero();
+            }
         }
     }
     private void FixedUpdate()

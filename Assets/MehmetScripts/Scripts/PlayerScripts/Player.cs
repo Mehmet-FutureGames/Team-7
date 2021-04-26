@@ -7,10 +7,11 @@ public class Player : MonoBehaviour
     
     public PlayerStats stats;
 
+    [SerializeField] LayerMask ground;
     [SerializeField] LayerMask enemyLayer;
 
     MovePlayer movePlayer;
-
+    RaycastHit hit;
     #region VariableSetInScriptableObject
     PlayerAttack playerAttackRange;
 
@@ -67,15 +68,9 @@ public class Player : MonoBehaviour
         StartCoroutine(References());
     }
     #region AttacksActivation
-    public void AttackActivated()
+    public void DashAttackActivated()
     {
-        //Shoots a ray and stores the information in the raycastHit variable.
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-        Vector3 originRay = ray.origin;
-        Vector3 directonRay = ray.direction;
-        RaycastHit hit;
-
-        
+        /*
         if(Physics.Raycast(originRay, directonRay, out hit, Mathf.Infinity, enemyLayer))
         {       
             float distance = (transform.position - hit.transform.position).magnitude;
@@ -84,17 +79,13 @@ public class Player : MonoBehaviour
                 {
                     var enemyPos = hit.collider.gameObject.transform.position;
                     transform.LookAt(new Vector3(enemyPos.x, transform.position.y, enemyPos.z));
-                    doesntReachTarget = false;
                     AttackingActivated();
                 }
             }
-            else
-            {
-            doesntReachTarget = true;
-            }
         //Checks if the player is moving and the melee range attack isn't activate.
         }
-        if (Physics.Raycast(transform.position, (movePlayer.mousePos- transform.position).normalized, out hit, (movePlayer.mousePos - transform.position).magnitude, enemyLayer))
+        */
+        if (Physics.Raycast(transform.position, (movePlayer.mousePos - transform.position).normalized, out hit, (movePlayer.mousePos - transform.position).magnitude, enemyLayer))
         {
             if (!playerAttackRange.isActiveAndEnabled && playerFrenzy.CurrentFrenzy >= dashAttackFrenzyCost)
             {
@@ -102,6 +93,22 @@ public class Player : MonoBehaviour
             }
         }
 
+    }
+
+    private void NormalAttackActivated()
+    {
+
+        //Shoots a ray and stores the information in the raycastHit variable.
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        Debug.Log(ray);
+        Vector3 originRay = ray.origin;
+        Vector3 directonRay = ray.direction;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
+        {
+            transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
+            AttackingActivated();
+            //Checks if the player is moving and the melee range attack isn't activate.
+        }
     }
     #endregion
 
@@ -160,7 +167,8 @@ public class Player : MonoBehaviour
 
         //Subscribe to noteHit.
         //notePublisher.noteHit += AttackActivated;
-        movePlayer.playerRegMove += AttackActivated;
+        movePlayer.playerRegMove += DashAttackActivated;
+        notePublisher.noteHitAttack += NormalAttackActivated;
         playerFrenzy = GetComponent<PlayerFrenzy>();
 
         dashAttackFrenzyCost = stats.dashAttackFrenzyCost;
