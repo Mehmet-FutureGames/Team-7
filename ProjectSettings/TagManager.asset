@@ -15,6 +15,7 @@ TagManager:
   - NoteCurrency
   - AttackButton
   - BlockButton
+  - Blood
   layers:
   - Default
   - TransparentFX

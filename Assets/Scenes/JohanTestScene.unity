@@ -1784,10 +1784,6 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 1690020782}
-    - target: {fileID: 1649082608, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}
-      propertyPath: stopDistance
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 1832600824, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}
       propertyPath: text
       value: 
@@ -1998,6 +1994,27 @@ PrefabInstance:
       propertyPath: displayCombo
       value: 
       objectReference: {fileID: 7006475}
+    - target: {fileID: 7392083757195482691, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: pools.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392083757195482691, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: pools.Array.data[3].tag
+      value: Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392083757195482691, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: pools.Array.data[3].size
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392083757195482691, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: pools.Array.data[3].prefab
+      value: 
+      objectReference: {fileID: 3741987651668401370, guid: 575597a16baa6964a957d45170797d44,
+        type: 3}
     - target: {fileID: 8966836273629194616, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: player
