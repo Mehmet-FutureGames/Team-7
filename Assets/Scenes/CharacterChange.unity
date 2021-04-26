@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.086323984, g: 0.079103075, b: 0.08694617, a: 1}
+  m_IndirectSpecularColor: {r: 0.08438841, g: 0.083820395, b: 0.084207244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -483,10 +483,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: ddca5f02b76c7fe4d8220e09539b68a9, type: 2}
   currentSelectedCharacter: 0
-  playerHealth: {fileID: 0}
-  playerDamage: {fileID: 0}
-  playerFrenzy: {fileID: 0}
-  playerName: {fileID: 0}
+  playerHealth: {fileID: 978177465}
+  playerDamage: {fileID: 830003212}
+  playerFrenzy: {fileID: 1603463176}
+  playerName: {fileID: 63762905}
+  hasBeenBought: 0
+  notesToPay: 0
+  notesFrenzyCost: 0
+  notesCostDamage: 0
+  notesCostHealth: 0
 --- !u!1 &133324556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,7 +1272,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 376028718}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 607492262}
+        m_TargetAssemblyTypeName: PlayerStatsMenu, Assembly-CSharp
+        m_MethodName: SelectCharacterPlus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &376028718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1332,10 +1349,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 09636d656b4c0b140bad743fc19ed32a, type: 2}
   currentSelectedCharacter: 1
-  playerHealth: {fileID: 0}
-  playerDamage: {fileID: 0}
-  playerFrenzy: {fileID: 0}
-  playerName: {fileID: 0}
+  playerHealth: {fileID: 978177465}
+  playerDamage: {fileID: 830003212}
+  playerFrenzy: {fileID: 1603463176}
+  playerName: {fileID: 63762905}
+  hasBeenBought: 0
+  notesToPay: 0
+  notesFrenzyCost: 0
+  notesCostDamage: 0
+  notesCostHealth: 0
 --- !u!1 &483337087
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,8 +1578,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 607492262}
         m_TargetAssemblyTypeName: PlayerStatsMenu, Assembly-CSharp
-        m_MethodName: SelectCharacter
-        m_Mode: 3
+        m_MethodName: BuyCharacter
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1894,6 +1916,101 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &552788672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 552788676}
+  - component: {fileID: 552788675}
+  - component: {fileID: 552788674}
+  - component: {fileID: 552788673}
+  m_Layer: 0
+  m_Name: test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &552788673
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552788672}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &552788674
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552788672}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &552788675
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552788672}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &552788676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552788672}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.8, y: 7.15, z: 1.88}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &607492261
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,6 +2021,7 @@ GameObject:
   m_Component:
   - component: {fileID: 607492263}
   - component: {fileID: 607492262}
+  - component: {fileID: 607492264}
   m_Layer: 0
   m_Name: Characters
   m_TagString: Untagged
@@ -1924,7 +2042,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
-  notesCost: 0
+  currentCharacterSelected: 0
+  lockScreen: {fileID: 552788672}
+  upgradeNotesAmount: 1
+  healthText: {fileID: 2059245182}
+  damageText: {fileID: 220696802}
+  frenzyText: {fileID: 2078245974}
   characters:
   - {fileID: 132582835}
   - {fileID: 376389740}
@@ -1946,6 +2069,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &607492264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607492261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc737b80b710254eb16c29aeae1a236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &637179856
 GameObject:
   m_ObjectHideFlags: 0
@@ -2029,9 +2164,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMeny, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 607492264}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: Settings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4139,7 +4274,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1544023043}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 607492262}
+        m_TargetAssemblyTypeName: PlayerStatsMenu, Assembly-CSharp
+        m_MethodName: SelectCharacterMinus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1544023043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4398,10 +4545,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: a6c5e591e81fade47ae6b5d752f36744, type: 2}
   currentSelectedCharacter: 2
-  playerHealth: {fileID: 0}
-  playerDamage: {fileID: 0}
-  playerFrenzy: {fileID: 0}
-  playerName: {fileID: 0}
+  playerHealth: {fileID: 978177465}
+  playerDamage: {fileID: 830003212}
+  playerFrenzy: {fileID: 1603463176}
+  playerName: {fileID: 63762905}
+  hasBeenBought: 0
+  notesToPay: 0
+  notesFrenzyCost: 0
+  notesCostDamage: 0
+  notesCostHealth: 0
 --- !u!1 &1557423621
 GameObject:
   m_ObjectHideFlags: 0
@@ -5676,7 +5828,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 607492264}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: PlayGame
         m_Mode: 1
@@ -6346,7 +6498,7 @@ GameObject:
   - component: {fileID: 2078245975}
   - component: {fileID: 2078245974}
   m_Layer: 5
-  m_Name: FrenzyAmountText (1)
+  m_Name: FrenzyUpgradeCost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

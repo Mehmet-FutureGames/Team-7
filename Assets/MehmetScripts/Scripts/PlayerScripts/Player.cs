@@ -174,20 +174,21 @@ public class Player : MonoBehaviour
     IEnumerator References()
     {
         selectedCharacter = PlayerPrefs.GetInt("currentSelectedCharacter");
+        Debug.Log(selectedCharacter);
         playerChoose = GetComponent<ObjectReferences>();
         switch (selectedCharacter)
         {
             default:
-                playerChoose.stats[0] = stats;
+                stats = playerChoose.stats[0];
                 break;
             case 0:
-                playerChoose.stats[0] = stats;
+                stats = playerChoose.stats[0];
                 break;
             case 1:
-                playerChoose.stats[1] = stats;
+                stats = playerChoose.stats[1];
                 break;
             case 2:
-                playerChoose.stats[2] = stats;
+                stats = playerChoose.stats[2];
                 break;
         }
         //Instantiate(stats.playerModel, transform);

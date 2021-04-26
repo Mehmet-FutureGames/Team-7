@@ -27,4 +27,8 @@ public class LevelManager : MonoBehaviour
         currentLevel = SceneManager.GetActiveScene().buildIndex;
         levelsCompleted = PlayerPrefs.GetInt("FloorCompleted");
     }
+    private void OnLevelWasLoaded(int level)
+    {
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
+    }
 }
