@@ -225,7 +225,8 @@ public class Enemy : MonoBehaviour
         movePlayer.playerRegMove += EventUpdate;
         notePublisher.noteNotHit += EventUpdate;
         notePublisher.noteHitBlock += EventUpdate;
-        
+        notePublisher.noteHitAttack += EventUpdate;
+
     }
 
     private void OnDisable()
@@ -234,6 +235,7 @@ public class Enemy : MonoBehaviour
         movePlayer.playerRegMove -= EventUpdate;
         notePublisher.noteNotHit -= EventUpdate;
         notePublisher.noteHitBlock -= EventUpdate;
+        notePublisher.noteHitAttack -= EventUpdate;
         manager.UnSubscribe(this);
     }
 

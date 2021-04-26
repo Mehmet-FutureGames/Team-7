@@ -8,25 +8,30 @@ public class ButtonController : MonoBehaviour
     public KeyCode keyToPress;
     RaycastHit hit;
     private int rayDist = 3;
-
+    NotePublisher notePublisher;
 
     // Start is called before the first frame update
     void Start()
     {
         defaultColor = GetComponent<MeshRenderer>().material.color;
+        notePublisher = FindObjectOfType<NotePublisher>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(transform.position, Vector3.left * rayDist, Color.green);
-        if (Input.GetKeyDown(keyToPress)) 
+        NewMethod();
+    }
+
+    private void NewMethod()
+    {
+        if (Input.GetKeyDown(keyToPress) || Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Mouse1))
         {
-            if(NoteMiss.Instance.TriggerCount == 0)
+            if (NoteMiss.Instance.TriggerCount == 0)
             {
-                if(Physics.Raycast(transform.position, Vector3.left, out hit, rayDist))
+                if (Physics.Raycast(transform.position, Vector3.left, out hit, rayDist))
                 {
-                    if (hit.collider.gameObject.CompareTag("Note")) 
+                    if (hit.collider.gameObject.CompareTag("Note"))
                     {
                         hit.collider.gameObject.GetComponent<NoteObject>().deActivated = true;
                         hit.collider.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
@@ -36,10 +41,10 @@ public class ButtonController : MonoBehaviour
             GetComponent<MeshRenderer>().material.color = Color.white;
         }
 
-        if (Input.GetKeyUp(keyToPress))
+        if (Input.GetKeyUp(keyToPress) || Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.Mouse1))
         {
             GetComponent<MeshRenderer>().material.color = defaultColor;
-           
+
         }
     }
 }
