@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 65bc7560ac8bd9540b549d27710eb91e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Raider Crusader Punch
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c60f77aa809f8934f81ff4e5c4e808c2, type: 3}
+  - {fileID: 12800000, guid: 4d58da3b090917e49824c6376d036a9a, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
