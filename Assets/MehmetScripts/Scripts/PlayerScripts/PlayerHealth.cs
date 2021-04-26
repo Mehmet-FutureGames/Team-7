@@ -13,12 +13,14 @@ public class PlayerHealth : MonoBehaviour
 
     MovePlayer movePlayer;
 
+    ComboHandler comboHandler;
+
     private void Start()
     {
         playerStats = GetComponentInParent<Player>();
         movePlayer = FindObjectOfType<MovePlayer>();
         StartCoroutine(ReferenceHealth());
-
+        comboHandler = FindObjectOfType<ComboHandler>();
         deadPanel = GameObject.Find("DeadPanel");
         healthBar = GameObject.Find("HealthBar").GetComponent<Image>();
         deadPanel.SetActive(false);
@@ -37,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!PlayerBlock.isBlocking)
         {
+            comboHandler.SetCombo(0);
             currentHealth -= damage;
             if (movePlayer.MovementValue < 10)
             {
@@ -49,6 +52,10 @@ public class PlayerHealth : MonoBehaviour
                     Dead();
                 }
             }
+        }
+        else
+        {
+            comboHandler.AddToCombo();
         }
     }
     public void TakeRangedDamage(float damage)

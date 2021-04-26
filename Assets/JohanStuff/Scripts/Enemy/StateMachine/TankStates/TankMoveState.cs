@@ -13,7 +13,7 @@ public class TankMoveState : State
     }
     public override void LogicUpdate()
     {
-        enemy.animator.SetFloat("Blend", enemy.agent.speed);
+        enemy.animator.SetFloat("Blend", enemy.agent.velocity.magnitude);
     }
 
     public override void Exit()

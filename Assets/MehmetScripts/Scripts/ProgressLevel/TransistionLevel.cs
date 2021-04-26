@@ -9,6 +9,7 @@ public class TransistionLevel : MonoBehaviour
     private void Awake()
     {
         manager = FindObjectOfType<LevelManager>();
+        GetComponent<Animator>().enabled = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -17,7 +18,7 @@ public class TransistionLevel : MonoBehaviour
         {
             manager.levelsCompleted++;
             PlayerPrefs.SetInt("FloorCompleted", manager.levelsCompleted);
-            SceneManager.LoadScene(manager.currentLevel++);
+            SceneManager.LoadScene("CharacterChange");
         }
     }
 }

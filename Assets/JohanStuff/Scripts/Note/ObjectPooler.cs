@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NotePooler : MonoBehaviour
+public class ObjectPooler : MonoBehaviour
 {
 
     [System.Serializable]
@@ -13,7 +13,7 @@ public class NotePooler : MonoBehaviour
         public int size;
     }
 
-    public static NotePooler Instance;
+    public static ObjectPooler Instance;
 
     private void Awake()
     {
