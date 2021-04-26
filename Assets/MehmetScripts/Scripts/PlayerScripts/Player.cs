@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    
+    public static List<Transform> EnemyTransforms = new List<Transform>();
+
     public PlayerStats stats;
 
     [SerializeField] LayerMask ground;
@@ -58,6 +59,7 @@ public class Player : MonoBehaviour
     {
         camera = Camera.main;
         StartCoroutine(References());
+        
     }
     #region AttacksActivation
     public void DashAttackActivated()
@@ -86,27 +88,56 @@ public class Player : MonoBehaviour
         }
 
     }
+#if UNITY_ANDROID
 
-    private void NormalAttackActivated()
-    {
-        if(SystemInfo.deviceType == DeviceType.Desktop)
+        public void NormalAttackActivated()
         {
-            //Shoots a ray and stores the information in the raycastHit variable.
-            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-            Vector3 originRay = ray.origin;
-            Vector3 directonRay = ray.direction;
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
+            notePublisher.NoteButtonHitAttack();
+            if(EnemyTransforms != null)
             {
-                transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
+                Transform closestEnemy = GetClosestEnemy(EnemyTransforms);
+                transform.LookAt(new Vector3(closestEnemy.position.x, transform.position.y, closestEnemy.position.z));
                 AttackingActivated();
-                //Checks if the player is moving and the melee range attack isn't activate.
             }
         }
 
+#endif
+#if UNITY_STANDALONE
+    public void NormalAttackActivated()
+    {
+        //Shoots a ray and stores the information in the raycastHit variable.
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        Vector3 originRay = ray.origin;
+        Vector3 directonRay = ray.direction;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
+        {
+            transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
+            AttackingActivated();
+            //Checks if the player is moving and the melee range attack isn't activate.
+        }
     }
-    #endregion
 
-    #region Attacks
+#endif
+
+
+    Transform GetClosestEnemy(List<Transform> enemyTransforms)
+    {
+        Transform closestEnemy = null;
+        float minDistance = Mathf.Infinity;
+        for (int i = 0; i < EnemyTransforms.Count; i++)
+        {
+            float distance = Vector3.Distance(enemyTransforms[i].position, transform.position);
+            if(distance < minDistance)
+            {
+                closestEnemy = enemyTransforms[i];
+                minDistance = distance;
+            }
+        }
+        return closestEnemy;
+    }
+#endregion
+
+#region Attacks
     void AttackingActivated()
     {
         PlayerAnm.Instance.AttackTrigger();
@@ -134,8 +165,8 @@ public class Player : MonoBehaviour
             GetComponent<MeshRenderer>().material.color = Color.green;
         }
     }
-    #endregion
-    #region References
+#endregion
+#region References
     IEnumerator References()
     {
         selectedCharacter = PlayerPrefs.GetInt("currentSelectedCharacter");
@@ -192,8 +223,8 @@ public class Player : MonoBehaviour
         playerAttackRange.gameObject.SetActive(false);
         playerDashRange.gameObject.SetActive(false);
     }
-    #endregion
-    #region UpgradeStats
+#endregion
+#region UpgradeStats
     IEnumerator UpgradeDamageMeleeActivator(float damage)
     {
         playerAttackRange.gameObject.SetActive(true);
@@ -218,5 +249,5 @@ public class Player : MonoBehaviour
     {
         StartCoroutine(UpgradeDamageDashActivator(damage));
     }
-    #endregion
+#endregion
 }

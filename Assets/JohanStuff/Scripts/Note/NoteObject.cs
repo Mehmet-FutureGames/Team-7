@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class NoteObject : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class NoteObject : MonoBehaviour
     void Start()
     {
         publisher = FindObjectOfType<NotePublisher>();
+        publisher.buttonHitAttack += ButtonAttack;
     }
     private void OnEnable()
     {
@@ -29,37 +31,69 @@ public class NoteObject : MonoBehaviour
         gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
     }
 
-    // Update is called once per frame
+#if UNITY_STANDALONE
     void Update()
-    {        
+    {
         if (canBePressed && deActivated == false)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                publisher.NoteHit();
-                gameObject.SetActive(false);
-                canBePressed = false;
-                NoteMiss.Instance.TriggerCountZero();
-            }
-            else if (Input.GetKeyDown(KeyCode.Mouse1))
-            {
-                publisher.NoteHitBlock();
-                gameObject.SetActive(false);
-                canBePressed = false;
-                NoteMiss.Instance.TriggerCountZero();
-            }
-            else if (Input.GetKeyDown(KeyCode.Z))
-            {
-                publisher.NoteHitAttack();
-                gameObject.SetActive(false);
-                canBePressed = false;
-                NoteMiss.Instance.TriggerCountZero();
-            }
+            DesktopInput();
         }
     }
+#endif
+#if UNITY_ANDROID
+    void Update()
+    {
+        if (canBePressed && deActivated == false)
+        {
+            AndroidInput();
+        }
+    }
+#endif
+    private void AndroidInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            publisher.NoteHit();
+            gameObject.SetActive(false);
+            canBePressed = false;
+            NoteMiss.Instance.TriggerCountZero();
+        }
+    }
+
+    public void ButtonAttack()
+    {
+        publisher.NoteHitAttack();
+        gameObject.SetActive(false);
+        canBePressed = false;
+        NoteMiss.Instance.TriggerCountZero();
+    }
+    private void DesktopInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            publisher.NoteHit();
+            gameObject.SetActive(false);
+            canBePressed = false;
+            NoteMiss.Instance.TriggerCountZero();
+        }
+        else if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            publisher.NoteHitBlock();
+            gameObject.SetActive(false);
+            canBePressed = false;
+            NoteMiss.Instance.TriggerCountZero();
+        }
+        else if (Input.GetKeyDown(KeyCode.Z))
+        {
+            publisher.NoteHitAttack();
+            gameObject.SetActive(false);
+            canBePressed = false;
+            NoteMiss.Instance.TriggerCountZero();
+        }
+    }
+
     private void FixedUpdate()
     {
-        
         timer += Time.fixedDeltaTime;
         transform.localScale = Vector3.Lerp(noteManager.StartScale, Vector3.zero, noteManager.downScaleMultiplier * timer);
     }
