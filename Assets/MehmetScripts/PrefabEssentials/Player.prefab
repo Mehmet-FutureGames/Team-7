@@ -474,12 +474,9 @@ MonoBehaviour:
   isMoving: 0
   MovementValue: 0
   mousePos: {x: 0, y: 0, z: 0}
-  layer:
+  groundLayer:
     serializedVersion: 2
-    m_Bits: 256
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
 --- !u!114 &7914652014459963316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,10 +544,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880e3a7719971b64391f60cd0caaaaa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layer:
+  enemyLayer:
     serializedVersion: 2
     m_Bits: 512
-  stopDistance: 1
+  stopDistance: 5
 --- !u!114 &94064105
 MonoBehaviour:
   m_ObjectHideFlags: 0
