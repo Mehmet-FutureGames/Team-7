@@ -25,14 +25,15 @@ public class PlayerHealth : MonoBehaviour
         deadPanel = GameObject.Find("DeadPanel");
         healthBar = GameObject.Find("HealthBar").GetComponent<Image>();
         deadPanel.SetActive(false);
-        RespawnDEV();
+        Respawn();
     }
 
-    private void RespawnDEV()
+    private void Respawn()
     {
         if (Time.timeScale < 1 && currentHealth > 0)
         {
             Time.timeScale = 1;
+            deadPanel.SetActive(false);
         }
     }
 
