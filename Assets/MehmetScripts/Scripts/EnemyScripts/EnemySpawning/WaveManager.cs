@@ -46,6 +46,8 @@ public class WaveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        waveLevel++;
+
         SpawnPointPattern();
 
         manager = FindObjectOfType<LevelManager>();
@@ -53,9 +55,6 @@ public class WaveManager : MonoBehaviour
         enemyContainer = GameObject.Find("EnemyContainer").transform;
 
         spawnPoints = FindObjectsOfType<TypeOfEnemy>();
-
-        waveLevel++;
-
     }
     #endregion
     #region BeginWaveSpawnEnemies
