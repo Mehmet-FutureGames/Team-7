@@ -64,21 +64,6 @@ public class Player : MonoBehaviour
     #region AttacksActivation
     public void DashAttackActivated()
     {
-        /*
-        if(Physics.Raycast(originRay, directonRay, out hit, Mathf.Infinity, enemyLayer))
-        {       
-            float distance = (transform.position - hit.transform.position).magnitude;
-            if (distance < distanceToClick)
-            {
-                {
-                    var enemyPos = hit.collider.gameObject.transform.position;
-                    transform.LookAt(new Vector3(enemyPos.x, transform.position.y, enemyPos.z));
-                    AttackingActivated();
-                }
-            }
-        //Checks if the player is moving and the melee range attack isn't activate.
-        }
-        */
         if (Physics.Raycast(transform.position, (movePlayer.mousePos - transform.position).normalized, out hit, (movePlayer.mousePos - transform.position).magnitude, enemyLayer))
         {
             if (!playerAttackRange.isActiveAndEnabled && playerFrenzy.CurrentFrenzy >= dashAttackFrenzyCost)
@@ -160,14 +145,16 @@ public class Player : MonoBehaviour
         {
             PlayerAnm.Instance.DashTrigger();
             playerDashRange.gameObject.SetActive(true);
-            GetComponent<MeshRenderer>().material.color = Color.black;
             playerFrenzy.CurrentFrenzy -= dashAttackFrenzyCost;
         }
         else
         {
-            playerDashRange.gameObject.SetActive(false);
-            GetComponent<MeshRenderer>().material.color = Color.green;
+            DisableDashAttack();
         }
+    }
+    void DisableDashAttack()
+    {
+        playerDashRange.gameObject.SetActive(false);
     }
 #endregion
 #region References
