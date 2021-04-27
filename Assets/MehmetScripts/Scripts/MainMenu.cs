@@ -7,7 +7,14 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (GetComponentInChildren<CharacterStats>().hasBeenBought)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else
+        {
+            Debug.Log("you need to buy this character!");
+        }
     }
 
     public void Settings()
