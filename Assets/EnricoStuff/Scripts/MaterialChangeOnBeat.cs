@@ -25,7 +25,7 @@ public class MaterialChangeOnBeat : MonoBehaviour
 
     private void EventUpdate()
     {
-        Debug.Log("colorChange");
+        
         if(colorChange == true)
         {
             material.SetTextureOffset("_BaseMap",  offSet1);
