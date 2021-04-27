@@ -129,7 +129,7 @@ public class Enemy : MonoBehaviour
             SetDropNote(ComboHandler.ComboMult);
             agentObj.GetComponent<Collider>().enabled = false;
             enabled = false;
-            Invoke("DisableGameObject", 1.5f);
+            DisableGameObject();
         }
     }
 

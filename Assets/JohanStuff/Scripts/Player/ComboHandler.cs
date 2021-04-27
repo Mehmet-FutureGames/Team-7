@@ -72,9 +72,13 @@ public class ComboHandler : MonoBehaviour
         if(combo <= 0)
         {
             slider.gameObject.SetActive(false);
+            displayCombo.text = "";
         }
-        Combo = combo;
-        displayCombo.text = "x " + Combo.ToString();
+        else
+        {
+            Combo = combo;
+            displayCombo.text = "X " + Combo.ToString();
+        }
     }
 
     public void AddToCombo()
@@ -89,7 +93,7 @@ public class ComboHandler : MonoBehaviour
     {
         Combo = 0;
         hitNote = false;
-        displayCombo.text = "X " + Combo.ToString();
+        displayCombo.text = "";
     }
     void HitNote()
     {
