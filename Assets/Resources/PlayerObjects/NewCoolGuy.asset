@@ -18,11 +18,15 @@ MonoBehaviour:
     type: 3}
   playerName: Joe
   movementSpeed: 0
-  attackDamage: 20
-  health: 100
+  attackDamage: 215
+  health: 260
   dashDamage: 10
   meleeAttackDuration: 1
-  maxFrenzy: 10
+  maxFrenzy: 65
   dashAttackDuration: 1
   dashAttackFrenzyCost: 5
   distanceToClick: 6
+  descriptionCharacter: 'Joe was a fighter and a hero, he fought valiantly for his
+    life to become the biggest ooga booga in the world but alas he got defeated but
+    he never gave up and continued on for his lifes biggest goal: becoming the ooga
+    booga of the century.'
