@@ -13,7 +13,7 @@ public class CasterCombatP2 : State
         enemy.agentObj.transform.rotation = Quaternion.LookRotation(dirToPlayer);
         enemy.area.transform.position = enemy.player.position;
         enemy.area.SetActive(true);
-        enemy.area.gameObject.GetComponent<MeshRenderer>().material.color = new Color(1f, 1f, 0f, 0.2f);
+        enemy.area.gameObject.GetComponent<MeshRenderer>().material.color = new Color(1f, 1f, 0f, 0.5f);
         enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.green;
         
     }

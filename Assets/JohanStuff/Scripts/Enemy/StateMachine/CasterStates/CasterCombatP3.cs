@@ -9,7 +9,7 @@ public class CasterCombatP3 : State
     public override void Enter()
     {
         base.Enter();
-        enemy.area.gameObject.GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f, 0.2f);
+        enemy.area.gameObject.GetComponent<MeshRenderer>().material.color = new Color(1f, 0f, 0f, 0.5f);
         enemy.area.SetActive(true);
         enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.green;
         
