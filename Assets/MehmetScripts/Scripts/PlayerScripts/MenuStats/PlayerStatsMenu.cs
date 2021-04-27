@@ -172,7 +172,6 @@ public class PlayerStatsMenu : MonoBehaviour
                     notes -= characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth;
                     characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth += upgradeNotesAmount;
                     PlayerPrefs.SetInt("UpgradeHealth" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth);
-                    Debug.Log("Upgraded health!");
                 }
             }
             if (notes >= characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage)
@@ -183,7 +182,6 @@ public class PlayerStatsMenu : MonoBehaviour
                     notes -= characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage;
                     characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage += upgradeNotesAmount;
                     PlayerPrefs.SetInt("UpgradeDamage" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage);
-                    Debug.Log("Upgraded damage!");
                 }
             }
             if (notes >= characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost)
@@ -194,7 +192,6 @@ public class PlayerStatsMenu : MonoBehaviour
                     notes -= characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost;
                     characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost += upgradeNotesAmount;
                     PlayerPrefs.SetInt("UpgradeFrenzy" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost);
-                    Debug.Log("Upgraded frenzy!");
                 }
             }
         }
