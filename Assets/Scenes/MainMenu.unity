@@ -679,8 +679,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2136841245}
-        m_TargetAssemblyTypeName: MainMeny, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: ChangeCharacterScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
