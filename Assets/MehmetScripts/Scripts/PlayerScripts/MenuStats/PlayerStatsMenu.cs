@@ -4,33 +4,51 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using SimpleJSON;
+using TMPro;
 
 public class PlayerStatsMenu : MonoBehaviour
 {
 
     [SerializeField] PlayerStats stats;
 
-    [SerializeField] int notesCost;
-
-    Text notesText;
+    TextMeshProUGUI notesText;
 
     [SerializeField] int currentCharacterSelected;
 
     JSONObject playerStatsJson;
 
+    [SerializeField] GameObject lockScreen;
+
     string savedPlayerName;
 
     int notes;
+
+    [SerializeField] int upgradeNotesAmount;
+
+    [Space]
+    [Space]
+
+    [SerializeField] TextMeshProUGUI healthText;
+
+    [SerializeField] TextMeshProUGUI damageText;
+
+    [SerializeField] TextMeshProUGUI frenzyText;
 
     [SerializeField] List<GameObject> characters = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
         currentCharacterSelected = 0;
+        PlayerPrefs.SetInt("currentSelectedCharacter", currentCharacterSelected);
+        characters[0].SetActive(true);
         ChangeCharacters();
         notes = PlayerPrefs.GetInt("NoteCurrency");
-        notesText = GameObject.Find("NotesAmount").GetComponent<Text>();
+        notes = 999;
+        notesText = GameObject.Find("NotesAmount").GetComponent<TextMeshProUGUI>();
+        lockScreen.SetActive(false);
+        BuyCharacter();
         savedPlayerName = stats.playerName;
+        UpdateTextUpgrade();
 
         //If file doesn't exist. Create empty JSONObject.
 
@@ -43,6 +61,32 @@ public class PlayerStatsMenu : MonoBehaviour
             LoadData();
         }
         notesText.text = notes.ToString();
+    }
+
+    private void UpdateTextUpgrade()
+    {
+        frenzyText.text = characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost.ToString();
+        damageText.text = characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage.ToString();
+        healthText.text = characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth.ToString();
+    }
+
+    public void BuyCharacter()
+    {
+        for (int i = 0; i < characters.Count; i++)
+        {
+            var pay = characters[i].GetComponent<CharacterStats>().notesToPay;
+            if (characters[i].activeSelf == true)
+            {
+                if(notes >= pay && !characters[i].GetComponent<CharacterStats>().hasBeenBought)
+                {
+                    characters[i].GetComponent<CharacterStats>().hasBeenBought = true;
+                    notes -= pay;
+                    notesText.text = notes.ToString();
+                    lockScreen.SetActive(false);
+                    PlayerPrefs.SetInt("boughtCharacter" + currentCharacterSelected, characters[i].GetComponent<CharacterStats>().hasBeenBought ? 1 : 0);
+                }
+            }
+        }
     }
 
     public void ChangeCharacters()
@@ -58,15 +102,26 @@ public class PlayerStatsMenu : MonoBehaviour
 
     public void SelectCharacter()
     {
-        characters[currentCharacterSelected].SetActive(true);
-        #region weirdIfStatementsTOBEFIXED
         for (int i = 0; i < characters.Count; i++)
         {
-            characters[i].SetActive(i == currentCharacterSelected);
+            //Checks if the character has been bought.
+            if (characters[currentCharacterSelected].GetComponent<CharacterStats>().hasBeenBought)
+            {
+                lockScreen.SetActive(false);
+                characters[i].SetActive(i == currentCharacterSelected);
+            }
+            else
+            {
+                //set the lock icon active and the character active
+                //Needs two instances because unity is a very nice program.
+                characters[i].SetActive(i == currentCharacterSelected);
+                lockScreen.SetActive(true);
+                characters[i].SetActive(i == currentCharacterSelected);
+            }
         }
-        #endregion
-        ChangeCharacters();
         PlayerPrefs.SetInt("currentSelectedCharacter", currentCharacterSelected);
+        ChangeCharacters();
+        UpdateTextUpgrade();
         savedPlayerName = stats.playerName;
     }
     public void SelectCharacterMinus()
@@ -91,28 +146,50 @@ public class PlayerStatsMenu : MonoBehaviour
     {
         //statsToUpgrade checks which button is pressed and upgrades
         //according to the number!
-        if (notes >= notesCost)
-        {
-            notes -= notesCost;
             PlayerPrefs.SetInt("NoteCurrency", notes);
             notesText.text = notes.ToString();
-            if (statsToUpgrade == 0)
+        //Checks if notes are above 0 so we don't get any negative values.
+        if (notes > 0)
+        {
+            if (notes >= characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth)
             {
-                stats.health += 5;
-                Debug.Log("Upgraded health!");
+                //Checks which upgrade you want to buy.
+                //0 is health, 1 is damage, 2 is frenzy.
+                if (statsToUpgrade == 0)
+                {
+                    stats.health += 5;
+                    notes -= characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth;
+                    characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth += upgradeNotesAmount;
+                    PlayerPrefs.SetInt("UpgradeHealth" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth);
+                    Debug.Log("Upgraded health!");
+                }
             }
-            else if (statsToUpgrade == 1)
+            if (notes >= characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage)
             {
-                stats.attackDamage += 5;
-                Debug.Log("Upgraded damage!");
+                if (statsToUpgrade == 1)
+                {
+                    stats.attackDamage += 5;
+                    notes -= characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage;
+                    characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage += upgradeNotesAmount;
+                    PlayerPrefs.SetInt("UpgradeDamage" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage);
+                    Debug.Log("Upgraded damage!");
+                }
             }
-            else if (statsToUpgrade == 2)
+            if (notes >= characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost)
             {
-                stats.maxFrenzy += 5;
-                Debug.Log("Upgraded frenzy!");
+                if (statsToUpgrade == 2)
+                {
+                    stats.maxFrenzy += 5;
+                    notes -= characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost;
+                    characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost += upgradeNotesAmount;
+                    PlayerPrefs.SetInt("UpgradeFrenzy" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost);
+                    Debug.Log("Upgraded frenzy!");
+                }
             }
         }
         characters[currentCharacterSelected].GetComponent<CharacterStats>().UpdateText();
+        notesText.text = notes.ToString();
+        UpdateTextUpgrade();
     }
     #region SavingAndLoadingStats
     public void SaveData()
@@ -144,6 +221,7 @@ public class PlayerStatsMenu : MonoBehaviour
         }
         catch (System.Exception)
         {
+            //Incase there is no save file we throw a base value into stats.
             stats.playerName = savedPlayerName;
             stats.health = 100;
             stats.attackDamage = 20;

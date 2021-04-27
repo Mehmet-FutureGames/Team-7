@@ -31,7 +31,7 @@ public class MovePlayer : MonoBehaviour
     Vector3 raycastDir;
     float raycastDistance;
     bool hitWall;
-    [SerializeField] LayerMask groundLayer;
+    [SerializeField] LayerMask obstaclLayer;
 
     Player player;
 
@@ -88,7 +88,12 @@ public class MovePlayer : MonoBehaviour
     }
     private void DelayMove()
     {
-        Invoke("MovePlayerToMousePos", 0.001f);
+        if (OverGUICheck.Instance.IsPointerOverUIObject())
+        {
+
+        }
+        else { Invoke("MovePlayerToMousePos", 0.001f); }
+        
     }
 
     private void MovePlayerToMousePos()
@@ -108,7 +113,7 @@ public class MovePlayer : MonoBehaviour
         /////////////////////////////////////////////////////////////////////////////
         //Move the player to normal point position.
         //RaycastHit hit;
-        if (Physics.Raycast(transform.position, raycastDir, out hit, raycastDistance, groundLayer))
+        if (Physics.Raycast(transform.position, raycastDir, out hit, raycastDistance, obstaclLayer))
         {
             hitWall = true;
             Vector3 point = new Vector3(hit.point.x, 1, hit.point.z);

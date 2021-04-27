@@ -13,6 +13,8 @@ TagManager:
   - SuperActivator
   - Coin
   - NoteCurrency
+  - AttackButton
+  - BlockButton
   layers:
   - Default
   - TransparentFX

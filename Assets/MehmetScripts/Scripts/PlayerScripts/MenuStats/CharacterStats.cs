@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CharacterStats : MonoBehaviour
 {
@@ -9,16 +10,40 @@ public class CharacterStats : MonoBehaviour
 
     [SerializeField] int currentSelectedCharacter;
 
-    [SerializeField] Text playerHealth;
+    [SerializeField] TextMeshProUGUI playerHealth;
 
-    [SerializeField] Text playerDamage;
+    [SerializeField] TextMeshProUGUI playerDamage;
 
-    [SerializeField] Text playerFrenzy;
+    [SerializeField] TextMeshProUGUI playerFrenzy;
 
-    [SerializeField] Text playerName;
+    [SerializeField] TextMeshProUGUI playerName;
+
+    [SerializeField] TextMeshProUGUI descCharacter;
+
+    public bool hasBeenBought = false;
+
+    public int notesToPay = 0;
+
+    public int notesFrenzyCost;
+
+    public int notesCostDamage;
+
+    public int notesCostHealth;
+
+    private void Awake()
+    {
+        hasBeenBought = PlayerPrefs.GetInt("boughtCharacter" + currentSelectedCharacter) == 1;
+        gameObject.SetActive(false);
+    }
     private void OnEnable()
     {
         PlayerPrefs.SetInt("selectedCharacter", currentSelectedCharacter);
+
+        hasBeenBought = PlayerPrefs.GetInt("boughtCharacter" + currentSelectedCharacter) == 1;
+
+        notesCostHealth = PlayerPrefs.GetInt("UpgradeHealth" + currentSelectedCharacter);
+        notesCostDamage = PlayerPrefs.GetInt("UpgradeDamage" + currentSelectedCharacter);
+        notesFrenzyCost = PlayerPrefs.GetInt("UpgradeFrenzy" + currentSelectedCharacter);
 
         playerName.text = stats.playerName;
 
@@ -27,6 +52,8 @@ public class CharacterStats : MonoBehaviour
         playerDamage.text = stats.attackDamage.ToString();
 
         playerFrenzy.text = stats.maxFrenzy.ToString();
+
+        descCharacter.text = stats.descriptionCharacter;
     }
 
     public void UpdateText()

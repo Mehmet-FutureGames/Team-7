@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class NoteObject : MonoBehaviour
 {
+   
     private NotePublisher publisher;
     public bool canBePressed;
     public bool perfectHit;
@@ -17,11 +18,12 @@ public class NoteObject : MonoBehaviour
     private void Awake()
     {
         noteManager = FindObjectOfType<NoteManager>();
+        publisher = FindObjectOfType<NotePublisher>();
+        GetNoteList.NoteList.Add(this);
     }
     void Start()
     {
-        publisher = FindObjectOfType<NotePublisher>();
-        publisher.buttonHitAttack += ButtonAttack;
+        
     }
     private void OnEnable()
     {
@@ -51,18 +53,32 @@ public class NoteObject : MonoBehaviour
 #endif
     private void AndroidInput()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (OverGUICheck.Instance.IsPointerOverUIObject())
         {
-            publisher.NoteHit();
-            gameObject.SetActive(false);
-            canBePressed = false;
-            NoteMiss.Instance.TriggerCountZero();
+
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                publisher.NoteHit();
+                gameObject.SetActive(false);
+                canBePressed = false;
+                NoteMiss.Instance.TriggerCountZero();
+            }
         }
     }
 
     public void ButtonAttack()
     {
-        publisher.NoteHitAttack();
+            publisher.NoteHitAttack();
+            gameObject.SetActive(false);
+            canBePressed = false;
+            NoteMiss.Instance.TriggerCountZero();
+    }
+    public void ButtonBlock()
+    {
+        publisher.NoteHitBlock();
         gameObject.SetActive(false);
         canBePressed = false;
         NoteMiss.Instance.TriggerCountZero();
@@ -104,6 +120,10 @@ public class NoteObject : MonoBehaviour
         {
             canBePressed = true;
         }
+    }
+    private void OnDisable()
+    {
+        canBePressed = false;
     }
 
     private void OnTriggerExit(Collider other)

@@ -89,20 +89,26 @@ public class Player : MonoBehaviour
 
     }
 #if UNITY_ANDROID
-
-        public void NormalAttackActivated()
+    private void Subscribe()
+    {
+        notePublisher.noteHitAttack += NormalAttackActivated;
+    }
+    public void NormalAttackActivated()
+    {
+        if(EnemyTransforms.Count > 0)
         {
-            notePublisher.NoteButtonHitAttack();
-            if(EnemyTransforms != null)
-            {
-                Transform closestEnemy = GetClosestEnemy(EnemyTransforms);
-                transform.LookAt(new Vector3(closestEnemy.position.x, transform.position.y, closestEnemy.position.z));
-                AttackingActivated();
-            }
+            Transform closestEnemy = GetClosestEnemy(EnemyTransforms);
+            transform.LookAt(new Vector3(closestEnemy.position.x, transform.position.y, closestEnemy.position.z));
+            AttackingActivated();
         }
+    }
 
 #endif
 #if UNITY_STANDALONE
+        private void Subscribe()
+    {
+        notePublisher.noteHitAttack += NormalAttackActivated;
+    }
     public void NormalAttackActivated()
     {
         //Shoots a ray and stores the information in the raycastHit variable.
@@ -118,8 +124,6 @@ public class Player : MonoBehaviour
     }
 
 #endif
-
-
     Transform GetClosestEnemy(List<Transform> enemyTransforms)
     {
         Transform closestEnemy = null;
@@ -169,21 +173,25 @@ public class Player : MonoBehaviour
 #region References
     IEnumerator References()
     {
+        //Checks which character the player chose from the
+        //main menu and adds the scriptable object to the
+        //stats variable to take its stats and use them
         selectedCharacter = PlayerPrefs.GetInt("currentSelectedCharacter");
+        Debug.Log(selectedCharacter);
         playerChoose = GetComponent<ObjectReferences>();
         switch (selectedCharacter)
         {
             default:
-                playerChoose.stats[0] = stats;
+                stats = playerChoose.stats[0];
                 break;
             case 0:
-                playerChoose.stats[0] = stats;
+                stats = playerChoose.stats[0];
                 break;
             case 1:
-                playerChoose.stats[1] = stats;
+                stats = playerChoose.stats[1];
                 break;
             case 2:
-                playerChoose.stats[2] = stats;
+                stats = playerChoose.stats[2];
                 break;
         }
         //Instantiate(stats.playerModel, transform);
@@ -210,7 +218,7 @@ public class Player : MonoBehaviour
         //Subscribe to noteHit.
         //notePublisher.noteHit += AttackActivated;
         movePlayer.playerRegMove += DashAttackActivated;
-        notePublisher.noteHitAttack += NormalAttackActivated;
+        Subscribe();
         playerFrenzy = GetComponent<PlayerFrenzy>();
 
         dashAttackFrenzyCost = stats.dashAttackFrenzyCost;
