@@ -8,6 +8,7 @@ using TMPro;
 
 public class PlayerStatsMenu : MonoBehaviour
 {
+    bool hasStartedFirstTime = false;
 
     [SerializeField] PlayerStats stats;
 
@@ -34,16 +35,26 @@ public class PlayerStatsMenu : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI frenzyText;
 
+    [SerializeField] int startingNotes;
+
     [SerializeField] List<GameObject> characters = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
+        if (!hasStartedFirstTime)
+        {
+            hasStartedFirstTime = true;
+            PlayerPrefs.SetInt("hasStartedFirstTime", hasStartedFirstTime ? 1 : 0);
+            Debug.Log("Started for the first time!");
+            notes = startingNotes;
+            PlayerPrefs.SetInt("NoteCurrency", notes);
+        }
+        hasStartedFirstTime = PlayerPrefs.GetInt("hasStartedFirstTime") == 1;
         currentCharacterSelected = 0;
         PlayerPrefs.SetInt("currentSelectedCharacter", currentCharacterSelected);
         characters[0].SetActive(true);
         ChangeCharacters();
         notes = PlayerPrefs.GetInt("NoteCurrency");
-        notes = 999;
         notesText = GameObject.Find("NotesAmount").GetComponent<TextMeshProUGUI>();
         lockScreen.SetActive(false);
         BuyCharacter();
