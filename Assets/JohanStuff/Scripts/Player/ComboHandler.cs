@@ -28,6 +28,14 @@ public class ComboHandler : MonoBehaviour
         private set 
         { 
             combo = value;
+            if(combo <= 0)
+            {
+                displayCombo.text = "";
+            }
+            else
+            {
+                displayCombo.text = "X " + Combo.ToString();
+            }
             ComboMult = combo * 0.01f;
         }
     }
@@ -54,6 +62,10 @@ public class ComboHandler : MonoBehaviour
         publisher = FindObjectOfType<NotePublisher>();
         movePlayer = FindObjectOfType<MovePlayer>();
     }
+    private void Start()
+    {
+        Combo = 0;
+    }
 
     private void OnEnable()
     {
@@ -72,13 +84,9 @@ public class ComboHandler : MonoBehaviour
         if(combo <= 0)
         {
             slider.gameObject.SetActive(false);
-            displayCombo.text = "";
         }
-        else
-        {
-            Combo = combo;
-            displayCombo.text = "X " + Combo.ToString();
-        }
+        Combo = combo;
+        
     }
 
     public void AddToCombo()
@@ -86,14 +94,14 @@ public class ComboHandler : MonoBehaviour
         slider.gameObject.SetActive(true);
         timer = slider.maxValue;
         Combo += 1;
-        displayCombo.text = "X " + Combo.ToString();
+        //displayCombo.text = "X " + Combo.ToString();
     }
 
     void MissedNote()
     {
         Combo = 0;
         hitNote = false;
-        displayCombo.text = "";
+        //displayCombo.text = "";
     }
     void HitNote()
     {
