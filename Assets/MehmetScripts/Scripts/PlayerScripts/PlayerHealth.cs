@@ -25,14 +25,15 @@ public class PlayerHealth : MonoBehaviour
         deadPanel = GameObject.Find("DeadPanel");
         healthBar = GameObject.Find("HealthBar").GetComponent<Image>();
         deadPanel.SetActive(false);
-        RespawnDEV();
+        Respawn();
     }
 
-    private void RespawnDEV()
+    private void Respawn()
     {
         if (Time.timeScale < 1 && currentHealth > 0)
         {
             Time.timeScale = 1;
+            deadPanel.SetActive(false);
         }
     }
 
@@ -100,5 +101,16 @@ public class PlayerHealth : MonoBehaviour
     {
         playerStats.maxHealth += upgradedHealth;
         healthBar.transform.parent.localScale = new Vector2(healthBar.transform.parent.localScale.x * (playerStats.maxHealth / defaultMaxHealth), healthBar.transform.parent.localScale.y);
+        healthBar.fillAmount = currentHealth / playerStats.maxHealth;
+    }
+
+    public void RecoverHealth(float healthRecovered)
+    {
+        currentHealth += healthRecovered;
+        if(currentHealth > playerStats.maxHealth)
+        {
+            currentHealth = playerStats.maxHealth;
+        }
+        healthBar.fillAmount = currentHealth / playerStats.maxHealth;
     }
 }

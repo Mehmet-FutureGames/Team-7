@@ -160,6 +160,9 @@ public class Player : MonoBehaviour
 #region References
     IEnumerator References()
     {
+        //Checks which character the player chose from the
+        //main menu and adds the scriptable object to the
+        //stats variable to take its stats and use them
         selectedCharacter = PlayerPrefs.GetInt("currentSelectedCharacter");
         Debug.Log(selectedCharacter);
         playerChoose = GetComponent<ObjectReferences>();

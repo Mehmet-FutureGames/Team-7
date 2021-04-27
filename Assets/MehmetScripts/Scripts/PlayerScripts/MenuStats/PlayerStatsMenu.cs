@@ -39,6 +39,7 @@ public class PlayerStatsMenu : MonoBehaviour
     void Start()
     {
         currentCharacterSelected = 0;
+        PlayerPrefs.SetInt("currentSelectedCharacter", currentCharacterSelected);
         characters[0].SetActive(true);
         ChangeCharacters();
         notes = PlayerPrefs.GetInt("NoteCurrency");
@@ -81,6 +82,7 @@ public class PlayerStatsMenu : MonoBehaviour
                     characters[i].GetComponent<CharacterStats>().hasBeenBought = true;
                     notes -= pay;
                     notesText.text = notes.ToString();
+                    lockScreen.SetActive(false);
                     PlayerPrefs.SetInt("boughtCharacter" + currentCharacterSelected, characters[i].GetComponent<CharacterStats>().hasBeenBought ? 1 : 0);
                     Debug.Log(notes);
                 }
@@ -103,6 +105,7 @@ public class PlayerStatsMenu : MonoBehaviour
     {
         for (int i = 0; i < characters.Count; i++)
         {
+            //Checks if the character has been bought.
             if (characters[currentCharacterSelected].GetComponent<CharacterStats>().hasBeenBought)
             {
                 lockScreen.SetActive(false);
@@ -110,6 +113,8 @@ public class PlayerStatsMenu : MonoBehaviour
             }
             else
             {
+                //set the lock icon active and the character active
+                //Needs two instances because unity is a very nice program.
                 characters[i].SetActive(i == currentCharacterSelected);
                 lockScreen.SetActive(true);
                 Debug.Log("You need to buy this character!");
@@ -145,10 +150,13 @@ public class PlayerStatsMenu : MonoBehaviour
         //according to the number!
             PlayerPrefs.SetInt("NoteCurrency", notes);
             notesText.text = notes.ToString();
+        //Checks if notes are above 0 so we don't get any negative values.
         if (notes > 0)
         {
             if (notes >= characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth)
             {
+                //Checks which upgrade you want to buy.
+                //0 is health, 1 is damage, 2 is frenzy.
                 if (statsToUpgrade == 0)
                 {
                     stats.health += 5;
@@ -215,6 +223,7 @@ public class PlayerStatsMenu : MonoBehaviour
         }
         catch (System.Exception)
         {
+            //Incase there is no save file we throw a base value into stats.
             stats.playerName = savedPlayerName;
             stats.health = 100;
             stats.attackDamage = 20;

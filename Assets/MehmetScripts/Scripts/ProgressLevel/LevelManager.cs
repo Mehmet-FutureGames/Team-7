@@ -29,6 +29,8 @@ public class LevelManager : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
+        //Sets the current scene to the current level
+        //To be changed (maybe)
         currentLevel = SceneManager.GetActiveScene().buildIndex;
     }
 }
