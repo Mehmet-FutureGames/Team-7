@@ -109,7 +109,6 @@ public class WaveManager : MonoBehaviour
     public void FinishFloor()
     {
         //Add behaviour for what happens when you finish a level.
-        Debug.Log("You finished the first floor! Go to X position to continue!");
         floorLevel++;
         Instantiate(door);
         PlayerPrefs.SetInt("floorLevel", floorLevel);

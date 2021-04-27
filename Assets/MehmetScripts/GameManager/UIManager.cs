@@ -59,9 +59,11 @@ public class UIManager : MonoBehaviour
 
     IEnumerator ShowAndRemoveText()
     {
+        waveText.alignment = TextAlignmentOptions.Center;
         waveText.text = "Hurry! Kill the final enemies and hurry to the door! Contiune on to the next floor!";
         yield return new WaitForSeconds(5);
-        waveText.gameObject.SetActive(false);
+        waveText.alignment = TextAlignmentOptions.Top;
+        waveText.text = waveText.text = "Wave: " + manager.waveLevel + "/" + manager.waveMaximum;
     }
 
     private void SkipText()
