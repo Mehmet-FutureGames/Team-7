@@ -7,6 +7,7 @@ using TMPro;
 
 public class ComboHandler : MonoBehaviour
 {
+    public static ComboHandler Instance;
     NotePublisher publisher;
     EnemyPublisher enemyPublisher;
     MovePlayer movePlayer;
@@ -44,6 +45,11 @@ public class ComboHandler : MonoBehaviour
 
     private void Awake()
     {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else { Debug.Log("Warning!: " + this + " multiple instnce"); }
         enemyPublisher = FindObjectOfType<EnemyPublisher>();
         publisher = FindObjectOfType<NotePublisher>();
         movePlayer = FindObjectOfType<MovePlayer>();

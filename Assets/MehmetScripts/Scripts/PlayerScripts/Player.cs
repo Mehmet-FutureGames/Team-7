@@ -124,8 +124,6 @@ public class Player : MonoBehaviour
     }
 
 #endif
-
-
     Transform GetClosestEnemy(List<Transform> enemyTransforms)
     {
         Transform closestEnemy = null;

@@ -56,6 +56,10 @@ MonoBehaviour:
     prefab: {fileID: 2885724536750924555, guid: e3aa2730f77db8740889c8252f5e64fa,
       type: 3}
     size: 10
+  - tag: Blood
+    prefab: {fileID: 3741987651668401370, guid: 575597a16baa6964a957d45170797d44,
+      type: 3}
+    size: 15
 --- !u!1 &8966836273629194622
 GameObject:
   m_ObjectHideFlags: 0

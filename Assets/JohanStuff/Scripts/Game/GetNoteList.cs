@@ -21,8 +21,15 @@ public class GetNoteList : MonoBehaviour
         {
             if (NoteList[i].canBePressed && !NoteList[i].deActivated)
             {
-                Debug.Log("What is happening");
-                NoteList[i].ButtonAttack();
+                if (gameObject.CompareTag("AttackButton"))
+                {
+                    NoteList[i].ButtonAttack();
+                }
+                else if (gameObject.CompareTag("BlockButton"))
+                {
+                    NoteList[i].ButtonBlock();
+                }
+                
             }
         }
     }
