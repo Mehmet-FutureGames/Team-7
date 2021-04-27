@@ -1956,7 +1956,7 @@ MonoBehaviour:
   stats: {fileID: 0}
   currentCharacterSelected: 0
   lockScreen: {fileID: 1973259816}
-  upgradeNotesAmount: 0
+  upgradeNotesAmount: 1
   healthText: {fileID: 2059245182}
   damageText: {fileID: 220696802}
   frenzyText: {fileID: 2078245974}
