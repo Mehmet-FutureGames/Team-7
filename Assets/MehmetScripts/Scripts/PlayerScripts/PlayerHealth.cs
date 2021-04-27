@@ -102,4 +102,14 @@ public class PlayerHealth : MonoBehaviour
         healthBar.transform.parent.localScale = new Vector2(healthBar.transform.parent.localScale.x * (playerStats.maxHealth / defaultMaxHealth), healthBar.transform.parent.localScale.y);
         healthBar.fillAmount = currentHealth / playerStats.maxHealth;
     }
+
+    public void RecoverHealth(float healthRecovered)
+    {
+        currentHealth += healthRecovered;
+        if(currentHealth > playerStats.maxHealth)
+        {
+            currentHealth = playerStats.maxHealth;
+        }
+        healthBar.fillAmount = currentHealth / playerStats.maxHealth;
+    }
 }
