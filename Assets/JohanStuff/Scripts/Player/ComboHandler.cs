@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 
 public class ComboHandler : MonoBehaviour
 {
+    public static ComboHandler Instance;
     NotePublisher publisher;
     EnemyPublisher enemyPublisher;
     MovePlayer movePlayer;
@@ -12,7 +15,7 @@ public class ComboHandler : MonoBehaviour
     float frenzyMult;
     float timer;
     [SerializeField] Slider slider;
-    [SerializeField] Text displayCombo;
+    [SerializeField] TextMeshProUGUI displayCombo;
     private bool hitNote;
     [Range(0.01f, 2)]
     public float comboDepletionMult;
@@ -42,6 +45,11 @@ public class ComboHandler : MonoBehaviour
 
     private void Awake()
     {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else { Debug.Log("Warning!: " + this + " multiple instnce"); }
         enemyPublisher = FindObjectOfType<EnemyPublisher>();
         publisher = FindObjectOfType<NotePublisher>();
         movePlayer = FindObjectOfType<MovePlayer>();
@@ -66,7 +74,7 @@ public class ComboHandler : MonoBehaviour
             slider.gameObject.SetActive(false);
         }
         Combo = combo;
-        displayCombo.text = "Combo: " + Combo.ToString();
+        displayCombo.text = "x " + Combo.ToString();
     }
 
     public void AddToCombo()

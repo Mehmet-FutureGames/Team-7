@@ -27,4 +27,10 @@ public class LevelManager : MonoBehaviour
         currentLevel = SceneManager.GetActiveScene().buildIndex;
         levelsCompleted = PlayerPrefs.GetInt("FloorCompleted");
     }
+    private void OnLevelWasLoaded(int level)
+    {
+        //Sets the current scene to the current level
+        //To be changed (maybe)
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
+    }
 }

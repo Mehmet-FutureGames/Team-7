@@ -15,6 +15,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Start()
     {
+        //Invoke to delay the reference otherwise unity cry
         Invoke("DamageReference", 0.1f);
     }
 
@@ -22,7 +23,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.GetComponentInParent<Enemy>().TakeDamage(damage);
+            other.GetComponentInParent<Enemy>().TakeDamage(damage, false);
         }
     }
 
