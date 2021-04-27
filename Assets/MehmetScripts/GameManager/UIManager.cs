@@ -32,8 +32,7 @@ public class UIManager : MonoBehaviour
         notePublisher.noteNotHit += UpdateWaveLevel;
 
         TextPanel = GameObject.Find("UIPanel");
-
-        skip = true;
+        UpdateWaveLevel();
     }
     private void Update()
     {
@@ -51,24 +50,11 @@ public class UIManager : MonoBehaviour
     private void UpdateWaveLevel()
     {
         waveText.text = "Wave: " + manager.waveLevel + "/" + manager.waveMaximum;
-        if(manager.waveLevel >= manager.waveMaximum)
-        {
-           StartCoroutine(ShowAndRemoveText());
-        }
-    }
-
-    IEnumerator ShowAndRemoveText()
-    {
-        waveText.alignment = TextAlignmentOptions.Center;
-        waveText.text = "Hurry! Kill the final enemies and hurry to the door! Contiune on to the next floor!";
-        yield return new WaitForSeconds(5);
-        waveText.alignment = TextAlignmentOptions.Top;
-        waveText.text = waveText.text = "Wave: " + manager.waveLevel + "/" + manager.waveMaximum;
     }
 
     private void SkipText()
     {
-        if (skip)
+        if (!skip)
         {
             StopAllCoroutines();
             Time.timeScale = 0;
@@ -76,6 +62,7 @@ public class UIManager : MonoBehaviour
             musicStart.audio.Play();
             musicStart.StartGame();
             Time.timeScale = 1;
+            skip = true;
         }
     }
     IEnumerator ShowAndStopShowingText()
