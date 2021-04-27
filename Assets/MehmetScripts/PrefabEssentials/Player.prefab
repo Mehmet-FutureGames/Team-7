@@ -476,7 +476,7 @@ MonoBehaviour:
   mousePos: {x: 0, y: 0, z: 0}
   obstaclLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!114 &7914652014459963316
 MonoBehaviour:
   m_ObjectHideFlags: 0
