@@ -35,5 +35,9 @@ public class PlayerFrenzy : MonoBehaviour
         //frenzyBar.fillAmount = currentFrenzy / maxFrenzy;
     }
 
+    public void AddFrenzyPickUp(float frenzyAmount)
+    {
+        CurrentFrenzy = Mathf.Clamp(CurrentFrenzy + frenzyAmount, minFrenzy, maxFrenzy);
+    }
 
 }
