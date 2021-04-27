@@ -82,14 +82,14 @@ public class ComboHandler : MonoBehaviour
         slider.gameObject.SetActive(true);
         timer = slider.maxValue;
         Combo += 1;
-        displayCombo.text = "Combo: " + Combo.ToString();
+        displayCombo.text = "X " + Combo.ToString();
     }
 
     void MissedNote()
     {
         Combo = 0;
         hitNote = false;
-        displayCombo.text = "Combo: " + Combo.ToString();
+        displayCombo.text = "X " + Combo.ToString();
     }
     void HitNote()
     {

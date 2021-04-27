@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerCoinHandler : MonoBehaviour
 {
     public float coins;
-    [SerializeField] Text text;
+    [SerializeField] TextMeshProUGUI text;
     private void Start()
     {
         coins = 0;
@@ -21,6 +22,6 @@ public class PlayerCoinHandler : MonoBehaviour
 
     private void SetText(float amount)
     {
-        text.text = "Coins: " + amount.ToString("F0");
+        text.text = amount.ToString("F0");
     }
 }
