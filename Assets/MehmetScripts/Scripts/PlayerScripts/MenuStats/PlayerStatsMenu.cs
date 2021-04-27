@@ -35,12 +35,15 @@ public class PlayerStatsMenu : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI frenzyText;
 
+    [SerializeField] TextMeshProUGUI cantBuyCharacter;
+
     [SerializeField] int startingNotes;
 
     [SerializeField] List<GameObject> characters = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
+        cantBuyCharacter.gameObject.SetActive(false);
         hasStartedFirstTime = PlayerPrefs.GetInt("hasStartedFirstTime") == 1;
         currentCharacterSelected = 0;
         PlayerPrefs.SetInt("currentSelectedCharacter", currentCharacterSelected);
@@ -254,4 +257,11 @@ public class PlayerStatsMenu : MonoBehaviour
         characters[currentCharacterSelected].GetComponent<CharacterStats>().UpdateText();
     }
     #endregion
+
+    public IEnumerator cantbuyChar()
+    {
+        cantBuyCharacter.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3);
+        cantBuyCharacter.gameObject.SetActive(false);
+    }
 }

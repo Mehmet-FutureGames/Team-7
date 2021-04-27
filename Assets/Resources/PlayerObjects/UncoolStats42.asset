@@ -17,11 +17,12 @@ MonoBehaviour:
     type: 3}
   playerName: John Cena
   movementSpeed: 0
-  attackDamage: 20
-  health: 100
+  attackDamage: 45
+  health: 125
   dashDamage: 5
   meleeAttackDuration: 1
-  maxFrenzy: 20
+  maxFrenzy: 70
   dashAttackDuration: 1
   dashAttackFrenzyCost: 2
   distanceToClick: 6
+  descriptionCharacter: 
