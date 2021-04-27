@@ -20,6 +20,10 @@ public class CharacterStats : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI descCharacter;
 
+    [SerializeField] TextMeshProUGUI costOfCharacter;
+
+    [SerializeField] TextMeshProUGUI nameOfCharacter;
+
     public bool hasBeenBought = false;
 
     public int notesToPay = 0;
@@ -54,6 +58,10 @@ public class CharacterStats : MonoBehaviour
         playerFrenzy.text = stats.maxFrenzy.ToString();
 
         descCharacter.text = stats.descriptionCharacter;
+
+        costOfCharacter.text = notesToPay.ToString();
+
+        nameOfCharacter.text = "Purchase: " + stats.playerName;
     }
 
     public void UpdateText()
