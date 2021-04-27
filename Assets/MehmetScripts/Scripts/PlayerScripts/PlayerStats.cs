@@ -22,5 +22,10 @@ using UnityEditor;
         public int dashAttackFrenzyCost;
         [Space]
         public int distanceToClick;
+
+        [Space]
+        [Space]
+        [Space]
+        public string descriptionCharacter;
     }
 
