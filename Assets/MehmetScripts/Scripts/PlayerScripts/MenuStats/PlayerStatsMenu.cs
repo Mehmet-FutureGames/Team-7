@@ -84,7 +84,6 @@ public class PlayerStatsMenu : MonoBehaviour
                     notesText.text = notes.ToString();
                     lockScreen.SetActive(false);
                     PlayerPrefs.SetInt("boughtCharacter" + currentCharacterSelected, characters[i].GetComponent<CharacterStats>().hasBeenBought ? 1 : 0);
-                    Debug.Log(notes);
                 }
             }
         }
@@ -117,7 +116,6 @@ public class PlayerStatsMenu : MonoBehaviour
                 //Needs two instances because unity is a very nice program.
                 characters[i].SetActive(i == currentCharacterSelected);
                 lockScreen.SetActive(true);
-                Debug.Log("You need to buy this character!");
                 characters[i].SetActive(i == currentCharacterSelected);
             }
         }
