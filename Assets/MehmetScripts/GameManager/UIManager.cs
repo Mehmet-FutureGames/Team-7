@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     GameObject TextPanel;
 
-    [SerializeField] Text waveText;
+    [SerializeField] TextMeshProUGUI waveText;
 
     NotePublisher notePublisher;
 
@@ -52,9 +53,15 @@ public class UIManager : MonoBehaviour
         waveText.text = "Wave: " + manager.waveLevel + "/" + manager.waveMaximum;
         if(manager.waveLevel >= manager.waveMaximum)
         {
-            waveText.text = "Hurry! Kill the final enemies and hurry to the door! Contiune on to the next floor!";
-            waveText.alignment = TextAnchor.MiddleCenter;
+           StartCoroutine(ShowAndRemoveText());
         }
+    }
+
+    IEnumerator ShowAndRemoveText()
+    {
+        waveText.text = "Hurry! Kill the final enemies and hurry to the door! Contiune on to the next floor!";
+        yield return new WaitForSeconds(5);
+        waveText.gameObject.SetActive(false);
     }
 
     private void SkipText()

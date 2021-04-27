@@ -41,14 +41,6 @@ public class PlayerStatsMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!hasStartedFirstTime)
-        {
-            hasStartedFirstTime = true;
-            PlayerPrefs.SetInt("hasStartedFirstTime", hasStartedFirstTime ? 1 : 0);
-            Debug.Log("Started for the first time!");
-            notes = startingNotes;
-            PlayerPrefs.SetInt("NoteCurrency", notes);
-        }
         hasStartedFirstTime = PlayerPrefs.GetInt("hasStartedFirstTime") == 1;
         currentCharacterSelected = 0;
         PlayerPrefs.SetInt("currentSelectedCharacter", currentCharacterSelected);
@@ -60,6 +52,14 @@ public class PlayerStatsMenu : MonoBehaviour
         BuyCharacter();
         savedPlayerName = stats.playerName;
         UpdateTextUpgrade();
+        if (!hasStartedFirstTime)
+        {
+            hasStartedFirstTime = true;
+            PlayerPrefs.SetInt("hasStartedFirstTime", hasStartedFirstTime ? 1 : 0);
+            Debug.Log("Started for the first time!");
+            notes = startingNotes;
+            PlayerPrefs.SetInt("NoteCurrency", notes);
+        }
 
         //If file doesn't exist. Create empty JSONObject.
 

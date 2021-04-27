@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class NoteCurrencyHandler : MonoBehaviour
 {
 
     int noteCurrency;
-    [SerializeField] Text text;
+    [SerializeField] TextMeshProUGUI text;
 
     public int NoteCurrency
     {
@@ -33,7 +34,7 @@ public class NoteCurrencyHandler : MonoBehaviour
 
     private void SetText(int amount)
     {
-        text.text = "Notes: " + amount.ToString("F0");
+        text.text = amount.ToString("F0");
     }
 
 }
