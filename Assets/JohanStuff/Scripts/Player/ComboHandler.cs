@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 
 public class ComboHandler : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class ComboHandler : MonoBehaviour
     float frenzyMult;
     float timer;
     [SerializeField] Slider slider;
-    [SerializeField] Text displayCombo;
+    [SerializeField] TextMeshProUGUI displayCombo;
     private bool hitNote;
     [Range(0.01f, 2)]
     public float comboDepletionMult;
@@ -66,7 +68,7 @@ public class ComboHandler : MonoBehaviour
             slider.gameObject.SetActive(false);
         }
         Combo = combo;
-        displayCombo.text = "Combo: " + Combo.ToString();
+        displayCombo.text = "x " + Combo.ToString();
     }
 
     public void AddToCombo()
