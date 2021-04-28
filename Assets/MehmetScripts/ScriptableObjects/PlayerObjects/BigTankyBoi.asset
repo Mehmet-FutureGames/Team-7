@@ -25,3 +25,4 @@ MonoBehaviour:
   dashAttackDuration: 0.8
   dashAttackFrenzyCost: 5
   distanceToClick: 6
+  descriptionCharacter: 
