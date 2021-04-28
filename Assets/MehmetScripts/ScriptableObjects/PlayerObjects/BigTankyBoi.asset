@@ -10,19 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a0a8eb1dde53c84fa29e79686573e89, type: 3}
-  m_Name: UncoolStats42
+  m_Name: BigTankyBoi
   m_EditorClassIdentifier: 
   playerModel: {fileID: 0}
   playerDamageText: {fileID: 3411471724750393966, guid: 06a5d40551cdc894daaf72510bb45db9,
     type: 3}
-  playerName: John Cena
+  playerName: R3D3
   movementSpeed: 0
-  attackDamage: 45
-  health: 125
-  dashDamage: 5
+  attackDamage: 40
+  health: 100
+  dashDamage: 20
   meleeAttackDuration: 1
-  maxFrenzy: 70
-  dashAttackDuration: 1
-  dashAttackFrenzyCost: 2
+  maxFrenzy: 150
+  dashAttackDuration: 0.8
+  dashAttackFrenzyCost: 5
   distanceToClick: 6
-  descriptionCharacter: 
+  descriptionCharacter: He is a robot that is execeptionally good at dancing. He
+    can .
