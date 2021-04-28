@@ -85,6 +85,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Dead()
     {
+        Player.EnemyTransforms.Clear();
         deadPanel.SetActive(true);
         Time.timeScale = 0;
     }
