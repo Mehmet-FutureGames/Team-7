@@ -57,7 +57,6 @@ public class Enemy : MonoBehaviour
     public EnemyType enemyType;
     [HideInInspector]
     public int moveCounter = 0;
-    int attackCounter = 0;
 
     [HideInInspector]
     public float distanceToPlayer;
@@ -167,7 +166,6 @@ public class Enemy : MonoBehaviour
     {
         float chance = UnityEngine.Random.Range(0, 100f);
         noteDropChance = Mathf.Clamp(noteDropChance * (combo + 1), 0f, 100f);
-        Debug.Log(noteDropChance);
         if(chance <= noteDropChance)
         {
             noteWillDrop = true;
