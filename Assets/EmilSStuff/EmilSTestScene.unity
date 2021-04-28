@@ -8430,7 +8430,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 9039d79e8dfefee4bb090aea5f7c459a, type: 3}
+      objectReference: {fileID: 8300000, guid: dbd7034cf26a3474694810e88031a157, type: 3}
     - target: {fileID: 7753023273115067111, guid: a1a29c4f959c6a94297623fce0b429ed,
         type: 3}
       propertyPath: m_Cameras.Array.size
@@ -9007,7 +9007,7 @@ PrefabInstance:
     - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: beatTempo
-      value: 120
+      value: 122
       objectReference: {fileID: 0}
     - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
