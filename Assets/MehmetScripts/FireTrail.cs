@@ -11,7 +11,7 @@ public class FireTrail : ActiveItems
     }
     public override void UseItem()
     {
-       Debug.Log("CoolTreail");        
+       Debug.Log("CoolTreail");
     }
     private void OnTriggerEnter(Collider other)
     {
