@@ -27,12 +27,4 @@ public class MusicSingleton : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    private void OnLevelWasLoaded(int level)
-    {
-        if (level == 2)
-        {
-            Destroy(gameObject);
-        }
-    }
 }
