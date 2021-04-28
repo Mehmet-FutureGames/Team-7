@@ -1360,7 +1360,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56740df2e5e9fb4ea0d3d26e006ab62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: 010000
+  activeItems1: {fileID: 0}
+  item: 000000
 --- !u!82 &1526608190 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 7753023273115067108, guid: a1a29c4f959c6a94297623fce0b429ed,
@@ -1839,6 +1840,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3aa2730f77db8740889c8252f5e64fa, type: 3}
+--- !u!1001 &4302139401534181298
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 461280458870836290, guid: b78e7b4e4eb00ed4b8369073dfd9b257,
+        type: 3}
+      propertyPath: m_Name
+      value: Items
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764049878697374548, guid: b78e7b4e4eb00ed4b8369073dfd9b257,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764049878697374548, guid: b78e7b4e4eb00ed4b8369073dfd9b257,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.277988
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764049878697374548, guid: b78e7b4e4eb00ed4b8369073dfd9b257,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.625501
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764049878697374548, guid: b78e7b4e4eb00ed4b8369073dfd9b257,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -28.299908
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764049878697374548, guid: b78e7b4e4eb00ed4b8369073dfd9b257,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764049878697374548, guid: b78e7b4e4eb00ed4b8369073dfd9b257,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764049878697374548, guid: b78e7b4e4eb00ed4b8369073dfd9b257,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764049878697374548, guid: b78e7b4e4eb00ed4b8369073dfd9b257,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764049878697374548, guid: b78e7b4e4eb00ed4b8369073dfd9b257,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764049878697374548, guid: b78e7b4e4eb00ed4b8369073dfd9b257,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764049878697374548, guid: b78e7b4e4eb00ed4b8369073dfd9b257,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b78e7b4e4eb00ed4b8369073dfd9b257, type: 3}
 --- !u!1001 &7753023271945245658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1906,6 +1976,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 7753023273115067108, guid: a1a29c4f959c6a94297623fce0b429ed,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9039d79e8dfefee4bb090aea5f7c459a, type: 3}
     - target: {fileID: 7753023273115067111, guid: a1a29c4f959c6a94297623fce0b429ed,
         type: 3}
       propertyPath: m_Cameras.Array.data[0]
@@ -2139,6 +2214,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1087593877}
+    - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: beatTempo
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 8966836274532626828, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: audio

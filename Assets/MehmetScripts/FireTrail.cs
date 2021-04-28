@@ -11,13 +11,20 @@ public class FireTrail : ActiveItems
     }
     public override void UseItem()
     {
-       Debug.Log("CoolTreail");        
+        Debug.Log("CoolTreail");
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.GetComponent<UseItem>().OnPickUpItem(itemIndex);
+            other.GetComponent<UseItem>().OnPickUpItem(itemIndex, this);
         }
+    }
+
+    public override void PerformAction()
+    {
+        //Spawn FireTrail at player position
+        Debug.Log("FIRETRAIL");
+        Destroy(this);
     }
 }

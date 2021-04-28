@@ -2,17 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackProjectile : MonoBehaviour
+public class AttackProjectile : ActiveItems
 {
-    // Start is called before the first frame update
-    void Start()
+    NotePublisher notePublisher;
+    private void Start()
     {
-        
+        UseItem();
     }
-
-    // Update is called once per frame
-    void Update()
+    public override void UseItem()
     {
-        
+        Debug.Log("CoolTreail");
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.GetComponent<UseItem>().OnPickUpItem(itemIndex, this);
+        }
+    }
+    public override void PerformAction()
+    {
+        //perform attackProjectile
+        Debug.Log("ATTACKPROJECTILE");
+        Destroy(this);
     }
 }

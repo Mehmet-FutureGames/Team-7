@@ -7,14 +7,13 @@ public class UseItem : MonoBehaviour
     //item 0 = Firetrail
     //item 1 = Attack Projectile
     //item 2 = Stun Lock
-
+    public ActiveItems activeItems1;
     public bool[] item;
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            OnPickUpItem(0);
+            //OnPickUpItem(0);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -22,14 +21,27 @@ public class UseItem : MonoBehaviour
         }
     }
 
-    public void OnPickUpItem(int itemIndex) 
+    public void OnPickUpItem(int itemIndex, ActiveItems activeItems) 
     {
         for (int i = 0; i < item.Length; i++)
         {
             item[i] = false;
         }
         item[itemIndex] = true;
-        gameObject.AddComponent<FireTrail>();
+        //activeItems1 = activeItems;
+        
+        if(gameObject.GetComponent<ActiveItems>() == null)
+        {
+            gameObject.AddComponent(activeItems.GetType());
+            //activeItems1 = activeItems;
+        }
+        else
+        {
+            Destroy(GetComponent<ActiveItems>());
+            gameObject.AddComponent(activeItems.GetType());
+
+        }
+        
     }
 
     void OnUseItem()
@@ -40,7 +52,8 @@ public class UseItem : MonoBehaviour
             {
                 case true:
                     Debug.Log(item[i]);
-                    Destroy(GetComponent<FireTrail>());
+                    GetComponent<ActiveItems>().PerformAction();
+                    //Destroy(GetComponent(itemSelected.GetType()));
                     item[i] = false;
                     break;
                 case false:
