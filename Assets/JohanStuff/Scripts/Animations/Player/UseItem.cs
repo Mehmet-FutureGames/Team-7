@@ -10,11 +10,13 @@ public class UseItem : MonoBehaviour
 
     public bool[] item;
 
+    ActiveItems itemSelected;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            OnPickUpItem(0);
+            //OnPickUpItem(0);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -22,14 +24,15 @@ public class UseItem : MonoBehaviour
         }
     }
 
-    public void OnPickUpItem(int itemIndex) 
+    public void OnPickUpItem(int itemIndex, ActiveItems items) 
     {
         for (int i = 0; i < item.Length; i++)
         {
             item[i] = false;
         }
         item[itemIndex] = true;
-        gameObject.AddComponent<FireTrail>();
+        gameObject.AddComponent(items.GetType());
+        itemSelected = items;
     }
 
     void OnUseItem()
@@ -40,7 +43,7 @@ public class UseItem : MonoBehaviour
             {
                 case true:
                     Debug.Log(item[i]);
-                    Destroy(GetComponent<FireTrail>());
+                    Destroy(GetComponent(itemSelected.GetType()));
                     item[i] = false;
                     break;
                 case false:
