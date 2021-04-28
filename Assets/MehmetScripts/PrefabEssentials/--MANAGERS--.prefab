@@ -152,7 +152,7 @@ MonoBehaviour:
   StartScale: {x: 0.2, y: 5, z: 0.2}
   downScaleMultiplier: 0.14
   difficulty: 0
-  beatTempo: 97
+  beatTempo: 120
   difficultyMultiplier: 0
   notePrefab: {fileID: 1068030649841422632, guid: 9605936e9ead1da4d8c2c6a2bb432f2f,
     type: 3}

@@ -44,8 +44,6 @@ public class Player : MonoBehaviour
     float dashAttackCooldown;
     [HideInInspector]
     int dashAttackFrenzyCost;
-
-    [SerializeField] bool doesntReachTarget = false;
     #endregion
 
     public bool isAttacking = false;
@@ -164,7 +162,6 @@ public class Player : MonoBehaviour
         //main menu and adds the scriptable object to the
         //stats variable to take its stats and use them
         selectedCharacter = PlayerPrefs.GetInt("currentSelectedCharacter");
-        Debug.Log(selectedCharacter);
         playerChoose = GetComponent<ObjectReferences>();
         switch (selectedCharacter)
         {
@@ -191,8 +188,6 @@ public class Player : MonoBehaviour
         damage = stats.attackDamage;
         dashDamage = stats.dashDamage;
         maxHealth = stats.health;
-
-        Debug.Log(maxHealth);
 
         dashAttackDuration = stats.dashAttackDuration;
         meleeAttackDuration = stats.meleeAttackDuration;

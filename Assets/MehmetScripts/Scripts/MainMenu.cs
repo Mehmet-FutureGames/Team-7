@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
-            Debug.Log("you need to buy this character!");
+            StartCoroutine(GetComponent<PlayerStatsMenu>().cantbuyChar());
         }
     }
 
