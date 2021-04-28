@@ -10,6 +10,13 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
+    PressAnyKey audio;
+
+    private void Start()
+    {
+        audio = FindObjectOfType<PressAnyKey>();
+    }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -29,12 +36,14 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
+        audio.audio.UnPause();
         GameIsPaused = false;
     }
 
     void Pause()
     {
         pauseMenuUI.SetActive(true);
+        audio.audio.Pause();
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
