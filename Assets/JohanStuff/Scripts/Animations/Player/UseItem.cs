@@ -39,7 +39,6 @@ public class UseItem : MonoBehaviour
         {
             Destroy(GetComponent<ActiveItems>());
             gameObject.AddComponent(activeItems.GetType());
-
         }
         
     }
