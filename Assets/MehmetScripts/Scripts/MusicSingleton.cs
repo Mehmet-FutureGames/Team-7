@@ -18,6 +18,14 @@ public class MusicSingleton : MonoBehaviour
             _instance = this;
         }
         DontDestroyOnLoad(this);
+
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+        if(level == 2)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnLevelWasLoaded(int level)

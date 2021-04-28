@@ -37,6 +37,11 @@ public class CharacterStats : MonoBehaviour
     private void Awake()
     {
         hasBeenBought = PlayerPrefs.GetInt("boughtCharacter" + currentSelectedCharacter) == 1;
+
+        PlayerPrefs.SetInt("UpgradeHealth" + currentSelectedCharacter, notesCostHealth);
+        PlayerPrefs.SetInt("UpgradeDamage" + currentSelectedCharacter, notesCostDamage);
+        PlayerPrefs.SetInt("UpgradeFrenzy" + currentSelectedCharacter, notesFrenzyCost);
+
         gameObject.SetActive(false);
     }
     private void OnEnable()

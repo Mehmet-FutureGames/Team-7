@@ -56,13 +56,13 @@ public class UIManager : MonoBehaviour
     {
         if (!skip)
         {
+            skip = true;
             StopAllCoroutines();
             Time.timeScale = 0;
             TextPanel.SetActive(false);
             musicStart.audio.Play();
             musicStart.StartGame();
             Time.timeScale = 1;
-            skip = true;
         }
     }
     IEnumerator ShowAndStopShowingText()
