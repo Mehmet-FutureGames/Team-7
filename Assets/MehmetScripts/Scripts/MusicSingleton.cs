@@ -18,6 +18,7 @@ public class MusicSingleton : MonoBehaviour
             _instance = this;
         }
         DontDestroyOnLoad(this);
+
     }
     private void OnLevelWasLoaded(int level)
     {

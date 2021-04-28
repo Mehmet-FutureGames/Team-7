@@ -14,6 +14,10 @@ public class UseItem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
+            OnPickUpItem(0);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
             OnUseItem();
         }
     }
@@ -25,6 +29,7 @@ public class UseItem : MonoBehaviour
             item[i] = false;
         }
         item[itemIndex] = true;
+        gameObject.AddComponent<FireTrail>();
     }
 
     void OnUseItem()
@@ -35,6 +40,7 @@ public class UseItem : MonoBehaviour
             {
                 case true:
                     Debug.Log(item[i]);
+                    Destroy(GetComponent<FireTrail>());
                     item[i] = false;
                     break;
                 case false:
