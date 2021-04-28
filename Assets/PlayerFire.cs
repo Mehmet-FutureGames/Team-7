@@ -6,7 +6,7 @@ public class PlayerFire : MonoBehaviour
 {
     private void Start()
     {
-        Invoke("DisableAfterSeconds", 10f);
+        Invoke("DisableAfterSeconds", 15f);
     }
 
     void DisableAfterSeconds()
@@ -16,7 +16,7 @@ public class PlayerFire : MonoBehaviour
 
     private void OnDisable()
     {
-        GetComponentInChildren<ParticleSystem>().Stop();
+        
     }
     private void OnEnable()
     {

@@ -25,6 +25,7 @@ public class FireTrail : ActiveItems
         if (other.gameObject.CompareTag("Player"))
         {
             other.GetComponent<UseItem>().OnPickUpItem(itemIndex, this);
+            Destroy(gameObject);
         }
     }
 
