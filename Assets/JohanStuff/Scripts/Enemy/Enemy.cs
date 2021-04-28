@@ -178,18 +178,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        movementSM = new StateMachine();
-        InitializeEnemyType.Instance.Initialize(this, movementSM);
-        SetStats();
-        
 
-        
-
-        parent = GetComponent<Transform>();
-
-        agentObj = Instantiate(stats.enemyModel, parent);
-        Player.EnemyTransforms.Add(agentObj.transform);
-        area = Instantiate(stats.attackAreaShape, agentObj.transform.position, Quaternion.identity, agentObj.transform);
         animator = agentObj.GetComponentInChildren<Animator>();
         floatingText = stats.floatingText;
         area.SetActive(false);
@@ -234,6 +223,15 @@ public class Enemy : MonoBehaviour
         notePublisher.noteHitBlock += EventUpdate;
         notePublisher.noteHitAttack += EventUpdate;
 
+        movementSM = new StateMachine();
+        InitializeEnemyType.Instance.Initialize(this, movementSM);
+        SetStats();
+
+        parent = GetComponent<Transform>();
+
+        agentObj = Instantiate(stats.enemyModel, parent);
+        Player.EnemyTransforms.Add(agentObj.transform);
+        area = Instantiate(stats.attackAreaShape, agentObj.transform.position, Quaternion.identity, agentObj.transform);
     }
 
     private void OnDisable()
