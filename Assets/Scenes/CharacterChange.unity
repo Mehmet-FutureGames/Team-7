@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.086323984, g: 0.079103075, b: 0.08694617, a: 1}
+  m_IndirectSpecularColor: {r: 0.08438841, g: 0.083820395, b: 0.084207244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1908,15 +1908,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e62332ba46b9244483728880608a9e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountOfHealthUpgrades: 0
+  amountofDamageUpgrades: 0
+  amountOfFrenzyUpgrades: 0
   stats: {fileID: 0}
   currentCharacterSelected: 0
   lockScreen: {fileID: 1973259816}
+  hasUpgraded: 0
   upgradeNotesAmount: 5
   healthText: {fileID: 2059245182}
   damageText: {fileID: 220696802}
   frenzyText: {fileID: 2078245974}
   cantBuyCharacter: {fileID: 1226234076}
-  startingNotes: 20
+  startingNotes: 999
+  button: {fileID: 239424587}
+  healthMinusButton: {fileID: 1762849256}
+  DamageMinusButton: {fileID: 632357031}
+  FrenzyMinusButton: {fileID: 1017404023}
+  confirmUpgrade: {fileID: 1187678139}
   characters:
   - {fileID: 132582835}
   - {fileID: 376389740}
@@ -1968,7 +1977,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &632357032
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2035,7 +2044,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 607492262}
         m_TargetAssemblyTypeName: PlayerStatsMenu, Assembly-CSharp
-        m_MethodName: UpgradeStats
+        m_MethodName: RevertUpgrades
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3720,7 +3729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1017404024
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3787,7 +3796,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 607492262}
         m_TargetAssemblyTypeName: PlayerStatsMenu, Assembly-CSharp
-        m_MethodName: UpgradeStats
+        m_MethodName: RevertUpgrades
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4121,7 +4130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1187678140
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4188,8 +4197,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 607492262}
         m_TargetAssemblyTypeName: PlayerStatsMenu, Assembly-CSharp
-        m_MethodName: UpgradeStats
-        m_Mode: 3
+        m_MethodName: SaveData
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6997,7 +7006,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1715863369}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -7087,18 +7096,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607492262}
-        m_TargetAssemblyTypeName: PlayerStatsMenu, Assembly-CSharp
-        m_MethodName: SaveData
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 607492264}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: PlayGame
@@ -7167,7 +7164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1762849257
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7234,11 +7231,23 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 607492262}
         m_TargetAssemblyTypeName: PlayerStatsMenu, Assembly-CSharp
-        m_MethodName: UpgradeStats
+        m_MethodName: RevertUpgrades
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PlayerStatsMenu, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
