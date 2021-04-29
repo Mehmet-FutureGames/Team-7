@@ -3,7 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Activator
+  - Obstacle
+  - Enemy
+  - SpawnPoints
+  - PatternSpawner
+  - Note
+  - SuperActivator
+  - Coin
+  - NoteCurrency
+  - AttackButton
+  - BlockButton
   layers:
   - Default
   - TransparentFX
@@ -11,10 +22,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Overlay
+  - Ground
+  - Obstacle
+  - Enemy
   - 
   - 
   - 

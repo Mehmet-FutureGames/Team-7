@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &207381485540389465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5955424436560604285}
+  - component: {fileID: 911007210295007611}
+  m_Layer: 9
+  m_Name: Tank_Enemy
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5955424436560604285
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207381485540389465}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &911007210295007611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207381485540389465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1806a6cdb08623a428a4c40597e024b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIsInAttackArea: 0
+  area: {fileID: 0}
+  isRanged: 0
+  agentObj: {fileID: 0}
+  agent: {fileID: 0}
+  moveDistance: 0
+  defaultMoveDistance: 0
+  notesToMove: 0
+  detectionRange: 0
+  attackRange: 0
+  health: 0
+  movePattern: 0
+  enemyType: 0
+  moveCounter: 0
+  distanceToPlayer: 0
+  player: {fileID: 0}
+  stats: {fileID: 11400000, guid: 9c078f71a1383a742a5fe0e3952b2329, type: 2}
