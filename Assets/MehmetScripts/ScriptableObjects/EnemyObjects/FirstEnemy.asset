@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b003b01bd880a44d96e3bab38f6eacf, type: 3}
+  m_Name: FirstEnemy
+  m_EditorClassIdentifier: 
+  enemyName: Bob
+  movePattern: 0
+  enemyType: 0
+  enemyModel: {fileID: 7280686633801961007, guid: 2f2dd6f54256d8541a2b2aebc926adf0,
+    type: 3}
+  floatingText: {fileID: 0}
+  attackAreaShape: {fileID: 5142904849790710492, guid: 0276f6d96dfb9c141a6591ed02f83c65,
+    type: 3}
+  attackAreaScale: {x: 3, y: 3, z: 3}
+  isRanged: 0
+  movementSpeed: 1
+  moveDistance: 8
+  detectionRange: 0
+  notesToMove: 1
+  attackDamage: 0
+  attackRange: 15
+  health: 100
+  noteDropChance: 0
+  coinMinDropCount: 0
+  coinMaxDropCount: 10
+  coinValue: 0

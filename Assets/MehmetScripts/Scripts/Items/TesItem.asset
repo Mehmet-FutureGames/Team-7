@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f5adbe229116746947608c0674f60a, type: 3}
+  m_Name: TesItem
+  m_EditorClassIdentifier: 
+  nameItem: 
+  itemModel: {fileID: 6378292201598529548, guid: d2dd8b826ae77e64b9d9616ffcee6c5d,
+    type: 3}
+  upgradeAmount: 25
+  itemType: 3
