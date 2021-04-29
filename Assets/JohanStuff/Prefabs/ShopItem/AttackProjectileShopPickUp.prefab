@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2101108902833678565}
   - component: {fileID: 2101108902833678566}
   - component: {fileID: 2101108902833678567}
+  - component: {fileID: 9036313013210059732}
   m_Layer: 0
   m_Name: AttackProjectileShopPickUp
   m_TagString: Untagged
@@ -109,7 +110,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 934fda1a6b9a7b941a170f9ddd6348ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cost: 0
   itemIndex: 1
+  itemName: 
+  itemCanvas: {fileID: 0}
+--- !u!114 &9036313013210059732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101108902833678568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 490205da46a9cad4a8ca05465523be7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6224082724967413249
 PrefabInstance:
   m_ObjectHideFlags: 0

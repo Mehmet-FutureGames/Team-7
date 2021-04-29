@@ -11,19 +11,6 @@ public class AttackProjectile : ActiveItems
         base.Start();
     }
 
-    public override void OnTriggerEnter(Collider other)
-    {
-        base.OnTriggerEnter(other);
-        if (other.gameObject.CompareTag("Player"))
-        {
-            //Display item
-
-            /*
-            other.GetComponent<UseItem>().OnPickUpItem(itemIndex, this);
-            Destroy(gameObject);
-            */
-        }
-    }
     public override void PerformAction()
     {
         for (int i = 0; i < projectileCount; i++)

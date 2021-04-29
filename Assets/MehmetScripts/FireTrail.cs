@@ -17,19 +17,6 @@ public class FireTrail : ActiveItems
         notePublisher.noteHit += SetTimer;
     }
 
-    public override void OnTriggerEnter(Collider other)
-    {
-        base.OnTriggerEnter(other);
-
-
-        /*
-        if (other.gameObject.CompareTag("Player"))
-        {
-            other.GetComponent<UseItem>().OnPickUpItem(itemIndex, this);
-            Destroy(gameObject);
-        }
-        */
-    }
 
     public override void PerformAction()
     {
