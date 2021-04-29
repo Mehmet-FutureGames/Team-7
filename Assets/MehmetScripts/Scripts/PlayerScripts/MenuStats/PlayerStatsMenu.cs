@@ -8,6 +8,11 @@ using TMPro;
 
 public class PlayerStatsMenu : MonoBehaviour
 {
+    [SerializeField] int amountOfHealthUpgrades;
+    [SerializeField] int amountofDamageUpgrades;
+    [SerializeField] int amountOfFrenzyUpgrades;
+
+
     bool hasStartedFirstTime = false;
 
     [SerializeField] PlayerStats stats;
@@ -21,6 +26,8 @@ public class PlayerStatsMenu : MonoBehaviour
     [SerializeField] GameObject lockScreen;
 
     string savedPlayerName;
+
+    [SerializeField] bool hasUpgraded;
 
     int notes;
 
@@ -39,6 +46,12 @@ public class PlayerStatsMenu : MonoBehaviour
 
     [SerializeField] int startingNotes;
 
+    [SerializeField] GameObject healthMinusButton;
+    [SerializeField] GameObject DamageMinusButton;
+    [SerializeField] GameObject FrenzyMinusButton;
+
+    [SerializeField] GameObject confirmUpgrade;
+
     [SerializeField] List<GameObject> characters = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
@@ -46,9 +59,11 @@ public class PlayerStatsMenu : MonoBehaviour
         cantBuyCharacter.gameObject.SetActive(false);
         hasStartedFirstTime = PlayerPrefs.GetInt("hasStartedFirstTime") == 1;
         currentCharacterSelected = 0;
+
         PlayerPrefs.SetInt("currentSelectedCharacter", currentCharacterSelected);
         characters[0].SetActive(true);
         ChangeCharacters();
+
         notes = PlayerPrefs.GetInt("NoteCurrency");
         notesText = GameObject.Find("NotesAmount").GetComponent<TextMeshProUGUI>();
         lockScreen.SetActive(false);
@@ -149,6 +164,92 @@ public class PlayerStatsMenu : MonoBehaviour
         SelectCharacter();
     }
 
+    private void RemoveUpgrade(int upgradedStat)
+    {
+        switch (upgradedStat)
+        {
+            default:
+                healthMinusButton.SetActive(true);
+                break;
+            case 0:
+                healthMinusButton.SetActive(true);
+                break;
+            case 1:
+                DamageMinusButton.SetActive(true);
+                break;
+            case 2:
+                FrenzyMinusButton.SetActive(true);
+                break;
+        }
+    }
+    private void RemoveButton(int upgradedStat)
+    {
+        if (amountOfHealthUpgrades <= 0) 
+        {
+            healthMinusButton.SetActive(false);
+        }
+        if(amountOfFrenzyUpgrades <= 0)
+        {
+            FrenzyMinusButton.SetActive(false);
+        }
+        if(amountofDamageUpgrades <= 0)
+        {
+            DamageMinusButton.SetActive(false);
+        }
+    }
+    public void RevertUpgrades(int statsToUpgrade)
+    {
+        if (characters[currentCharacterSelected].GetComponent<CharacterStats>().hasBeenBought)
+        {
+            if (amountOfHealthUpgrades > 0)
+            {
+                    //Checks which upgrade you want to buy.
+                    //0 is health, 1 is damage, 2 is frenzy.
+                    if (statsToUpgrade == 0)
+                    {
+                        stats.health -= 5;
+                        notes += characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth - upgradeNotesAmount;
+                        characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth -= upgradeNotesAmount;
+                        PlayerPrefs.SetInt("UpgradeHealth" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth);
+                        --amountOfHealthUpgrades;
+                        RemoveButton(0);
+                    }
+            }
+                if (amountofDamageUpgrades > 0)
+                {
+                    if (statsToUpgrade == 1)
+                    {
+                        stats.attackDamage -= 5;
+                        notes += characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage - upgradeNotesAmount;
+                        characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage -= upgradeNotesAmount;
+                        PlayerPrefs.SetInt("UpgradeDamage" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage);
+                        --amountofDamageUpgrades;
+                        RemoveButton(1);
+                    }                
+                }
+                if (amountOfFrenzyUpgrades > 0)
+                {
+                    if (statsToUpgrade == 2)
+                    {
+                        stats.maxFrenzy -= 5;
+                        notes += characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost - upgradeNotesAmount;
+                        characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost -= upgradeNotesAmount;
+                        PlayerPrefs.SetInt("UpgradeFrenzy" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost);
+                        --amountOfFrenzyUpgrades;
+                        RemoveButton(2);
+                    }
+                }            
+        }
+        if(amountofDamageUpgrades <= 0 && amountOfFrenzyUpgrades <= 0 && amountOfHealthUpgrades <= 0)
+        {
+            confirmUpgrade.SetActive(false);
+            hasUpgraded = false;
+        }
+        characters[currentCharacterSelected].GetComponent<CharacterStats>().UpdateText();
+        notesText.text = notes.ToString();
+        UpdateTextUpgrade();
+    }
+
     public void ChangeName(string name)
     {
         stats.playerName = name;
@@ -160,7 +261,6 @@ public class PlayerStatsMenu : MonoBehaviour
     {
         //statsToUpgrade checks which button is pressed and upgrades
         //according to the number!
-            PlayerPrefs.SetInt("NoteCurrency", notes);
             notesText.text = notes.ToString();
         //Checks if notes are above 0 so we don't get any negative values.
         if (notes > 0)
@@ -176,7 +276,8 @@ public class PlayerStatsMenu : MonoBehaviour
                         stats.health += 5;
                         notes -= characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth;
                         characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth += upgradeNotesAmount;
-                        PlayerPrefs.SetInt("UpgradeHealth" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth);
+                        RemoveUpgrade(0);
+                        amountOfHealthUpgrades++;
                     }
                 }
                 if (notes >= characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage)
@@ -186,7 +287,8 @@ public class PlayerStatsMenu : MonoBehaviour
                         stats.attackDamage += 5;
                         notes -= characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage;
                         characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage += upgradeNotesAmount;
-                        PlayerPrefs.SetInt("UpgradeDamage" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage);
+                        RemoveUpgrade(1);
+                        amountofDamageUpgrades++;
                     }
                 }
                 if (notes >= characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost)
@@ -196,14 +298,20 @@ public class PlayerStatsMenu : MonoBehaviour
                         stats.maxFrenzy += 5;
                         notes -= characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost;
                         characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost += upgradeNotesAmount;
-                        PlayerPrefs.SetInt("UpgradeFrenzy" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost);
+                        RemoveUpgrade(2);
+                        amountOfFrenzyUpgrades++;
                     }
                 }
             }
         }
+        if (amountofDamageUpgrades > 0 || amountOfFrenzyUpgrades > 0 || amountOfHealthUpgrades > 0)
+        {
+            hasUpgraded = true;
+        }
         characters[currentCharacterSelected].GetComponent<CharacterStats>().UpdateText();
         notesText.text = notes.ToString();
         UpdateTextUpgrade();
+        confirmUpgrade.SetActive(true);
     }
     #region SavingAndLoadingStats
     public void SaveData()
@@ -217,6 +325,13 @@ public class PlayerStatsMenu : MonoBehaviour
         playerStats.Add("Frenzy", stats.maxFrenzy);
 
         playerStatsJson.Add("character-" + currentCharacterSelected, playerStats);
+
+        confirmUpgrade.SetActive(false);
+
+        PlayerPrefs.SetInt("UpgradeHealth" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth);
+        PlayerPrefs.SetInt("UpgradeDamage" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage);
+        PlayerPrefs.SetInt("UpgradeFrenzy" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost);
+        PlayerPrefs.SetInt("NoteCurrency", notes);
 
         File.WriteAllText(path, playerStatsJson.ToString());
     }
