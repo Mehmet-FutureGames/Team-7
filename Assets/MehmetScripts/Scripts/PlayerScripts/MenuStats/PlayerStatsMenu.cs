@@ -29,6 +29,8 @@ public class PlayerStatsMenu : MonoBehaviour
 
     [SerializeField] bool hasUpgraded;
 
+    bool hasSaved;
+
     int notes;
 
     [SerializeField] int upgradeNotesAmount;
@@ -46,9 +48,12 @@ public class PlayerStatsMenu : MonoBehaviour
 
     [SerializeField] int startingNotes;
 
+    [SerializeField] Button button;
+
     [SerializeField] GameObject healthMinusButton;
     [SerializeField] GameObject DamageMinusButton;
     [SerializeField] GameObject FrenzyMinusButton;
+    [SerializeField] GameObject saveTextBox;
 
     [SerializeField] GameObject confirmUpgrade;
 
@@ -182,7 +187,7 @@ public class PlayerStatsMenu : MonoBehaviour
                 break;
         }
     }
-    private void RemoveButton(int upgradedStat)
+    private void RemoveButton()
     {
         if (amountOfHealthUpgrades <= 0) 
         {
@@ -195,6 +200,15 @@ public class PlayerStatsMenu : MonoBehaviour
         if(amountofDamageUpgrades <= 0)
         {
             DamageMinusButton.SetActive(false);
+        }
+        if (hasSaved)
+        {
+            healthMinusButton.SetActive(false);
+            DamageMinusButton.SetActive(false);
+            FrenzyMinusButton.SetActive(false);
+            amountofDamageUpgrades = 0;
+            amountOfFrenzyUpgrades = 0;
+            amountOfHealthUpgrades = 0;
         }
     }
     public void RevertUpgrades(int statsToUpgrade)
@@ -212,7 +226,7 @@ public class PlayerStatsMenu : MonoBehaviour
                         characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth -= upgradeNotesAmount;
                         PlayerPrefs.SetInt("UpgradeHealth" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth);
                         --amountOfHealthUpgrades;
-                        RemoveButton(0);
+                        RemoveButton();
                     }
             }
                 if (amountofDamageUpgrades > 0)
@@ -224,7 +238,7 @@ public class PlayerStatsMenu : MonoBehaviour
                         characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage -= upgradeNotesAmount;
                         PlayerPrefs.SetInt("UpgradeDamage" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage);
                         --amountofDamageUpgrades;
-                        RemoveButton(1);
+                        RemoveButton();
                     }                
                 }
                 if (amountOfFrenzyUpgrades > 0)
@@ -236,7 +250,7 @@ public class PlayerStatsMenu : MonoBehaviour
                         characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost -= upgradeNotesAmount;
                         PlayerPrefs.SetInt("UpgradeFrenzy" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost);
                         --amountOfFrenzyUpgrades;
-                        RemoveButton(2);
+                        RemoveButton();
                     }
                 }            
         }
@@ -327,6 +341,8 @@ public class PlayerStatsMenu : MonoBehaviour
         playerStatsJson.Add("character-" + currentCharacterSelected, playerStats);
 
         confirmUpgrade.SetActive(false);
+        StartCoroutine(StatsSaved());
+        
 
         PlayerPrefs.SetInt("UpgradeHealth" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth);
         PlayerPrefs.SetInt("UpgradeDamage" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage);
@@ -378,5 +394,14 @@ public class PlayerStatsMenu : MonoBehaviour
         cantBuyCharacter.gameObject.SetActive(true);
         yield return new WaitForSeconds(3);
         cantBuyCharacter.gameObject.SetActive(false);
+    }
+    IEnumerator StatsSaved()
+    {
+        saveTextBox.SetActive(true);
+        hasSaved = true;
+        RemoveButton();
+        yield return new WaitForSeconds(4);
+        hasSaved = false;
+        saveTextBox.SetActive(false);
     }
 }
