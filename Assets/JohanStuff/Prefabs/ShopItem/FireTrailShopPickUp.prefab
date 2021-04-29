@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8989105477882484134}
   - component: {fileID: 8989105477882484135}
   - component: {fileID: 8989105477882484132}
+  - component: {fileID: -595613341037422852}
   m_Layer: 0
   m_Name: FireTrailShopPickUp
   m_TagString: Untagged
@@ -109,7 +110,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb049ffb11ac40143a89201b61cbaa26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cost: 0
   itemIndex: 0
+  itemName: 
+  itemCanvas: {fileID: 0}
+--- !u!114 &-595613341037422852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8989105477882484133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 490205da46a9cad4a8ca05465523be7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &960196753661753596
 PrefabInstance:
   m_ObjectHideFlags: 0

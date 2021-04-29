@@ -4,14 +4,23 @@ using UnityEngine;
 
 public class ActiveItems : MonoBehaviour
 {
-    public int itemIndex;
-    public virtual void UseItem()
-    {
 
-    } 
+
+    public int cost;
+    public int itemIndex;
+    public string itemName;
+
+    public ItemCanvas itemCanvas;
+
+    protected virtual void Start()
+    {
+        itemCanvas = FindObjectOfType<ItemCanvas>();
+
+    }
 
     public virtual void PerformAction()
     {
 
     }
+
 }
