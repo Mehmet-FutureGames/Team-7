@@ -20,12 +20,16 @@ public class NoteManager : MonoBehaviour
 
     [Space]
     public float beatTempo;
+    [Tooltip("The delay before the notes starts spawning")]
+    public float noteStartDelay;
 
+    [Space]
     [HideInInspector]
     public float difficultyMultiplier;
     [Space]
     public GameObject notePrefab;
 
+    
 
     private void Start()
     {
