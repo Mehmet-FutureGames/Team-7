@@ -11,6 +11,10 @@ public class PlayerProjectile : MonoBehaviour
     int randomInt;
     float randomRotY;
     Transform target;
+    private void Awake()
+    {
+        gameObject.SetActive(false);
+    }
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -36,7 +40,7 @@ public class PlayerProjectile : MonoBehaviour
 
             var targetRotation = Quaternion.LookRotation(target.position - transform.position);
 
-            rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, turnSpeed));
+            rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, turnSpeed * Time.fixedDeltaTime));
         }
     }
 
