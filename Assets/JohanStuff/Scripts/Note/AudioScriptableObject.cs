@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "Preset", menuName = "ScriptableObjects/Audio/Music Preset")]
 public class AudioScriptableObject : ScriptableObject
 {
 
@@ -10,5 +10,7 @@ public class AudioScriptableObject : ScriptableObject
     public string songName;
     public float BPM;
     public AudioClip audioClip;
+    [Range(0,1)]
     public float volume;
+    public float noteStartDelay;
 }

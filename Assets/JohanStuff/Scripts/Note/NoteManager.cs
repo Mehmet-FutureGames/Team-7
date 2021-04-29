@@ -18,9 +18,9 @@ public class NoteManager : MonoBehaviour
     [Space]
     public Difficulty difficulty;
 
-    [Space]
+    [HideInInspector]
     public float beatTempo;
-    [Tooltip("The delay before the notes starts spawning")]
+    [HideInInspector]
     public float noteStartDelay;
 
     [Space]
@@ -28,12 +28,29 @@ public class NoteManager : MonoBehaviour
     public float difficultyMultiplier;
     [Space]
     public GameObject notePrefab;
+    private float volume;
+    private AudioClip clip;
+    [SerializeField] AudioScriptableObject audioPreset;
+    Camera camera;
 
-    
+    private void Awake()
+    {
+        camera = Camera.main;
+        LoadPresetData();
+        camera.GetComponent<AudioSource>().clip = clip;
+    }
 
     private void Start()
     {
         SetDifficulty();
+    }
+
+    void LoadPresetData()
+    {
+        beatTempo = audioPreset.BPM;
+        noteStartDelay = audioPreset.noteStartDelay;
+        volume = audioPreset.volume;
+        clip = audioPreset.audioClip;
     }
 
     public void SetDifficulty()
