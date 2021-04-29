@@ -6,20 +6,22 @@ public class AttackProjectile : ActiveItems
 {
     NotePublisher notePublisher;
     int projectileCount = 10;
-    private void Start()
+    protected override void Start()
     {
-        UseItem();
+        base.Start();
     }
-    public override void UseItem()
+
+    public override void OnTriggerEnter(Collider other)
     {
-        Debug.Log("CoolTreail");
-    }
-    private void OnTriggerEnter(Collider other)
-    {
+        base.OnTriggerEnter(other);
         if (other.gameObject.CompareTag("Player"))
         {
+            //Display item
+
+            /*
             other.GetComponent<UseItem>().OnPickUpItem(itemIndex, this);
             Destroy(gameObject);
+            */
         }
     }
     public override void PerformAction()
