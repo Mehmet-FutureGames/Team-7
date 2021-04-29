@@ -27,15 +27,22 @@ public class BuyShopItem : MonoBehaviour
     UseItem useItem;
     NotePublisher notePublisher;
     bool hasPurchasedItem;
+    private void Awake()
+    {
+        
+    }
     void Start()
     {
         hasPurchasedItem = false;
-        itemCanvas = FindObjectOfType<ItemCanvas>();
+        
         activeItems = GetComponent<ActiveItems>();
         notePublisher = FindObjectOfType<NotePublisher>();
         notePublisher.buttonHitAttack += BuyItem;
         notePublisher.noteHitAttack += BuyItem;
+        itemCanvas = ItemCanvas.Instance;
+        itemCanvas.gameObject.SetActive(false);
     }
+
 
     public void OnTriggerEnter(Collider other)
     {
@@ -64,20 +71,21 @@ public class BuyShopItem : MonoBehaviour
                 PlayerCoinHandler.Instance.Coins -= activeItems.cost;
                 useItem.OnPickUpItem(activeItems.itemIndex, activeItems);
                 IsInBuyArea = false;
+                useItem = null;
+                //gameObject.SetActive(false);
+                hasPurchasedItem = true;
                 notePublisher.buttonHitAttack -= BuyItem;
                 notePublisher.noteHitAttack -= BuyItem;
-                gameObject.SetActive(false);
-                hasPurchasedItem = true;
             }
         }
 
     }
     public IEnumerator OpenCanvas(ItemCanvas canvas)
     {
+        canvas.gameObject.SetActive(true);
+        canvas.transform.localScale = new Vector3(0, 0, 0);
         canvas.text.text = "Cost: " + activeItems.cost.ToString();
         canvas.transform.position = new Vector3(transform.position.x, transform.position.y + 10, transform.position.z);
-        canvas.transform.localScale = new Vector3(0, 0, 0);
-        canvas.gameObject.SetActive(true);
         float i = 0;
         while (i <= 0.08f)
         {
@@ -103,4 +111,6 @@ public class BuyShopItem : MonoBehaviour
         }
         yield return null;
     }
+
+
 }
