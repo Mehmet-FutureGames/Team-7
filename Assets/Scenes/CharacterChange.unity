@@ -381,7 +381,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1922,9 +1922,11 @@ MonoBehaviour:
   frenzyText: {fileID: 2078245974}
   cantBuyCharacter: {fileID: 1226234076}
   startingNotes: 999
+  button: {fileID: 0}
   healthMinusButton: {fileID: 1762849256}
   DamageMinusButton: {fileID: 632357031}
   FrenzyMinusButton: {fileID: 1017404023}
+  saveTextBox: {fileID: 1232754651}
   confirmUpgrade: {fileID: 1187678139}
   characters:
   - {fileID: 132582835}
@@ -4607,7 +4609,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1232754652
 RectTransform:
   m_ObjectHideFlags: 0

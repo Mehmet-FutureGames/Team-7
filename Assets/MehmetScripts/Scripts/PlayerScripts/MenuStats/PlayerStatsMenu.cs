@@ -157,7 +157,6 @@ public class PlayerStatsMenu : MonoBehaviour
         ChangeCharacters();
         UpdateTextUpgrade();
         savedPlayerName = stats.playerName;
-        button.Select();
     }
     public void SelectCharacterMinus()
     {
