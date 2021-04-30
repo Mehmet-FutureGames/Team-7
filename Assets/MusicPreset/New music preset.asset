@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b61be82e1ddb30749aabfde035f35dfc, type: 3}
   m_Name: New music preset
   m_EditorClassIdentifier: 
-  songName: 
-  BPM: 0
-  audioClip: {fileID: 0}
-  volume: 0
+  songName: bob
+  BPM: 130
+  audioClip: {fileID: 8300000, guid: f544984634b0b6749b5db0597085f7e3, type: 3}
+  volume: 0.702
   noteStartDelay: 0
