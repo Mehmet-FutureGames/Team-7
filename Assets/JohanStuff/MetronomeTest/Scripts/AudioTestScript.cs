@@ -64,6 +64,7 @@ public class AudioTestScript : MonoBehaviour
     }
     public void RestartTest()
     {
+        value = 0;
         hasAddedList = false;
         hasStartedTapping = false;
         counter = 0;
