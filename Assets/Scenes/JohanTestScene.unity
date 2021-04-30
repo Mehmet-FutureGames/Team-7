@@ -314,7 +314,7 @@ RectTransform:
   m_Children:
   - {fileID: 715100446}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2750,80 +2750,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cddfa94a8dbb5f498fac657b403b928, type: 3}
---- !u!1001 &803455105374827712
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 803455105406243073, guid: 261b43c877b840b45bd838d6ef896976,
-        type: 3}
-      propertyPath: m_Name
-      value: Projectile
-      objectReference: {fileID: 0}
-    - target: {fileID: 803455105406243074, guid: 261b43c877b840b45bd838d6ef896976,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 803455105406243079, guid: 261b43c877b840b45bd838d6ef896976,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 803455105406243079, guid: 261b43c877b840b45bd838d6ef896976,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.7805643
-      objectReference: {fileID: 0}
-    - target: {fileID: 803455105406243079, guid: 261b43c877b840b45bd838d6ef896976,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.3658094
-      objectReference: {fileID: 0}
-    - target: {fileID: 803455105406243079, guid: 261b43c877b840b45bd838d6ef896976,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -39.301125
-      objectReference: {fileID: 0}
-    - target: {fileID: 803455105406243079, guid: 261b43c877b840b45bd838d6ef896976,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.79335326
-      objectReference: {fileID: 0}
-    - target: {fileID: 803455105406243079, guid: 261b43c877b840b45bd838d6ef896976,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 803455105406243079, guid: 261b43c877b840b45bd838d6ef896976,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.6087616
-      objectReference: {fileID: 0}
-    - target: {fileID: 803455105406243079, guid: 261b43c877b840b45bd838d6ef896976,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 803455105406243079, guid: 261b43c877b840b45bd838d6ef896976,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 803455105406243079, guid: 261b43c877b840b45bd838d6ef896976,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 803455105406243079, guid: 261b43c877b840b45bd838d6ef896976,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 261b43c877b840b45bd838d6ef896976, type: 3}
 --- !u!1001 &1592661817242151055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3036,9 +2962,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7753023273115067108, guid: a1a29c4f959c6a94297623fce0b429ed,
         type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753023273115067108, guid: a1a29c4f959c6a94297623fce0b429ed,
+        type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 9039d79e8dfefee4bb090aea5f7c459a, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7753023273115067111, guid: a1a29c4f959c6a94297623fce0b429ed,
         type: 3}
       propertyPath: m_Cameras.Array.data[0]
@@ -3314,6 +3245,12 @@ PrefabInstance:
       propertyPath: beatTempo
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: audioPreset
+      value: 
+      objectReference: {fileID: 11400000, guid: 1f885ec131f070343b72fb48045a3636,
+        type: 2}
     - target: {fileID: 8966836274532626828, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: audio
