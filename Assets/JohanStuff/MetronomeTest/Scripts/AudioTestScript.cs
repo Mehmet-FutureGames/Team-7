@@ -4,7 +4,8 @@ using UnityEngine;
 using TMPro;
 public class AudioTestScript : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI resultText;
+    [SerializeField] TextMeshProUGUI currentDelay;
+    [SerializeField] TMP_InputField manualDelay;
     public CalibrationSaver save;
     AudioSource audioSource;
     float storedVal;
@@ -29,6 +30,8 @@ public class AudioTestScript : MonoBehaviour
         Metronome.OnBeat += OnBeat;
         Metronome.OnDownBeat += OnDownBeat;
         counter = 0;
+        manualDelay.text = (save.delay * 1000).ToString("F0");
+        currentDelay.text = "Current delay: " + manualDelay.text + "ms";
     }
     private void Update()
     {
@@ -49,16 +52,14 @@ public class AudioTestScript : MonoBehaviour
             {
                 storedVal = Mathf.Abs((float)inputValList[i] - (float)beatValList[i]);
                 storedValues.Add(storedVal);
-                nonAbsList.Add((float)inputValList[i] - (float)beatValList[i]);
             }
             for (int i = 0; i < storedValues.Count; i++)
             {
                 value += storedValues[i];
-                nonAbsVal += nonAbsList[i];
             }
             average = value / storedValues.Count;
-            nonAbsAverage = nonAbsVal / nonAbsList.Count;
-            resultText.text = "Result: " + (average * 1000).ToString("F0") + "ms Delay";
+            manualDelay.text = (average * 1000).ToString("F0");
+            
             metronome.enabled = false;
             hasAddedList = true;
         }
@@ -83,7 +84,12 @@ public class AudioTestScript : MonoBehaviour
     }
     public void SaveTest()
     {
-        save.delay = average;
+        if(manualDelay.text != null)
+        {
+            save.delay = (float.Parse(manualDelay.text) / 1000);
+        }
+        currentDelay.text = "Current delay: " + (save.delay * 1000).ToString("F0") + "ms";
+        //save.delay = average;
     }
     void OnBeat()
     {
