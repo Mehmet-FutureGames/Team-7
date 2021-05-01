@@ -49,14 +49,12 @@ public class NoteManager : MonoBehaviour
     void LoadPresetData()
     {
         beatTempo = audioPreset.BPM;
-        if(calibrationSaver.delay != 0f)
-        {
-            noteStartDelay = calibrationSaver.delay;
-        }
-        else
-        {
-            noteStartDelay = audioPreset.noteStartDelay;
-        }
+
+        noteStartDelay = calibrationSaver.delay + audioPreset.noteStartDelay;
+
+
+
+        Debug.Log(noteStartDelay);
         volume = audioPreset.volume;
         clip = audioPreset.audioClip;
     }
