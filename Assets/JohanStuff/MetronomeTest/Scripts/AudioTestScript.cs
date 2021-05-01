@@ -9,6 +9,8 @@ public class AudioTestScript : MonoBehaviour
     AudioSource audioSource;
     float storedVal;
     private float value;
+    private float nonAbsVal;
+    public float nonAbsAverage;
     public float average;
     double beatVal;
     double inputVal;
@@ -16,6 +18,7 @@ public class AudioTestScript : MonoBehaviour
     public List<double> inputValList = new List<double>();
     public List<double> beatValList = new List<double>();
     public List<float> storedValues = new List<float>();
+    public List<float> nonAbsList = new List<float>();
     Metronome metronome;
     int counter;
     bool hasStartedTapping;
@@ -29,7 +32,7 @@ public class AudioTestScript : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X) && counter < 10)
+        if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.X)) && counter < 10)
         {
             if (hasStartedTapping)
             {
@@ -46,14 +49,16 @@ public class AudioTestScript : MonoBehaviour
             {
                 storedVal = Mathf.Abs((float)inputValList[i] - (float)beatValList[i]);
                 storedValues.Add(storedVal);
+                nonAbsList.Add((float)inputValList[i] - (float)beatValList[i]);
             }
             for (int i = 0; i < storedValues.Count; i++)
             {
                 value += storedValues[i];
-                
+                nonAbsVal += nonAbsList[i];
             }
             average = value / storedValues.Count;
-            resultText.text = "Result: " + (average * 10000).ToString("F0") + "ms Delay";
+            nonAbsAverage = nonAbsVal / nonAbsList.Count;
+            resultText.text = "Result: " + (average * 1000).ToString("F0") + "ms Delay";
             metronome.enabled = false;
             hasAddedList = true;
         }
