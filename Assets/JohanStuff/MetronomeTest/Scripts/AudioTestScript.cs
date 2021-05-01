@@ -5,7 +5,7 @@ using TMPro;
 public class AudioTestScript : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI resultText;
-    public Saver save;
+    public CalibrationSaver save;
     AudioSource audioSource;
     float storedVal;
     private float value;

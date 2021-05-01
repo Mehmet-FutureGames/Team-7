@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class Saver : ScriptableObject
+public class CalibrationSaver : ScriptableObject
 {
     public float delay;
 }

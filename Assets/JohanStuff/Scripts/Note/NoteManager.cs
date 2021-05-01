@@ -31,6 +31,7 @@ public class NoteManager : MonoBehaviour
     private float volume;
     private AudioClip clip;
     [SerializeField] AudioScriptableObject audioPreset;
+    [SerializeField] CalibrationSaver calibrationSaver;
     Camera camera;
 
     private void Awake()
@@ -48,7 +49,14 @@ public class NoteManager : MonoBehaviour
     void LoadPresetData()
     {
         beatTempo = audioPreset.BPM;
-        noteStartDelay = audioPreset.noteStartDelay;
+        if(calibrationSaver.delay != 0f)
+        {
+            noteStartDelay = calibrationSaver.delay;
+        }
+        else
+        {
+            noteStartDelay = audioPreset.noteStartDelay;
+        }
         volume = audioPreset.volume;
         clip = audioPreset.audioClip;
     }
