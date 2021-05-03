@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8092482202875937050}
   - component: {fileID: 7040885195000649480}
   m_Layer: 0
-  m_Name: NewCoolItem
+  m_Name: NewCoolItem 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d52b3b29cb06c34680ae5d206008358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemStats: {fileID: 11400000, guid: 21acc9bc3c9af6e428175b4aaaa6d06d, type: 2}
+  itemStats: {fileID: 11400000, guid: 2c5637ce1f60d6041a6811d1f386b98a, type: 2}
   itemName: 
   upgradeAmount: 0
   itemType: 0

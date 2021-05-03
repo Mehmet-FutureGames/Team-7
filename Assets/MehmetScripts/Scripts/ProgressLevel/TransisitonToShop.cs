@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TransistionLevel : MonoBehaviour
+public class TransisitonToShop : MonoBehaviour
 {
-    LevelManager manager;
     private void Awake()
     {
-        manager = FindObjectOfType<LevelManager>();
         GetComponent<Animator>().enabled = true;
     }
 
@@ -16,9 +14,7 @@ public class TransistionLevel : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            manager.levelsCompleted++;
-            PlayerPrefs.SetInt("FloorCompleted", manager.levelsCompleted);
-            SceneManager.LoadScene("CharacterChange");
+            SceneManager.LoadScene("Shop");
         }
     }
 }

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23f5adbe229116746947608c0674f60a, type: 3}
-  m_Name: TesItem
+  m_Name: TestItmeDamage
   m_EditorClassIdentifier: 
   nameItem: 
-  itemModel: {fileID: 6378292201598529548, guid: d2dd8b826ae77e64b9d9616ffcee6c5d,
+  itemModel: {fileID: 4096108176845153507, guid: 8b6c49798e65d694f86252d372a274d6,
     type: 3}
   upgradeAmount: 25
-  itemCost: 1
-  itemType: 3
+  itemCost: 50
+  itemType: 0

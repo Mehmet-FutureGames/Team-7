@@ -10,13 +10,15 @@ public class Item : MonoBehaviour
     [HideInInspector] public string itemName;
     [HideInInspector] public float upgradeAmount;
     [HideInInspector] public ItemType itemType;
+    [HideInInspector] public int itemCost;
 
     private void Awake()
     {
+        GetComponent<BoxCollider>().isTrigger = true;
         #region spawnItemModel
         if (itemStats.itemModel != null)
         {
-            Instantiate(itemStats.itemModel,transform.position,Quaternion.identity,transform);
+           ItemList.items.Add(Instantiate(itemStats.itemModel,transform.position,Quaternion.identity,transform));            
         }
         else
         {
@@ -38,30 +40,30 @@ public class Item : MonoBehaviour
     }
     private void UpgradeStats(Collider player)
     {
-        if (itemType == ItemType.HealthUpgrade) 
+            if (itemType == ItemType.HealthUpgrade)
+            {
+                player.GetComponent<PlayerHealth>().UpgradeHealth(upgradeAmount);
+                Debug.Log("Upgraded Health!");
+            }
+            else if (itemType == ItemType.AttackUpgrade)
+            {
+                player.GetComponent<Player>().UpgradeDamageMelee(upgradeAmount);
+                Debug.Log("Upgraded Melee Attack!");
+            }
+            else if (itemType == ItemType.DashAttackUpgrade)
+            {
+                player.GetComponent<Player>().UpgradeDamageDash(upgradeAmount);
+                Debug.Log("Upgraded Dash Attack!");
+            }
+            else if (itemType == ItemType.FrenzyUpgrade)
+            {
+                int upgrade = (int)upgradeAmount;
+                player.GetComponent<PlayerFrenzy>().maxFrenzy += upgrade;
+                Debug.Log("Upgraded Max Frenzy!");
+            }
+        for (int i = 0; i < ItemList.items.Count; i++)
         {
-            player.GetComponent<PlayerHealth>().UpgradeHealth(upgradeAmount);
-            Debug.Log("Upgraded Health!");
-            gameObject.SetActive(false);
-        }
-        else if(itemType == ItemType.AttackUpgrade)
-        {
-            player.GetComponent<Player>().UpgradeDamageMelee(upgradeAmount);
-            Debug.Log("Upgraded Melee Attack!");
-            gameObject.SetActive(false);
-        }
-        else if (itemType == ItemType.DashAttackUpgrade)
-        {
-            player.GetComponent<Player>().UpgradeDamageDash(upgradeAmount);
-            Debug.Log("Upgraded Dash Attack!");
-            gameObject.SetActive(false);
-        }
-        else if(itemType == ItemType.FrenzyUpgrade)
-        {
-            int upgrade = (int)upgradeAmount;
-            player.GetComponent<PlayerFrenzy>().maxFrenzy += upgrade;
-            Debug.Log("Upgraded Max Frenzy!");
-            gameObject.SetActive(false);
+            ItemList.items[i].SetActive(false);
         }
     }
 }
