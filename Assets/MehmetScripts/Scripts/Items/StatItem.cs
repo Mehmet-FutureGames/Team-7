@@ -18,6 +18,7 @@ public class StatItem : ScriptableObject
     public string nameItem;
     public GameObject itemModel;
     public float upgradeAmount;
+    public int itemCost;
     [Space]
     public ItemType itemType;
 }
