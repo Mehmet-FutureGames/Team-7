@@ -111,6 +111,14 @@ MonoBehaviour:
   - tag: PlayerProjectile
     prefab: {fileID: 803455105406243073, guid: 261b43c877b840b45bd838d6ef896976, type: 3}
     size: 50
+  - tag: EnemyExplosion
+    prefab: {fileID: 1656807951091421318, guid: 4848e787480e3274db142d7ce3aa0f50,
+      type: 3}
+    size: 20
+  - tag: EnemyBomb
+    prefab: {fileID: 6750638194679102895, guid: ef83c5b57bc75e343b0d79026c978052,
+      type: 3}
+    size: 20
 --- !u!1 &8966836273629194622
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +211,7 @@ MonoBehaviour:
   StartScale: {x: 0.2, y: 5, z: 0.2}
   downScaleMultiplier: 0.14
   difficulty: 0
-  beatTempo: 120
+  beatTempo: 122
   noteStartDelay: 0
   difficultyMultiplier: 0
   notePrefab: {fileID: 1068030649841422632, guid: 9605936e9ead1da4d8c2c6a2bb432f2f,
@@ -305,7 +313,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8966836274875272968}
   - component: {fileID: 8966836274875272975}
-  - component: {fileID: 1552725692}
+  - component: {fileID: 2055232222}
+  - component: {fileID: 1619984199}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -344,7 +353,7 @@ MonoBehaviour:
   LayerToMovement:
     serializedVersion: 2
     m_Bits: 128
---- !u!114 &1552725692
+--- !u!114 &2055232222
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -358,7 +367,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
   displayCombo: {fileID: 0}
-  comboDepletionMult: 0.01
+  comboDepletionMult: 1
+--- !u!114 &1619984199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8966836274875272974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1c017c129bf0d4ba5df3c5bd978ef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 0}
+  displayCombo: {fileID: 0}
+  comboDepletionMult: 0
 --- !u!1 &8966836275058985840
 GameObject:
   m_ObjectHideFlags: 0
