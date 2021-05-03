@@ -83,6 +83,7 @@ public class Enemy : MonoBehaviour
     }
     public void EnemyRangedAttack()
     {
+        ObjectPooler.Instance.SpawnFormPool("EnemyBomb", area.transform.position); // for explosion animation
         if (playerIsInAttackArea)
         {
             player.GetComponent<PlayerHealth>().TakeRangedDamage(attackDamage);
