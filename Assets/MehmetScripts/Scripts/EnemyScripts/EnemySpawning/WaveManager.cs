@@ -47,6 +47,8 @@ public class WaveManager : MonoBehaviour
     public int waveMaximum = 0;
     int amountOfEnemies = 0;
 
+    bool hasCompleted = true;
+
     ItemList statItems;
     #region StartFunction
     // Start is called before the first frame update
@@ -81,6 +83,7 @@ public class WaveManager : MonoBehaviour
                 }
             }
         }
+        DestroySpawnPattern();
     }
     #endregion
 
@@ -110,7 +113,11 @@ public class WaveManager : MonoBehaviour
             }
         }
         amountofEnemiesWanted = spawnPoints.Length;
-        Invoke("BeginWave", 2f);
+        if (hasCompleted)
+        {
+            BeginWave();
+            hasCompleted = false;
+        }
         hasSpawnedPattern = true;        
     }
     #endregion
@@ -130,8 +137,7 @@ public class WaveManager : MonoBehaviour
     private void DestroySpawnPattern()
     {
         var spawnPattern = GameObject.FindGameObjectWithTag("PatternSpawner");
-        spawnPattern.SetActive(false);
-        Destroy(spawnPattern, 0.1f);
+        Destroy(spawnPattern);
     }
 
     private void FindSpawnPoints()
@@ -147,7 +153,7 @@ public class WaveManager : MonoBehaviour
         {
             hasSpawnedPattern = false;
             SpawnPointPattern();
-            DestroySpawnPattern();
+            hasCompleted = true;
         }
         else if (amountOfEnemies <= 0 && waveLevel >= waveMaximum)
         {
