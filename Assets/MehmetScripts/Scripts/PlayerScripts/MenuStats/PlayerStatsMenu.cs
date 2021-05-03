@@ -8,9 +8,9 @@ using TMPro;
 
 public class PlayerStatsMenu : MonoBehaviour
 {
-    [SerializeField] int amountOfHealthUpgrades;
-    [SerializeField] int amountofDamageUpgrades;
-    [SerializeField] int amountOfFrenzyUpgrades;
+    int amountOfHealthUpgrades;
+    int amountofDamageUpgrades;
+    int amountOfFrenzyUpgrades;
 
 
     bool hasStartedFirstTime = false;
