@@ -70,15 +70,19 @@ public class WaveManager : MonoBehaviour
     #region BeginWaveSpawnEnemies
     private void BeginWave()
     {
-        //Goes through all of the spawn points
-        for (int i = 0; i < spawnPoints.Length; i++)
+        if (spawnPoints != null)
         {
-            if (waveLevel <= waveMaximum)
+            //Goes through all of the spawn points
+            for (int i = 0; i < spawnPoints.Length; i++)
             {
-                Instantiate(enemyVariants[spawnPoints[i].ReturnEnemyType()], spawnPoints[i].GetComponent<Transform>().position, Quaternion.identity, enemyContainer);
-                amountOfEnemies++;
+                if (waveLevel <= waveMaximum)
+                {
+                    FindSpawnPoints();
+                    Instantiate(enemyVariants[spawnPoints[i].ReturnEnemyType()], spawnPoints[i].GetComponent<Transform>().position, Quaternion.identity, enemyContainer);
+                    amountOfEnemies++;
+                }
             }
-        }    
+        }
     }
     #endregion
 
@@ -142,9 +146,9 @@ public class WaveManager : MonoBehaviour
         amountOfEnemies--;
         if (amountOfEnemies < 3 && waveLevel < waveMaximum)
         {
-            DestroySpawnPattern();
             hasSpawnedPattern = false;
             SpawnPointPattern();
+            DestroySpawnPattern();
             ProgressWave();
         }
         else if (amountOfEnemies <= 0 && waveLevel >= waveMaximum)
