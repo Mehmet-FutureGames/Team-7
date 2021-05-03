@@ -52,8 +52,6 @@ public class WaveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        waveLevel++;
-
         SpawnPointPattern();
 
         manager = FindObjectOfType<LevelManager>();
@@ -91,6 +89,7 @@ public class WaveManager : MonoBehaviour
     {
         if (!hasSpawnedPattern)
         {
+            ProgressWave();
             if (waveLevel < numberOfWavesForEasyLevel)
             {
                 randomPattern = Random.Range(0, spawnPointPatternsEasy.Count);
@@ -149,7 +148,6 @@ public class WaveManager : MonoBehaviour
             hasSpawnedPattern = false;
             SpawnPointPattern();
             DestroySpawnPattern();
-            ProgressWave();
         }
         else if (amountOfEnemies <= 0 && waveLevel >= waveMaximum)
         {
