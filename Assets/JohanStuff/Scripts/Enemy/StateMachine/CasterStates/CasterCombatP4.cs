@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CasterCombatP4 : State
 {
+    bool attackOnce;
     public CasterCombatP4(Enemy enemy, StateMachine stateMachine) : base(enemy, stateMachine)
     {
     }
@@ -9,8 +10,10 @@ public class CasterCombatP4 : State
     public override void Enter()
     {
         base.Enter();
+        attackOnce = false;
         timer = 0.08f;
         enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+        
     }
     float timer;
 
@@ -24,10 +27,11 @@ public class CasterCombatP4 : State
     {
         base.LogicUpdate();
         timer -= Time.deltaTime;
-        if (timer <= 0)
+        if (timer <= 0 && !attackOnce)
         {
             enemy.EnemyRangedAttack();
             enemy.area.SetActive(false);
+            attackOnce = true;
         }
     }
     public override void NoteEventUpdate()
