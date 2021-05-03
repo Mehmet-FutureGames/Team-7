@@ -9,25 +9,14 @@ public class FireTrail : ActiveItems
     float timer;
     bool hasStartedEffect;
     NotePublisher notePublisher;
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         notePublisher = FindObjectOfType<NotePublisher>();
-        UseItem();
         movePlayer = GetComponent<MovePlayer>();
         notePublisher.noteHit += SetTimer;
     }
-    public override void UseItem()
-    {
-        Debug.Log("CoolTreail");
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            other.GetComponent<UseItem>().OnPickUpItem(itemIndex, this);
-            Destroy(gameObject);
-        }
-    }
+
 
     public override void PerformAction()
     {

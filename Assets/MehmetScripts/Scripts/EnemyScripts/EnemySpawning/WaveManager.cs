@@ -63,7 +63,7 @@ public class WaveManager : MonoBehaviour
         //Goes through all of the spawn points
         for (int i = 0; i < spawnPoints.Length; i++)
         {
-            if (waveLevel < waveMaximum)
+            if (waveLevel <= waveMaximum)
             {
                 Instantiate(enemyVariants[spawnPoints[i].ReturnEnemyType()], spawnPoints[i].GetComponent<Transform>().position, Quaternion.identity, enemyContainer);
                 amountOfEnemies++;

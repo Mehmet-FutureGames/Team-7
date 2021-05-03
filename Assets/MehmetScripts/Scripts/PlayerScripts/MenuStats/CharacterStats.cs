@@ -6,6 +6,8 @@ using TMPro;
 
 public class CharacterStats : MonoBehaviour
 {
+    bool hasStartedFirstTime;
+
     public PlayerStats stats;
 
     [SerializeField] int currentSelectedCharacter;
@@ -37,10 +39,14 @@ public class CharacterStats : MonoBehaviour
     private void Awake()
     {
         hasBeenBought = PlayerPrefs.GetInt("boughtCharacter" + currentSelectedCharacter) == 1;
+        hasStartedFirstTime = PlayerPrefs.GetInt("hasStartedFirstTime") == 1;
 
-        PlayerPrefs.SetInt("UpgradeHealth" + currentSelectedCharacter, notesCostHealth);
-        PlayerPrefs.SetInt("UpgradeDamage" + currentSelectedCharacter, notesCostDamage);
-        PlayerPrefs.SetInt("UpgradeFrenzy" + currentSelectedCharacter, notesFrenzyCost);
+        if (hasStartedFirstTime)
+        {
+            notesCostHealth = PlayerPrefs.GetInt("UpgradeHealth" + currentSelectedCharacter);
+            notesCostDamage = PlayerPrefs.GetInt("UpgradeDamage" + currentSelectedCharacter);
+            notesFrenzyCost = PlayerPrefs.GetInt("UpgradeFrenzy" + currentSelectedCharacter);
+        }
 
         gameObject.SetActive(false);
     }
@@ -49,10 +55,6 @@ public class CharacterStats : MonoBehaviour
         PlayerPrefs.SetInt("selectedCharacter", currentSelectedCharacter);
 
         hasBeenBought = PlayerPrefs.GetInt("boughtCharacter" + currentSelectedCharacter) == 1;
-
-        notesCostHealth = PlayerPrefs.GetInt("UpgradeHealth" + currentSelectedCharacter);
-        notesCostDamage = PlayerPrefs.GetInt("UpgradeDamage" + currentSelectedCharacter);
-        notesFrenzyCost = PlayerPrefs.GetInt("UpgradeFrenzy" + currentSelectedCharacter);
 
         playerName.text = stats.playerName;
 

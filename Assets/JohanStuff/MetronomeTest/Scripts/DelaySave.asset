@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b61be82e1ddb30749aabfde035f35dfc, type: 3}
-  m_Name: Song
+  m_Script: {fileID: 11500000, guid: 2304f87a1b3e9894f817929adba31594, type: 3}
+  m_Name: DelaySave
   m_EditorClassIdentifier: 
-  songName: Johans' song
-  BPM: 120
-  audioClip: {fileID: 8300000, guid: 9039d79e8dfefee4bb090aea5f7c459a, type: 3}
-  volume: 0
+  delay: 0

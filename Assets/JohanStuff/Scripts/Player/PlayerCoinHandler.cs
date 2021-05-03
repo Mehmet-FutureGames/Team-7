@@ -7,17 +7,34 @@ using TMPro;
 public class PlayerCoinHandler : MonoBehaviour
 {
     public float coins;
+
+    public float Coins
+    {
+        get { return coins; }
+        set
+        {
+            coins = value;
+            SetText(coins);
+        }
+    }
+    public static PlayerCoinHandler Instance;
     [SerializeField] TextMeshProUGUI text;
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+    }
     private void Start()
     {
-        coins = 0;
-        SetText(coins);
+        Coins = 0;
     }
 
     public void AddCoins(float amount)
     {
-        coins += amount;
-        SetText(coins);
+        Coins += amount;
     }
 
     private void SetText(float amount)

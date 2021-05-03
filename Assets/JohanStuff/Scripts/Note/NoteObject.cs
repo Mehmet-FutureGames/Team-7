@@ -85,6 +85,13 @@ public class NoteObject : MonoBehaviour
     }
     private void DesktopInput()
     {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            publisher.NoteHit();
+            gameObject.SetActive(false);
+            canBePressed = false;
+            NoteMiss.Instance.TriggerCountZero();
+        }
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             publisher.NoteHit();
