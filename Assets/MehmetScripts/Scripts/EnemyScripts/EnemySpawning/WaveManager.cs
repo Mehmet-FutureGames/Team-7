@@ -26,8 +26,12 @@ public class WaveManager : MonoBehaviour
     [SerializeField] List<Transform> spawnPointPatternsHard;
     [Space]
 
+    [SerializeField] List<Transform> itemSpawnLocations;
+    [Space]
+
     [SerializeField] GameObject door;
     [Space]
+
 
     TypeOfEnemy[] spawnPoints;
     int amountofEnemiesWanted;
@@ -42,6 +46,8 @@ public class WaveManager : MonoBehaviour
     [Space]
     public int waveMaximum = 0;
     int amountOfEnemies = 0;
+
+    ItemList statItems;
     #region StartFunction
     // Start is called before the first frame update
     void Start()
@@ -52,9 +58,13 @@ public class WaveManager : MonoBehaviour
 
         manager = FindObjectOfType<LevelManager>();
 
+        statItems = FindObjectOfType<ItemList>();
+
         enemyContainer = GameObject.Find("EnemyContainer").transform;
 
         spawnPoints = FindObjectsOfType<TypeOfEnemy>();
+
+        spawnItems();
     }
     #endregion
     #region BeginWaveSpawnEnemies
@@ -140,6 +150,7 @@ public class WaveManager : MonoBehaviour
         else if (amountOfEnemies <= 0 && waveLevel >= waveMaximum)
         {
             FinishFloor();
+            spawnItems();
         }
     }
     public void Subscribe(Enemy enemy)
@@ -151,5 +162,14 @@ public class WaveManager : MonoBehaviour
         enemy.enemyDefeated -= EnemyDefeated;
     }
 
+    private void spawnItems()
+    {
+        for (int i = 0; i < itemSpawnLocations.Count; i++)
+        {
+            int randomItem = Random.Range(0, statItems.statItems.Count);
+            Instantiate(statItems.statItems[randomItem], itemSpawnLocations[i]);
+            statItems.statItems.RemoveAt(randomItem);
+        }
+    }
 
 }

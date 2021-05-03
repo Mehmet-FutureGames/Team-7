@@ -41,7 +41,6 @@ public class PlayerAnm : MonoBehaviour
 
     private void Update()
     {
-
         anim.SetFloat("MovementSpeed", movePlayer.MovementValue);
     }
 }
