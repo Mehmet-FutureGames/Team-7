@@ -120,6 +120,7 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0)
         {
+            ObjectPooler.Instance.SpawnFormPool("EnemyExplosion", agentObj.transform.position);
             if (enemyDefeated != null)
             {
                 enemyDefeated();
@@ -128,6 +129,7 @@ public class Enemy : MonoBehaviour
             SetDropNote(ComboHandler.ComboMult);
             agentObj.GetComponent<Collider>().enabled = false;
             enabled = false;
+            //ObjectPooler.Instance.SpawnFormPool("EnemyExplosion", this.transform.position);
             DisableGameObject();
         }
     }
