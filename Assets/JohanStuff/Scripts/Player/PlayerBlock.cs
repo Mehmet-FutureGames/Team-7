@@ -12,6 +12,8 @@ public class PlayerBlock : MonoBehaviour
     float cooldwonTimer;
     [SerializeField]int blockCost;
     public static bool isBlocking;
+    //new
+    public GameObject blockParticle;
     void Start()
     {
         playerFrenzy = GetComponentInParent<PlayerFrenzy>();
@@ -29,12 +31,14 @@ public class PlayerBlock : MonoBehaviour
         {
             if (cooldownReady)
             {
-                mesh.enabled = true;
-                childObj.GetComponent<MeshRenderer>().enabled = true;
+                //mesh.enabled = true;
+                //childObj.GetComponent<MeshRenderer>().enabled = true;
                 cooldownReady = false;
                 StartCoroutine(Cooldown());
                 playerFrenzy.CurrentFrenzy -= blockCost;
                 isBlocking = true;
+                blockParticle.SetActive(true);
+                PlayerAnm.Instance.BlockTrigger();
             }
         }
     }
@@ -42,9 +46,9 @@ public class PlayerBlock : MonoBehaviour
     IEnumerator Cooldown()
     {
         yield return new WaitForSeconds(0.4f);
-        mesh.enabled = false;
+        //mesh.enabled = false;
         isBlocking = false;
-        childObj.GetComponent<MeshRenderer>().enabled = false;
+        //childObj.GetComponent<MeshRenderer>().enabled = false;
         yield return new WaitForSeconds(cooldwonTimer - 1f);
         cooldownReady = true;
     }

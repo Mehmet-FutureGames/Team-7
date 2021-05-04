@@ -5,7 +5,7 @@ using UnityEngine;
 public class TimeDisable : MonoBehaviour
 {
     public float timeToDisable;
-
+    
     private void OnEnable()
     {
         Invoke("DisableThis", timeToDisable);
