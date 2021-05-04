@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bendrone
   m_EditorClassIdentifier: 
   songName: 
-  BPM: 0
-  audioClip: {fileID: 0}
+  BPM: 135
+  audioClip: {fileID: 8300000, guid: 6cfd487476388084db57040eb977c097, type: 3}
   volume: 0
   noteStartDelay: 0

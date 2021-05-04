@@ -1836,7 +1836,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
-  levelsCompleted: 0
+  levelsCompletedThisRun: 0
+  levelsCompletedOverall: 0
 --- !u!4 &890634734
 Transform:
   m_ObjectHideFlags: 0
@@ -3425,7 +3426,7 @@ PrefabInstance:
         type: 3}
       propertyPath: audioPreset
       value: 
-      objectReference: {fileID: 11400000, guid: a8e639807ec377f4489f8bcd991637ef,
+      objectReference: {fileID: 11400000, guid: 76b587be52ac36f40b07424d8328bc35,
         type: 2}
     - target: {fileID: 8966836274532626828, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
