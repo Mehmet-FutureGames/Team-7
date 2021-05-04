@@ -4,24 +4,6 @@ using UnityEngine;
 
 public class BuyShopItem : MonoBehaviour
 {
-    private bool isInBuyArea;
-
-    public bool IsInBuyArea
-    {
-        get { return isInBuyArea; }
-        set
-        {
-            isInBuyArea = value;
-            if (isInBuyArea)
-            {
-                StartCoroutine(OpenCanvas(itemCanvas));
-            }
-            else
-            {
-                StartCoroutine(CloseCanvas(itemCanvas));
-            }
-        }
-    }
     ActiveItems activeItems;
     ItemParameter itemParameter;
     ItemCanvas itemCanvas;
@@ -41,7 +23,6 @@ public class BuyShopItem : MonoBehaviour
         notePublisher.buttonHitAttack += BuyItem;
         notePublisher.noteHitAttack += BuyItem;
         itemCanvas = ItemCanvas.Instance;
-        itemCanvas.gameObject.SetActive(false);
     }
 
 
@@ -50,7 +31,7 @@ public class BuyShopItem : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             useItem = other.GetComponent<UseItem>();
-            IsInBuyArea = true;
+            ItemCanvas.isInBuyArea = true;
         }
 
     }
@@ -59,7 +40,7 @@ public class BuyShopItem : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             useItem = null;
-            IsInBuyArea = false;
+            ItemCanvas.isInBuyArea = false;
         }
     }
 
@@ -67,11 +48,11 @@ public class BuyShopItem : MonoBehaviour
     {
         if (useItem != null)
         {
-            if (IsInBuyArea && PlayerCoinHandler.Instance.Coins >= itemParameter.cost)
+            if (ItemCanvas.isInBuyArea && PlayerCoinHandler.Instance.Coins >= itemParameter.cost)
             {
                 PlayerCoinHandler.Instance.Coins -= itemParameter.cost;
                 useItem.OnPickUpItem(activeItems.itemIndex, activeItems);
-                IsInBuyArea = false;
+                ItemCanvas.isInBuyArea = false;
                 useItem = null;
                 //gameObject.SetActive(false);
                 hasPurchasedItem = true;
@@ -81,6 +62,7 @@ public class BuyShopItem : MonoBehaviour
         }
 
     }
+    /*
     public IEnumerator OpenCanvas(ItemCanvas canvas)
     {
         canvas.gameObject.SetActive(true);
@@ -112,6 +94,6 @@ public class BuyShopItem : MonoBehaviour
         }
         yield return null;
     }
-
+    */
 
 }
