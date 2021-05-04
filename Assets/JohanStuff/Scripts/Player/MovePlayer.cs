@@ -149,7 +149,7 @@ public class MovePlayer : MonoBehaviour
     }
     IEnumerator Move()
     {
-        AudioSource.PlayClipAtPoint(movingsound, transform.position);
+        //AudioSource.PlayClipAtPoint(movingsound, transform.position);
         isMoving = true;
         while (transform.position != mousePos)
         {

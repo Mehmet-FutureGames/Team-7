@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class BuyShopItem : MonoBehaviour
 {
     ActiveItems activeItems;
@@ -63,6 +62,7 @@ public class BuyShopItem : MonoBehaviour
             if (isInBuyArea && PlayerCoinHandler.Instance.Coins >= itemParameter.coinCost)
             {
                 PlayerCoinHandler.Instance.Coins -= itemParameter.coinCost;
+                RemoveItemFromList();
                 useItem.OnPickUpItem(activeItems.itemIndex, activeItems);
                 ItemCanvas.isInBuyArea = false;
                 useItem = null;
@@ -75,6 +75,7 @@ public class BuyShopItem : MonoBehaviour
             if (isInBuyArea && noteCurrency.NoteCurrency >= itemParameter.noteCost)
             {
                 noteCurrency.NoteCurrency -= itemParameter.noteCost;
+                RemoveItemFromList();
                 useItem.OnPickUpItem(activeItems.itemIndex, activeItems);
                 ItemCanvas.isInBuyArea = false;
                 useItem = null;
@@ -85,5 +86,16 @@ public class BuyShopItem : MonoBehaviour
 
     }
 
-
+    private void RemoveItemFromList()
+    {
+        for (int i = 0; i < ShopHandler.Instance.items.Count; i++)
+        {
+            string name = ShopHandler.Instance.items[i].gameObject.name;
+            if(gameObject.name == ShopHandler.Instance.items[i].gameObject.name)
+            {
+                ShopHandler.Instance.items.RemoveAt(i);
+                break;
+            }
+        }
+    }
 }
