@@ -43,11 +43,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1806a6cdb08623a428a4c40597e024b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemysound: {fileID: 8300000, guid: 79f158f491abb2d42ae59b19c5e3a7b0, type: 3}
+  enemy2sound: {fileID: 8300000, guid: 79f158f491abb2d42ae59b19c5e3a7b0, type: 3}
+  animator: {fileID: 0}
   playerIsInAttackArea: 0
   area: {fileID: 0}
   isRanged: 0
   agentObj: {fileID: 0}
   agent: {fileID: 0}
+  attackAreaScale: {x: 0, y: 0, z: 0}
   moveDistance: 0
   defaultMoveDistance: 0
   notesToMove: 0

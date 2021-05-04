@@ -59,6 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 666604c3e963f4a4fbc98777b2e09d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthsound: {fileID: 8300000, guid: f544984634b0b6749b5db0597085f7e3, type: 3}
   healthRecovered: 50
 --- !u!1001 &1583760768611288097
 PrefabInstance:
