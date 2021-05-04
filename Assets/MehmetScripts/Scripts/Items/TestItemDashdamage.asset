@@ -16,5 +16,6 @@ MonoBehaviour:
   itemModel: {fileID: 2234150962986478426, guid: 61cd96b9cbde0ea46a7d7be51260141a,
     type: 3}
   upgradeAmount: 0
-  itemCost: 0
+  itemCostCoins: 5
+  itemCostNotes: 15
   itemType: 2

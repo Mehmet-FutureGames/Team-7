@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
     {
         camera = Camera.main;
         StartCoroutine(References());
-        
+        GetComponent<TrailRenderer>().time = 60 / FindObjectOfType<NoteManager>().beatTempo;
     }
     #region AttacksActivation
     public void DashAttackActivated()
