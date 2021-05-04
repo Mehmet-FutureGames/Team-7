@@ -917,6 +917,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1819540649, guid: a798e8c1e3fc5f14597ea97f7273431c, type: 3}
+      propertyPath: healthsound
+      value: 
+      objectReference: {fileID: 8300000, guid: f544984634b0b6749b5db0597085f7e3, type: 3}
     - target: {fileID: 16906617107829185, guid: a798e8c1e3fc5f14597ea97f7273431c,
         type: 3}
       propertyPath: m_RootOrder
@@ -2099,6 +2103,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1633827657075649401, guid: 7a068700145b0f94e89d2d8e419cb7ca,
+        type: 3}
+      propertyPath: coinsound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3b09bbcc31f202745a309cb6f166ed02, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a068700145b0f94e89d2d8e419cb7ca, type: 3}
 --- !u!1001 &1072778232
@@ -3118,12 +3127,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7914652014459963317, guid: 8bbdca35cac70f143b906cf2b0652137,
+        type: 3}
+      propertyPath: movingsound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7c1046fad6491f84396d564cc07545e7, type: 3}
     - target: {fileID: 7914652014459963324, guid: 8bbdca35cac70f143b906cf2b0652137,
         type: 3}
       propertyPath: stats
       value: 
       objectReference: {fileID: 11400000, guid: 9c4df15d28d0ff7409461bea318cdbf2,
         type: 2}
+    - target: {fileID: 7914652014459963324, guid: 8bbdca35cac70f143b906cf2b0652137,
+        type: 3}
+      propertyPath: attacksound
+      value: 
+      objectReference: {fileID: 8300000, guid: d07b77bcd15d096469919bb013754ff0, type: 3}
     - target: {fileID: 7914652014773267335, guid: 8bbdca35cac70f143b906cf2b0652137,
         type: 3}
       propertyPath: m_Height
@@ -3407,6 +3426,16 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3588262258200070875, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 1358788355}
+    - target: {fileID: 3588262258200070875, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: displayCombo
+      value: 
+      objectReference: {fileID: 1358788356}
     - target: {fileID: 8966836273629194616, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: player
@@ -3426,7 +3455,7 @@ PrefabInstance:
         type: 3}
       propertyPath: audioPreset
       value: 
-      objectReference: {fileID: 11400000, guid: 76b587be52ac36f40b07424d8328bc35,
+      objectReference: {fileID: 11400000, guid: 1f885ec131f070343b72fb48045a3636,
         type: 2}
     - target: {fileID: 8966836274532626828, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
@@ -3505,6 +3534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1552725692, guid: 9a8011c633929384e963bdb55c94dcf7, type: 3}
+    - {fileID: 3588262258200070875, guid: 9a8011c633929384e963bdb55c94dcf7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9a8011c633929384e963bdb55c94dcf7, type: 3}
 --- !u!114 &1737030900 stripped
 MonoBehaviour:
