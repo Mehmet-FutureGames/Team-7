@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb049ffb11ac40143a89201b61cbaa26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 0
+  cost: 10
   itemIndex: 0
   itemName: 
   itemCanvas: {fileID: 0}

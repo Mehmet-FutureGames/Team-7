@@ -84,7 +84,7 @@ public class BuyShopItem : MonoBehaviour
     {
         canvas.gameObject.SetActive(true);
         canvas.transform.localScale = new Vector3(0, 0, 0);
-        canvas.text.text = "Cost: " + activeItems.cost.ToString();
+        canvas.text.text = "Press attack to buy";
         canvas.transform.position = new Vector3(transform.position.x, transform.position.y + 10, transform.position.z);
         float i = 0;
         while (i <= 0.08f)
