@@ -23,6 +23,7 @@ public class BuyShopItem : MonoBehaviour
         }
     }
     ActiveItems activeItems;
+    ItemParameter itemParameter;
     ItemCanvas itemCanvas;
     UseItem useItem;
     NotePublisher notePublisher;
@@ -34,7 +35,7 @@ public class BuyShopItem : MonoBehaviour
     void Start()
     {
         hasPurchasedItem = false;
-        
+        itemParameter = GetComponent<ItemParameter>();
         activeItems = GetComponent<ActiveItems>();
         notePublisher = FindObjectOfType<NotePublisher>();
         notePublisher.buttonHitAttack += BuyItem;
@@ -66,9 +67,9 @@ public class BuyShopItem : MonoBehaviour
     {
         if (useItem != null)
         {
-            if (IsInBuyArea && PlayerCoinHandler.Instance.Coins >= activeItems.cost)
+            if (IsInBuyArea && PlayerCoinHandler.Instance.Coins >= itemParameter.cost)
             {
-                PlayerCoinHandler.Instance.Coins -= activeItems.cost;
+                PlayerCoinHandler.Instance.Coins -= itemParameter.cost;
                 useItem.OnPickUpItem(activeItems.itemIndex, activeItems);
                 IsInBuyArea = false;
                 useItem = null;

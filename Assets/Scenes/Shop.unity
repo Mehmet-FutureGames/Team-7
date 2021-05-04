@@ -9318,6 +9318,8 @@ MonoBehaviour:
   items: []
   priceCanvasPrefab: {fileID: 3747744007782948079, guid: d77eebf8b905b67469e9a81725b6a64f,
     type: 3}
+  itemNameCanvasPrefab: {fileID: 8819049640822777906, guid: e40af4e5f9cbe0445b8dd1823405789b,
+    type: 3}
 --- !u!4 &1526279454 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4020572726549186, guid: b020fb5c0d87f9a4c938bbc488714422,
