@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class ItemParameter : MonoBehaviour
 {
-    public int cost;
+    public int noteCost;
+    public int coinCost;
     public string itemName;
-    void Start()
+    public bool buyWithCoins;
+    private void OnLevelWasLoaded(int level)
     {
-        
-    }
+        if (level == 3)
+        {
+            buyWithCoins = true;
+        }
+        else
+        {
+            buyWithCoins = false;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

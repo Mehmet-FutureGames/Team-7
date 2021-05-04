@@ -11,6 +11,7 @@ public class BuyShopItem : MonoBehaviour
     NotePublisher notePublisher;
     bool hasPurchasedItem;
     bool isInBuyArea;
+    NoteCurrencyHandler noteCurrency;
     private void Awake()
     {
         notePublisher = FindObjectOfType<NotePublisher>();
@@ -19,6 +20,7 @@ public class BuyShopItem : MonoBehaviour
     {
         hasPurchasedItem = false;
         itemParameter = GetComponent<ItemParameter>();
+        noteCurrency = FindObjectOfType<NoteCurrencyHandler>();
         activeItems = GetComponent<ActiveItems>();
         
         itemCanvas = ItemCanvas.Instance;
@@ -56,14 +58,29 @@ public class BuyShopItem : MonoBehaviour
 
     public void BuyItem()
     {
-        if (isInBuyArea && PlayerCoinHandler.Instance.Coins >= itemParameter.cost)
+        if (itemParameter.buyWithCoins)
         {
-            PlayerCoinHandler.Instance.Coins -= itemParameter.cost;
-            useItem.OnPickUpItem(activeItems.itemIndex, activeItems);
-            ItemCanvas.isInBuyArea = false;
-            useItem = null;
-            gameObject.SetActive(false);
-            hasPurchasedItem = true;
+            if (isInBuyArea && PlayerCoinHandler.Instance.Coins >= itemParameter.coinCost)
+            {
+                PlayerCoinHandler.Instance.Coins -= itemParameter.coinCost;
+                useItem.OnPickUpItem(activeItems.itemIndex, activeItems);
+                ItemCanvas.isInBuyArea = false;
+                useItem = null;
+                gameObject.SetActive(false);
+                hasPurchasedItem = true;
+            }
+        }
+        else
+        {
+            if (isInBuyArea && noteCurrency.NoteCurrency >= itemParameter.noteCost)
+            {
+                noteCurrency.NoteCurrency -= itemParameter.noteCost;
+                useItem.OnPickUpItem(activeItems.itemIndex, activeItems);
+                ItemCanvas.isInBuyArea = false;
+                useItem = null;
+                gameObject.SetActive(false);
+                hasPurchasedItem = true;
+            }
         }
 
     }
