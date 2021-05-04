@@ -12,22 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b003b01bd880a44d96e3bab38f6eacf, type: 3}
   m_Name: Laser_Enemy
   m_EditorClassIdentifier: 
-  enemyName: 
+  enemyName: LaserEnemy
   movePattern: 0
   enemyType: 0
-  enemyModel: {fileID: 0}
-  floatingText: {fileID: 0}
-  attackAreaShape: {fileID: 0}
-  attackAreaScale: {x: 0, y: 0, z: 0}
-  isRanged: 0
-  movementSpeed: 0
-  moveDistance: 0
-  detectionRange: 0
-  notesToMove: 0
-  attackDamage: 0
-  attackRange: 0
-  health: 0
-  noteDropChance: 0
-  coinMinDropCount: 0
-  coinMaxDropCount: 0
-  coinValue: 0
+  enemyModel: {fileID: 2888515345859990231, guid: 304c54bd49b1a8d498dec8d08557536b,
+    type: 3}
+  floatingText: {fileID: 7834719628194316170, guid: 2f7ade109394de44e8c41a4781951eaf,
+    type: 3}
+  attackAreaShape: {fileID: 4287025300096912945, guid: 615b416cd67ab9843b32538621227480,
+    type: 3}
+  attackAreaScale: {x: 1, y: 1, z: 1}
+  isRanged: 1
+  movementSpeed: 2
+  moveDistance: 8
+  detectionRange: 100
+  notesToMove: 1
+  attackDamage: 20
+  attackRange: 60
+  health: 75
+  noteDropChance: 35.2
+  coinMinDropCount: 6
+  coinMaxDropCount: 10
+  coinValue: 10
