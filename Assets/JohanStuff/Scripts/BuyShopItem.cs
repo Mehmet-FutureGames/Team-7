@@ -88,14 +88,18 @@ public class BuyShopItem : MonoBehaviour
 
     private void RemoveItemFromList()
     {
-        for (int i = 0; i < ShopHandler.Instance.items.Count; i++)
+        if(ShopHandler.Instance != null)
         {
-            string name = ShopHandler.Instance.items[i].gameObject.name;
-            if(gameObject.name == ShopHandler.Instance.items[i].gameObject.name)
+            for (int i = 0; i < ShopHandler.Instance.items.Count; i++)
             {
-                ShopHandler.Instance.items.RemoveAt(i);
-                break;
+                string name = ShopHandler.Instance.items[i].gameObject.name;
+                if (gameObject.name == ShopHandler.Instance.items[i].gameObject.name)
+                {
+                    ShopHandler.Instance.items.RemoveAt(i);
+                    break;
+                }
             }
         }
+
     }
 }
