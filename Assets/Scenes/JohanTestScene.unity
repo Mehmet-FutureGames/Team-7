@@ -784,7 +784,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
-  levelsCompleted: 0
+  levelsCompletedThisRun: 0
+  levelsCompletedOverall: 0
 --- !u!4 &1043414005
 Transform:
   m_ObjectHideFlags: 0
@@ -1523,9 +1524,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyVariants:
-  - {fileID: 2537703995810168917, guid: 5288a1733ce66bc44b1ee4c1d89abc9d, type: 3}
-  - {fileID: 2537703995810168917, guid: 812de75b6a4a6704488036bd747ce95f, type: 3}
-  - {fileID: 2537703995810168917, guid: 812de75b6a4a6704488036bd747ce95f, type: 3}
+  - {fileID: 4839025464020082310, guid: d1ec307304b8b8d4ea9ccabacf527855, type: 3}
+  - {fileID: 207381485540389465, guid: 6e2f5b5d7b9d52c4089051c65677c867, type: 3}
+  - {fileID: 8744423220382229699, guid: ac3568e37f30e9949b32b772b3a82984, type: 3}
   spawnPointPatternsEasy:
   - {fileID: 8470090771960676430, guid: 1ebbfa9f2dd36d14ea042f6c95c2713c, type: 3}
   spawnPointPatternsMedium:
@@ -2409,6 +2410,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1970602074}
     - target: {fileID: 2055232222, guid: 9a8011c633929384e963bdb55c94dcf7, type: 3}
+      propertyPath: displayCombo
+      value: 
+      objectReference: {fileID: 1140630324}
+    - target: {fileID: 3588262258200070875, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 1970602074}
+    - target: {fileID: 3588262258200070875, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
       propertyPath: displayCombo
       value: 
       objectReference: {fileID: 1140630324}
