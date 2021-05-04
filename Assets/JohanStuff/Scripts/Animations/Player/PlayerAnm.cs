@@ -9,6 +9,7 @@ public class PlayerAnm : MonoBehaviour
     Player player;
     bool hasAttacked;
     public static PlayerAnm Instance;
+    private int attackNumber;
     private void Awake()
     {
         Instance = this;
@@ -26,8 +27,12 @@ public class PlayerAnm : MonoBehaviour
     }
 
     public void AttackTrigger()
-    {
+    {       
         anim.SetTrigger("TriggerAttack");
+        attackNumber++;
+        if (attackNumber > 2)
+            attackNumber = 0;
+        anim.SetInteger("AttackNumber", attackNumber);
     }
     public void StartAttacking() 
     {
