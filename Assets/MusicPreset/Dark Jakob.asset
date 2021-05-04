@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dark Jakob
   m_EditorClassIdentifier: 
   songName: 
-  BPM: 0
-  audioClip: {fileID: 0}
+  BPM: 168
+  audioClip: {fileID: 8300000, guid: c9cf63985e38b554386baa52fa96398c, type: 3}
   volume: 0
   noteStartDelay: 0

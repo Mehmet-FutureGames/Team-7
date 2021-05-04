@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2963157666577251047}
   - component: {fileID: 8583340757138264033}
   m_Layer: 9
-  m_Name: Ugo
+  m_Name: Caster_Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,11 +43,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1806a6cdb08623a428a4c40597e024b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemysound: {fileID: 8300000, guid: 8c92ff0002104ae489341f0cc60083c4, type: 3}
+  enemy2sound: {fileID: 8300000, guid: 8c92ff0002104ae489341f0cc60083c4, type: 3}
+  animator: {fileID: 0}
   playerIsInAttackArea: 0
   area: {fileID: 0}
   isRanged: 0
   agentObj: {fileID: 0}
   agent: {fileID: 0}
+  attackAreaScale: {x: 0, y: 0, z: 0}
   moveDistance: 0
   defaultMoveDistance: 0
   notesToMove: 0
@@ -55,6 +59,7 @@ MonoBehaviour:
   attackRange: 0
   health: 0
   movePattern: 0
+  enemyType: 0
   moveCounter: 0
   distanceToPlayer: 0
   player: {fileID: 0}
