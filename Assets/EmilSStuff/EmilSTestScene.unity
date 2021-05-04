@@ -13787,7 +13787,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
-  levelsCompleted: 0
+  levelsCompletedThisRun: 0
+  levelsCompletedOverall: 0
 --- !u!4 &819439419
 Transform:
   m_ObjectHideFlags: 0
@@ -26041,6 +26042,22 @@ PrefabInstance:
       propertyPath: displayCombo
       value: 
       objectReference: {fileID: 352196566}
+    - target: {fileID: 3588262258200070875, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 1378560773}
+    - target: {fileID: 3588262258200070875, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: displayCombo
+      value: 
+      objectReference: {fileID: 352196566}
+    - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: audioPreset
+      value: 
+      objectReference: {fileID: 11400000, guid: a140ffb0235c5e443be301fedc7b08c6,
+        type: 2}
     - target: {fileID: 8966836274532626828, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: audio

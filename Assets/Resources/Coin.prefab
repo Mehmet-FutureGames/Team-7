@@ -218,6 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  coinsound: {fileID: 8300000, guid: 3b09bbcc31f202745a309cb6f166ed02, type: 3}
   disableAfterSeconds: 1.5
   upwardForce: 350
   speedModifier: 10
