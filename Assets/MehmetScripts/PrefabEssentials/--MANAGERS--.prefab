@@ -313,7 +313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8966836274875272968}
   - component: {fileID: 8966836274875272975}
-  - component: {fileID: 353824965}
+  - component: {fileID: 3588262258200070875}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -352,7 +352,7 @@ MonoBehaviour:
   LayerToMovement:
     serializedVersion: 2
     m_Bits: 128
---- !u!114 &353824965
+--- !u!114 &3588262258200070875
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
