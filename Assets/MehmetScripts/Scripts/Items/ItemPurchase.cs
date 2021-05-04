@@ -48,12 +48,10 @@ public class ItemPurchase : MonoBehaviour
             if (itemType == ItemType.HealthUpgrade && player.GetComponent<PlayerCoinHandler>().coins >= itemCost)
             {
                 player.GetComponent<PlayerHealth>().UpgradeHealth(upgradeAmount);
-                Debug.Log("Upgraded Health!");
             }
             else if (itemType == ItemType.AttackUpgrade && player.GetComponent<PlayerCoinHandler>().coins >= itemCost)
             {
                 player.GetComponent<Player>().UpgradeDamageMelee(upgradeAmount);
-                Debug.Log("Upgraded Melee Attack!");
             }
             else if (itemType == ItemType.DashAttackUpgrade && player.GetComponent<PlayerCoinHandler>().coins >= itemCost)
             {
