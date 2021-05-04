@@ -313,7 +313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8966836274875272968}
   - component: {fileID: 8966836274875272975}
-  - component: {fileID: 2055232222}
+  - component: {fileID: 353824965}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -352,7 +352,7 @@ MonoBehaviour:
   LayerToMovement:
     serializedVersion: 2
     m_Bits: 128
---- !u!114 &2055232222
+--- !u!114 &353824965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -366,7 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
   displayCombo: {fileID: 0}
-  comboDepletionMult: 1
+  comboDepletionMult: 0
 --- !u!1 &8966836275058985840
 GameObject:
   m_ObjectHideFlags: 0
