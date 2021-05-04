@@ -129,6 +129,7 @@ public class WaveManager : MonoBehaviour
     public void FinishFloor()
     {
         //Add behaviour for what happens when you finish a level.
+        spawnItems();
         floorLevel++;
         Instantiate(door);
         PlayerPrefs.SetInt("floorLevel", floorLevel);

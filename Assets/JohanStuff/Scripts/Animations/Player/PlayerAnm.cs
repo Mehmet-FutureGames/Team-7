@@ -21,6 +21,11 @@ public class PlayerAnm : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
+    public void BlockTrigger()
+    {
+        anim.SetTrigger("TriggerBlock");
+    }
+
     public void DashTrigger()
     {
         anim.SetTrigger("TriggerDash");

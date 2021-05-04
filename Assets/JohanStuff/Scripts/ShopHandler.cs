@@ -9,6 +9,7 @@ public class ShopHandler : MonoBehaviour
     public static List<ShopItemHolder> shopItemHolders = new List<ShopItemHolder>();
 
     public GameObject priceCanvasPrefab;
+    public GameObject itemNameCanvasPrefab;
 
     public static ShopHandler Instance;
 
@@ -43,10 +44,11 @@ public class ShopHandler : MonoBehaviour
 
                 for (int i = 0; i < items.Count; i++)
                 {
-                    int e = Random.Range(0, items.Count);
-                    GameObject obj = Instantiate(items[e], shopItemHolders[i].transform.position, shopItemHolders[i].transform.rotation, shopItemHolders[i].transform);
+                    GameObject obj = Instantiate(items[i], shopItemHolders[i].transform.position, shopItemHolders[i].transform.rotation, shopItemHolders[i].transform);
                     GameObject priceCanvas = Instantiate(priceCanvasPrefab, shopItemHolders[i].transform);
-                priceCanvas.GetComponentInChildren<TextMeshProUGUI>().text = obj.GetComponent<ActiveItems>().cost.ToString();
+                    GameObject itemNameCanvas = Instantiate(itemNameCanvasPrefab, shopItemHolders[i].transform);
+                    itemNameCanvas.GetComponentInChildren<TextMeshProUGUI>().text = obj.GetComponent<ItemParameter>().itemName;
+                    priceCanvas.GetComponentInChildren<TextMeshProUGUI>().text = obj.GetComponent<ItemParameter>().coinCost.ToString();
                     //items.RemoveAt(e);
                 }
 

@@ -54,6 +54,9 @@ public class Player : MonoBehaviour
 
     Camera camera;
 
+    public GameObject SlashParticleTrail; //for dash attack particles
+    public GameObject SlashParticleTrail2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -147,13 +150,15 @@ public class Player : MonoBehaviour
             PlayerAnm.Instance.DashTrigger();
             playerDashRange.gameObject.SetActive(true);
             playerFrenzy.CurrentFrenzy -= dashAttackFrenzyCost;
+            SlashParticleTrail.SetActive(true); //new
+            SlashParticleTrail2.SetActive(true);
         }
         else
         {
             DisableDashAttack();
         }
     }
-    void DisableDashAttack()
+    public void DisableDashAttack()
     {
         playerDashRange.gameObject.SetActive(false);
     }
