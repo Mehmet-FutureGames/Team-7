@@ -22,7 +22,6 @@ public class AudioReader : MonoBehaviour
         GetSpectrumAudioSource();
         MakeFreqBands();
         BandBuffer();
-        Debug.Log(freqBand[0]);
     }
 
     void GetSpectrumAudioSource()
