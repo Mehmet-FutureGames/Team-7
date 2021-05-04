@@ -5,15 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class TransisitonToShop : MonoBehaviour
 {
+    LevelManager manager;
     private void Awake()
     {
         GetComponent<Animator>().enabled = true;
+        manager = FindObjectOfType<LevelManager>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            manager.levelsCompletedThisRun++;
+            manager.levelsCompletedOverall++;
+            PlayerPrefs.SetInt("levelCompleted", manager.levelsCompletedOverall);
             SceneManager.LoadScene("Shop");
         }
     }
