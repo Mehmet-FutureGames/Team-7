@@ -31,6 +31,6 @@ public class LevelManager : MonoBehaviour
     {
         //Sets the current scene to the current level
         //To be changed (maybe)
-        currentLevel = SceneManager.GetActiveScene().buildIndex;
+        currentLevel = level;
     }
 }
