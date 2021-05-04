@@ -47,7 +47,7 @@ public class ShopHandler : MonoBehaviour
                     GameObject obj = Instantiate(items[i], shopItemHolders[i].transform.position, shopItemHolders[i].transform.rotation, shopItemHolders[i].transform);
                     GameObject priceCanvas = Instantiate(priceCanvasPrefab, shopItemHolders[i].transform);
                     GameObject itemNameCanvas = Instantiate(itemNameCanvasPrefab, shopItemHolders[i].transform);
-                itemNameCanvas.GetComponentInChildren<TextMeshProUGUI>().text = obj.GetComponent<ItemParameter>().itemName;
+                    itemNameCanvas.GetComponentInChildren<TextMeshProUGUI>().text = obj.GetComponent<ItemParameter>().itemName;
                     priceCanvas.GetComponentInChildren<TextMeshProUGUI>().text = obj.GetComponent<ItemParameter>().cost.ToString();
                     //items.RemoveAt(e);
                 }
