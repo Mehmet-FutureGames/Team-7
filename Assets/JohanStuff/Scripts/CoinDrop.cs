@@ -5,6 +5,7 @@ using UnityEngine;
 public class CoinDrop : MonoBehaviour
 {
     public Transform player;
+    public AudioClip coinsound;
 
     Vector3 velocity = Vector3.zero;
     [SerializeField, Range(0, 5)] float disableAfterSeconds;
@@ -53,6 +54,7 @@ public class CoinDrop : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            AudioSource.PlayClipAtPoint(coinsound, transform.position);
             other.gameObject.GetComponent<PlayerCoinHandler>().AddCoins(coinValue);
             gameObject.SetActive(false);
         }

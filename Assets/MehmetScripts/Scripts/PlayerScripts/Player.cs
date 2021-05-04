@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     public static List<Transform> EnemyTransforms = new List<Transform>();
 
+    public AudioClip attacksound;
+
     public PlayerStats stats;
 
     [SerializeField] LayerMask ground;
@@ -131,6 +133,7 @@ public class Player : MonoBehaviour
     void AttackingActivated()
     {
         PlayerAnm.Instance.AttackTrigger();
+        AudioSource.PlayClipAtPoint(attacksound, transform.position);
     }
     public void StartAttacking()
     {

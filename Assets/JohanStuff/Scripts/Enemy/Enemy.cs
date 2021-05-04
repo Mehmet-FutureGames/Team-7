@@ -3,6 +3,10 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
+    public AudioClip enemysound;
+    public AudioClip enemy2sound;
+
+
     EnemyPublisher enemyPublisher;
     public Action enemyDefeated;
     public Animator animator;
@@ -76,6 +80,8 @@ public class Enemy : MonoBehaviour
     #region Methods
     public void EnemyAttack()
     {
+        AudioSource.PlayClipAtPoint(enemysound, transform.position);
+
         if (playerIsInAttackArea)
         {
             player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
@@ -84,6 +90,7 @@ public class Enemy : MonoBehaviour
     public void EnemyRangedAttack()
     {
         ObjectPooler.Instance.SpawnFormPool("EnemyBomb", area.transform.position); // for explosion animation
+        AudioSource.PlayClipAtPoint(enemy2sound, transform.position);
         if (playerIsInAttackArea)
         {
             player.GetComponent<PlayerHealth>().TakeRangedDamage(attackDamage);
