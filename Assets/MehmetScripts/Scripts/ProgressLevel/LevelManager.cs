@@ -11,7 +11,9 @@ public class LevelManager : MonoBehaviour
 
     public int currentLevel = 0;
 
-    public int levelsCompleted;
+    public int levelsCompletedThisRun;
+
+    public int levelsCompletedOverall;
 
     private void Awake()
     {
@@ -25,7 +27,6 @@ public class LevelManager : MonoBehaviour
         }
         DontDestroyOnLoad(this);
         currentLevel = SceneManager.GetActiveScene().buildIndex;
-        levelsCompleted = PlayerPrefs.GetInt("FloorCompleted");
     }
     private void OnLevelWasLoaded(int level)
     {
