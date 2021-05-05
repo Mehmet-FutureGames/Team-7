@@ -26,8 +26,10 @@ public class BuyShopItem : MonoBehaviour
     }
     private void OnEnable()
     {
-        notePublisher.buttonHitAttack += BuyItem;
-        notePublisher.noteHitAttack += BuyItem;
+        NotePublisher.Instance.buttonHitAttack += BuyItem;
+        NotePublisher.Instance.noteHitAttack += BuyItem;
+        //notePublisher.buttonHitAttack += BuyItem;
+        //notePublisher.noteHitAttack += BuyItem;
     }
     private void OnDisable()
     {

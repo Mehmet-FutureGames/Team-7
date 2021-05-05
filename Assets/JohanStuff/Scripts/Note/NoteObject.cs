@@ -23,16 +23,21 @@ public class NoteObject : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
     private void OnEnable()
     {
+
+
         transform.localScale = noteManager.StartScale;
         timer = 0;
         deActivated = false;
         gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
     }
-
+    private void OnLevelWasLoaded(int level)
+    {
+        gameObject.SetActive(false);
+    }
 #if UNITY_STANDALONE
     void Update()
     {

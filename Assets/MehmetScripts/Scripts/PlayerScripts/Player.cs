@@ -61,6 +61,7 @@ public class Player : MonoBehaviour
     GameObject managers;
     GameObject Publishers;
 
+    bool created;
     [SerializeField] bool developerMode;
 
     public GameObject SlashParticleTrail; //for dash attack particles
@@ -69,20 +70,14 @@ public class Player : MonoBehaviour
     public static Player Instance;
     private void Awake()
     {
+        gameObject.SetActive(true);
+        Debug.Log("Hello");
         camera = Camera.main;
         if (!developerMode)
         {
-            mainCanvas = GameObject.Find("Canvas");
-            overlayCamera = GameObject.Find("OverlayCam");
-            managers = GameObject.Find("--MANAGERS--");
-            Publishers = GameObject.Find("PUBLISHERS");
-            DontDestroyOnLoad(camera);
-            DontDestoryEverything(mainCanvas);
-            DontDestoryEverything(overlayCamera);
-            DontDestoryEverything(managers);
-            DontDestoryEverything(Publishers);
             if (Instance == null)
             {
+                
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
             }
@@ -90,6 +85,17 @@ public class Player : MonoBehaviour
             {
                 Destroy(this.gameObject);
             }
+            mainCanvas = GameObject.Find("Canvas");
+            overlayCamera = GameObject.Find("OverlayCam");
+            managers = GameObject.Find("--MANAGERS--");
+            //Publishers = GameObject.Find("PUBLISHERS");
+            DontDestoryEverything(camera.gameObject);
+            DontDestoryEverything(mainCanvas);
+            DontDestoryEverything(overlayCamera);
+            DontDestoryEverything(managers);
+            //DontDestoryEverything(Publishers);
+
+
         }
         
     }
@@ -326,10 +332,11 @@ public class Player : MonoBehaviour
             playerAttackRange.gameObject.SetActive(true);
             playerDashRange.gameObject.SetActive(true);
         }
-        StartCoroutine(References());
+        //StartCoroutine(References());
     }
     private void DontDestoryEverything(GameObject Everything)
     {
+
         DontDestroyOnLoad(Everything);
     }
     public void DestroyEverything()
