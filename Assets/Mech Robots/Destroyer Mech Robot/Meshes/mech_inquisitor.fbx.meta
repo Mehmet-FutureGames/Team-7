@@ -1,0 +1,2037 @@
+fileFormatVersion: 2
+guid: ad5e1384a94f09b439a81c3ed9570d94
+timeCreated: 1483695764
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: antenna_1
+    100002: antenna_2
+    100004: antenna_nub
+    100006: antenna_root
+    100008: hip_rotate
+    100010: hips
+    100012: left_shoulder
+    100014: left_weapon_mount
+    100016: left_weapon_nub
+    100018: limb_A
+    100020: limb_A_nub
+    100022: limb_B
+    100024: limb_B_nub
+    100026: limb_C
+    100028: limb_C_nub
+    100030: limb_D
+    100032: limb_D_nub
+    100034: limb_E
+    100036: limb_E_nub
+    100038: limb_F
+    100040: limb_F_nub
+    100042: //RootNode
+    100044: mech_inquisitor1
+    100046: right_shoulder
+    100048: right_weapon_mount
+    100050: right_weapon_nub
+    100052: torso
+    400000: antenna_1
+    400002: antenna_2
+    400004: antenna_nub
+    400006: antenna_root
+    400008: hip_rotate
+    400010: hips
+    400012: left_shoulder
+    400014: left_weapon_mount
+    400016: left_weapon_nub
+    400018: limb_A
+    400020: limb_A_nub
+    400022: limb_B
+    400024: limb_B_nub
+    400026: limb_C
+    400028: limb_C_nub
+    400030: limb_D
+    400032: limb_D_nub
+    400034: limb_E
+    400036: limb_E_nub
+    400038: limb_F
+    400040: limb_F_nub
+    400042: //RootNode
+    400044: mech_inquisitor1
+    400046: right_shoulder
+    400048: right_weapon_mount
+    400050: right_weapon_nub
+    400052: torso
+    4300000: mech_inquisitor1
+    7400000: idle1
+    7400002: idle2
+    7400004: idle3
+    7400006: idle4
+    7400008: walk
+    7400010: run
+    7400012: stand attack left
+    7400014: atand attack right
+    7400016: crouch
+    7400018: crouch hold
+    7400020: crouch attack left
+    7400022: crouch attack right
+    7400024: stand
+    7400026: jump
+    7400028: jump hold
+    7400030: jump fall
+    7400032: hit1
+    7400034: hit2
+    7400036: death fall back
+    7400038: death fall forward
+    7400040: death fall on knees
+    7400042: t-pose
+    7400044: demo
+    9500000: //RootNode
+    13700000: mech_inquisitor1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle1
+      takeName: Take 001
+      firstFrame: 375
+      lastFrame: 430
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: idle2
+      takeName: Take 001
+      firstFrame: 435
+      lastFrame: 515
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: idle3
+      takeName: Take 001
+      firstFrame: 520
+      lastFrame: 600
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: idle4
+      takeName: Take 001
+      firstFrame: 605
+      lastFrame: 670
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: walk
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: run
+      takeName: Take 001
+      firstFrame: 45
+      lastFrame: 75
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: stand attack left
+      takeName: Take 001
+      firstFrame: 80
+      lastFrame: 89
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: atand attack right
+      takeName: Take 001
+      firstFrame: 90
+      lastFrame: 99
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: crouch
+      takeName: Take 001
+      firstFrame: 100
+      lastFrame: 110
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: crouch hold
+      takeName: Take 001
+      firstFrame: 110
+      lastFrame: 114
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: crouch attack left
+      takeName: Take 001
+      firstFrame: 115
+      lastFrame: 124
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: crouch attack right
+      takeName: Take 001
+      firstFrame: 125
+      lastFrame: 134
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: stand
+      takeName: Take 001
+      firstFrame: 135
+      lastFrame: 145
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: jump
+      takeName: Take 001
+      firstFrame: 145
+      lastFrame: 158
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: jump hold
+      takeName: Take 001
+      firstFrame: 159
+      lastFrame: 162
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: jump fall
+      takeName: Take 001
+      firstFrame: 163
+      lastFrame: 175
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: hit1
+      takeName: Take 001
+      firstFrame: 180
+      lastFrame: 190
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: hit2
+      takeName: Take 001
+      firstFrame: 195
+      lastFrame: 205
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: death fall back
+      takeName: Take 001
+      firstFrame: 210
+      lastFrame: 235
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: death fall forward
+      takeName: Take 001
+      firstFrame: 240
+      lastFrame: 270
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: death fall on knees
+      takeName: Take 001
+      firstFrame: 275
+      lastFrame: 365
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: t-pose
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 5
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: demo
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 670
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: hips
+        weight: 1
+      - path: hips/hip_rotate
+        weight: 1
+      - path: hips/hip_rotate/limb_A
+        weight: 1
+      - path: hips/hip_rotate/limb_A/limb_A_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_B
+        weight: 1
+      - path: hips/hip_rotate/limb_B/limb_B_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_C
+        weight: 1
+      - path: hips/hip_rotate/limb_C/limb_C_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_D
+        weight: 1
+      - path: hips/hip_rotate/limb_D/limb_D_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_E
+        weight: 1
+      - path: hips/hip_rotate/limb_E/limb_E_nub
+        weight: 1
+      - path: hips/hip_rotate/limb_F
+        weight: 1
+      - path: hips/hip_rotate/limb_F/limb_F_nub
+        weight: 1
+      - path: hips/torso
+        weight: 1
+      - path: hips/torso/antenna_root
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2
+        weight: 1
+      - path: hips/torso/antenna_root/antenna_1/antenna_2/antenna_nub
+        weight: 1
+      - path: hips/torso/left_shoulder
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount
+        weight: 1
+      - path: hips/torso/left_shoulder/left_weapon_mount/left_weapon_nub
+        weight: 1
+      - path: hips/torso/right_shoulder
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount
+        weight: 1
+      - path: hips/torso/right_shoulder/right_weapon_mount/right_weapon_nub
+        weight: 1
+      - path: mech_inquisitor1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 50
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
