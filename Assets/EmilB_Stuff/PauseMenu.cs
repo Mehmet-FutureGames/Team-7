@@ -50,6 +50,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
+        FindObjectOfType<Player>().DestroyEverything();
         SceneManager.LoadScene("MainMenu");
         Debug.Log("Loading menu...");
     } 

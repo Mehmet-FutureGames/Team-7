@@ -32,6 +32,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] GameObject door;
     [Space]
 
+    static Enemy[] enemies;
 
     TypeOfEnemy[] spawnPoints;
     int amountofEnemiesWanted;
@@ -133,6 +134,11 @@ public class WaveManager : MonoBehaviour
         floorLevel++;
         Instantiate(door);
         PlayerPrefs.SetInt("floorLevel", floorLevel);
+    }
+
+    public static void DestroyAllEnemies()
+    {
+        enemies = FindObjectsOfType<Enemy>();
     }
 
     private void DestroySpawnPattern()

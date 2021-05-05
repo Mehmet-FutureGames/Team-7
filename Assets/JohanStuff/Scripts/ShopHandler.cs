@@ -73,7 +73,7 @@ public class ShopHandler : MonoBehaviour
     {
         shopItemHolders.Clear();
 
-        if (level == 3 && (items.Count > 0 || itemPool.Count > 0))
+        if (level == 2 && (items.Count > 0 || itemPool.Count > 0))
         {
             StartCoroutine(Wait());
         }
