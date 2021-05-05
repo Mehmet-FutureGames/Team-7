@@ -54,13 +54,38 @@ public class Player : MonoBehaviour
 
     Camera camera;
 
+    GameObject mainCanvas;
+    GameObject overlayCamera;
+    GameObject managers;
+
     public GameObject SlashParticleTrail; //for dash attack particles
     public GameObject SlashParticleTrail2;
 
+    public static Player Instance;
+    private void Awake()
+    {
+        mainCanvas = GameObject.Find("Canvas");
+        overlayCamera = GameObject.Find("OverlayCam");
+        managers = GameObject.Find("--MANAGERS--");
+        DontDestoryEverything(mainCanvas);
+        DontDestoryEverything(overlayCamera);
+        DontDestoryEverything(managers);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(this.gameObject);
+        }     
+        
+    }
     // Start is called before the first frame update
     void Start()
     {
         camera = Camera.main;
+        DontDestroyOnLoad(camera);
         StartCoroutine(References());
         SetTrailSpeed();
     }
@@ -265,5 +290,21 @@ public class Player : MonoBehaviour
                 break;
         }
         
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+        camera = Camera.main;
+        Time.timeScale = 1f;
+        
+        if (playerAttackRange != null && playerDashRange != null)
+        {
+            playerAttackRange.gameObject.SetActive(true);
+            playerDashRange.gameObject.SetActive(true);
+        }
+        StartCoroutine(References());
+    }
+    private void DontDestoryEverything(GameObject Everything)
+    {
+        DontDestroyOnLoad(Everything);
     }
 }

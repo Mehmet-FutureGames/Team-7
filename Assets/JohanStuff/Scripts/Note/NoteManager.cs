@@ -38,7 +38,7 @@ public class NoteManager : MonoBehaviour
     {
         camera = Camera.main;
         LoadPresetData();
-        camera.GetComponent<AudioSource>().clip = clip;
+        //camera.GetComponent<AudioSource>().clip = clip;
     }
 
     private void Start()

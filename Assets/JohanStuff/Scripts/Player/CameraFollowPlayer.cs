@@ -23,7 +23,10 @@ public class CameraFollowPlayer : MonoBehaviour
     
     void LateUpdate()
     {
-        distance = Vector3.Distance(transform.position, player.position + cameraOffset);
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position + cameraOffset , distance * camFollowSpeed * Time.deltaTime);
+        if (player != null)
+        {
+            distance = Vector3.Distance(transform.position, player.position + cameraOffset);
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position + cameraOffset, distance * camFollowSpeed * Time.deltaTime);
+        }
     }
 }
