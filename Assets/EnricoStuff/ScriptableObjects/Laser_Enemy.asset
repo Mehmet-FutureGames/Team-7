@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b003b01bd880a44d96e3bab38f6eacf, type: 3}
+  m_Name: Laser_Enemy
+  m_EditorClassIdentifier: 
+  enemyName: LaserEnemy
+  movePattern: 0
+  enemyType: 0
+  enemyModel: {fileID: 2888515345859990231, guid: 304c54bd49b1a8d498dec8d08557536b,
+    type: 3}
+  floatingText: {fileID: 7834719628194316170, guid: 2f7ade109394de44e8c41a4781951eaf,
+    type: 3}
+  attackAreaShape: {fileID: 4287025300096912945, guid: 615b416cd67ab9843b32538621227480,
+    type: 3}
+  attackAreaScale: {x: 1, y: 1, z: 1}
+  isRanged: 1
+  movementSpeed: 2
+  moveDistance: 8
+  detectionRange: 100
+  notesToMove: 1
+  attackDamage: 20
+  attackRange: 60
+  health: 75
+  noteDropChance: 35.2
+  coinMinDropCount: 6
+  coinMaxDropCount: 10
+  coinValue: 10

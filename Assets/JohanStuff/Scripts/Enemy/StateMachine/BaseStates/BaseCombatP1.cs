@@ -9,6 +9,7 @@ public class BaseCombatP1 : State
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("Phase1");
         enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.cyan;
     }
 

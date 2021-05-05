@@ -9,6 +9,7 @@ public class BaseCombatP2 : State
 
     public override void Enter()
     {
+        Debug.Log("PreparingAttack");
         enemy.area.SetActive(true);
         Vector3 dirToPlayer = (enemy.player.position - enemy.agentObj.transform.position).normalized;
         enemy.agentObj.transform.rotation = Quaternion.LookRotation(dirToPlayer);
