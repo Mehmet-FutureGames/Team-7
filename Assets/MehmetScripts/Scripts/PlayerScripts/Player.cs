@@ -83,17 +83,17 @@ public class Player : MonoBehaviour
             DontDestoryEverything(overlayCamera);
             DontDestoryEverything(managers);
             DontDestoryEverything(Publishers);
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else if (Instance != this)
-            {
-                Destroy(this.gameObject);
-            }
         }
-        
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+
     }
     // Start is called before the first frame update
     void Start()
@@ -203,13 +203,13 @@ public class Player : MonoBehaviour
 
     public void RestartCharacter()
     {
-        transform.position = spawnLocation.transform.position;
         GetComponent<PlayerHealth>().currentHealth = maxHealth;
         Time.timeScale = 1f;
     }
 #region References
     IEnumerator References()
     {
+        yield return new WaitForSeconds(0.0001f);
         //Checks which character the player chose from the
         //main menu and adds the scriptable object to the
         //stats variable to take its stats and use them

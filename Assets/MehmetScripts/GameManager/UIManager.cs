@@ -50,7 +50,6 @@ public class UIManager : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.buildIndex);
         player.RestartCharacter();
-        WaveManager.DestroyAllEnemies();
         player.GetComponent<PlayerHealth>().Respawn();
     }
 
