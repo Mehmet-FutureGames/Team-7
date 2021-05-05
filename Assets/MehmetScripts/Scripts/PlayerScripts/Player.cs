@@ -63,8 +63,6 @@ public class Player : MonoBehaviour
 
     [SerializeField] bool developerMode;
 
-    Transform spawnLocation;
-
     public GameObject SlashParticleTrail; //for dash attack particles
     public GameObject SlashParticleTrail2;
 
@@ -203,7 +201,6 @@ public class Player : MonoBehaviour
 
     public void RestartCharacter()
     {
-        transform.position = spawnLocation.transform.position;
         GetComponent<PlayerHealth>().currentHealth = maxHealth;
         Time.timeScale = 1f;
     }
