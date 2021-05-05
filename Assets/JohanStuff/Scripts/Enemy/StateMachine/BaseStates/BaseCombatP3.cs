@@ -10,6 +10,7 @@ public class BaseCombatP3 : State
 
     public override void Enter()
     {
+        Debug.Log("attack!");
         base.Enter();
         timer = 0.07f;
 
