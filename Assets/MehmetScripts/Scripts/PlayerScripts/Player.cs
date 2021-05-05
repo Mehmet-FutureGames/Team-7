@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] LayerMask enemyLayer;
 
     ObjectReferences playerChoose;
-
+    NoteManager noteManager;
     MovePlayer movePlayer;
     RaycastHit hit;
     #region VariableSetInScriptableObject
@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
     {
         camera = Camera.main;
         StartCoroutine(References());
-        GetComponent<TrailRenderer>().time = 60 / FindObjectOfType<NoteManager>().beatTempo;
+        SetTrailSpeed();
     }
     #region AttacksActivation
     public void DashAttackActivated()
@@ -248,4 +248,22 @@ public class Player : MonoBehaviour
         StartCoroutine(UpgradeDamageDashActivator(damage));
     }
 #endregion
+    
+    void SetTrailSpeed()
+    {
+        noteManager = FindObjectOfType<NoteManager>();
+        switch (noteManager.difficulty)
+        {
+            case Difficulty.easy:
+                GetComponent<TrailRenderer>().time = 60 / FindObjectOfType<NoteManager>().beatTempo * 1;
+                break;
+            case Difficulty.normal:
+                GetComponent<TrailRenderer>().time = 60 / FindObjectOfType<NoteManager>().beatTempo * 0.5f;
+                break;
+            case Difficulty.hard:
+                GetComponent<TrailRenderer>().time = 60 / FindObjectOfType<NoteManager>().beatTempo * 0.25f;
+                break;
+        }
+        
+    }
 }

@@ -49,4 +49,8 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+    public void CalibrationMenu()
+    {
+        SceneManager.LoadScene("MetronomeTestScene");
+    }
 }

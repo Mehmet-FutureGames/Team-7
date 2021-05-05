@@ -818,6 +818,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1223717818 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7753023273115067106, guid: a1a29c4f959c6a94297623fce0b429ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 7753023271945245658}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1223717819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223717818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ff88ad86a52ace4893585a63acc0e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1268615825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2428,6 +2446,17 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1087593877}
+    - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: difficulty
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: audioPreset
+      value: 
+      objectReference: {fileID: 11400000, guid: a140ffb0235c5e443be301fedc7b08c6,
+        type: 2}
     - target: {fileID: 8966836274532626828, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: audio

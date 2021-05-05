@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 public class ShopHandler : MonoBehaviour
 {
     public List<GameObject> itemPool = new List<GameObject>();
@@ -15,50 +16,70 @@ public class ShopHandler : MonoBehaviour
 
     private void Awake()
     {
+        shopItemHolders.Clear();
         if (Instance == null)
         {
             Instance = this;
-        }
-        else
-        {
             DontDestroyOnLoad(gameObject);
+        }
+        else if(Instance != this)
+        {
+            Destroy(gameObject);
         }
     }
 
-    private void Start()
+    IEnumerator Wait()
     {
-        //if (level == 3)
-        //{
-            if (itemPool != null)
+        yield return new WaitForSeconds(0.1f);
+        if (items.Count > 0)
+        {
+            for (int i = 0; i < items.Count; i++)
             {
-                for (int i = 0; i < 5; i++)
-                {
-                    int x = Random.Range(0, itemPool.Count);
-                    items.Add(itemPool[x]);
-                    itemPool.RemoveAt(x);
-                    if (itemPool.Count == 0)
-                    {
-                        break;
-                    }
-                }
-
-                for (int i = 0; i < items.Count; i++)
-                {
-                    GameObject obj = Instantiate(items[i], shopItemHolders[i].transform.position, shopItemHolders[i].transform.rotation, shopItemHolders[i].transform);
-                    GameObject priceCanvas = Instantiate(priceCanvasPrefab, shopItemHolders[i].transform);
-                    GameObject itemNameCanvas = Instantiate(itemNameCanvasPrefab, shopItemHolders[i].transform);
-                    itemNameCanvas.GetComponentInChildren<TextMeshProUGUI>().text = obj.GetComponent<ItemParameter>().itemName;
-                    priceCanvas.GetComponentInChildren<TextMeshProUGUI>().text = obj.GetComponent<ItemParameter>().coinCost.ToString();
-                    //items.RemoveAt(e);
-                }
-
+                itemPool.Add(items[0]);
+                items.RemoveAt(0);
             }
-        //}
+        }
+        Debug.Log("i");
+        if (itemPool != null && shopItemHolders != null)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                int x = Random.Range(0, itemPool.Count);
+                items.Add(itemPool[x]);
+                itemPool.RemoveAt(x);
+
+                if (itemPool.Count == 0)
+                {
+                    break;
+                }
+            }
+            Debug.Log(shopItemHolders.Count);
+            for (int i = 0; i < items.Count; i++)
+            {
+
+                GameObject obj = Instantiate(items[i], shopItemHolders[i].transform.position, shopItemHolders[i].transform.rotation, shopItemHolders[i].transform);
+                GameObject priceCanvas = Instantiate(priceCanvasPrefab, shopItemHolders[i].transform);
+                GameObject itemNameCanvas = Instantiate(itemNameCanvasPrefab, shopItemHolders[i].transform);
+                itemNameCanvas.GetComponentInChildren<TextMeshProUGUI>().text = obj.GetComponent<ItemParameter>().itemName;
+                priceCanvas.GetComponentInChildren<TextMeshProUGUI>().text = obj.GetComponent<ItemParameter>().coinCost.ToString();
+                obj.name = obj.name.Replace("(Clone)", "");
+                //items.RemoveAt(e);
+            }
+
+        }
     }
 
     private void OnLevelWasLoaded(int level)
     {
+        shopItemHolders.Clear();
 
+        if (level == 3 && (items.Count > 0 || itemPool.Count > 0))
+        {
+            StartCoroutine(Wait());
+        }
+        else if(level != 3 && items != null)
+        {
 
+        }
     }
 }
