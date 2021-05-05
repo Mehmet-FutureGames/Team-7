@@ -10,7 +10,7 @@ public class BaseCombatP1 : State
     {
         base.Enter();
         Debug.Log("Phase1");
-        enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.cyan;
+        //enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.cyan;
     }
 
     public override void PhysicsUpdate()
