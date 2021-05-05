@@ -7,12 +7,10 @@ public class SpawnCharacterToScene : MonoBehaviour
     [SerializeField] GameObject playerPrefab;
     void Start()
     {
-        
+        if(FindObjectOfType<Player>() == null)
+        {
+            Instantiate(playerPrefab);
+        }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

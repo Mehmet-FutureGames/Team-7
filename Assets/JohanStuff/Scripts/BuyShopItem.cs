@@ -13,10 +13,11 @@ public class BuyShopItem : MonoBehaviour
     NoteCurrencyHandler noteCurrency;
     private void Awake()
     {
-        notePublisher = FindObjectOfType<NotePublisher>();
+        
     }
     void Start()
     {
+        notePublisher = FindObjectOfType<NotePublisher>();
         hasPurchasedItem = false;
         itemParameter = GetComponent<ItemParameter>();
         noteCurrency = FindObjectOfType<NoteCurrencyHandler>();

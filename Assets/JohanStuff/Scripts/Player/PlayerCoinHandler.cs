@@ -29,6 +29,7 @@ public class PlayerCoinHandler : MonoBehaviour
     }
     private void Start()
     {
+        text = GameObject.Find("CoinsText").GetComponent<TextMeshProUGUI>();
         Coins = 0;
     }
 
