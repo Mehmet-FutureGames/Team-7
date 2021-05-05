@@ -12,20 +12,22 @@ public class BaseCombatP3 : State
     {
         Debug.Log("attack!");
         base.Enter();
+        hasAttacked = false;
         timer = 0.07f;
 
         enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
 
     }
     float timer = 0.2f;
-
+    bool hasAttacked;
     public override void LogicUpdate()
     {
         base.LogicUpdate();
         timer -= Time.deltaTime;
-        if (timer <= 0)
+        if (timer <= 0 && hasAttacked == false)
         {
             enemy.EnemyAttack();
+            hasAttacked = true;
             enemy.area.SetActive(false);
         }
     }
