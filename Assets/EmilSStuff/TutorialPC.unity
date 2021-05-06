@@ -513,7 +513,7 @@ RectTransform:
   m_GameObject: {fileID: 125520294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4252686, y: 0.4252686, z: 0.4252686}
   m_Children:
   - {fileID: 1885599374}
   - {fileID: 837994911}
@@ -591,7 +591,7 @@ RectTransform:
   m_GameObject: {fileID: 135237244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4252686, y: 0.4252686, z: 0.4252686}
   m_Children:
   - {fileID: 221686537}
   - {fileID: 736573595}
@@ -909,7 +909,7 @@ RectTransform:
   m_GameObject: {fileID: 340848819}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4252686, y: 0.4252686, z: 0.4252686}
   m_Children:
   - {fileID: 1517257919}
   - {fileID: 1285029468}
@@ -1258,7 +1258,7 @@ RectTransform:
   m_GameObject: {fileID: 422659681}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4252686, y: 0.4252686, z: 0.4252686}
   m_Children:
   - {fileID: 407718052}
   - {fileID: 769445956}
@@ -1553,7 +1553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1885,7 +1885,7 @@ RectTransform:
   m_GameObject: {fileID: 626727888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4252686, y: 0.4252686, z: 0.4252686}
   m_Children:
   - {fileID: 2016672207}
   - {fileID: 1672518283}
@@ -1963,7 +1963,7 @@ RectTransform:
   m_GameObject: {fileID: 720855883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4252686, y: 0.4252686, z: 0.4252686}
   m_Children:
   - {fileID: 396277024}
   - {fileID: 598513750}
@@ -2162,7 +2162,7 @@ RectTransform:
   m_GameObject: {fileID: 746547283}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4252686, y: 0.4252686, z: 0.4252686}
   m_Children:
   - {fileID: 459114069}
   - {fileID: 2142412831}
@@ -2548,7 +2548,7 @@ RectTransform:
   m_GameObject: {fileID: 970899034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4252686, y: 0.4252686, z: 0.4252686}
   m_Children:
   - {fileID: 1270533328}
   - {fileID: 2066769942}
@@ -2746,7 +2746,7 @@ RectTransform:
   m_GameObject: {fileID: 1029897087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4252686, y: 0.4252686, z: 0.4252686}
   m_Children:
   - {fileID: 1880153743}
   - {fileID: 1133799441}
@@ -3262,7 +3262,7 @@ RectTransform:
   m_GameObject: {fileID: 1232154130}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4252686, y: 0.4252686, z: 0.4252686}
   m_Children:
   - {fileID: 1827606510}
   - {fileID: 105988338}
@@ -3611,7 +3611,7 @@ RectTransform:
   m_GameObject: {fileID: 1411707991}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4252686, y: 0.4252686, z: 0.4252686}
   m_Children:
   - {fileID: 1303611749}
   - {fileID: 1834396806}
@@ -4061,7 +4061,7 @@ RectTransform:
   m_GameObject: {fileID: 1626207486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4252686, y: 0.4252686, z: 0.4252686}
   m_Children:
   - {fileID: 1190244292}
   - {fileID: 30062848}
