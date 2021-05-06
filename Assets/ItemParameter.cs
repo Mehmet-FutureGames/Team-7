@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ItemParameter : MonoBehaviour
 {
+    Scene currentScene;
     public int noteCost;
     public int coinCost;
     public string itemName;
     public bool buyWithCoins;
-    private void OnLevelWasLoaded(int level)
+    private void Awake()
     {
-        if (level == 2)
+        currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "CoinShop")
         {
             buyWithCoins = true;
         }
@@ -18,6 +21,5 @@ public class ItemParameter : MonoBehaviour
         {
             buyWithCoins = false;
         }
-
     }
 }

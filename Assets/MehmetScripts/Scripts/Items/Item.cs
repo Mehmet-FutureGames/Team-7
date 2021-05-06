@@ -18,7 +18,7 @@ public class Item : MonoBehaviour
         #region spawnItemModel
         if (itemStats.itemModel != null)
         {
-           ItemList.items.Add(Instantiate(itemStats.itemModel,transform.position,Quaternion.identity,transform));            
+           ItemList.items.Add(Instantiate(itemStats.itemModel,transform.position,Quaternion.identity,transform));
         }
         else
         {

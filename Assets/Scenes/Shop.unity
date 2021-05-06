@@ -5131,6 +5131,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7982927049487770390, guid: 4693bb05872ed41469aefc057d451c49,
+        type: 3}
+      propertyPath: m_Name
+      value: UIPanel
+      objectReference: {fileID: 0}
     - target: {fileID: 7982927050054537069, guid: 4693bb05872ed41469aefc057d451c49,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -9713,7 +9718,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SHOP
+  m_text: NOTE SHOP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 151a905bc081d53489640407943c03df, type: 2}
   m_sharedMaterial: {fileID: -4905786048338625914, guid: 151a905bc081d53489640407943c03df,
@@ -9777,7 +9782,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 6.807655, w: 0.7395668}
+  m_margin: {x: -2.9608574, y: 0, z: 0.7213688, w: 0.7395668}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
