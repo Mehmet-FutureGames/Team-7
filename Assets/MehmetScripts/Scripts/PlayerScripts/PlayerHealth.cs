@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     Player playerStats;
-    float currentHealth;
+    [HideInInspector] public float currentHealth;
     float defaultMaxHealth = 100f;
 
     GameObject deadPanel;
@@ -28,13 +28,10 @@ public class PlayerHealth : MonoBehaviour
         Respawn();
     }
 
-    private void Respawn()
+    public void Respawn()
     {
-        if (Time.timeScale < 1 && currentHealth > 0)
-        {
             Time.timeScale = 1;
-            deadPanel.SetActive(false);
-        }
+            deadPanel.SetActive(false);        
     }
 
     public void TakeDamage(float damage)

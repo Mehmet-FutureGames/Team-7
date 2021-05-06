@@ -26,6 +26,7 @@ public class LevelManager : MonoBehaviour
             _instance = this;
         }
         DontDestroyOnLoad(this);
+        levelsCompletedThisRun++;
         currentLevel = SceneManager.GetActiveScene().buildIndex;
     }
     private void OnLevelWasLoaded(int level)

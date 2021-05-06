@@ -17,6 +17,7 @@ public class NoteCurrencyHandler : MonoBehaviour
         {
             noteCurrency = value;
             PlayerPrefs.SetInt("NoteCurrency", noteCurrency);
+            text.text = noteCurrency.ToString("F0");
         }
     }
 

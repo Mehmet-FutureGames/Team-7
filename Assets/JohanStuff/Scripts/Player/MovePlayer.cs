@@ -160,5 +160,9 @@ public class MovePlayer : MonoBehaviour
 
         yield return null;
     }
+    private void OnLevelWasLoaded(int level)
+    {
+        player = GetComponent<Player>();
+    }
 }
 

@@ -7,9 +7,11 @@ using UnityEngine;
 public class TransisitionToNextLevel : MonoBehaviour
 {
     LevelManager manager;
+    [SerializeField] GameObject player;
     // Start is called before the first frame update
     void Start()
     {
+        player = FindObjectOfType<Player>().gameObject;
         manager = FindObjectOfType<LevelManager>();
         GetComponent<BoxCollider>().isTrigger = true;
     }

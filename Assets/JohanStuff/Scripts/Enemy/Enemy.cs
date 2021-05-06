@@ -207,11 +207,9 @@ public class Enemy : MonoBehaviour
 
     private void EventUpdate()
     {
-        distanceToPlayer = (agentObj.transform.position - player.position).magnitude;
-        
-        movementSM.CurrentState.NoteEventUpdate();
+            distanceToPlayer = (agentObj.transform.position - player.position).magnitude;
 
-
+            movementSM.CurrentState.NoteEventUpdate();        
     }
 
     private void Awake()

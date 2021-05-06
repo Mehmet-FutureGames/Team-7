@@ -17,6 +17,8 @@ public class UIManager : MonoBehaviour
 
     bool skip = false;
 
+    Player player;
+
     PressAnyKey musicStart;
     private void Start()
     {
@@ -30,6 +32,8 @@ public class UIManager : MonoBehaviour
 
         notePublisher.noteHit += UpdateWaveLevel;
         notePublisher.noteNotHit += UpdateWaveLevel;
+
+        player = FindObjectOfType<Player>();
 
         TextPanel = GameObject.Find("UIPanel");
         UpdateWaveLevel();
@@ -45,6 +49,8 @@ public class UIManager : MonoBehaviour
     {
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.buildIndex);
+        player.RestartCharacter();
+        player.GetComponent<PlayerHealth>().Respawn();
     }
 
     private void UpdateWaveLevel()

@@ -54,13 +54,50 @@ public class Player : MonoBehaviour
 
     Camera camera;
 
+    bool gameMode;
+
+    GameObject mainCanvas;
+    GameObject overlayCamera;
+    GameObject managers;
+    GameObject Publishers;
+
+    [SerializeField] bool developerMode;
+
+    Transform spawnLocation;
+
     public GameObject SlashParticleTrail; //for dash attack particles
     public GameObject SlashParticleTrail2;
 
+    public static Player Instance;
+    private void Awake()
+    {
+        camera = Camera.main;
+        if (!developerMode)
+        {
+            mainCanvas = GameObject.Find("Canvas");
+            overlayCamera = GameObject.Find("OverlayCam");
+            managers = GameObject.Find("--MANAGERS--");
+            Publishers = GameObject.Find("PUBLISHERS");
+            DontDestroyOnLoad(camera);
+            DontDestoryEverything(mainCanvas);
+            DontDestoryEverything(overlayCamera);
+            DontDestoryEverything(managers);
+            DontDestoryEverything(Publishers);
+        }
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+
+    }
     // Start is called before the first frame update
     void Start()
     {
-        camera = Camera.main;
         StartCoroutine(References());
         SetTrailSpeed();
     }
@@ -163,13 +200,21 @@ public class Player : MonoBehaviour
         playerDashRange.gameObject.SetActive(false);
     }
 #endregion
+
+    public void RestartCharacter()
+    {
+        GetComponent<PlayerHealth>().currentHealth = maxHealth;
+        Time.timeScale = 1f;
+    }
 #region References
     IEnumerator References()
     {
+        yield return new WaitForSeconds(0.0001f);
         //Checks which character the player chose from the
         //main menu and adds the scriptable object to the
         //stats variable to take its stats and use them
         selectedCharacter = PlayerPrefs.GetInt("currentSelectedCharacter");
+        
         playerChoose = GetComponent<ObjectReferences>();
         switch (selectedCharacter)
         {
@@ -265,5 +310,39 @@ public class Player : MonoBehaviour
                 break;
         }
         
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+        if(level != 3)
+        {
+            gameMode = true;
+        }
+        else
+        {
+            gameMode = false;
+        }
+        camera = Camera.main;
+        Time.timeScale = 1f;
+        
+        if (playerAttackRange != null && playerDashRange != null)
+        {
+            playerAttackRange.gameObject.SetActive(true);
+            playerDashRange.gameObject.SetActive(true);
+        }
+        StartCoroutine(References());
+    }
+    private void DontDestoryEverything(GameObject Everything)
+    {
+        DontDestroyOnLoad(Everything);
+    }
+    public void DestroyEverything()
+    {
+        Time.timeScale = 1f;
+        Destroy(overlayCamera);
+        Destroy(mainCanvas);
+        Destroy(managers);
+        Destroy(Publishers);
+        Destroy(gameObject);
+        Destroy(camera.gameObject);
     }
 }
