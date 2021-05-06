@@ -239,6 +239,7 @@ public class Player : MonoBehaviour
 
         //Stats
         damage = stats.attackDamage;
+        Debug.Log(damage);
         dashDamage = stats.dashDamage;
         maxHealth = stats.health;
 
@@ -262,7 +263,7 @@ public class Player : MonoBehaviour
 
         playerDashRange = GetComponentInChildren<PlayerDashAttack>();
         //playerAttackRange.gameObject.transform.localScale *= distanceToClick;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1f);
         playerAttackRange.gameObject.SetActive(false);
         playerDashRange.gameObject.SetActive(false);
     }
