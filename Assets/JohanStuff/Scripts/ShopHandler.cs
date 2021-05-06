@@ -87,5 +87,9 @@ public class ShopHandler : MonoBehaviour
         {
             StartCoroutine(Wait());
         }
+        if(level == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
