@@ -58,11 +58,6 @@ public class NoteHandler : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        if(level == 3)
-        {
-
-        }
-        
         timer = 0;
         delayDone = false;
         delayStarted = false;

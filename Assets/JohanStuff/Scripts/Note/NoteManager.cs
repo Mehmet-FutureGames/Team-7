@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public enum Difficulty
 {
     easy,
@@ -29,8 +29,9 @@ public class NoteManager : MonoBehaviour
     [Space]
     public GameObject notePrefab;
     private AudioClip clip;
-    [SerializeField] AudioScriptableObject audioPreset;
     [SerializeField] AudioScriptableObject shopSongPreset;
+    [SerializeField] AudioScriptableObject emilSSceneSongPreset;
+    [SerializeField] AudioScriptableObject enricoSceneSongPreset;
     [SerializeField] CalibrationSaver calibrationSaver;
     Camera camera;
 
@@ -73,13 +74,17 @@ public class NoteManager : MonoBehaviour
     {
         camera.GetComponent<AudioSource>().Stop();
 
-        if(level == 2)
+        if(level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex)
         {
             LoadPresetData(shopSongPreset);
         }
-        else
+        else if( level == SceneManager.GetSceneByName("EmilSTestScene").buildIndex)
         {
-            LoadPresetData(audioPreset);
+            LoadPresetData(emilSSceneSongPreset);
+        }
+        else if (level == SceneManager.GetSceneByName("Level_Graybox2").buildIndex)
+        {
+            LoadPresetData(enricoSceneSongPreset);
         }
         camera.GetComponent<AudioSource>().Play();
     }
