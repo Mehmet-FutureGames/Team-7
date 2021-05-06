@@ -13,6 +13,7 @@ public class ShopHandler : MonoBehaviour
     public GameObject itemNameCanvasPrefab;
 
     public static ShopHandler Instance;
+    bool isFull;
 
     private void Awake()
     {
@@ -38,9 +39,10 @@ public class ShopHandler : MonoBehaviour
                 itemPool.Add(items[0]);
                 items.RemoveAt(0);
             }
+            isFull = true;
         }
         Debug.Log("i");
-        if (itemPool != null && shopItemHolders != null)
+        if ((itemPool != null && shopItemHolders != null) && !isFull)
         {
             for (int i = 0; i < 5; i++)
             {
@@ -72,7 +74,7 @@ public class ShopHandler : MonoBehaviour
     private void OnLevelWasLoaded(int level)
     {
         shopItemHolders.Clear();
-
+        isFull = false;
         if (level == 2 && (items.Count > 0 || itemPool.Count > 0))
         {
             StartCoroutine(Wait());

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 public class Enemy : MonoBehaviour
@@ -197,7 +199,9 @@ public class Enemy : MonoBehaviour
         agent = GetComponentInChildren<NavMeshAgent>();
 
         player = FindObjectOfType<MovePlayer>().transform;
+        
         InitializeState(moveState);
+
     }
 
     void InitializeState(State state)
@@ -207,14 +211,25 @@ public class Enemy : MonoBehaviour
 
     private void EventUpdate()
     {
-            distanceToPlayer = (agentObj.transform.position - player.position).magnitude;
+        movementSM.CurrentState.NoteEventUpdate();
+        distanceToPlayer = (agentObj.transform.position - player.position).magnitude;
+        if (player != null)
+        {
+            
+            
+        }
+        else
+        {
+            //player = FindObjectOfType<MovePlayer>().transform;
+        }
+        
 
-            movementSM.CurrentState.NoteEventUpdate();        
+
     }
 
     private void Awake()
     {
-        
+
 
     }
     private void OnEnable()
@@ -241,7 +256,6 @@ public class Enemy : MonoBehaviour
         Player.EnemyTransforms.Add(agentObj.transform);
         area = Instantiate(stats.attackAreaShape, agentObj.transform.position, Quaternion.identity, agentObj.transform);
     }
-
     private void OnDisable()
     {
         
