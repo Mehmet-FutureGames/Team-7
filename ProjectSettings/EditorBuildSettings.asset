@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/EmilSStuff/EmilSTestScene.unity
     guid: e99bcb8993ff30041b2dbacd030afdaf
   - enabled: 1
+    path: Assets/Scenes/CoinShop.unity
+    guid: 09e1331d4123a57419a8f79606c9df34
+  - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 2dae91d30edcc1645ad787fed5449eae
   - enabled: 1
