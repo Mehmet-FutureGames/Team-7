@@ -37,11 +37,9 @@ public class ShopHandler : MonoBehaviour
             {
                 itemPool.Add(items[0]);
                 items.RemoveAt(0);
-                Debug.Log("1: " + i);
             }
-
         }
-        
+        Debug.Log("i");
         if ((itemPool != null && shopItemHolders != null) && itemPool.Count > 0)
         {
             for (int i = 0; i < 5; i++)
@@ -49,11 +47,11 @@ public class ShopHandler : MonoBehaviour
                 int x = Random.Range(0, itemPool.Count);
                 items.Add(itemPool[x]);
                 itemPool.RemoveAt(x);
+
                 if (itemPool.Count == 0)
                 {
                     break;
                 }
-                Debug.Log("2: " + i);
             }
             Debug.Log(shopItemHolders.Count);
             for (int i = 0; i < items.Count; i++)
@@ -67,7 +65,6 @@ public class ShopHandler : MonoBehaviour
                 obj.name = obj.name.Replace("(Clone)", "");
                 //items.RemoveAt(e);
             }
-
         }
     }
 
@@ -81,6 +78,10 @@ public class ShopHandler : MonoBehaviour
         else if(level != 3 && items != null)
         {
 
+        }
+        if(level == 4 && (items.Count > 0 || itemPool.Count > 0))
+        {
+            StartCoroutine(Wait());
         }
     }
 }
