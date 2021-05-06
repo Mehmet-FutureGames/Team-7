@@ -61,26 +61,26 @@ public class ItemPurchase : MonoBehaviour
             if (itemType == ItemType.HealthUpgrade && player.GetComponent<PlayerCoinHandler>().coins >= itemCost)
             {
                 player.GetComponent<PlayerHealth>().UpgradeHealth(upgradeAmount);
-                player.GetComponent<PlayerCoinHandler>().coins -= itemCost;
+                PlayerCoinHandler.Instance.Coins -= itemCost;
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.AttackUpgrade && player.GetComponent<PlayerCoinHandler>().coins >= itemCost)
             {
                 player.GetComponent<Player>().UpgradeDamageMelee(upgradeAmount);
-                player.GetComponent<PlayerCoinHandler>().coins -= itemCost;
+                PlayerCoinHandler.Instance.Coins -= itemCost;
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.DashAttackUpgrade && player.GetComponent<PlayerCoinHandler>().coins >= itemCost)
             {
                 player.GetComponent<Player>().UpgradeDamageDash(upgradeAmount);
-                player.GetComponent<PlayerCoinHandler>().coins -= itemCost;
+                PlayerCoinHandler.Instance.Coins -= itemCost;
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.FrenzyUpgrade && player.GetComponent<PlayerCoinHandler>().coins >= itemCost)
             {
                 int upgrade = (int)upgradeAmount;
                 player.GetComponent<PlayerFrenzy>().maxFrenzy += upgrade;
-                player.GetComponent<PlayerCoinHandler>().coins -= itemCost;
+                PlayerCoinHandler.Instance.Coins -= itemCost;
                 RemoveItemFromList();
             }
             else
@@ -94,26 +94,26 @@ public class ItemPurchase : MonoBehaviour
             if (itemType == ItemType.HealthUpgrade && player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= itemCostNotes)
             {
                 player.GetComponent<PlayerHealth>().UpgradeHealth(upgradeAmount);
-                player.GetComponent<NoteCurrencyHandler>().NoteCurrency -= itemCostNotes;
+                NoteCurrencyHandler.Instance.NoteCurrency -= itemCostNotes;
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.AttackUpgrade && player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= itemCostNotes)
             {
                 player.GetComponent<Player>().UpgradeDamageMelee(upgradeAmount);
-                player.GetComponent<NoteCurrencyHandler>().NoteCurrency -= itemCostNotes;
+                NoteCurrencyHandler.Instance.NoteCurrency -= itemCostNotes;
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.DashAttackUpgrade && player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= itemCostNotes)
             {
                 player.GetComponent<Player>().UpgradeDamageDash(upgradeAmount);
-                player.GetComponent<NoteCurrencyHandler>().NoteCurrency -= itemCostNotes;
+                NoteCurrencyHandler.Instance.NoteCurrency -= itemCostNotes;
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.FrenzyUpgrade && player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= itemCostNotes)
             {
                 int upgrade = (int)upgradeAmount;
                 player.GetComponent<PlayerFrenzy>().maxFrenzy += upgrade;
-                player.GetComponent<NoteCurrencyHandler>().NoteCurrency -= itemCostNotes;
+                NoteCurrencyHandler.Instance.NoteCurrency -= itemCostNotes;
                 RemoveItemFromList();
             }
             else
@@ -125,7 +125,7 @@ public class ItemPurchase : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
-        if (level == 4)
+        if (level == 2)
         {
             buyWithCoins = true;
         }
@@ -144,7 +144,6 @@ public class ItemPurchase : MonoBehaviour
                 }
             }
         }
-
     }
     private void OnEnable()
     {

@@ -8,9 +8,9 @@ using TMPro;
 
 public class PlayerStatsMenu : MonoBehaviour
 {
-    int amountOfHealthUpgrades;
-    int amountofDamageUpgrades;
-    int amountOfFrenzyUpgrades;
+    [SerializeField] int amountOfHealthUpgrades;
+    [SerializeField] int amountofDamageUpgrades;
+    [SerializeField] int amountOfFrenzyUpgrades;
 
 
     bool hasStartedFirstTime = false;
@@ -160,13 +160,19 @@ public class PlayerStatsMenu : MonoBehaviour
     }
     public void SelectCharacterMinus()
     {
-        currentCharacterSelected = Mathf.Clamp(--currentCharacterSelected, 0, 2);
-        SelectCharacter();
+        if (!hasUpgraded)
+        {
+            currentCharacterSelected = Mathf.Clamp(--currentCharacterSelected, 0, 2);
+            SelectCharacter();
+        }
     }
     public void SelectCharacterPlus()
     {
-        currentCharacterSelected = Mathf.Clamp(++currentCharacterSelected, 0, 2);
-        SelectCharacter();
+        if (!hasUpgraded)
+        {
+            currentCharacterSelected = Mathf.Clamp(++currentCharacterSelected, 0, 2);
+            SelectCharacter();
+        }
     }
 
     private void RemoveUpgrade(int upgradedStat)
@@ -403,5 +409,68 @@ public class PlayerStatsMenu : MonoBehaviour
         yield return new WaitForSeconds(4);
         hasSaved = false;
         saveTextBox.SetActive(false);
+    }
+    public void RevertStatUpgrade()
+    {
+        notesText.text = notes.ToString();
+        #region ifCity
+        if (amountOfHealthUpgrades >= 0)
+        {
+            for (int i = 0; i < amountOfHealthUpgrades; i++)
+            {
+                stats.health -= 5;
+                --amountOfHealthUpgrades;
+                characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth -= upgradeNotesAmount;
+                characters[currentCharacterSelected].GetComponent<CharacterStats>().UpdateText();
+                confirmUpgrade.SetActive(false);
+                UpdateTextUpgrade();
+                notes += characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth;
+                notesText.text = notes.ToString();
+                if (amountOfHealthUpgrades <= 0)
+                {
+                    hasUpgraded = false;
+                }
+            }
+            RemoveButton();
+        }
+        if (amountOfFrenzyUpgrades >= 0)
+        {
+            for (int i = 0; i < amountOfFrenzyUpgrades; i++)
+            {
+                stats.maxFrenzy -= 5;
+                --amountOfFrenzyUpgrades;
+                characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost -= upgradeNotesAmount;
+                characters[currentCharacterSelected].GetComponent<CharacterStats>().UpdateText();
+                UpdateTextUpgrade();
+                confirmUpgrade.SetActive(false);
+                notes += characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost;
+                notesText.text = notes.ToString();
+                if (amountOfFrenzyUpgrades <= 0)
+                {
+                    hasUpgraded = false;
+                }
+            }
+            RemoveButton();
+        }
+        if (amountofDamageUpgrades >= 0)
+        {
+            for (int i = 0; i < amountofDamageUpgrades; i++)
+            {
+                stats.attackDamage -= 5;
+                --amountofDamageUpgrades;
+                characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage -= upgradeNotesAmount;
+                characters[currentCharacterSelected].GetComponent<CharacterStats>().UpdateText();
+                confirmUpgrade.SetActive(false);
+                UpdateTextUpgrade();
+                notes += characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage;
+                notesText.text = notes.ToString();
+                if (amountofDamageUpgrades <= 0)
+                {
+                    hasUpgraded = false;
+                }
+            }
+            RemoveButton();
+        }
+        #endregion
     }
 }

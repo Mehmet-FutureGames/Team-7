@@ -13,6 +13,11 @@ public class CameraManager : MonoBehaviour
 
     private void Awake()
     {
+        
+    }
+    private void Start()
+    {
         player = FindObjectOfType<Player>().transform;
+        Debug.Log(player);
     }
 }

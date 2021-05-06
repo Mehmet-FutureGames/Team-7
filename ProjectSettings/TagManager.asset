@@ -15,6 +15,7 @@ TagManager:
   - NoteCurrency
   - AttackButton
   - BlockButton
+  - SpawnPos
   layers:
   - Default
   - TransparentFX

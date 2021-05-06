@@ -107,5 +107,10 @@ public class ComboHandler : MonoBehaviour
     {
         hitNote = true;
     }
+    private void OnLevelWasLoaded(int level)
+    {
+        Combo = 0;
+        displayCombo.text = "";
+    }
 
 }
