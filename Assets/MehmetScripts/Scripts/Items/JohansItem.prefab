@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a2d20796720454d8978fd0cc2f9bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteCost: 0
-  coinCost: 0
+  noteCost: 15
+  coinCost: 50
   itemName: 
   buyWithCoins: 0
