@@ -23,15 +23,16 @@ public class CoinDrop : MonoBehaviour
     {
         randomXVal = Random.Range(-100f, 100f);
         randomZVal = Random.Range(-200f, 200f);
-        if(player != null)
-        {
-            player = FindObjectOfType<Player>().transform;
-        }
-        
+
+
         rb = GetComponent<Rigidbody>();
     }
     private void OnEnable()
     {
+        if (player == null)
+        {
+            player = FindObjectOfType<Player>().transform;
+        }
         GetComponent<SphereCollider>().enabled = false;
         follow = false;
         rb.isKinematic = false;
