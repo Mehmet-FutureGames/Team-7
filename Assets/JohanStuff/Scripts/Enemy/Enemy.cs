@@ -268,7 +268,6 @@ public class Enemy : MonoBehaviour
         Player.EnemyTransforms.Add(agentObj.transform);
         area = Instantiate(stats.attackAreaShape, agentObj.transform.position, Quaternion.identity, agentObj.transform);
 
-            Debug.Log("!");
             area2 = Instantiate(stats.attackAreaShape2, agentObj.transform.position, Quaternion.identity, agentObj.transform);
         
     }

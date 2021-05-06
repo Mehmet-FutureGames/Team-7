@@ -178,7 +178,6 @@ public class WaveManager : MonoBehaviour
         {
             int randomItem = Random.Range(0, statItems.statItems.Count);
             Instantiate(statItems.statItems[randomItem], itemSpawnLocations[i]);
-            statItems.statItems.RemoveAt(randomItem);
         }
     }
 

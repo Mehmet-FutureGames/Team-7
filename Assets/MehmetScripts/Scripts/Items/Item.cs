@@ -7,6 +7,8 @@ public class Item : MonoBehaviour
 {
     public StatItem itemStats;
 
+    Item[] itemsInGame;
+
     [HideInInspector] public string itemName;
     [HideInInspector] public float upgradeAmount;
     [HideInInspector] public ItemType itemType;
@@ -18,7 +20,7 @@ public class Item : MonoBehaviour
         #region spawnItemModel
         if (itemStats.itemModel != null)
         {
-           ItemList.items.Add(Instantiate(itemStats.itemModel,transform.position,Quaternion.identity,transform));            
+           ItemList.items.Add(Instantiate(itemStats.itemModel,transform.position,Quaternion.identity,transform));
         }
         else
         {
@@ -43,27 +45,24 @@ public class Item : MonoBehaviour
             if (itemType == ItemType.HealthUpgrade)
             {
                 player.GetComponent<PlayerHealth>().UpgradeHealth(upgradeAmount);
-                Debug.Log("Upgraded Health!");
             }
             else if (itemType == ItemType.AttackUpgrade)
             {
                 player.GetComponent<Player>().UpgradeDamageMelee(upgradeAmount);
-                Debug.Log("Upgraded Melee Attack!");
             }
             else if (itemType == ItemType.DashAttackUpgrade)
             {
                 player.GetComponent<Player>().UpgradeDamageDash(upgradeAmount);
-                Debug.Log("Upgraded Dash Attack!");
             }
             else if (itemType == ItemType.FrenzyUpgrade)
             {
                 int upgrade = (int)upgradeAmount;
                 player.GetComponent<PlayerFrenzy>().maxFrenzy += upgrade;
-                Debug.Log("Upgraded Max Frenzy!");
             }
-        for (int i = 0; i < ItemList.items.Count; i++)
+        itemsInGame = FindObjectsOfType<Item>();
+        for (int i = 0; i < itemsInGame.Length; i++)
         {
-            ItemList.items[i].SetActive(false);
+            itemsInGame[i].gameObject.SetActive(false);
         }
     }
 }

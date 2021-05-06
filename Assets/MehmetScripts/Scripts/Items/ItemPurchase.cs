@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class ItemPurchase : MonoBehaviour
 {
+    Scene currentLevel;
     bool buyWithCoins = false;
     [SerializeField] bool canBuy;
     NotePublisher notePublisher;
@@ -20,6 +21,15 @@ public class ItemPurchase : MonoBehaviour
 
     private void Awake()
     {
+        currentLevel = SceneManager.GetActiveScene();
+        if(currentLevel.name == "CoinShop")
+        {
+            buyWithCoins = true;
+        }
+        else
+        {
+            buyWithCoins = false;
+        }
         player = FindObjectOfType<Player>().gameObject;
         GetComponent<BoxCollider>().isTrigger = true;
         notePublisher = FindObjectOfType<NotePublisher>();
@@ -46,13 +56,11 @@ public class ItemPurchase : MonoBehaviour
     {
         canBuy = true;
         ItemCanvas.isInBuyArea = true;
-        Debug.Log(canBuy);
     }
     private void OnTriggerExit(Collider other)
     {
         ItemCanvas.isInBuyArea = false;
         canBuy = false;
-        Debug.Log(canBuy);
     }
     private void UpgradeStats()
     {
@@ -62,18 +70,21 @@ public class ItemPurchase : MonoBehaviour
             {
                 player.GetComponent<PlayerHealth>().UpgradeHealth(upgradeAmount);
                 PlayerCoinHandler.Instance.Coins -= itemCost;
+                gameObject.SetActive(false);
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.AttackUpgrade && player.GetComponent<PlayerCoinHandler>().coins >= itemCost)
             {
                 player.GetComponent<Player>().UpgradeDamageMelee(upgradeAmount);
                 PlayerCoinHandler.Instance.Coins -= itemCost;
+                gameObject.SetActive(false);
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.DashAttackUpgrade && player.GetComponent<PlayerCoinHandler>().coins >= itemCost)
             {
                 player.GetComponent<Player>().UpgradeDamageDash(upgradeAmount);
                 PlayerCoinHandler.Instance.Coins -= itemCost;
+                gameObject.SetActive(false);
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.FrenzyUpgrade && player.GetComponent<PlayerCoinHandler>().coins >= itemCost)
@@ -81,6 +92,7 @@ public class ItemPurchase : MonoBehaviour
                 int upgrade = (int)upgradeAmount;
                 player.GetComponent<PlayerFrenzy>().maxFrenzy += upgrade;
                 PlayerCoinHandler.Instance.Coins -= itemCost;
+                gameObject.SetActive(false);
                 RemoveItemFromList();
             }
             else
@@ -95,18 +107,21 @@ public class ItemPurchase : MonoBehaviour
             {
                 player.GetComponent<PlayerHealth>().UpgradeHealth(upgradeAmount);
                 NoteCurrencyHandler.Instance.NoteCurrency -= itemCostNotes;
+                gameObject.SetActive(false);
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.AttackUpgrade && player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= itemCostNotes)
             {
                 player.GetComponent<Player>().UpgradeDamageMelee(upgradeAmount);
                 NoteCurrencyHandler.Instance.NoteCurrency -= itemCostNotes;
+                gameObject.SetActive(false);
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.DashAttackUpgrade && player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= itemCostNotes)
             {
                 player.GetComponent<Player>().UpgradeDamageDash(upgradeAmount);
                 NoteCurrencyHandler.Instance.NoteCurrency -= itemCostNotes;
+                gameObject.SetActive(false);
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.FrenzyUpgrade && player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= itemCostNotes)
@@ -114,13 +129,14 @@ public class ItemPurchase : MonoBehaviour
                 int upgrade = (int)upgradeAmount;
                 player.GetComponent<PlayerFrenzy>().maxFrenzy += upgrade;
                 NoteCurrencyHandler.Instance.NoteCurrency -= itemCostNotes;
+                gameObject.SetActive(false);
                 RemoveItemFromList();
             }
             else
             {
                 Debug.Log("You don't have enough notes, item cost notes: " + itemCostNotes);
             }
-            gameObject.SetActive(false);
+            
         }
     }
     private void OnLevelWasLoaded(int level)
@@ -128,6 +144,7 @@ public class ItemPurchase : MonoBehaviour
         if (level == 2)
         {
             buyWithCoins = true;
+            Debug.Log("yes");
         }
     }
     private void RemoveItemFromList()
