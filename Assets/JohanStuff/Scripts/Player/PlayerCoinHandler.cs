@@ -38,7 +38,7 @@ public class PlayerCoinHandler : MonoBehaviour
         Coins += amount;
     }
 
-    private void SetText(float amount)
+    public void SetText(float amount)
     {
         text.text = amount.ToString("F0");
     }

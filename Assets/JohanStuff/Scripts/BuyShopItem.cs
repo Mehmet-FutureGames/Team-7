@@ -11,10 +11,6 @@ public class BuyShopItem : MonoBehaviour
     bool hasPurchasedItem;
     bool isInBuyArea;
     NoteCurrencyHandler noteCurrency;
-    private void Awake()
-    {
-        
-    }
     void Start()
     {
         

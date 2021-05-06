@@ -7,6 +7,8 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    Transform spawnPos;
+
     GameObject TextPanel;
 
     [SerializeField] TextMeshProUGUI waveText;
@@ -49,7 +51,7 @@ public class UIManager : MonoBehaviour
     {
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.buildIndex);
-        player.RestartCharacter();
+        player.RestartCharacter(spawnPos);
         player.GetComponent<PlayerHealth>().Respawn();
     }
 
@@ -79,6 +81,18 @@ public class UIManager : MonoBehaviour
             musicStart.audio.Play();
             musicStart.StartGame();
             Time.timeScale = 1;        
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+        Debug.Log(level);
+        if(level == 2 || level == 3)
+        {
+            Debug.Log("You are in the shop!");
+        }
+        else
+        {
+            spawnPos = GameObject.FindGameObjectWithTag("SpawnPos").transform;
+        }
     }
 
 }
