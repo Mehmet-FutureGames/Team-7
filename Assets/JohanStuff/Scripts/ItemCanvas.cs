@@ -7,6 +7,8 @@ public class ItemCanvas : MonoBehaviour
     Camera mainCamrea;
     public TextMeshProUGUI text;
     public static ItemCanvas Instance;
+    public static bool isInBuyArea;
+    [SerializeField]GameObject panel;
     private void Awake()
     {
         if(Instance == null)
@@ -16,8 +18,16 @@ public class ItemCanvas : MonoBehaviour
         mainCamrea = Camera.main;
         transform.LookAt(transform.position - mainCamrea.transform.rotation * Vector3.back, mainCamrea.transform.rotation * Vector3.up);
     }
-    void Start()
+    private void Update()
     {
+        if (isInBuyArea && !panel.activeSelf)
+        {
+            panel.SetActive(true);
+        }
+        else if(!isInBuyArea && panel.activeSelf)
+        {
+            panel.SetActive(false);
+        }
 
     }
 }

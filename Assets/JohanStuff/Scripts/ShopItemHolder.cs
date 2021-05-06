@@ -7,8 +7,9 @@ public class ShopItemHolder : MonoBehaviour
 
     GameObject prefab;
 
-    private void Awake()
+    private void Start()
     {
         ShopHandler.shopItemHolders.Add(this);
     }
+
 }

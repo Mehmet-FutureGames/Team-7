@@ -15,7 +15,7 @@ public class CameraFollowPlayer : MonoBehaviour
     void Start()
     {
         cameraManager = FindObjectOfType<CameraManager>();
-        player = cameraManager.player;
+        player = FindObjectOfType<Player>().transform;
         camFollowSpeed = cameraManager.camFollowSpeed;
         cameraOffset = cameraManager.cameraOffset;
     }
@@ -23,7 +23,10 @@ public class CameraFollowPlayer : MonoBehaviour
     
     void LateUpdate()
     {
-        distance = Vector3.Distance(transform.position, player.position + cameraOffset);
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position + cameraOffset , distance * camFollowSpeed * Time.deltaTime);
+        if (player != null)
+        {
+            distance = Vector3.Distance(transform.position, player.position + cameraOffset);
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position + cameraOffset, distance * camFollowSpeed * Time.deltaTime);
+        }
     }
 }

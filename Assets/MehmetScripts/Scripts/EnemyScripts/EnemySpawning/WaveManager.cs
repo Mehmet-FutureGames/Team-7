@@ -32,8 +32,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] GameObject door;
     [Space]
 
-
-    TypeOfEnemy[] spawnPoints;
+    [SerializeField] TypeOfEnemy[] spawnPoints;
     int amountofEnemiesWanted;
     int floorLevel = 0;
     public int waveLevel = 0;
@@ -54,7 +53,7 @@ public class WaveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnPointPattern();
+        Invoke("SpawnPointPattern", 0.1f);
 
         manager = FindObjectOfType<LevelManager>();
 
@@ -65,6 +64,8 @@ public class WaveManager : MonoBehaviour
         spawnPoints = FindObjectsOfType<TypeOfEnemy>();
 
         spawnItems();
+
+        InvokeRepeating("AmountOfEnemiesOnMap", 0, 5);
     }
     #endregion
     #region BeginWaveSpawnEnemies
@@ -83,7 +84,6 @@ public class WaveManager : MonoBehaviour
                 }
             }
         }
-        DestroySpawnPattern();
     }
     #endregion
 
@@ -115,8 +115,8 @@ public class WaveManager : MonoBehaviour
         amountofEnemiesWanted = spawnPoints.Length;
         if (hasCompleted)
         {
-            BeginWave();
             hasCompleted = false;
+            BeginWave();
         }
         hasSpawnedPattern = true;        
     }
@@ -129,11 +129,11 @@ public class WaveManager : MonoBehaviour
     public void FinishFloor()
     {
         //Add behaviour for what happens when you finish a level.
+        spawnItems();
         floorLevel++;
         Instantiate(door);
         PlayerPrefs.SetInt("floorLevel", floorLevel);
     }
-
     private void DestroySpawnPattern()
     {
         var spawnPattern = GameObject.FindGameObjectWithTag("PatternSpawner");
@@ -149,17 +149,22 @@ public class WaveManager : MonoBehaviour
     public void EnemyDefeated()
     {
         amountOfEnemies--;
-        if (amountOfEnemies < 3 && waveLevel < waveMaximum)
+        if (amountOfEnemies <= 3 && waveLevel < waveMaximum)
         {
+            hasCompleted = true;
             hasSpawnedPattern = false;
             SpawnPointPattern();
-            hasCompleted = true;
+            DestroySpawnPattern();
         }
-        else if (amountOfEnemies <= 0 && waveLevel >= waveMaximum)
+        if (amountOfEnemies <= 0 && waveLevel >= waveMaximum)
         {
             FinishFloor();
             spawnItems();
         }
+    }
+    public void AmountOfEnemiesOnMap()
+    {
+
     }
     public void Subscribe(Enemy enemy)
     {

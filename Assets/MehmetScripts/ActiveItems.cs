@@ -6,16 +6,17 @@ public class ActiveItems : MonoBehaviour
 {
 
 
-    public int cost;
+    //protected int cost;
     public int itemIndex;
-    public string itemName;
+    //protected string itemName;
 
     public ItemCanvas itemCanvas;
 
     protected virtual void Start()
     {
         itemCanvas = FindObjectOfType<ItemCanvas>();
-
+        //cost = GetComponent<ItemParameter>().cost;
+        //itemName = GetComponent<ItemParameter>().itemName;
     }
 
     public virtual void PerformAction()

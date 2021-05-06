@@ -6,13 +6,15 @@ public class Player : MonoBehaviour
 {
     public static List<Transform> EnemyTransforms = new List<Transform>();
 
+    public AudioClip attacksound;
+
     public PlayerStats stats;
 
     [SerializeField] LayerMask ground;
     [SerializeField] LayerMask enemyLayer;
 
     ObjectReferences playerChoose;
-
+    NoteManager noteManager;
     MovePlayer movePlayer;
     RaycastHit hit;
     #region VariableSetInScriptableObject
@@ -52,12 +54,52 @@ public class Player : MonoBehaviour
 
     Camera camera;
 
+    bool gameMode;
+
+    GameObject mainCanvas;
+    GameObject overlayCamera;
+    GameObject managers;
+    GameObject Publishers;
+
+    [SerializeField] bool developerMode;
+
+    Transform spawnLocation;
+
+    public GameObject SlashParticleTrail; //for dash attack particles
+    public GameObject SlashParticleTrail2;
+
+    public static Player Instance;
+    private void Awake()
+    {
+        camera = Camera.main;
+        if (!developerMode)
+        {
+            mainCanvas = GameObject.Find("Canvas");
+            overlayCamera = GameObject.Find("OverlayCam");
+            managers = GameObject.Find("--MANAGERS--");
+            Publishers = GameObject.Find("PUBLISHERS");
+            DontDestroyOnLoad(camera);
+            DontDestoryEverything(mainCanvas);
+            DontDestoryEverything(overlayCamera);
+            DontDestoryEverything(managers);
+            DontDestoryEverything(Publishers);
+        }
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+
+    }
     // Start is called before the first frame update
     void Start()
     {
-        camera = Camera.main;
         StartCoroutine(References());
-        GetComponent<TrailRenderer>().time = 60 / FindObjectOfType<NoteManager>().beatTempo;
+        SetTrailSpeed();
     }
     #region AttacksActivation
     public void DashAttackActivated()
@@ -128,6 +170,7 @@ public class Player : MonoBehaviour
     void AttackingActivated()
     {
         PlayerAnm.Instance.AttackTrigger();
+        AudioSource.PlayClipAtPoint(attacksound, transform.position);
     }
     public void StartAttacking()
     {
@@ -144,24 +187,34 @@ public class Player : MonoBehaviour
             PlayerAnm.Instance.DashTrigger();
             playerDashRange.gameObject.SetActive(true);
             playerFrenzy.CurrentFrenzy -= dashAttackFrenzyCost;
+            SlashParticleTrail.SetActive(true); //new
+            SlashParticleTrail2.SetActive(true);
         }
         else
         {
             DisableDashAttack();
         }
     }
-    void DisableDashAttack()
+    public void DisableDashAttack()
     {
         playerDashRange.gameObject.SetActive(false);
     }
 #endregion
+
+    public void RestartCharacter()
+    {
+        GetComponent<PlayerHealth>().currentHealth = maxHealth;
+        Time.timeScale = 1f;
+    }
 #region References
     IEnumerator References()
     {
+        yield return new WaitForSeconds(0.0001f);
         //Checks which character the player chose from the
         //main menu and adds the scriptable object to the
         //stats variable to take its stats and use them
         selectedCharacter = PlayerPrefs.GetInt("currentSelectedCharacter");
+        
         playerChoose = GetComponent<ObjectReferences>();
         switch (selectedCharacter)
         {
@@ -186,6 +239,7 @@ public class Player : MonoBehaviour
 
         //Stats
         damage = stats.attackDamage;
+        Debug.Log(damage);
         dashDamage = stats.dashDamage;
         maxHealth = stats.health;
 
@@ -209,7 +263,7 @@ public class Player : MonoBehaviour
 
         playerDashRange = GetComponentInChildren<PlayerDashAttack>();
         //playerAttackRange.gameObject.transform.localScale *= distanceToClick;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1f);
         playerAttackRange.gameObject.SetActive(false);
         playerDashRange.gameObject.SetActive(false);
     }
@@ -240,4 +294,56 @@ public class Player : MonoBehaviour
         StartCoroutine(UpgradeDamageDashActivator(damage));
     }
 #endregion
+    
+    void SetTrailSpeed()
+    {
+        noteManager = FindObjectOfType<NoteManager>();
+        switch (noteManager.difficulty)
+        {
+            case Difficulty.easy:
+                GetComponent<TrailRenderer>().time = 60 / FindObjectOfType<NoteManager>().beatTempo * 1;
+                break;
+            case Difficulty.normal:
+                GetComponent<TrailRenderer>().time = 60 / FindObjectOfType<NoteManager>().beatTempo * 0.5f;
+                break;
+            case Difficulty.hard:
+                GetComponent<TrailRenderer>().time = 60 / FindObjectOfType<NoteManager>().beatTempo * 0.25f;
+                break;
+        }
+        
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+        if(level != 3)
+        {
+            gameMode = true;
+        }
+        else
+        {
+            gameMode = false;
+        }
+        camera = Camera.main;
+        Time.timeScale = 1f;
+        
+        if (playerAttackRange != null && playerDashRange != null)
+        {
+            playerAttackRange.gameObject.SetActive(true);
+            playerDashRange.gameObject.SetActive(true);
+        }
+        StartCoroutine(References());
+    }
+    private void DontDestoryEverything(GameObject Everything)
+    {
+        DontDestroyOnLoad(Everything);
+    }
+    public void DestroyEverything()
+    {
+        Time.timeScale = 1f;
+        Destroy(overlayCamera);
+        Destroy(mainCanvas);
+        Destroy(managers);
+        Destroy(Publishers);
+        Destroy(gameObject);
+        Destroy(camera.gameObject);
+    }
 }

@@ -11,6 +11,8 @@ public class NotePublisher : MonoBehaviour
     public Action noteHitBlock;
     public Action noteHitAttack;
     public Action buttonHitAttack;
+    public static NotePublisher Instance;
+
     public void NoteHit()
     {
         if(noteHit != null)

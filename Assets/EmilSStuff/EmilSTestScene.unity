@@ -567,7 +567,12 @@ PrefabInstance:
     - target: {fileID: 7914652014459963307, guid: 8bbdca35cac70f143b906cf2b0652137,
         type: 3}
       propertyPath: m_Name
-      value: Player (1)
+      value: Joe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7914652014459963307, guid: 8bbdca35cac70f143b906cf2b0652137,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7914652014459963313, guid: 8bbdca35cac70f143b906cf2b0652137,
         type: 3}
@@ -13290,6 +13295,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: OverlayCam
       objectReference: {fileID: 0}
+    - target: {fileID: 87044960873636164, guid: 9cddfa94a8dbb5f498fac657b403b928,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 87044961701089135, guid: 9cddfa94a8dbb5f498fac657b403b928,
         type: 3}
       propertyPath: pools.Array.size
@@ -13787,7 +13797,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
-  levelsCompleted: 0
+  levelsCompletedThisRun: 0
+  levelsCompletedOverall: 0
 --- !u!4 &819439419
 Transform:
   m_ObjectHideFlags: 0
@@ -22495,6 +22506,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7982927049351044180, guid: 4693bb05872ed41469aefc057d451c49,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7982927050054537069, guid: 4693bb05872ed41469aefc057d451c49,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -23888,6 +23904,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753023273115067106, guid: a1a29c4f959c6a94297623fce0b429ed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7753023273115067108, guid: a1a29c4f959c6a94297623fce0b429ed,
         type: 3}
@@ -26041,6 +26062,22 @@ PrefabInstance:
       propertyPath: displayCombo
       value: 
       objectReference: {fileID: 352196566}
+    - target: {fileID: 3588262258200070875, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 1378560773}
+    - target: {fileID: 3588262258200070875, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: displayCombo
+      value: 
+      objectReference: {fileID: 352196566}
+    - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: audioPreset
+      value: 
+      objectReference: {fileID: 11400000, guid: a140ffb0235c5e443be301fedc7b08c6,
+        type: 2}
     - target: {fileID: 8966836274532626828, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: audio
@@ -26051,10 +26088,20 @@ PrefabInstance:
       propertyPath: waveText
       value: 
       objectReference: {fileID: 96506593}
+    - target: {fileID: 8966836274532626829, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8966836275058985840, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: m_Name
       value: --MANAGERS--
+      objectReference: {fileID: 0}
+    - target: {fileID: 8966836275058985840, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8966836275058985841, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
@@ -26120,7 +26167,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1619984196}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a778399c8f9b404284c4159a889759f, type: 3}
   m_Name: 

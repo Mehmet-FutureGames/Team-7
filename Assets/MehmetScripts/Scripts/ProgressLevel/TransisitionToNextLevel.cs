@@ -7,9 +7,12 @@ using UnityEngine;
 public class TransisitionToNextLevel : MonoBehaviour
 {
     LevelManager manager;
+    [SerializeField] GameObject player;
+    [SerializeField] Transform spawnPos;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        player = FindObjectOfType<Player>().gameObject;
         manager = FindObjectOfType<LevelManager>();
         GetComponent<BoxCollider>().isTrigger = true;
     }
@@ -23,5 +26,13 @@ public class TransisitionToNextLevel : MonoBehaviour
     private void NextLevel()
     {
         SceneManager.LoadScene(manager.currentLevel + manager.levelsCompletedThisRun);
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+        if(level == 4)
+        {
+            player.transform.position = spawnPos.transform.position;
+            player.GetComponent<MovePlayer>().mousePos = spawnPos.transform.position;
+        }
     }
 }

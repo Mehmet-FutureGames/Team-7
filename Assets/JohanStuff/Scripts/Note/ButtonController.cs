@@ -21,6 +21,7 @@ public class ButtonController : MonoBehaviour
     void Update()
     {
         NewMethod();
+        //transform.localScale = new Vector3(transform.localScale.x, 3 + AudioReader.bandBuffer[0] * 5, transform.localScale.z) ;
     }
 
     private void NewMethod()

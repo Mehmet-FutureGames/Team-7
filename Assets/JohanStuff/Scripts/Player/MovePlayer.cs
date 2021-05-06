@@ -11,6 +11,8 @@ public class MovePlayer : MonoBehaviour
     
     bool collided;
 
+    public AudioClip movingsound;
+
     public bool isMoving;
 
     public Action playerRegMove;
@@ -147,6 +149,7 @@ public class MovePlayer : MonoBehaviour
     }
     IEnumerator Move()
     {
+        //AudioSource.PlayClipAtPoint(movingsound, transform.position);
         isMoving = true;
         while (transform.position != mousePos)
         {
@@ -156,6 +159,10 @@ public class MovePlayer : MonoBehaviour
         isMoving = false;
 
         yield return null;
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+        player = GetComponent<Player>();
     }
 }
 

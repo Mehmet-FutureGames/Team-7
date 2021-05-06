@@ -5,6 +5,7 @@ using UnityEngine;
 public class CoinDrop : MonoBehaviour
 {
     public Transform player;
+    public AudioClip coinsound;
 
     Vector3 velocity = Vector3.zero;
     [SerializeField, Range(0, 5)] float disableAfterSeconds;
@@ -22,11 +23,16 @@ public class CoinDrop : MonoBehaviour
     {
         randomXVal = Random.Range(-100f, 100f);
         randomZVal = Random.Range(-200f, 200f);
-        player = FindObjectOfType<Player>().transform;
+
+
         rb = GetComponent<Rigidbody>();
     }
     private void OnEnable()
     {
+        if (player == null)
+        {
+            player = FindObjectOfType<Player>().transform;
+        }
         GetComponent<SphereCollider>().enabled = false;
         follow = false;
         rb.isKinematic = false;
@@ -36,10 +42,13 @@ public class CoinDrop : MonoBehaviour
 
     void FixedUpdate()
     {
-        float distance = (player.position - transform.position).magnitude;
-        if(distance < 30 && follow == true)
+        if(player != null)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, player.position, ref velocity, speedModifier * Time.fixedDeltaTime);
+            float distance = (player.position - transform.position).magnitude;
+            if (distance < 30 && follow == true)
+            {
+                transform.position = Vector3.SmoothDamp(transform.position, player.position, ref velocity, speedModifier * Time.fixedDeltaTime);
+            }
         }
     }
     void SetFollow()
@@ -53,6 +62,7 @@ public class CoinDrop : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            AudioSource.PlayClipAtPoint(coinsound, transform.position);
             other.gameObject.GetComponent<PlayerCoinHandler>().AddCoins(coinValue);
             gameObject.SetActive(false);
         }

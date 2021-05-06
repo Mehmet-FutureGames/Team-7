@@ -1,8 +1,14 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
+    public AudioClip enemysound;
+    public AudioClip enemy2sound;
+
+
     EnemyPublisher enemyPublisher;
     public Action enemyDefeated;
     public Animator animator;
@@ -19,7 +25,9 @@ public class Enemy : MonoBehaviour
     #endregion
     public bool playerIsInAttackArea;
     [HideInInspector]
-    public GameObject area;
+    public GameObject area, area2;
+    [HideInInspector]
+    public Vector3 attackAreaScale, attackAreaScale2;
     [HideInInspector]
     public bool isRanged;
     string enemyName;
@@ -28,7 +36,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public NavMeshAgent agent;
     Transform parent;
-    public Vector3 attackAreaScale;
+    
 
     MovePlayer movePlayer;
     float movementSpeed;
@@ -76,6 +84,8 @@ public class Enemy : MonoBehaviour
     #region Methods
     public void EnemyAttack()
     {
+        AudioSource.PlayClipAtPoint(enemysound, transform.position);
+
         if (playerIsInAttackArea)
         {
             player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
@@ -84,9 +94,17 @@ public class Enemy : MonoBehaviour
     public void EnemyRangedAttack()
     {
         ObjectPooler.Instance.SpawnFormPool("EnemyBomb", area.transform.position); // for explosion animation
+        AudioSource.PlayClipAtPoint(enemy2sound, transform.position);
         if (playerIsInAttackArea)
         {
-            player.GetComponent<PlayerHealth>().TakeRangedDamage(attackDamage);
+            player.GetComponent<PlayerHealth>().TakeUnblockableDamage(attackDamage);
+        }
+    }
+    public void EnemyConeAttack()
+    {
+        if (playerIsInAttackArea)
+        {
+            player.GetComponent<PlayerHealth>().TakeUnblockableDamage(attackDamage);
         }
     }
     public void TakeDamage(float damage, bool isDash)
@@ -158,6 +176,7 @@ public class Enemy : MonoBehaviour
         health = stats.health;
         attackRange = stats.attackRange;
         attackAreaScale = stats.attackAreaScale;
+        attackAreaScale2 = stats.attackAreaScale2;
         isRanged = stats.isRanged;
         defaultMoveDistance = moveDistance;
         noteDropChance = stats.noteDropChance;
@@ -185,12 +204,16 @@ public class Enemy : MonoBehaviour
         animator = agentObj.GetComponentInChildren<Animator>();
         floatingText = stats.floatingText;
         area.SetActive(false);
+        area2.SetActive(false);
         area.transform.localScale = stats.attackAreaScale;
+        area2.transform.localScale = stats.attackAreaScale2;
         //gameObject.GetComponentInChildren<EnemyHitArea>().transform.localScale = stats.attackAreaScale;
         agent = GetComponentInChildren<NavMeshAgent>();
 
         player = FindObjectOfType<MovePlayer>().transform;
+        
         InitializeState(moveState);
+
     }
 
     void InitializeState(State state)
@@ -200,16 +223,25 @@ public class Enemy : MonoBehaviour
 
     private void EventUpdate()
     {
-        distanceToPlayer = (agentObj.transform.position - player.position).magnitude;
-        
         movementSM.CurrentState.NoteEventUpdate();
+        distanceToPlayer = (agentObj.transform.position - player.position).magnitude;
+        if (player != null)
+        {
+            
+            
+        }
+        else
+        {
+            //player = FindObjectOfType<MovePlayer>().transform;
+        }
+        
 
 
     }
 
     private void Awake()
     {
-        
+
 
     }
     private void OnEnable()
@@ -235,8 +267,11 @@ public class Enemy : MonoBehaviour
         agentObj = Instantiate(stats.enemyModel, parent);
         Player.EnemyTransforms.Add(agentObj.transform);
         area = Instantiate(stats.attackAreaShape, agentObj.transform.position, Quaternion.identity, agentObj.transform);
-    }
 
+            Debug.Log("!");
+            area2 = Instantiate(stats.attackAreaShape2, agentObj.transform.position, Quaternion.identity, agentObj.transform);
+        
+    }
     private void OnDisable()
     {
         
