@@ -43,7 +43,7 @@ public class NoteHandler : MonoBehaviour
                 timer += Time.fixedDeltaTime;
                 if (timer >= (60 / noteManager.beatTempo) * noteManager.difficultyMultiplier)
                 {
-                    Instantiate(notePrefab, transform.position, Quaternion.identity);
+                    Instantiate(notePrefab, transform.position, Quaternion.identity, ObjectPooler.Instance.transform);
                     timer -= (60 / noteManager.beatTempo) * noteManager.difficultyMultiplier;
                 }
             }
