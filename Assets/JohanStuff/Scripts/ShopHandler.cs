@@ -68,7 +68,6 @@ public class ShopHandler : MonoBehaviour
             int x = items.Count;
             for (int i = 0; i < x; i++)
             {
-                Debug.Log("1: " + i);
                 itemPool.Add(items[0]);
                 items.RemoveAt(0);
             }
@@ -81,7 +80,7 @@ public class ShopHandler : MonoBehaviour
         {
 
         }
-        if(level == 3 && (items.Count > 0 || itemPool.Count > 0))
+        if(level == 4 && (items.Count > 0 || itemPool.Count > 0))
         {
             StartCoroutine(Wait());
             

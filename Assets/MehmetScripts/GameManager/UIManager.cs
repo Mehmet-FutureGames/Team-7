@@ -85,7 +85,7 @@ public class UIManager : MonoBehaviour
     private void OnLevelWasLoaded(int level)
     {
         Debug.Log(level);
-        if(level == 2 || level == 3)
+        if(level == 2 || level == 4)
         {
             Debug.Log("You are in the shop!");
         }

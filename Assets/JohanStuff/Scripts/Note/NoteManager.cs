@@ -28,17 +28,17 @@ public class NoteManager : MonoBehaviour
     public float difficultyMultiplier;
     [Space]
     public GameObject notePrefab;
-    private float volume;
     private AudioClip clip;
     [SerializeField] AudioScriptableObject audioPreset;
+    [SerializeField] AudioScriptableObject shopSongPreset;
     [SerializeField] CalibrationSaver calibrationSaver;
     Camera camera;
 
     private void Awake()
     {
         camera = Camera.main;
-        LoadPresetData();
-        camera.GetComponent<AudioSource>().clip = clip;
+        //LoadPresetData();
+        
     }
 
     private void Start()
@@ -46,19 +46,14 @@ public class NoteManager : MonoBehaviour
         SetDifficulty();
     }
 
-    void LoadPresetData()
+    void LoadPresetData(AudioScriptableObject preset)
     {
-        beatTempo = audioPreset.BPM;
-
-        noteStartDelay = calibrationSaver.delay + audioPreset.noteStartDelay;
-
-
-
-        Debug.Log(noteStartDelay);
-        volume = audioPreset.volume;
-        clip = audioPreset.audioClip;
+        beatTempo = preset.BPM;
+        noteStartDelay = calibrationSaver.delay + preset.noteStartDelay;
+        camera.GetComponent<AudioSource>().volume = preset.volume;
+        clip = preset.audioClip;
+        camera.GetComponent<AudioSource>().clip = clip;
     }
-
     public void SetDifficulty()
     {
         switch (difficulty)
@@ -73,5 +68,19 @@ public class NoteManager : MonoBehaviour
                 difficultyMultiplier = 0.5f;
                 break;
         }
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+        camera.GetComponent<AudioSource>().Stop();
+
+        if(level == 2)
+        {
+            LoadPresetData(shopSongPreset);
+        }
+        else
+        {
+            LoadPresetData(audioPreset);
+        }
+        camera.GetComponent<AudioSource>().Play();
     }
 }

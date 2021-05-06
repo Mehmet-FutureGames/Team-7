@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
-public class ObjectPooler : MonoBehaviour
+
+public class NotePooler : MonoBehaviour
 {
 
     [System.Serializable]
@@ -13,7 +13,7 @@ public class ObjectPooler : MonoBehaviour
         public int size;
     }
 
-    public static ObjectPooler Instance;
+    public static NotePooler Instance;
 
     private void Awake()
     {
@@ -21,26 +21,13 @@ public class ObjectPooler : MonoBehaviour
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
     }
     public List<NoteObject> noteObj;
-    public List<Pool> pools;
+    public Pool pool;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
-    public List<GameObject> notePoolList = new List<GameObject>();
     Queue<GameObject> objectPool;
     void Start()
     {
-        
-        for (int x = 0; x < pools.Count; x++)
-        {
-            objectPool = new Queue<GameObject>();
 
-            for (int i = 0; i < pools[x].size; i++)
-            {
-                GameObject obj = Instantiate(pools[x].prefab, transform.position, Quaternion.identity);
-                obj.SetActive(false);
-                objectPool.Enqueue(obj);
-                obj.transform.parent = this.gameObject.transform;
-            }
-            poolDictionary.Add(pools[x].tag, objectPool);
-        }
+        objectPool = new Queue<GameObject>();
 
     }
 
@@ -72,24 +59,16 @@ public class ObjectPooler : MonoBehaviour
         poolDictionary[tag].Enqueue(objectToSpawn);
         return objectToSpawn;
     }
-    public GameObject SpawnFormPool(string tag, Vector3 position, Quaternion rotation, Transform parent)
+    private void OnLevelWasLoaded(int level)
     {
-        if (!poolDictionary.ContainsKey(tag))
+        GameObject obj = Instantiate(pool.prefab, transform.position, Quaternion.identity);
+        noteObj.Add(obj.GetComponent<NoteObject>());
+        obj.SetActive(false);
+        objectPool.Enqueue(obj);
+        obj.transform.parent = this.gameObject.transform;
+        if (level == 2)
         {
-            Debug.LogWarning("Pool with tag " + tag + " doesn't exist.");
-            return null;
+            poolDictionary.Add(pool.tag, objectPool);
         }
-        GameObject objectToSpawn = poolDictionary[tag].Dequeue();
-        objectToSpawn.SetActive(true);
-        objectToSpawn.transform.position = position;
-        objectToSpawn.transform.rotation = rotation;
-        objectToSpawn.transform.parent = parent;
-        poolDictionary[tag].Enqueue(objectToSpawn);
-        return objectToSpawn;
     }
-
-        
-
 }
-
-
