@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: Normal Enemy
   movePattern: 0
   enemyType: 0
-  enemyModel: {fileID: 2915651208551693145, guid: 2d5b8a29915447e40b7e270c7c67bca1,
+  enemyModel: {fileID: 6182000829908483884, guid: fd2fb663cac2feb47b4343198f34ca32,
     type: 3}
   floatingText: {fileID: 7834719628194316170, guid: 2f7ade109394de44e8c41a4781951eaf,
     type: 3}
