@@ -31,7 +31,7 @@ MonoBehaviour:
   detectionRange: 100
   notesToMove: 1
   attackDamage: 30
-  attackRange: 8
+  attackRange: 12
   health: 150
   noteDropChance: 75
   coinMinDropCount: 4

@@ -9,7 +9,9 @@ public class TankCombatP4 : State
     public override void Enter()
     {
         base.Enter();
-        enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.cyan;
+        //enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.cyan;
+        Vector3 dirToPlayer = (enemy.player.position - enemy.agentObj.transform.position).normalized;
+        enemy.agentObj.transform.rotation = Quaternion.LookRotation(dirToPlayer);
     }
 
     public override void PhysicsUpdate()

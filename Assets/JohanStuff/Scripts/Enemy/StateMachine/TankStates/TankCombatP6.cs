@@ -23,7 +23,7 @@ public class TankCombatP6 : State
         timer -= Time.deltaTime;
         if (timer <= 0 && !hasAttacked)
         {
-            enemy.EnemyRangedAttack();
+            enemy.EnemyConeAttack();
             enemy.area2.SetActive(false);
             hasAttacked = true;
         }
