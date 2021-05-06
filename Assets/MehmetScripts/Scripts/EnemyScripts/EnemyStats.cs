@@ -24,11 +24,15 @@ public class EnemyStats : ScriptableObject
     public EnemyType enemyType;
     public GameObject enemyModel;
     public GameObject floatingText;
-    [Space]
+    [Space(20)]
     public GameObject attackAreaShape;
     public Vector3 attackAreaScale;
 
     [Space]
+    public GameObject attackAreaShape2;
+    public Vector3 attackAreaScale2;
+
+    [Space(20)]
     public bool isRanged;
     public float movementSpeed;
     public float moveDistance;

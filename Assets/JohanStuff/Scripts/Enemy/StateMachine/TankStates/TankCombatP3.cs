@@ -9,12 +9,13 @@ public class TankCombatP3 : State
     public override void Enter()
     {
         base.Enter();
+        hasAttacked = false;
         timer = 0.08f;
         enemy.animator.SetTrigger("PerformAttack");
         enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
     }
     float timer;
-
+    bool hasAttacked;
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
@@ -25,10 +26,11 @@ public class TankCombatP3 : State
     {
         base.LogicUpdate();
         timer -= Time.deltaTime;
-        if (timer <= 0)
+        if (timer <= 0 && !hasAttacked)
         {
             enemy.EnemyAttack();
             enemy.area.SetActive(false);
+            hasAttacked = true;
         }
     }
     public override void NoteEventUpdate()
@@ -36,7 +38,7 @@ public class TankCombatP3 : State
         base.NoteEventUpdate();
         if (enemy.distanceToPlayer <= enemy.attackRange)
         {
-            stateMachine.ChangeState(enemy.combatPhase1);
+            stateMachine.ChangeState(enemy.combatPhase4);
             return;
         }
         stateMachine.ChangeState(enemy.moveState);
