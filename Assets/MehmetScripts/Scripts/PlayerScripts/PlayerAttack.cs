@@ -16,7 +16,7 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         //Invoke to delay the reference otherwise unity cry
-        Invoke("DamageReference", 0.1f);
+        Invoke("DamageReference", 0.5f);
     }
 
     public virtual void OnTriggerEnter(Collider other)
@@ -31,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
     {
         //Unity doesn't like to reference stuff at the same time as setting other variables
         //this helps it calm down and actually do the job.
-        damage = playerStats.damage;
+        damage = GetComponentInParent<Player>().damage;
         dashDuration = playerStats.dashAttackDuration;
         meleeDuration = playerStats.meleeAttackDuration;
     }

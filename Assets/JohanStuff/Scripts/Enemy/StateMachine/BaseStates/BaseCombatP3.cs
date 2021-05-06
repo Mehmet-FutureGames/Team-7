@@ -10,12 +10,13 @@ public class BaseCombatP3 : State
 
     public override void Enter()
     {
-        Debug.Log("attack!");
+        
         base.Enter();
         hasAttacked = false;
         timer = 0.07f;
 
-        enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+        //enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+        enemy.gameObject.GetComponentInChildren<Animator>().SetTrigger("Attack");
 
     }
     float timer = 0.2f;

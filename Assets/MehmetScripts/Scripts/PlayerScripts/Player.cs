@@ -61,8 +61,9 @@ public class Player : MonoBehaviour
     GameObject managers;
     GameObject Publishers;
 
-    bool created;
     [SerializeField] bool developerMode;
+
+    Transform spawnLocation;
 
     public GameObject SlashParticleTrail; //for dash attack particles
     public GameObject SlashParticleTrail2;
@@ -70,34 +71,29 @@ public class Player : MonoBehaviour
     public static Player Instance;
     private void Awake()
     {
-        gameObject.SetActive(true);
-        Debug.Log("Hello");
         camera = Camera.main;
         if (!developerMode)
         {
-            if (Instance == null)
-            {
-                
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else if (Instance != this)
-            {
-                Destroy(this.gameObject);
-            }
             mainCanvas = GameObject.Find("Canvas");
             overlayCamera = GameObject.Find("OverlayCam");
             managers = GameObject.Find("--MANAGERS--");
-            //Publishers = GameObject.Find("PUBLISHERS");
-            DontDestoryEverything(camera.gameObject);
+            Publishers = GameObject.Find("PUBLISHERS");
+            DontDestroyOnLoad(camera);
             DontDestoryEverything(mainCanvas);
             DontDestoryEverything(overlayCamera);
             DontDestoryEverything(managers);
-            //DontDestoryEverything(Publishers);
-
-
+            DontDestoryEverything(Publishers);
         }
-        
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+
     }
     // Start is called before the first frame update
     void Start()
@@ -213,6 +209,7 @@ public class Player : MonoBehaviour
 #region References
     IEnumerator References()
     {
+        yield return new WaitForSeconds(0.0001f);
         //Checks which character the player chose from the
         //main menu and adds the scriptable object to the
         //stats variable to take its stats and use them
@@ -242,6 +239,7 @@ public class Player : MonoBehaviour
 
         //Stats
         damage = stats.attackDamage;
+        Debug.Log(damage);
         dashDamage = stats.dashDamage;
         maxHealth = stats.health;
 
@@ -265,7 +263,7 @@ public class Player : MonoBehaviour
 
         playerDashRange = GetComponentInChildren<PlayerDashAttack>();
         //playerAttackRange.gameObject.transform.localScale *= distanceToClick;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1f);
         playerAttackRange.gameObject.SetActive(false);
         playerDashRange.gameObject.SetActive(false);
     }
@@ -332,11 +330,10 @@ public class Player : MonoBehaviour
             playerAttackRange.gameObject.SetActive(true);
             playerDashRange.gameObject.SetActive(true);
         }
-        //StartCoroutine(References());
+        StartCoroutine(References());
     }
     private void DontDestoryEverything(GameObject Everything)
     {
-
         DontDestroyOnLoad(Everything);
     }
     public void DestroyEverything()
