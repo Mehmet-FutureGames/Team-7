@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Tank
   movePattern: 0
-  enemyType: 0
+  enemyType: 2
   enemyModel: {fileID: 7280686633801961007, guid: 2f2dd6f54256d8541a2b2aebc926adf0,
     type: 3}
   floatingText: {fileID: 7834719628194316170, guid: 2f7ade109394de44e8c41a4781951eaf,
@@ -22,11 +22,14 @@ MonoBehaviour:
   attackAreaShape: {fileID: 5142904849790710492, guid: 0276f6d96dfb9c141a6591ed02f83c65,
     type: 3}
   attackAreaScale: {x: 5, y: 5, z: 5}
+  attackAreaShape2: {fileID: 1178725643994930611, guid: 46e188008eaf89243816bd5080d7b0b9,
+    type: 3}
+  attackAreaScale2: {x: 5, y: 2, z: 5}
   isRanged: 0
   movementSpeed: 2
   moveDistance: 8
   detectionRange: 100
-  notesToMove: 2
+  notesToMove: 1
   attackDamage: 30
   attackRange: 8
   health: 150

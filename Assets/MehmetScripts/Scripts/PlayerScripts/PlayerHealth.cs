@@ -57,7 +57,7 @@ public class PlayerHealth : MonoBehaviour
             comboHandler.AddToCombo();
         }
     }
-    public void TakeRangedDamage(float damage)
+    public void TakeUnblockableDamage(float damage)
     {
         currentHealth -= damage;
         if (movePlayer.MovementValue < 10)
