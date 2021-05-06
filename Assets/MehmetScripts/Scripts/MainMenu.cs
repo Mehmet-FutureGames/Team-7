@@ -28,7 +28,7 @@ public class MainMenu : MonoBehaviour
     {
         if (GetComponentInChildren<CharacterStats>().hasBeenBought)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene("Shop");
         }
         else
         {

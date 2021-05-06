@@ -30,8 +30,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void Respawn()
     {
-            Time.timeScale = 1;
-            deadPanel.SetActive(false);        
+        Time.timeScale = 1;
+        deadPanel.SetActive(false);
+        RefillHealth();
     }
 
     public void TakeDamage(float damage)
@@ -92,7 +93,11 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         currentHealth = playerStats.maxHealth;
         healthBar.transform.parent.localScale = new Vector2(healthBar.transform.parent.localScale.x * (playerStats.maxHealth / defaultMaxHealth), healthBar.transform.parent.localScale.y);
-        
+        healthBar.fillAmount = currentHealth / playerStats.maxHealth;
+    }
+    private void RefillHealth()
+    {
+        healthBar.fillAmount = currentHealth / playerStats.maxHealth;
     }
 
     public void UpgradeHealth(float upgradedHealth)

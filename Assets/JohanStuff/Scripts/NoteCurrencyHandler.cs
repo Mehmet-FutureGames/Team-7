@@ -7,6 +7,7 @@ using TMPro;
 public class NoteCurrencyHandler : MonoBehaviour
 {
 
+    public static NoteCurrencyHandler Instance;
     int noteCurrency;
     [SerializeField] TextMeshProUGUI text;
 
@@ -18,6 +19,13 @@ public class NoteCurrencyHandler : MonoBehaviour
             noteCurrency = value;
             PlayerPrefs.SetInt("NoteCurrency", noteCurrency);
             text.text = noteCurrency.ToString("F0");
+        }
+    }
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
         }
     }
 
@@ -34,7 +42,7 @@ public class NoteCurrencyHandler : MonoBehaviour
         SetText(NoteCurrency);
     }
 
-    private void SetText(int amount)
+    public void SetText(int amount)
     {
         text.text = amount.ToString("F0");
     }

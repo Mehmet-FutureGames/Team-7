@@ -83,16 +83,17 @@ public class Player : MonoBehaviour
             DontDestoryEverything(overlayCamera);
             DontDestoryEverything(managers);
             DontDestoryEverything(Publishers);
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else if (Instance != this)
+            {
+                Destroy(this.gameObject);
+            }
         }
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else if (Instance != this)
-        {
-            Destroy(this.gameObject);
-        }
+
 
     }
     // Start is called before the first frame update
@@ -199,10 +200,12 @@ public class Player : MonoBehaviour
     {
         playerDashRange.gameObject.SetActive(false);
     }
-#endregion
+    #endregion
 
-    public void RestartCharacter()
+    public void RestartCharacter(Transform spawnPos)
     {
+        transform.position = spawnPos.transform.position;
+        GetComponent<MovePlayer>().mousePos = spawnPos.transform.position;
         GetComponent<PlayerHealth>().currentHealth = maxHealth;
         Time.timeScale = 1f;
     }
@@ -239,7 +242,6 @@ public class Player : MonoBehaviour
 
         //Stats
         damage = stats.attackDamage;
-        Debug.Log(damage);
         dashDamage = stats.dashDamage;
         maxHealth = stats.health;
 
