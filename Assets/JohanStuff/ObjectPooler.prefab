@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3214765537081477664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5334119002739407735}
+  - component: {fileID: 315575563269993078}
+  m_Layer: 0
+  m_Name: ObjectPooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5334119002739407735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214765537081477664}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &315575563269993078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214765537081477664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 080613b62d013dc42aec1dcc4f96b8b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Note
+    prefab: {fileID: 1068030649841422632, guid: 9605936e9ead1da4d8c2c6a2bb432f2f,
+      type: 3}
+    size: 20
+  - tag: Coin
+    prefab: {fileID: 1633827657075649395, guid: 7a068700145b0f94e89d2d8e419cb7ca,
+      type: 3}
+    size: 30
+  - tag: NoteCurrency
+    prefab: {fileID: 2885724536750924555, guid: e3aa2730f77db8740889c8252f5e64fa,
+      type: 3}
+    size: 10
+  - tag: Blood
+    prefab: {fileID: 3741987651668401370, guid: 575597a16baa6964a957d45170797d44,
+      type: 3}
+    size: 15
+  - tag: FireTrail
+    prefab: {fileID: 6685689483549822997, guid: 07d8c6f57c6da7c4999129820c77e3ea,
+      type: 3}
+    size: 300
+  - tag: PlayerProjectile
+    prefab: {fileID: 803455105406243073, guid: 261b43c877b840b45bd838d6ef896976, type: 3}
+    size: 50
+  - tag: EnemyExplosion
+    prefab: {fileID: 1656807951091421318, guid: 4848e787480e3274db142d7ce3aa0f50,
+      type: 3}
+    size: 20
+  - tag: EnemyBomb
+    prefab: {fileID: 6750638194679102895, guid: ef83c5b57bc75e343b0d79026c978052,
+      type: 3}
+    size: 20

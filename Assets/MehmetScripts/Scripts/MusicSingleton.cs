@@ -24,7 +24,10 @@ public class MusicSingleton : MonoBehaviour
     {
         if(level == 2)
         {
+            GetComponent<AudioSource>().Stop();
             Destroy(gameObject);
         }
+        
     }
+    
 }
