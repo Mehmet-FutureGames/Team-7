@@ -23,6 +23,7 @@ public class NoteCurrencyHandler : MonoBehaviour
 
     private void Start()
     {
+        text = GameObject.Find("NoteCurrencyText").GetComponent<TextMeshProUGUI>();
         noteCurrency = PlayerPrefs.GetInt("NoteCurrency");
         SetText(NoteCurrency);
     }

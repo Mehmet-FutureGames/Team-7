@@ -40,7 +40,7 @@ public class ShopHandler : MonoBehaviour
             }
         }
         Debug.Log("i");
-        if (itemPool != null && shopItemHolders != null)
+        if ((itemPool != null && shopItemHolders != null) && itemPool.Count > 0)
         {
             for (int i = 0; i < 5; i++)
             {
@@ -65,14 +65,12 @@ public class ShopHandler : MonoBehaviour
                 obj.name = obj.name.Replace("(Clone)", "");
                 //items.RemoveAt(e);
             }
-
         }
     }
 
     private void OnLevelWasLoaded(int level)
     {
         shopItemHolders.Clear();
-
         if (level == 2 && (items.Count > 0 || itemPool.Count > 0))
         {
             StartCoroutine(Wait());
@@ -80,6 +78,10 @@ public class ShopHandler : MonoBehaviour
         else if(level != 3 && items != null)
         {
 
+        }
+        if(level == 4 && (items.Count > 0 || itemPool.Count > 0))
+        {
+            StartCoroutine(Wait());
         }
     }
 }

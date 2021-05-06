@@ -53,7 +53,7 @@ public class WaveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnPointPattern();
+        Invoke("SpawnPointPattern", 0.1f);
 
         manager = FindObjectOfType<LevelManager>();
 
