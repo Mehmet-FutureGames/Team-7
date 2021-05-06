@@ -17,7 +17,7 @@ public class BuyShopItem : MonoBehaviour
     }
     void Start()
     {
-        notePublisher = FindObjectOfType<NotePublisher>();
+        
         hasPurchasedItem = false;
         itemParameter = GetComponent<ItemParameter>();
         noteCurrency = FindObjectOfType<NoteCurrencyHandler>();
@@ -27,10 +27,11 @@ public class BuyShopItem : MonoBehaviour
     }
     private void OnEnable()
     {
-        NotePublisher.Instance.buttonHitAttack += BuyItem;
-        NotePublisher.Instance.noteHitAttack += BuyItem;
-        //notePublisher.buttonHitAttack += BuyItem;
-        //notePublisher.noteHitAttack += BuyItem;
+        notePublisher = FindObjectOfType<NotePublisher>();
+        //NotePublisher.Instance.buttonHitAttack += BuyItem;
+        //NotePublisher.Instance.noteHitAttack += BuyItem;
+        notePublisher.buttonHitAttack += BuyItem;
+        notePublisher.noteHitAttack += BuyItem;
     }
     private void OnDisable()
     {
