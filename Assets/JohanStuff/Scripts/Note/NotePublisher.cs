@@ -12,18 +12,7 @@ public class NotePublisher : MonoBehaviour
     public Action noteHitAttack;
     public Action buttonHitAttack;
     public static NotePublisher Instance;
-    private void Awake()
-    {
-        if(Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else if (Instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-    }
+
     public void NoteHit()
     {
         if(noteHit != null)

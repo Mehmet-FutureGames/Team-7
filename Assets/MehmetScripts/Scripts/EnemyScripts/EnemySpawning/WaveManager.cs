@@ -32,7 +32,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] GameObject door;
     [Space]
 
-    [SerializeField] TypeOfEnemy[] spawnPoints;
+    TypeOfEnemy[] spawnPoints;
     int amountofEnemiesWanted;
     int floorLevel = 0;
     public int waveLevel = 0;
@@ -62,8 +62,6 @@ public class WaveManager : MonoBehaviour
         enemyContainer = GameObject.Find("EnemyContainer").transform;
 
         spawnPoints = FindObjectsOfType<TypeOfEnemy>();
-
-        spawnItems();
 
         InvokeRepeating("AmountOfEnemiesOnMap", 0, 5);
     }
@@ -159,7 +157,6 @@ public class WaveManager : MonoBehaviour
         if (amountOfEnemies <= 0 && waveLevel >= waveMaximum)
         {
             FinishFloor();
-            spawnItems();
         }
     }
     public void AmountOfEnemiesOnMap()

@@ -103,7 +103,6 @@ public class AudioReader : MonoBehaviour
                 average += samples[count] * (count + 1);
                 count++;
             }
-            Debug.Log(sampleCount);
             average = average / count;
 
             freqBand[i] = average * 10;

@@ -10,7 +10,7 @@ public class ItemParameter : MonoBehaviour
     public bool buyWithCoins;
     private void OnLevelWasLoaded(int level)
     {
-        if (level == 3)
+        if (level == 2)
         {
             buyWithCoins = true;
         }

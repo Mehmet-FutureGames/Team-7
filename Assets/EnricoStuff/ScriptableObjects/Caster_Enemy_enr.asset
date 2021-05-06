@@ -22,6 +22,9 @@ MonoBehaviour:
   attackAreaShape: {fileID: 5142904849790710492, guid: 74a96bd4303c80943b1fceb9ccadd5ac,
     type: 3}
   attackAreaScale: {x: 8, y: 8, z: 8}
+  attackAreaShape2: {fileID: 1178725643994930611, guid: 46e188008eaf89243816bd5080d7b0b9,
+    type: 3}
+  attackAreaScale2: {x: 0, y: 0, z: 0}
   isRanged: 1
   movementSpeed: 2
   moveDistance: 8

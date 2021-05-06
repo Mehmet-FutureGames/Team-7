@@ -25,11 +25,11 @@ public class TransisitionToNextLevel : MonoBehaviour
     }
     private void NextLevel()
     {
-        SceneManager.LoadScene(manager.currentLevel + manager.levelsCompletedThisRun);
+        SceneManager.LoadScene(4);
     }
     private void OnLevelWasLoaded(int level)
     {
-        if(level == 4)
+        if(level == 2)
         {
             player.transform.position = spawnPos.transform.position;
             player.GetComponent<MovePlayer>().mousePos = spawnPos.transform.position;

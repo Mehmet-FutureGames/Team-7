@@ -2309,6 +2309,23 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2160568016179405075, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: statItems.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2160568016179405075, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: statItems.Array.data[2]
+      value: 
+      objectReference: {fileID: 6675103758782585617, guid: f5b78019b03d2bc4eb76b150f798df56,
+        type: 3}
+    - target: {fileID: 2160568016179405075, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: statItems.Array.data[3]
+      value: 
+      objectReference: {fileID: 6675103758782585617, guid: f5b78019b03d2bc4eb76b150f798df56,
+        type: 3}
     - target: {fileID: 3588262258200070875, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: slider
@@ -2317,7 +2334,7 @@ PrefabInstance:
     - target: {fileID: 3588262258200070875, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3588262258200070875, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
@@ -9213,7 +9230,6 @@ MonoBehaviour:
   - {fileID: 3988522872170154558, guid: ee6d814ebf79af644b081977e1479d64, type: 3}
   itemSpawnLocations: []
   door: {fileID: 9092595639840711224, guid: acaaa9e4dc0463d4da802e01dfd4aca6, type: 3}
-  spawnPoints: []
   waveLevel: 0
   numberOfWavesForEasyLevel: 0
   numberOfWavesForMediumLevel: 0
@@ -9645,6 +9661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  spawnPos: {fileID: 0}
 --- !u!65 &1649263344
 BoxCollider:
   m_ObjectHideFlags: 0
