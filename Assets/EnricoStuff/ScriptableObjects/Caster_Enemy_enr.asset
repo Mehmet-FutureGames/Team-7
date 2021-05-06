@@ -19,7 +19,7 @@ MonoBehaviour:
     type: 3}
   floatingText: {fileID: 7834719628194316170, guid: 2f7ade109394de44e8c41a4781951eaf,
     type: 3}
-  attackAreaShape: {fileID: 5142904849790710492, guid: 0276f6d96dfb9c141a6591ed02f83c65,
+  attackAreaShape: {fileID: 5142904849790710492, guid: 74a96bd4303c80943b1fceb9ccadd5ac,
     type: 3}
   attackAreaScale: {x: 8, y: 8, z: 8}
   isRanged: 1
