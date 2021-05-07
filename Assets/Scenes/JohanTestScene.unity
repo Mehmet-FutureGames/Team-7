@@ -508,6 +508,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a068700145b0f94e89d2d8e419cb7ca, type: 3}
+--- !u!1 &535713648 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7982927048867266636, guid: 4693bb05872ed41469aefc057d451c49,
+    type: 3}
+  m_PrefabInstance: {fileID: 7982927050098970959}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &535713650 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7982927048867266631, guid: 4693bb05872ed41469aefc057d451c49,
+    type: 3}
+  m_PrefabInstance: {fileID: 7982927050098970959}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535713648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd0dbdf8d7e645741a2d929b385816bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &535713655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535713648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 535713650}
+          m_TargetAssemblyTypeName: GetNoteList, Assembly-CSharp
+          m_MethodName: PressButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &694509259
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +795,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &900509296 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1348647671773823817, guid: 4693bb05872ed41469aefc057d451c49,
+    type: 3}
+  m_PrefabInstance: {fileID: 7982927050098970959}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &900509298 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1167756934969484315, guid: 4693bb05872ed41469aefc057d451c49,
+    type: 3}
+  m_PrefabInstance: {fileID: 7982927050098970959}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900509296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788d0c5eea5c6e646ba518bd27d52cb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &900509303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900509296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 900509298}
+          m_TargetAssemblyTypeName: AndroidPressFrenzy, Assembly-CSharp
+          m_MethodName: PressButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!20 &903933763 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 87044960873636167, guid: 9cddfa94a8dbb5f498fac657b403b928,
@@ -806,6 +900,53 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7914652013380770340}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1101130482 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7982927049173426786, guid: 4693bb05872ed41469aefc057d451c49,
+    type: 3}
+  m_PrefabInstance: {fileID: 7982927050098970959}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1101130484 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7982927049173426813, guid: 4693bb05872ed41469aefc057d451c49,
+    type: 3}
+  m_PrefabInstance: {fileID: 7982927050098970959}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101130482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd0dbdf8d7e645741a2d929b385816bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1101130489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101130482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1101130484}
+          m_TargetAssemblyTypeName: GetNoteList, Assembly-CSharp
+          m_MethodName: PressButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1140630324 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1697772313, guid: 4693bb05872ed41469aefc057d451c49,
@@ -2366,6 +2507,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5402565994681717702, guid: 4693bb05872ed41469aefc057d451c49,
+        type: 3}
+      propertyPath: m_RepeatDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982927048867266634, guid: 4693bb05872ed41469aefc057d451c49,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982927048867266634, guid: 4693bb05872ed41469aefc057d451c49,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982927048867266634, guid: 4693bb05872ed41469aefc057d451c49,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7982927049351044176, guid: 4693bb05872ed41469aefc057d451c49,
         type: 3}
       propertyPath: m_Pivot.x

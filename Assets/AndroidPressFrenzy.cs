@@ -9,10 +9,10 @@ public class AndroidPressFrenzy : MonoBehaviour
     void Start()
     {
         button = GetComponent<Button>();
-        button.onClick.AddListener(PressButton);
+       
     }
 
-    private void PressButton()
+    public void PressButton()
     {
         FindObjectOfType<UseItem>().OnUseItem();
     }
