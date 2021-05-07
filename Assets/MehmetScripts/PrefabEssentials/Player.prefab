@@ -10066,6 +10066,7 @@ GameObject:
   - component: {fileID: 1832600824}
   - component: {fileID: 6430466938662035385}
   - component: {fileID: 9016947051451766807}
+  - component: {fileID: 1242678846}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -10339,6 +10340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
+  takeDamage: {fileID: 0}
 --- !u!114 &7914652014459963324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10445,6 +10447,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 09636d656b4c0b140bad743fc19ed32a, type: 2}
   - {fileID: 11400000, guid: a6c5e591e81fade47ae6b5d752f36744, type: 2}
 --- !u!114 &9016947051451766807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7914652014459963307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56740df2e5e9fb4ea0d3d26e006ab62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeItems1: {fileID: 0}
+  item: 000000
+--- !u!114 &1242678846
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10575,9 +10591,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 4.2269354
+  m_Height: 6.7124166
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 1.7334676}
+  m_Center: {x: 0, y: 0, z: 2.9762082}
 --- !u!114 &7914652014773267334
 MonoBehaviour:
   m_ObjectHideFlags: 0
