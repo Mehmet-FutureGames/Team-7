@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -318,7 +319,11 @@ public class Player : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
-        if(level != 3)
+        if(level == SceneManager.GetSceneByName("ThankYou").buildIndex)
+        {
+            DestroyEverything();
+        }
+        if(level != 3 || level != 5)
         {
             gameMode = true;
         }

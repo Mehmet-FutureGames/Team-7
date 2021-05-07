@@ -27,14 +27,14 @@ EditorBuildSettings:
     path: Assets/EmilSStuff/Level_2.unity
     guid: 4125dfee2f93f404abfa38caa7536cd2
   - enabled: 1
+    path: Assets/Scenes/ThankYou.unity
+    guid: f70d12a7fc6c5c2478c736ac75ebaff9
+  - enabled: 1
     path: Assets/Scenes/JohanTestScene.unity
     guid: ebc338b4e4261d146ae845f38e400cc4
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 2dae91d30edcc1645ad787fed5449eae
-  - enabled: 1
-    path: Assets/Scenes/ThankYou.unity
-    guid: f70d12a7fc6c5c2478c736ac75ebaff9
   - enabled: 1
     path: Assets/Scenes/SettingsUI.unity
     guid: f4a0c9797a707dc4cb399b46b059ea8f
