@@ -48,11 +48,10 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
     }
 
-    public void LoadMenu()
+    public static void LoadMenu()
     {
         FindObjectOfType<Player>().DestroyEverything();
-        SceneManager.LoadScene("MainMenu");
-        Debug.Log("Loading menu...");
+        SceneManager.LoadScene("MainMenu",LoadSceneMode.Single);
     } 
 
     public void QuitGame()

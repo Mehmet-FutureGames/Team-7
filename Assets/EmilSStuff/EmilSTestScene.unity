@@ -22472,12 +22472,7 @@ PrefabInstance:
     - target: {fileID: 1490548694, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1619984197}
-    - target: {fileID: 818608277916882081, guid: 4693bb05872ed41469aefc057d451c49,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1619984197}
+      objectReference: {fileID: 1686461069}
     - target: {fileID: 7982927049351044176, guid: 4693bb05872ed41469aefc057d451c49,
         type: 3}
       propertyPath: m_Pivot.x
@@ -26158,45 +26153,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1619984199, guid: 9a8011c633929384e963bdb55c94dcf7, type: 3}
-      propertyPath: slider
-      value: 
-      objectReference: {fileID: 1378560773}
-    - target: {fileID: 1619984199, guid: 9a8011c633929384e963bdb55c94dcf7, type: 3}
-      propertyPath: displayCombo
-      value: 
-      objectReference: {fileID: 352196566}
-    - target: {fileID: 2055232222, guid: 9a8011c633929384e963bdb55c94dcf7, type: 3}
-      propertyPath: slider
-      value: 
-      objectReference: {fileID: 1378560773}
-    - target: {fileID: 2055232222, guid: 9a8011c633929384e963bdb55c94dcf7, type: 3}
-      propertyPath: displayCombo
-      value: 
-      objectReference: {fileID: 352196566}
-    - target: {fileID: 2160568016179405075, guid: 9a8011c633929384e963bdb55c94dcf7,
-        type: 3}
-      propertyPath: statItems.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2160568016179405075, guid: 9a8011c633929384e963bdb55c94dcf7,
-        type: 3}
-      propertyPath: statItems.Array.data[0]
-      value: 
-      objectReference: {fileID: 6675103758782585617, guid: f5b78019b03d2bc4eb76b150f798df56,
-        type: 3}
-    - target: {fileID: 2160568016179405075, guid: 9a8011c633929384e963bdb55c94dcf7,
-        type: 3}
-      propertyPath: statItems.Array.data[1]
-      value: 
-      objectReference: {fileID: 6675103758782585617, guid: 165e90bfc7d87194aa3d513ae41cc8f0,
-        type: 3}
-    - target: {fileID: 2160568016179405075, guid: 9a8011c633929384e963bdb55c94dcf7,
-        type: 3}
-      propertyPath: statItems.Array.data[2]
-      value: 
-      objectReference: {fileID: 6675103758782585617, guid: 116bfa45a11e84145a7af62763a9d11b,
-        type: 3}
     - target: {fileID: 3588262258200070875, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: slider
@@ -26207,12 +26163,6 @@ PrefabInstance:
       propertyPath: displayCombo
       value: 
       objectReference: {fileID: 352196566}
-    - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
-        type: 3}
-      propertyPath: audioPreset
-      value: 
-      objectReference: {fileID: 11400000, guid: a140ffb0235c5e443be301fedc7b08c6,
-        type: 2}
     - target: {fileID: 8966836274532626828, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: audio
@@ -26223,11 +26173,6 @@ PrefabInstance:
       propertyPath: waveText
       value: 
       objectReference: {fileID: 96506593}
-    - target: {fileID: 8966836274532626829, guid: 9a8011c633929384e963bdb55c94dcf7,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8966836275058985840, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: m_Name
@@ -27274,6 +27219,18 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 65076337919622882, guid: 8a4f2276ebfcdc541ac877445abef006, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8a4f2276ebfcdc541ac877445abef006, type: 3}
+--- !u!114 &1686461069 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1686461069, guid: 9a8011c633929384e963bdb55c94dcf7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1619984196}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8700d8b7945dc8349a7446d15df1a25c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1690427719
 GameObject:
   m_ObjectHideFlags: 0

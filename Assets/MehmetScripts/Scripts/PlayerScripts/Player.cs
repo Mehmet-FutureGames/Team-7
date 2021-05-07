@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    Player player;
     public static List<Transform> EnemyTransforms = new List<Transform>();
 
     public AudioClip attacksound;
@@ -71,6 +72,7 @@ public class Player : MonoBehaviour
     public static Player Instance;
     private void Awake()
     {
+        player = this;
         camera = Camera.main;
         if (!developerMode)
         {
