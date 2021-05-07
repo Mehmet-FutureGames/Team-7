@@ -179,25 +179,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194354d283faffb4aa3583bcf232928f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartScale: {x: 1, y: 1, z: 1}
-  downScaleMultiplier: 0
+  StartScale: {x: 0.2, y: 5, z: 0.2}
+  downScaleMultiplier: 0.14
   difficulty: 0
   beatTempo: 122
   noteStartDelay: 0
   difficultyMultiplier: 0
   notePrefab: {fileID: 1068030649841422632, guid: 9605936e9ead1da4d8c2c6a2bb432f2f,
     type: 3}
-<<<<<<< HEAD
-  shopSongPreset: {fileID: 0}
-  emilSSceneSongPreset: {fileID: 0}
-  enricoSceneSongPreset: {fileID: 0}
-=======
   shopSongPreset: {fileID: 11400000, guid: 1f885ec131f070343b72fb48045a3636, type: 2}
   emilSSceneSongPreset: {fileID: 11400000, guid: a140ffb0235c5e443be301fedc7b08c6,
     type: 2}
   enricoSceneSongPreset: {fileID: 11400000, guid: 1bb3d6021e216b14ba69caf9fc3a32be,
     type: 2}
->>>>>>> Mehmet-Branch
   calibrationSaver: {fileID: 11400000, guid: 8b15af7586a8aca49b6b5611ddb5a3c3, type: 2}
 --- !u!1 &8966836274532626866
 GameObject:
