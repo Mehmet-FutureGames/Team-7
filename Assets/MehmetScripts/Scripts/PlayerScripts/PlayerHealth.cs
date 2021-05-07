@@ -111,18 +111,23 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator StartTimer()
     {
-        while (timerTillAdGone > 0 && !AdsManager.hasWatchedAd)
-        {
-            timerTillAdGone -= 0.050f;
-            UIManager.timerDead.text = timerTillAdGone.ToString("F0");
-            UIManager.deadSlider.GetComponent<Image>().fillAmount -= 0.01f;
-            if (timerTillAdGone <= 0)
+            while (timerTillAdGone > 0 && !AdsManager.hasWatchedAd)
             {
-                PauseMenu.LoadMenu();
+                timerTillAdGone -= 0.050f;
+                UIManager.timerDead.text = timerTillAdGone.ToString("F0");
+                UIManager.deadSlider.GetComponent<Image>().fillAmount -= 0.01f;
+                if (timerTillAdGone <= 0)
+                {
+                    PauseMenu.LoadMenu();
+                }
+            if (AdsManager.startedWatchingAd)
+            {
+                break;
             }
-            yield return new WaitForSecondsRealtime(0.1f);
-        }
-        
+                yield return new WaitForSecondsRealtime(0.1f);
+
+            }
+                        
     }
 
     IEnumerator ReferenceHealth()
