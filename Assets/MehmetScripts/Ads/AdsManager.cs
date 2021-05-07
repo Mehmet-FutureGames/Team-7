@@ -10,21 +10,25 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
     string placement = "rewardedVideo";
 
     public static bool hasWatchedAd = false;
+    public static bool startedWatchingAd = false;
     private void Start()
     {
+        startedWatchingAd = false;
         hasWatchedAd = false;
         respawnPlayer = FindObjectOfType<UIManager>();
     }
 
     public void ShowAd()
     {
+        startedWatchingAd = true;
         StartCoroutine(ShowRewardedAd());
+        Debug.Log(startedWatchingAd);
     }
 
     IEnumerator ShowRewardedAd()
     {
         Advertisement.AddListener(this);
-        Advertisement.Initialize("4120115",true);
+        Advertisement.Initialize("4120115", true);
 
         while (!Advertisement.IsReady(placement))
             yield return null;
