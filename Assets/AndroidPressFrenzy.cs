@@ -9,7 +9,6 @@ public class AndroidPressFrenzy : MonoBehaviour
     void Start()
     {
         button = GetComponent<Button>();
-       
     }
 
     public void PressButton()
