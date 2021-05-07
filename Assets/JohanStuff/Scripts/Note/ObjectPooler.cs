@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 public class ObjectPooler : MonoBehaviour
 {
 
@@ -18,28 +18,30 @@ public class ObjectPooler : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        poolDictionary = new Dictionary<string, Queue<GameObject>>();
     }
-
+    public List<NoteObject> noteObj;
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
-
+    public List<GameObject> notePoolList = new List<GameObject>();
+    Queue<GameObject> objectPool;
     void Start()
     {
-        poolDictionary = new Dictionary<string, Queue<GameObject>>();
-
-        foreach(Pool pool in pools)
+        
+        for (int x = 0; x < pools.Count; x++)
         {
-            Queue<GameObject> objectPool = new Queue<GameObject>();
+            objectPool = new Queue<GameObject>();
 
-            for (int i = 0; i < pool.size; i++)
+            for (int i = 0; i < pools[x].size; i++)
             {
-                GameObject obj = Instantiate(pool.prefab, transform.position, Quaternion.identity);
+                GameObject obj = Instantiate(pools[x].prefab, transform.position, Quaternion.identity);
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
                 obj.transform.parent = this.gameObject.transform;
             }
-            poolDictionary.Add(pool.tag, objectPool);
+            poolDictionary.Add(pools[x].tag, objectPool);
         }
+
     }
 
     public GameObject SpawnFormPool(string tag, Vector3 position)
@@ -86,4 +88,8 @@ public class ObjectPooler : MonoBehaviour
         return objectToSpawn;
     }
 
+        
+
 }
+
+

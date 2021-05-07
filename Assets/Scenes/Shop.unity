@@ -2362,6 +2362,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: a140ffb0235c5e443be301fedc7b08c6,
         type: 2}
+    - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: shopSongPreset
+      value: 
+      objectReference: {fileID: 11400000, guid: 1f885ec131f070343b72fb48045a3636,
+        type: 2}
+    - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: emilSSceneSongPreset
+      value: 
+      objectReference: {fileID: 11400000, guid: a140ffb0235c5e443be301fedc7b08c6,
+        type: 2}
+    - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: enricoSceneSongPreset
+      value: 
+      objectReference: {fileID: 11400000, guid: 1bb3d6021e216b14ba69caf9fc3a32be,
+        type: 2}
     - target: {fileID: 8966836274532626828, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: audio
@@ -5130,6 +5148,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982927049487770390, guid: 4693bb05872ed41469aefc057d451c49,
+        type: 3}
+      propertyPath: m_Name
+      value: UIPanel
       objectReference: {fileID: 0}
     - target: {fileID: 7982927050054537069, guid: 4693bb05872ed41469aefc057d451c49,
         type: 3}
@@ -8002,6 +8025,7 @@ MonoBehaviour:
   - {fileID: 8989105477882484133, guid: 86376c33eb8c57b4b84c1797bff35fa6, type: 3}
   - {fileID: 8989105477882484133, guid: 86376c33eb8c57b4b84c1797bff35fa6, type: 3}
   - {fileID: 3861465758524168464, guid: e063042cb5cafb84fadecc3fae73e9ca, type: 3}
+  - {fileID: 1160920200431836, guid: 8b5900c6b38f5354c8f4b32582f6608c, type: 3}
   items: []
   priceCanvasPrefab: {fileID: 3747744007782948079, guid: d77eebf8b905b67469e9a81725b6a64f,
     type: 3}
@@ -9022,6 +9046,36 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 64382871249811388, guid: d6e9eedc2c7baeb46ab65cba90d8505b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d6e9eedc2c7baeb46ab65cba90d8505b, type: 3}
+--- !u!1 &1543235629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1543235630}
+  m_Layer: 0
+  m_Name: SpawnPos
+  m_TagString: SpawnPos
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1543235630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543235629}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.449917, y: -25.520313, z: 24.675713}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1544089829 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4571843574166200, guid: db23fa03d8d74e349bbc089974917029,
@@ -9713,7 +9767,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SHOP
+  m_text: NOTE SHOP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 151a905bc081d53489640407943c03df, type: 2}
   m_sharedMaterial: {fileID: -4905786048338625914, guid: 151a905bc081d53489640407943c03df,
@@ -9777,7 +9831,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 6.807655, w: 0.7395668}
+  m_margin: {x: -2.9608574, y: 0, z: 0.7213688, w: 0.7395668}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
