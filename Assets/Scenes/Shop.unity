@@ -12372,16 +12372,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 87044959760754972, guid: 9cddfa94a8dbb5f498fac657b403b928,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 3.2954886
-      objectReference: {fileID: 0}
-    - target: {fileID: 87044959760754972, guid: 9cddfa94a8dbb5f498fac657b403b928,
-        type: 3}
-      propertyPath: m_Center.x
-      value: -0.49840525
-      objectReference: {fileID: 0}
     - target: {fileID: 87044960873636160, guid: 9cddfa94a8dbb5f498fac657b403b928,
         type: 3}
       propertyPath: m_RootOrder
@@ -12441,11 +12431,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: OverlayCam
-      objectReference: {fileID: 0}
-    - target: {fileID: 87044961701089135, guid: 9cddfa94a8dbb5f498fac657b403b928,
-        type: 3}
-      propertyPath: pools.Array.size
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cddfa94a8dbb5f498fac657b403b928, type: 3}
