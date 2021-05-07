@@ -13,7 +13,7 @@ public class PlayerStatsMenu : MonoBehaviour
     [SerializeField] int amountOfFrenzyUpgrades;
 
 
-    bool hasStartedFirstTime = false;
+    public static bool hasStartedFirstTime = false;
 
     [SerializeField] PlayerStats stats;
 
@@ -63,6 +63,7 @@ public class PlayerStatsMenu : MonoBehaviour
     {
         cantBuyCharacter.gameObject.SetActive(false);
         hasStartedFirstTime = PlayerPrefs.GetInt("hasStartedFirstTime") == 1;
+        Debug.Log(hasStartedFirstTime);
         currentCharacterSelected = 0;
 
         PlayerPrefs.SetInt("currentSelectedCharacter", currentCharacterSelected);
@@ -77,8 +78,6 @@ public class PlayerStatsMenu : MonoBehaviour
         UpdateTextUpgrade();
         if (!hasStartedFirstTime)
         {
-            hasStartedFirstTime = true;
-            PlayerPrefs.SetInt("hasStartedFirstTime", hasStartedFirstTime ? 1 : 0);
             Debug.Log("Started for the first time!");
             notes = startingNotes;
             PlayerPrefs.SetInt("NoteCurrency", notes);
@@ -118,6 +117,7 @@ public class PlayerStatsMenu : MonoBehaviour
                     notesText.text = notes.ToString();
                     lockScreen.SetActive(false);
                     PlayerPrefs.SetInt("boughtCharacter" + currentCharacterSelected, characters[i].GetComponent<CharacterStats>().hasBeenBought ? 1 : 0);
+                    PlayerPrefs.SetInt("NoteCurrency", notes);
                 }
             }
         }

@@ -71,6 +71,7 @@ public class ItemPurchase : MonoBehaviour
                 player.GetComponent<PlayerHealth>().UpgradeHealth(upgradeAmount);
                 PlayerCoinHandler.Instance.Coins -= itemCost;
                 gameObject.SetActive(false);
+                ItemCanvas.isInBuyArea = false;
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.AttackUpgrade && player.GetComponent<PlayerCoinHandler>().coins >= itemCost)
@@ -78,6 +79,7 @@ public class ItemPurchase : MonoBehaviour
                 player.GetComponent<Player>().UpgradeDamageMelee(upgradeAmount);
                 PlayerCoinHandler.Instance.Coins -= itemCost;
                 gameObject.SetActive(false);
+                ItemCanvas.isInBuyArea = false;
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.DashAttackUpgrade && player.GetComponent<PlayerCoinHandler>().coins >= itemCost)
@@ -85,6 +87,7 @@ public class ItemPurchase : MonoBehaviour
                 player.GetComponent<Player>().UpgradeDamageDash(upgradeAmount);
                 PlayerCoinHandler.Instance.Coins -= itemCost;
                 gameObject.SetActive(false);
+                ItemCanvas.isInBuyArea = false;
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.FrenzyUpgrade && player.GetComponent<PlayerCoinHandler>().coins >= itemCost)
@@ -93,6 +96,7 @@ public class ItemPurchase : MonoBehaviour
                 player.GetComponent<PlayerFrenzy>().maxFrenzy += upgrade;
                 PlayerCoinHandler.Instance.Coins -= itemCost;
                 gameObject.SetActive(false);
+                ItemCanvas.isInBuyArea = false;
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.ComboSaverUpgrade && player.GetComponent<PlayerCoinHandler>().coins >= itemCost)
@@ -107,7 +111,7 @@ public class ItemPurchase : MonoBehaviour
             {
                 Debug.Log("You don't have enough coins, item cost coins: " + itemCost);
             }
-            gameObject.SetActive(false);
+            ItemCanvas.isInBuyArea = false;
         }
         else if(!buyWithCoins && canBuy)
         {
@@ -116,6 +120,7 @@ public class ItemPurchase : MonoBehaviour
                 player.GetComponent<PlayerHealth>().UpgradeHealth(upgradeAmount);
                 NoteCurrencyHandler.Instance.NoteCurrency -= itemCostNotes;
                 gameObject.SetActive(false);
+                ItemCanvas.isInBuyArea = false;
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.AttackUpgrade && player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= itemCostNotes)
@@ -123,6 +128,7 @@ public class ItemPurchase : MonoBehaviour
                 player.GetComponent<Player>().UpgradeDamageMelee(upgradeAmount);
                 NoteCurrencyHandler.Instance.NoteCurrency -= itemCostNotes;
                 gameObject.SetActive(false);
+                ItemCanvas.isInBuyArea = false;
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.DashAttackUpgrade && player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= itemCostNotes)
@@ -138,6 +144,7 @@ public class ItemPurchase : MonoBehaviour
                 player.GetComponent<PlayerFrenzy>().maxFrenzy += upgrade;
                 NoteCurrencyHandler.Instance.NoteCurrency -= itemCostNotes;
                 gameObject.SetActive(false);
+                ItemCanvas.isInBuyArea = false;
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.ComboSaverUpgrade && player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= itemCost)
@@ -146,13 +153,13 @@ public class ItemPurchase : MonoBehaviour
                 ComboHandler.Instance.comboDepletionMult *= upgrade;
                 NoteCurrencyHandler.Instance.NoteCurrency -= itemCost;
                 gameObject.SetActive(false);
+                ItemCanvas.isInBuyArea = false;
                 RemoveItemFromList();
             }
             else
             {
                 Debug.Log("You don't have enough notes, item cost notes: " + itemCostNotes);
             }
-            
         }
     }
     private void OnLevelWasLoaded(int level)

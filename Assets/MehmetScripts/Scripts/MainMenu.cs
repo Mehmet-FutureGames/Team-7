@@ -26,7 +26,13 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame()
     {
-        if (GetComponentInChildren<CharacterStats>().hasBeenBought)
+        if (!PlayerStatsMenu.hasStartedFirstTime)
+        {
+            SceneManager.LoadScene("TutorialPC");
+            PlayerStatsMenu.hasStartedFirstTime = true;
+            PlayerPrefs.SetInt("hasStartedFirstTime", PlayerStatsMenu.hasStartedFirstTime ? 1 : 0);
+        }
+        else if(GetComponentInChildren<CharacterStats>().hasBeenBought && PlayerStatsMenu.hasStartedFirstTime)
         {
             SceneManager.LoadScene("Shop");
         }

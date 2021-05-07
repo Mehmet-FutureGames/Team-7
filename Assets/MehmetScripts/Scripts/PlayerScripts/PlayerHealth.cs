@@ -41,7 +41,9 @@ public class PlayerHealth : MonoBehaviour
     public void Respawn()
     {
         Time.timeScale = 1;
+    #if UNITY_ANDROID
         deadScreen.SetActive(false);
+    #endif
         RefillHealth();
     }
 
@@ -95,6 +97,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Dead()
     {
+#if UNITY_ANDROID
         if (!AdsManager.hasWatchedAd)
         {
             UIManager.deadSlider.GetComponent<Image>().fillAmount = 0.5f * 10;
@@ -110,6 +113,8 @@ public class PlayerHealth : MonoBehaviour
             Time.timeScale = 0;
             Player.EnemyTransforms.Clear();
         }
+#endif
+
     }
 
     IEnumerator StartTimer()

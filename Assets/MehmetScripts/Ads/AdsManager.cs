@@ -22,7 +22,6 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
     {
         startedWatchingAd = true;
         StartCoroutine(ShowRewardedAd());
-        Debug.Log(startedWatchingAd);
     }
 
     IEnumerator ShowRewardedAd()
