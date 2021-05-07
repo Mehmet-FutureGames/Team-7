@@ -28,12 +28,27 @@ public class NoteObject : MonoBehaviour
     }
     IEnumerator SizePop()
     {
-        while(scaleValue < 1f)
+        while(scaleValue < 0.5f)
         {
+            scaleValue += 0.20f;
             transform.localScale = new Vector3(scaleValue, scaleValue, scaleValue);
             yield return new WaitForFixedUpdate();
-            scaleValue += 0.25f;
+            
         }
+        StartCoroutine(SizeNormalize());
+        yield return null;
+    }
+    IEnumerator SizeNormalize()
+    {
+        while (scaleValue < 1f)
+        {
+            scaleValue += 0.01f;
+            transform.localScale = new Vector3(scaleValue, scaleValue, scaleValue);
+            
+            yield return new WaitForFixedUpdate();
+            
+        }
+        transform.localScale = new Vector3(1, 1, 1);
         yield return null;
     }
     private void OnEnable()
