@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
 
     public static GameObject deadSlider;
 
+    public static GameObject deadPanel;
+
     public static GameObject deathScreen;
 
     public static GameObject gameOverPanel;
@@ -36,9 +38,10 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(spawnPos);
         timer = Time.realtimeSinceStartup;
 
+        deadPanel = GameObject.Find("DeadPanel");
+        deadPanel.SetActive(false);
         timerDead = GameObject.Find("TimerText").GetComponent<TextMeshProUGUI>();
         deadSlider = GameObject.Find("TimerSlider");
         deathScreen = GameObject.Find("DeathScreenPanel");
@@ -77,6 +80,7 @@ public class UIManager : MonoBehaviour
             player = FindObjectOfType<Player>();
             spawnPos = GameObject.FindGameObjectWithTag("SpawnPos").transform;
         }
+        deadPanel.SetActive(false);
         currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.buildIndex);
         player.RestartCharacter(spawnPos);
