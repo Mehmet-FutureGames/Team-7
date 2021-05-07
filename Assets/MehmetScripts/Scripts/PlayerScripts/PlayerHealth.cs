@@ -113,9 +113,10 @@ public class PlayerHealth : MonoBehaviour
             Player.EnemyTransforms.Clear();
         }
 #endif
-
+#if UNITY_STANDALONE
         Time.timeScale = 0;
         UIManager.deadPanel.SetActive(true);
+#endif
     }
 
     IEnumerator StartTimer()
