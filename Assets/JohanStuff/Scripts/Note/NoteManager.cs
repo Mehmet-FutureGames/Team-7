@@ -79,7 +79,7 @@ public class NoteManager : MonoBehaviour
         {
             LoadPresetData(emilSSceneSongPreset);
         }
-        else if (level == SceneManager.GetSceneByName("Level_Graybox2").buildIndex)
+        else if (level == SceneManager.GetSceneByName("Level_2").buildIndex)
         {
             LoadPresetData(enricoSceneSongPreset);
         }

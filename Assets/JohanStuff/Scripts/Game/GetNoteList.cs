@@ -8,18 +8,18 @@ public class GetNoteList : MonoBehaviour
     public static List<NoteObject> NoteList = new List<NoteObject>();
     NotePublisher notePublisher;
     private Button button;
+    bool hasclickedDown;
     private void Start()
     {
         notePublisher = FindObjectOfType<NotePublisher>(); 
         button = GetComponent<Button>();
-        button.onClick.AddListener(PressButton);
     }
 
     public void PressButton()
     {
         for (int i = 0; i < NoteList.Count; i++)
         {
-            if (NoteList[i].canBePressed && !NoteList[i].deActivated)
+            if ((NoteList[i].canBePressed && !NoteList[i].deActivated))
             {
                 if (gameObject.CompareTag("AttackButton"))
                 {
@@ -29,8 +29,11 @@ public class GetNoteList : MonoBehaviour
                 {
                     NoteList[i].ButtonBlock();
                 }
-                
             }
         }
+    }
+    public void ReleaseButton()
+    {
+        hasclickedDown = false;
     }
 }

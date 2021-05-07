@@ -13,7 +13,8 @@ public class NoteMiss : MonoBehaviour
         } 
         set 
         { 
-            triggerCount = value; 
+            triggerCount = value;
+            Debug.Log("Triggercout: " + triggerCount);
         } 
     }
 
@@ -21,7 +22,7 @@ public class NoteMiss : MonoBehaviour
 
     public void TriggerCountZero()
     {
-        TriggerCount = 0;
+        StartCoroutine(WaitForCount());
     }
 
     private void Awake()
@@ -36,6 +37,12 @@ public class NoteMiss : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        TriggerCount--;
+        StartCoroutine(WaitForCount());
+        
+    }
+    IEnumerator WaitForCount()
+    {
+        yield return new WaitForSeconds(0.01f);
+        TriggerCount = 0;
     }
 }
