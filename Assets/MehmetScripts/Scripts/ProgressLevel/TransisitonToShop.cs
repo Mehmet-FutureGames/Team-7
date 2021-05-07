@@ -16,6 +16,7 @@ public class TransisitonToShop : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            manager.levelsCompletedThisRun++;
             manager.levelsCompletedOverall++;
             PlayerPrefs.SetInt("levelCompleted", manager.levelsCompletedOverall);
             SceneManager.LoadScene("CoinShop");
