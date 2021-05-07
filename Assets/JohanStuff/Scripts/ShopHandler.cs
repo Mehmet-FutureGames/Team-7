@@ -47,7 +47,6 @@ public class ShopHandler : MonoBehaviour
                     break;
                 }
             }
-            Debug.Log(shopItemHolders.Count);
             for (int i = 0; i < items.Count; i++)
             {
                 GameObject obj = Instantiate(items[i], shopItemHolders[i].transform.position, shopItemHolders[i].transform.rotation, shopItemHolders[i].transform);

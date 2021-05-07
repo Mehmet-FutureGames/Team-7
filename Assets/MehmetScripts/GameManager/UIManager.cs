@@ -34,19 +34,17 @@ public class UIManager : MonoBehaviour
 
     PressAnyKey musicStart;
 
-    private void Awake()
+    private void Start()
     {
+        Debug.Log(spawnPos);
         timer = Time.realtimeSinceStartup;
 
         timerDead = GameObject.Find("TimerText").GetComponent<TextMeshProUGUI>();
         deadSlider = GameObject.Find("TimerSlider");
-        Debug.Log(deadSlider);
         deathScreen = GameObject.Find("DeathScreenPanel");
         gameOverPanel = GameObject.Find("GameOverPanel");
         uiPanel = GameObject.Find("UIPanel");
-    }
-    private void Start()
-    {
+
         StartCoroutine(ShowAndStopShowingText());
 
         musicStart = GetComponent<PressAnyKey>();
@@ -74,6 +72,12 @@ public class UIManager : MonoBehaviour
     }
     public void RetryButton()
     {
+        if(player == null || spawnPos == null) 
+        {
+            player = FindObjectOfType<Player>();
+            spawnPos = GameObject.FindGameObjectWithTag("SpawnPos").transform;
+        }
+        currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.buildIndex);
         player.RestartCharacter(spawnPos);
         player.GetComponent<PlayerHealth>().Respawn();
@@ -111,7 +115,7 @@ public class UIManager : MonoBehaviour
         currentScene = SceneManager.GetActiveScene();
         if(level == SceneManager.GetSceneByName("Shop").buildIndex || SceneManager.GetSceneByName("CoinShop").buildIndex == 4)
         {
-            Debug.Log("You are in the shop!");
+
         }
         else
         {
