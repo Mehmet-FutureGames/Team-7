@@ -31,8 +31,9 @@ public class TransisitionToNextLevel : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
-        if(level == 3)
+        if(level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex)
         {
+            spawnPos = GameObject.FindGameObjectWithTag("SpawnPos").transform;
             player.transform.position = spawnPos.transform.position;
             player.GetComponent<MovePlayer>().mousePos = spawnPos.transform.position;
         }
