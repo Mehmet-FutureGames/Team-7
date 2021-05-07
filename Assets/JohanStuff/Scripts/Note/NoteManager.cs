@@ -11,9 +11,6 @@ public enum Difficulty
 
 public class NoteManager : MonoBehaviour
 {
-    public Vector3 StartScale;
-    [Range(0f, 1)]
-    public float downScaleMultiplier;
 
     [Space]
     public Difficulty difficulty;

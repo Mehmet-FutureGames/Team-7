@@ -38,7 +38,6 @@ public class NoteObject : MonoBehaviour
     }
     private void OnEnable()
     {
-        transform.localScale = noteManager.StartScale;
         transform.localScale = new Vector3(0, 0, 0);
         deActivated = false;
         gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
