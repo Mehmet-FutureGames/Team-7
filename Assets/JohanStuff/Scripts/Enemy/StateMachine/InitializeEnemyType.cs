@@ -40,7 +40,12 @@ public class InitializeEnemyType : MonoBehaviour
                 enemy.combatPhase3 = new CasterCombatP3(enemy, stateMachine);
                 enemy.combatPhase4 = new CasterCombatP4(enemy, stateMachine);
                 break;
-
+            case EnemyType.Lobber:
+                enemy.moveState = new LobberMoveState(enemy, stateMachine);
+                enemy.combatPhase1 = new LobberCombatP1(enemy, stateMachine);
+                enemy.combatPhase2 = new LobberCombatP2(enemy, stateMachine);
+                enemy.combatPhase3 = new LobberCombatP3(enemy, stateMachine);
+                break;
             default:
                 break;
         }
