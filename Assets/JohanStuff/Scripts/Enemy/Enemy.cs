@@ -200,7 +200,6 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-
         animator = agentObj.GetComponentInChildren<Animator>();
         floatingText = stats.floatingText;
         area.SetActive(false);
@@ -270,7 +269,7 @@ public class Enemy : MonoBehaviour
 
         parent = GetComponent<Transform>();
 
-        agentObj = Instantiate(stats.enemyModel, parent);
+        agentObj = Instantiate(stats.enemyModel,transform.position, Quaternion.identity ,parent);
         Player.EnemyTransforms.Add(agentObj.transform);
         area = Instantiate(stats.attackAreaShape, agentObj.transform.position, Quaternion.identity, agentObj.transform);
 
