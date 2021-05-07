@@ -99,6 +99,14 @@ public class ItemPurchase : MonoBehaviour
                 ItemCanvas.isInBuyArea = false;
                 RemoveItemFromList();
             }
+            else if (itemType == ItemType.ComboSaverUpgrade && player.GetComponent<PlayerCoinHandler>().coins >= itemCost)
+            {
+                float upgrade = upgradeAmount;
+                ComboHandler.Instance.comboDepletionMult *= upgrade;
+                PlayerCoinHandler.Instance.Coins -= itemCost;
+                gameObject.SetActive(false);
+                RemoveItemFromList();
+            }
             else
             {
                 Debug.Log("You don't have enough coins, item cost coins: " + itemCost);
@@ -139,6 +147,14 @@ public class ItemPurchase : MonoBehaviour
                 ItemCanvas.isInBuyArea = false;
                 RemoveItemFromList();
             }
+            else if (itemType == ItemType.ComboSaverUpgrade && player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= itemCost)
+            {
+                float upgrade = upgradeAmount;
+                ComboHandler.Instance.comboDepletionMult *= upgrade;
+                NoteCurrencyHandler.Instance.NoteCurrency -= itemCost;
+                gameObject.SetActive(false);
+                RemoveItemFromList();
+            }
             else
             {
                 Debug.Log("You don't have enough notes, item cost notes: " + itemCostNotes);
@@ -167,6 +183,7 @@ public class ItemPurchase : MonoBehaviour
                 }
             }
         }
+        ItemCanvas.isInBuyArea = false;
     }
     private void OnEnable()
     {
