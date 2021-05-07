@@ -89,7 +89,7 @@ public class UIManager : MonoBehaviour
 
     private void UpdateWaveLevel()
     {
-        waveText.text = "Wave: " + manager.waveLevel + "/" + manager.waveMaximum;
+        //waveText.text = "Wave: " + manager.waveLevel + "/" + manager.waveMaximum;
     }
 
     private void SkipText()
