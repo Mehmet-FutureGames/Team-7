@@ -106,6 +106,7 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<PlayerHealth>().currentHealth = playerStats.maxHealth;
         healthBar.transform.parent.localScale = new Vector2(healthBar.transform.parent.localScale.x * (playerStats.maxHealth / defaultMaxHealth), healthBar.transform.parent.localScale.y);
         healthBar.fillAmount = currentHealth / playerStats.maxHealth;
+        RefillHealth();
     }
 
     public void RecoverHealth(float healthRecovered)

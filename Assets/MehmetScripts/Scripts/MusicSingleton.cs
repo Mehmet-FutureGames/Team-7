@@ -22,9 +22,16 @@ public class MusicSingleton : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
-        if(level == 2)
+        if(level == 1 || level == 0)
         {
+            
+        }
+        else
+        {
+            GetComponent<AudioSource>().Stop();
             Destroy(gameObject);
         }
+        
     }
+    
 }

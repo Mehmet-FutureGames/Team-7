@@ -27,8 +27,6 @@ public class NoteObject : MonoBehaviour
     }
     private void OnEnable()
     {
-
-
         transform.localScale = noteManager.StartScale;
         timer = 0;
         deActivated = false;

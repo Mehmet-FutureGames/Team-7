@@ -10,7 +10,7 @@ public class CasterMoveState : State
     public override void Enter()
     {
         base.Enter();
-        enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.yellow;
+        //enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.yellow;
     }
     public override void LogicUpdate()
     {

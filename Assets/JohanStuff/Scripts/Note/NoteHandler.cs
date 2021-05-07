@@ -9,7 +9,7 @@ public class NoteHandler : MonoBehaviour
 
     private float startDelay;
 
-    GameObject notePrefab;
+    public GameObject notePrefab;
     
     float timer = 0;
     [SerializeField] Transform hitArea;
@@ -43,19 +43,29 @@ public class NoteHandler : MonoBehaviour
                 timer += Time.fixedDeltaTime;
                 if (timer >= (60 / noteManager.beatTempo) * noteManager.difficultyMultiplier)
                 {
-                    notePooler.SpawnFormPool("Note", transform.position, Quaternion.identity);
+                    Instantiate(notePrefab, transform.position, Quaternion.identity);
                     timer -= (60 / noteManager.beatTempo) * noteManager.difficultyMultiplier;
                 }
             }
-
         }
-
     }
 
     IEnumerator StartDelay()
     {
         yield return new WaitForSeconds(startDelay);
         delayDone = true;
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if(level == 3)
+        {
+
+        }
+        
+        timer = 0;
+        delayDone = false;
+        delayStarted = false;
     }
 
 
