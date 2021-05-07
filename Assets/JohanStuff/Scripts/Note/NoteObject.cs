@@ -55,7 +55,7 @@ public class NoteObject : MonoBehaviour
     {
         transform.localScale = new Vector3(0, 0, 0);
         deActivated = false;
-        gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
+        //gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.white;
     }
     private void OnLevelWasLoaded(int level)
     {
