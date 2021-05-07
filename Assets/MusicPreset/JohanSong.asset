@@ -15,5 +15,5 @@ MonoBehaviour:
   songName: Johans' song
   BPM: 120
   audioClip: {fileID: 8300000, guid: 9039d79e8dfefee4bb090aea5f7c459a, type: 3}
-  volume: 0.2
+  volume: 1
   noteStartDelay: 0

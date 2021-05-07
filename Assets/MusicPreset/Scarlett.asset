@@ -15,5 +15,5 @@ MonoBehaviour:
   songName: Scarlett
   BPM: 135
   audioClip: {fileID: 8300000, guid: 8829da0c1a732f84991ba6ddf995f6f5, type: 3}
-  volume: 0.1
+  volume: 0.5
   noteStartDelay: 0
