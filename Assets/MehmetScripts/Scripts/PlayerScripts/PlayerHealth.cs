@@ -10,7 +10,6 @@ public class PlayerHealth : MonoBehaviour
     [HideInInspector] public float currentHealth;
     float defaultMaxHealth = 100f;
     float timerTillAdGone;
-    bool timeDone = false;
     public AudioSource takeDamage;
 
     GameObject deadScreen;
@@ -115,6 +114,8 @@ public class PlayerHealth : MonoBehaviour
         }
 #endif
 
+        Time.timeScale = 0;
+        UIManager.deadPanel.SetActive(true);
     }
 
     IEnumerator StartTimer()
