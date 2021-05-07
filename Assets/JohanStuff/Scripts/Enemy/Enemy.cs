@@ -204,9 +204,15 @@ public class Enemy : MonoBehaviour
         animator = agentObj.GetComponentInChildren<Animator>();
         floatingText = stats.floatingText;
         area.SetActive(false);
-        area2.SetActive(false);
+        if (stats.attackAreaShape2 != null)
+        {
+            area2 = Instantiate(stats.attackAreaShape2, agentObj.transform.position, Quaternion.identity, agentObj.transform);
+            Debug.Log("!");
+            area2.transform.localScale = stats.attackAreaScale2;
+            area2.SetActive(false);
+        }
         area.transform.localScale = stats.attackAreaScale;
-        area2.transform.localScale = stats.attackAreaScale2;
+
         //gameObject.GetComponentInChildren<EnemyHitArea>().transform.localScale = stats.attackAreaScale;
         agent = GetComponentInChildren<NavMeshAgent>();
 
@@ -268,7 +274,8 @@ public class Enemy : MonoBehaviour
         Player.EnemyTransforms.Add(agentObj.transform);
         area = Instantiate(stats.attackAreaShape, agentObj.transform.position, Quaternion.identity, agentObj.transform);
 
-            area2 = Instantiate(stats.attackAreaShape2, agentObj.transform.position, Quaternion.identity, agentObj.transform);
+
+
         
     }
     private void OnDisable()

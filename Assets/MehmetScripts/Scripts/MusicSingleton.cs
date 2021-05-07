@@ -28,7 +28,10 @@ public class MusicSingleton : MonoBehaviour
         }
         else
         {
+            GetComponent<AudioSource>().Stop();
             Destroy(gameObject);
         }
+        
     }
+    
 }

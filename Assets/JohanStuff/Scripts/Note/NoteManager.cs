@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public enum Difficulty
 {
     easy,
@@ -28,17 +28,18 @@ public class NoteManager : MonoBehaviour
     public float difficultyMultiplier;
     [Space]
     public GameObject notePrefab;
-    private float volume;
     private AudioClip clip;
-    [SerializeField] AudioScriptableObject audioPreset;
+    [SerializeField] AudioScriptableObject shopSongPreset;
+    [SerializeField] AudioScriptableObject emilSSceneSongPreset;
+    [SerializeField] AudioScriptableObject enricoSceneSongPreset;
     [SerializeField] CalibrationSaver calibrationSaver;
     Camera camera;
 
     private void Awake()
     {
         camera = Camera.main;
-        LoadPresetData();
-        camera.GetComponent<AudioSource>().clip = clip;
+        //LoadPresetData();
+        
     }
 
     private void Start()
@@ -46,19 +47,14 @@ public class NoteManager : MonoBehaviour
         SetDifficulty();
     }
 
-    void LoadPresetData()
+    void LoadPresetData(AudioScriptableObject preset)
     {
-        beatTempo = audioPreset.BPM;
-
-        noteStartDelay = calibrationSaver.delay + audioPreset.noteStartDelay;
-
-
-
-        Debug.Log(noteStartDelay);
-        volume = audioPreset.volume;
-        clip = audioPreset.audioClip;
+        beatTempo = preset.BPM;
+        noteStartDelay = calibrationSaver.delay + preset.noteStartDelay;
+        camera.GetComponent<AudioSource>().volume = preset.volume;
+        clip = preset.audioClip;
+        camera.GetComponent<AudioSource>().clip = clip;
     }
-
     public void SetDifficulty()
     {
         switch (difficulty)
@@ -73,5 +69,23 @@ public class NoteManager : MonoBehaviour
                 difficultyMultiplier = 0.5f;
                 break;
         }
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+        camera.GetComponent<AudioSource>().Stop();
+
+        if(level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex)
+        {
+            LoadPresetData(shopSongPreset);
+        }
+        else if( level == SceneManager.GetSceneByName("EmilSTestScene").buildIndex)
+        {
+            LoadPresetData(emilSSceneSongPreset);
+        }
+        else if (level == SceneManager.GetSceneByName("Level_Graybox2").buildIndex)
+        {
+            LoadPresetData(enricoSceneSongPreset);
+        }
+        camera.GetComponent<AudioSource>().Play();
     }
 }
