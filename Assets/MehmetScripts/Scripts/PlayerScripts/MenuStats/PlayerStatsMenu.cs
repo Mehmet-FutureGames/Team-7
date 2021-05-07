@@ -117,6 +117,7 @@ public class PlayerStatsMenu : MonoBehaviour
                     notesText.text = notes.ToString();
                     lockScreen.SetActive(false);
                     PlayerPrefs.SetInt("boughtCharacter" + currentCharacterSelected, characters[i].GetComponent<CharacterStats>().hasBeenBought ? 1 : 0);
+                    PlayerPrefs.SetInt("NoteCurrency", notes);
                 }
             }
         }
