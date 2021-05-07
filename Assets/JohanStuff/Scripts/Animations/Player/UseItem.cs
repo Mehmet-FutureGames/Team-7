@@ -11,10 +11,6 @@ public class UseItem : MonoBehaviour
     public bool[] item;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            //OnPickUpItem(0);
-        }
         if (Input.GetKeyDown(KeyCode.E))
         {
             OnUseItem();
@@ -43,7 +39,7 @@ public class UseItem : MonoBehaviour
         
     }
 
-    void OnUseItem()
+    public void OnUseItem()
     {
         for (int i = 0; i < item.Length; i++)
         {
