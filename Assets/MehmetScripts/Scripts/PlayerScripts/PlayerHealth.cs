@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     float defaultMaxHealth = 100f;
     float timerTillAdGone;
     bool timeDone = false;
+    public AudioSource takeDamage;
 
     GameObject deadScreen;
     Image healthBar;
@@ -55,6 +56,7 @@ public class PlayerHealth : MonoBehaviour
                 if (playerStats.playerDamageText)
                 {
                     ShowFloatingText(damage);
+                    takeDamage.Play();
                 }
                 if (currentHealth <= 0)
                 {
@@ -75,6 +77,7 @@ public class PlayerHealth : MonoBehaviour
             if (playerStats.playerDamageText)
             {
                 ShowFloatingText(damage);
+                takeDamage.Play();
             }
             if (currentHealth < 0)
             {
