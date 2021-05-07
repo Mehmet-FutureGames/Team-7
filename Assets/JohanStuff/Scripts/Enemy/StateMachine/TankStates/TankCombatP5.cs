@@ -9,7 +9,6 @@ public class TankCombatP5 : State
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("PreparingAttack");
         enemy.area2.SetActive(true);
         Vector3 dirToPlayer = (enemy.player.position - enemy.agentObj.transform.position).normalized;
         enemy.agentObj.transform.rotation = Quaternion.LookRotation(dirToPlayer);

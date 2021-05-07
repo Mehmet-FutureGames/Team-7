@@ -13,7 +13,7 @@ public class NoteObject : MonoBehaviour
     public bool deActivated;
 
     NoteManager noteManager;
-    float timer = 0;
+    float scaleValue;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -23,12 +23,23 @@ public class NoteObject : MonoBehaviour
     }
     void Start()
     {
-
+        scaleValue = 0;
+        StartCoroutine(SizePop());
+    }
+    IEnumerator SizePop()
+    {
+        while(scaleValue < 1f)
+        {
+            transform.localScale = new Vector3(scaleValue, scaleValue, scaleValue);
+            yield return new WaitForFixedUpdate();
+            scaleValue += 0.25f;
+        }
+        yield return null;
     }
     private void OnEnable()
     {
         transform.localScale = noteManager.StartScale;
-        timer = 0;
+        transform.localScale = new Vector3(0, 0, 0);
         deActivated = false;
         gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
     }
@@ -118,11 +129,6 @@ public class NoteObject : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        timer += Time.fixedDeltaTime;
-        transform.localScale = Vector3.Lerp(noteManager.StartScale, Vector3.zero, noteManager.downScaleMultiplier * timer);
-    }
 
     private void OnTriggerEnter(Collider other)
     {

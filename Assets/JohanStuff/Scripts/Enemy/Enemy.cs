@@ -206,7 +206,6 @@ public class Enemy : MonoBehaviour
         if (stats.attackAreaShape2 != null)
         {
             area2 = Instantiate(stats.attackAreaShape2, agentObj.transform.position, Quaternion.identity, agentObj.transform);
-            Debug.Log("!");
             area2.transform.localScale = stats.attackAreaScale2;
             area2.SetActive(false);
         }
