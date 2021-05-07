@@ -11,8 +11,8 @@ public class TankCombatP3 : State
         base.Enter();
         hasAttacked = false;
         timer = 0.08f;
-        enemy.animator.SetTrigger("PerformAttack");
-        enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+        enemy.animator.SetTrigger("Attack");
+        //enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
     }
     float timer;
     bool hasAttacked;

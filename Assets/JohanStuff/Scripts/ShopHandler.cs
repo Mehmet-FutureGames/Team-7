@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using UnityEngine.SceneManagement;
 public class ShopHandler : MonoBehaviour
 {
     public List<GameObject> itemPool = new List<GameObject>();
@@ -72,7 +73,7 @@ public class ShopHandler : MonoBehaviour
                 items.RemoveAt(0);
             }
         }
-        if (level == 2 && (items.Count > 0 || itemPool.Count > 0))
+        if (level == SceneManager.GetSceneByName("Shop").buildIndex && (items.Count > 0 || itemPool.Count > 0))
         {
             StartCoroutine(Wait());
         }
@@ -80,7 +81,7 @@ public class ShopHandler : MonoBehaviour
         {
 
         }
-        if(level == 4 && (items.Count > 0 || itemPool.Count > 0))
+        if(level == SceneManager.GetSceneByName("CoinShop").buildIndex && (items.Count > 0 || itemPool.Count > 0))
         {
             StartCoroutine(Wait());
             
