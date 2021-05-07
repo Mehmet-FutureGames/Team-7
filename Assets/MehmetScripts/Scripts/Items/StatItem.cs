@@ -8,7 +8,8 @@ public enum ItemType
     HealthUpgrade,
     AttackUpgrade,
     DashAttackUpgrade,
-    FrenzyUpgrade
+    FrenzyUpgrade,
+    ComboSaverUpgrade
 }
 
 [CreateAssetMenu(fileName = "New Item", menuName = "ScriptableObjects/Items", order = 1)]

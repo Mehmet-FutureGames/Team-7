@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
     Player playerStats;
     [HideInInspector] public float currentHealth;
     float defaultMaxHealth = 100f;
+    float timerTillAdGone;
+    bool timeDone = false;
 
-    GameObject deadPanel;
+    GameObject deadScreen;
     Image healthBar;
 
     MovePlayer movePlayer;
@@ -22,16 +25,20 @@ public class PlayerHealth : MonoBehaviour
         movePlayer = FindObjectOfType<MovePlayer>();
         StartCoroutine(ReferenceHealth());
         comboHandler = FindObjectOfType<ComboHandler>();
-        deadPanel = GameObject.Find("DeadPanel");
+        deadScreen = UIManager.deathScreen;
+        Debug.Log(deadScreen);
         healthBar = GameObject.Find("HealthBar").GetComponent<Image>();
-        deadPanel.SetActive(false);
         Respawn();
+    }
+    private void Update()
+    {
+
     }
 
     public void Respawn()
     {
         Time.timeScale = 1;
-        deadPanel.SetActive(false);
+        deadScreen.SetActive(false);
         RefillHealth();
     }
 
@@ -69,7 +76,7 @@ public class PlayerHealth : MonoBehaviour
             }
             if (currentHealth < 0)
             {
-                Dead();
+               Dead();
             }
         }
     }
@@ -83,9 +90,27 @@ public class PlayerHealth : MonoBehaviour
 
     private void Dead()
     {
-        Player.EnemyTransforms.Clear();
-        deadPanel.SetActive(true);
+        UIManager.deadSlider.GetComponent<Image>().fillAmount = 0.5f * 10;
+        deadScreen.SetActive(true);
+        timerTillAdGone = Time.realtimeSinceStartup - UIManager.timer + 5;
+        StartCoroutine(StartTimer());
         Time.timeScale = 0;
+        Player.EnemyTransforms.Clear();        
+    }
+
+    IEnumerator StartTimer()
+    {
+        while (timerTillAdGone > 0)
+        {
+            timerTillAdGone -= 0.050f;
+            UIManager.timerDead.text = timerTillAdGone.ToString("F0");
+            UIManager.deadSlider.GetComponent<Image>().fillAmount -= 0.01f;
+            if (timerTillAdGone <= 0)
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
     }
 
     IEnumerator ReferenceHealth()

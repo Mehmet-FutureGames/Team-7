@@ -12,8 +12,8 @@ public class TankCombatP2 : State
         Vector3 dirToPlayer = (enemy.player.position - enemy.agentObj.transform.position).normalized;
         enemy.agentObj.transform.rotation = Quaternion.LookRotation(dirToPlayer);
         enemy.area.SetActive(true);
-        enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.green;
-        enemy.animator.SetTrigger("PrepareAttack");
+        //enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.green;
+        enemy.animator.SetTrigger("Preparing");
 
     }
 
