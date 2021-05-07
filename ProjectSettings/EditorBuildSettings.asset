@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/CharacterChange.unity
     guid: 2ed4081ccc1327f4d81c09012efdb37c
   - enabled: 1
+    path: Assets/EmilSStuff/TutorialPC.unity
+    guid: ce8a28e55ab340040a070d1623e4bd26
+  - enabled: 1
     path: Assets/Scenes/CoinShop.unity
     guid: 09e1331d4123a57419a8f79606c9df34
   - enabled: 1

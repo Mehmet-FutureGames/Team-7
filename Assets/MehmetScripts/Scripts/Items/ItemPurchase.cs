@@ -153,6 +153,7 @@ public class ItemPurchase : MonoBehaviour
                 ComboHandler.Instance.comboDepletionMult *= upgrade;
                 NoteCurrencyHandler.Instance.NoteCurrency -= itemCost;
                 gameObject.SetActive(false);
+                ItemCanvas.isInBuyArea = false;
                 RemoveItemFromList();
             }
             else
