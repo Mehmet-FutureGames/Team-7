@@ -9,7 +9,7 @@ public class TankCombatP1 : State
     public override void Enter()
     {
         base.Enter();
-        enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.cyan;
+        //enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.cyan;
     }
 
     public override void PhysicsUpdate()
