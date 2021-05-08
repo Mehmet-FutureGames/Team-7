@@ -772,7 +772,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
-  levelsCompletedThisRun: 0
   levelsCompletedOverall: 0
 --- !u!4 &1043414005
 Transform:
@@ -1691,6 +1690,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2053048003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2142267719, guid: 9a8011c633929384e963bdb55c94dcf7,
+    type: 3}
+  m_PrefabInstance: {fileID: 8966836273895505068}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2110695707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2324,6 +2329,11 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 2032981257}
+    - target: {fileID: 3283491656840261334, guid: 8bbdca35cac70f143b906cf2b0652137,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.373
+      objectReference: {fileID: 0}
     - target: {fileID: 7914652014459963307, guid: 8bbdca35cac70f143b906cf2b0652137,
         type: 3}
       propertyPath: m_Name
@@ -2508,6 +2518,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1715096865}
+    - target: {fileID: 8840224516020580053, guid: 4693bb05872ed41469aefc057d451c49,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
 --- !u!1001 &8966836273895505068
@@ -2528,6 +2543,14 @@ PrefabInstance:
     - target: {fileID: 1619984199, guid: 9a8011c633929384e963bdb55c94dcf7, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1977738649, guid: 9a8011c633929384e963bdb55c94dcf7, type: 3}
+      propertyPath: enemySound
+      value: 
+      objectReference: {fileID: 2053048003}
+    - target: {fileID: 1977738650, guid: 9a8011c633929384e963bdb55c94dcf7, type: 3}
+      propertyPath: m_Volume
+      value: 0.151
       objectReference: {fileID: 0}
     - target: {fileID: 2055232222, guid: 9a8011c633929384e963bdb55c94dcf7, type: 3}
       propertyPath: slider
