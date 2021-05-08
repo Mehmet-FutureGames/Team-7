@@ -36,8 +36,7 @@ public class PlayerAttack : MonoBehaviour
         meleeDuration = playerStats.meleeAttackDuration;
     }
     private void OnEnable()
-    {
-        
+    {        
         playerStats = GetComponentInParent<Player>();
         playerStats.isAttacking = true;
     }

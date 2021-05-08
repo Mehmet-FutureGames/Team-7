@@ -13,7 +13,16 @@ public class TransisitionToNextLevel : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        
         currentScene = SceneManager.GetActiveScene();
+        Debug.Log(currentScene.buildIndex + LevelManager.levelsCompletedThisRun);
+        if(currentScene.buildIndex + LevelManager.levelsCompletedThisRun >= 8)
+        {
+            LevelManager.levelsCompletedThisRun--;
+            LevelManager.levelsCompletedThisRun--;
+            Debug.Log("testingtestweaaeaeaea");
+            Debug.Log(LevelManager.levelsCompletedThisRun);
+        }
         player = FindObjectOfType<Player>().gameObject;
         manager = FindObjectOfType<LevelManager>();
         GetComponent<BoxCollider>().isTrigger = true;

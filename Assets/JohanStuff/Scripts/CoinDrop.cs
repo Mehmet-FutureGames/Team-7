@@ -66,8 +66,6 @@ public class CoinDrop : MonoBehaviour
             {
                 AudioManager.PlaySound("SingeCoinSound", "VFXSound", 0.1f);
             }
-
-
             other.gameObject.GetComponent<PlayerCoinHandler>().AddCoins(coinValue);
             gameObject.SetActive(false);
         }

@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     public AudioClip enemysound;
     public AudioClip enemy2sound;
 
+    public static bool TakenDamage;
+
 
     EnemyPublisher enemyPublisher;
     public Action enemyDefeated;
@@ -109,13 +111,15 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(float damage, bool isDash)
     {
-        if(!AudioManager.AudioSourcePlaying("EnemySound"))
-        AudioManager.PlaySound("MeleeSwingsPack_hit", "EnemySound");
         health -= damage;
+        if (AudioManager.AudioSourcePlaying("PlayerSound"))
+        {
+            AudioManager.StopSound("PlayerSound");
+            AudioManager.PlaySound("MeleeSwingsPack_hit", "PlayerSound");
+        }
         if (floatingText)
         {
             GameObject blood = ObjectPooler.Instance.SpawnFormPool("Blood", agentObj.transform.position, transform.rotation);
-            AudioManager.PlaySound("HitOnEnergeticShield", "EnemySound");
             if (!isDash)
             {
                 PlayerFrenzy.Instance.AddFrenzy();
