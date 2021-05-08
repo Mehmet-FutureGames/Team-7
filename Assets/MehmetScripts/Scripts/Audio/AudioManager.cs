@@ -31,8 +31,24 @@ public class AudioManager : MonoBehaviour
 
     public static void PlaySound(string clip, string audio)
     {
-        sources[audio].clip = audioClips[clip];
-        sources[audio].Play();
+        if (!sources[audio].isPlaying)
+        {
+            sources[audio].clip = audioClips[clip];
+            sources[audio].Play();
+        }
+    }
+    public static void PlaySound(string clip, string audio, float delay)
+    {
+        if (!sources[audio].isPlaying)
+        {
+            if (delay > 0)
+            {
+                sources[audio].clip = audioClips[clip];
+                sources[audio].PlayDelayed(delay);
+            }
+            sources[audio].clip = audioClips[clip];
+            sources[audio].Play();
+        }
     }
     public void PlayHoverSound(string clip)
     {
