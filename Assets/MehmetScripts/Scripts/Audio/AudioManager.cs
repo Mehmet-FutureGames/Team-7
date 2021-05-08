@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour
         sources[audio].clip = audioClips[clip];
         sources[audio].Play();
     }
-    public void TestMethod(string clip)
+    public void PlayHoverSound(string clip)
     {
         sources["VFXSound"].clip = audioClips[clip];
         sources["VFXSound"].Play();
