@@ -234,20 +234,8 @@ public class Enemy : MonoBehaviour
 
     private void EventUpdate()
     {
-        movementSM.CurrentState.NoteEventUpdate();
         distanceToPlayer = (agentObj.transform.position - player.position).magnitude;
-        if (player != null)
-        {
-            
-            
-        }
-        else
-        {
-            //player = FindObjectOfType<MovePlayer>().transform;
-        }
-        
-
-
+        movementSM.CurrentState.NoteEventUpdate();
     }
 
     private void Awake()

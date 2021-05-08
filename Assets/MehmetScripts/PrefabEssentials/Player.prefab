@@ -10067,7 +10067,6 @@ GameObject:
   - component: {fileID: 6430466938662035385}
   - component: {fileID: 9016947051451766807}
   - component: {fileID: 3283491656840261334}
-  - component: {fileID: 1503124750}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -10341,7 +10340,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  takeDamage: {fileID: 3283491656840261334}
 --- !u!114 &7914652014459963324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10354,7 +10352,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605c62a76994ce44588b84cae0ff8272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attacksound: {fileID: 8300000, guid: 7293e5c426aad904db5a7344e1d65b2c, type: 3}
   stats: {fileID: 11400000, guid: 9c4df15d28d0ff7409461bea318cdbf2, type: 2}
   ground:
     serializedVersion: 2
@@ -10557,20 +10554,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1503124750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7914652014459963307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b56740df2e5e9fb4ea0d3d26e006ab62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeItems1: {fileID: 0}
-  item: 000000
 --- !u!1 &7914652014496845978
 GameObject:
   m_ObjectHideFlags: 0

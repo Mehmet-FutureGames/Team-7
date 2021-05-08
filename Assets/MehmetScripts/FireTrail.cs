@@ -21,9 +21,15 @@ public class FireTrail : ActiveItems
     public override void PerformAction()
     {
         //Spawn FireTrail at player position
-        hasStartedEffect = true;
-        Debug.Log("FIRETRAIL");
-        StartCoroutine(Timer());
+        if (cooldownReady)
+        {
+            timerDone = false;
+            hasStartedEffect = true;
+            Debug.Log("FIRETRAIL");
+            cooldownReady = false;
+            StartCoroutine(Timer());
+        }
+
     }
     
     void Update()
@@ -51,8 +57,25 @@ public class FireTrail : ActiveItems
     {
         yield return new WaitForSeconds(10f);
         timerDone = true;
-        Destroy(this);
+        StartCoroutine(CountCooldown());
         yield return null;
+    }
+    IEnumerator CountCooldown()
+    {
+        
+        while (true)
+        {
+            yield return new WaitForSeconds(0.1f);
+            cooldownCount--;
+            if (cooldownCount <= 0)
+            {
+                cooldownReady = true;
+                cooldownCount = cooldown;
+                break;
+            }
+        }
+        yield return null;
+
     }
 
 }

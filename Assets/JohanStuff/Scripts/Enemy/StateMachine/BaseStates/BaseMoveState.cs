@@ -26,7 +26,7 @@ public class BaseMoveState : State
         base.NoteEventUpdate();
         if (enemy.distanceToPlayer <= enemy.attackRange)
         {
-            stateMachine.ChangeState(enemy.combatPhase1);
+            stateMachine.ChangeState(enemy.combatPhase2);
             return;
         }
         Action();
@@ -51,7 +51,7 @@ public class BaseMoveState : State
                         dirToPlayer = (enemy.player.position - enemy.agentObj.transform.position).normalized;
                         if (enemy.distanceToPlayer < enemy.moveDistance)
                         {
-                            enemy.agent.SetDestination(enemy.player.position);
+                            enemy.agent.SetDestination(enemy.player.position +(enemy.agentObj.transform.position - enemy.player.transform.position).normalized);
                         }
                         else
                         {

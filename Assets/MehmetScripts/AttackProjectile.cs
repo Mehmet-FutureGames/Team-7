@@ -9,15 +9,37 @@ public class AttackProjectile : ActiveItems
     protected override void Start()
     {
         base.Start();
+
     }
 
     public override void PerformAction()
     {
-        for (int i = 0; i < projectileCount; i++)
+        if (cooldownReady)
         {
-            ObjectPooler.Instance.SpawnFormPool("PlayerProjectile", transform.position);
+            for (int i = 0; i < projectileCount; i++)
+            {
+                ObjectPooler.Instance.SpawnFormPool("PlayerProjectile", transform.position);
+            }
+            Debug.Log("ATTACKPROJECTILE");
+            
+            StartCoroutine(CountCooldown());
         }
-        Debug.Log("ATTACKPROJECTILE");
-        Destroy(this);
+
+    }
+    IEnumerator CountCooldown()
+    {
+        cooldownReady = false;
+        while (true)
+        {
+            yield return new WaitForSeconds(0.1f);
+            cooldownCount--;
+            if(cooldownCount <= 0)
+            {
+                cooldownReady = true;
+                cooldownCount = cooldown;
+                break;
+            }
+        }
+        yield return null;
     }
 }
