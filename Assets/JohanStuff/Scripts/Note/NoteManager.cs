@@ -31,7 +31,7 @@ public class NoteManager : MonoBehaviour
     [SerializeField] AudioScriptableObject enricoSceneSongPreset;
     [SerializeField] CalibrationSaver calibrationSaver;
     Camera camera;
-
+    public static float currentSongMaxVolume;
     private void Awake()
     {
         camera = Camera.main;
@@ -48,7 +48,8 @@ public class NoteManager : MonoBehaviour
     {
         beatTempo = preset.BPM;
         noteStartDelay = calibrationSaver.delay + preset.noteStartDelay;
-        camera.GetComponent<AudioSource>().volume = preset.volume;
+        //camera.GetComponent<AudioSource>().volume = preset.volume;
+        currentSongMaxVolume = preset.volume;
         clip = preset.audioClip;
         camera.GetComponent<AudioSource>().clip = clip;
     }

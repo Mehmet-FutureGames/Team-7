@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UseItem : MonoBehaviour
 {
-
+    private bool hasItem;
     public ActiveItems activeItems1;
     private void Update()
     {
@@ -20,6 +20,7 @@ public class UseItem : MonoBehaviour
         if(gameObject.GetComponent<ActiveItems>() == null)
         {
             gameObject.AddComponent(activeItems.GetType());
+            hasItem = true;
         }
         else
         {
@@ -31,6 +32,10 @@ public class UseItem : MonoBehaviour
 
     public void OnUseItem()
     {
-        GetComponent<ActiveItems>().PerformAction();
+        if (hasItem)
+        {
+            GetComponent<ActiveItems>().PerformAction();
+        }
+        
     }
 }

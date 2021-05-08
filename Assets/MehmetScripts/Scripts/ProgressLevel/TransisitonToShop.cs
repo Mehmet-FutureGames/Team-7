@@ -25,14 +25,20 @@ public class TransisitonToShop : MonoBehaviour
         {
             if (!hasProceeded)
             {
-                LevelManager.levelsCompletedThisRun++;
-                manager.levelsCompletedOverall++;
-                Debug.Log(LevelManager.levelsCompletedThisRun);
-                PlayerPrefs.SetInt("levelCompleted", manager.levelsCompletedOverall);
-                SceneManager.LoadScene("CoinShop");
-                hasProceeded = true;
+                StartCoroutine(SceneFader.FadeOut(LoadScene));
+                //LoadScene();
             }
         }
+    }
+
+    private void LoadScene()
+    {
+        LevelManager.levelsCompletedThisRun++;
+        manager.levelsCompletedOverall++;
+        Debug.Log(LevelManager.levelsCompletedThisRun);
+        PlayerPrefs.SetInt("levelCompleted", manager.levelsCompletedOverall);
+        SceneManager.LoadScene("CoinShop");
+        hasProceeded = true;
     }
 }
 

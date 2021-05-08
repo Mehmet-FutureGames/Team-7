@@ -10,6 +10,7 @@ public class TransisitionToNextLevel : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] Transform spawnPos;
     Scene currentScene;
+    public float fadeTimer;
     // Start is called before the first frame update
     void Awake()
     {
@@ -31,7 +32,7 @@ public class TransisitionToNextLevel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            NextLevel();
+            StartCoroutine(SceneFader.FadeOut(NextLevel));
         }
     }
     private void NextLevel()
@@ -47,4 +48,5 @@ public class TransisitionToNextLevel : MonoBehaviour
             player.GetComponent<MovePlayer>().mousePos = spawnPos.transform.position;
         }
     }
+
 }
