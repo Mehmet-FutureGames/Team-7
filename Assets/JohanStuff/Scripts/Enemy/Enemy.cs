@@ -113,6 +113,7 @@ public class Enemy : MonoBehaviour
         if (floatingText)
         {
             GameObject blood = ObjectPooler.Instance.SpawnFormPool("Blood", agentObj.transform.position, transform.rotation);
+            AudioManager.PlaySound("HitOnEnergeticShield", "EnemySound");
             if (!isDash)
             {
                 PlayerFrenzy.Instance.AddFrenzy();

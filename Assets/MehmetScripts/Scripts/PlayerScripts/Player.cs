@@ -8,8 +8,6 @@ public class Player : MonoBehaviour
     Player player;
     public static List<Transform> EnemyTransforms = new List<Transform>();
 
-    public AudioClip attacksound;
-
     public PlayerStats stats;
 
     [SerializeField] LayerMask ground;
@@ -73,7 +71,7 @@ public class Player : MonoBehaviour
     public static Player Instance;
     private void Awake()
     {
-        player = this;
+        player = this;        
         camera = Camera.main;
         if (!developerMode)
         {
@@ -174,7 +172,7 @@ public class Player : MonoBehaviour
     void AttackingActivated()
     {
         PlayerAnm.Instance.AttackTrigger();
-        AudioSource.PlayClipAtPoint(attacksound, transform.position);
+        AudioManager.PlaySound("LaserShot","PlayerSound");
     }
     public void StartAttacking()
     {
