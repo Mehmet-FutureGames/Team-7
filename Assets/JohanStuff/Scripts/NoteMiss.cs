@@ -14,7 +14,6 @@ public class NoteMiss : MonoBehaviour
         set 
         { 
             triggerCount = value;
-            Debug.Log("Triggercout: " + triggerCount);
         } 
     }
 

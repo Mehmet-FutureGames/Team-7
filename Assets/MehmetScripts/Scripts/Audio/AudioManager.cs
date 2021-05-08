@@ -11,44 +11,38 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        if (sources != null)
+        sources.Add("PlayerSound", FindObjectOfType<Player>().GetComponent<AudioSource>());
+        sources.Add("VFXSound", GetComponent<AudioSource>());
+        sources.Add("EnemySound", enemySound.GetComponent<AudioSource>());
+        Debug.Log(sources["EnemySound"]);
+        clipsSaved = Resources.LoadAll<AudioClip>("usefull");
+        for (int i = 0; i < clipsSaved.Length; i++)
         {
-            sources.Add("PlayerSound", FindObjectOfType<Player>().GetComponent<AudioSource>());
-            sources.Add("VFXSound", GetComponent<AudioSource>());
-            sources.Add("EnemySound", enemySound.GetComponent<AudioSource>());
-            Debug.Log(sources["EnemySound"]);
-            clipsSaved = Resources.LoadAll<AudioClip>("usefull");
-            for (int i = 0; i < clipsSaved.Length; i++)
-            {
-                audioClips.Add(clipsSaved[i].name, clipsSaved[i]);
-            }
-        }
-        else
-        {
-            Debug.Log("Stuff already exists!");
+            audioClips.Add(clipsSaved[i].name, clipsSaved[i]);
         }
     }
 
     public static void PlaySound(string clip, string audio)
     {
-        if (!sources[audio].isPlaying)
-        {
-            sources[audio].clip = audioClips[clip];
-            sources[audio].Play();
-        }
+        sources[audio].clip = audioClips[clip];
+        sources[audio].Play();
+        
     }
     public static void PlaySound(string clip, string audio, float delay)
     {
-        if (!sources[audio].isPlaying)
+ 
+        if (delay > 0)
         {
-            if (delay > 0)
-            {
-                sources[audio].clip = audioClips[clip];
-                sources[audio].PlayDelayed(delay);
-            }
             sources[audio].clip = audioClips[clip];
-            sources[audio].Play();
+            sources[audio].PlayDelayed(delay);
         }
+        sources[audio].clip = audioClips[clip];
+        sources[audio].Play();
+        
+    }
+    public static void StopSound(string audio)
+    {
+        sources[audio].Stop();
     }
     public void PlayHoverSound(string clip)
     {

@@ -36,7 +36,7 @@ public class LevelManager : MonoBehaviour
         currentLevel = level;
         if(level == SceneManager.GetSceneByName("EmilSTestScene").buildIndex)
         {
-            levelsCompletedThisRun--;
+            --levelsCompletedThisRun;
         }
     }
 }

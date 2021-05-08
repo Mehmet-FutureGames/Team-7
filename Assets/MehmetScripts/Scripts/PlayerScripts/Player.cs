@@ -172,7 +172,7 @@ public class Player : MonoBehaviour
     void AttackingActivated()
     {
         PlayerAnm.Instance.AttackTrigger();
-        AudioManager.PlaySound("LowSwings","PlayerSound");
+        AudioManager.PlaySound("LowSwings", "PlayerSound", 0.1f);
     }
     public void StartAttacking()
     {
@@ -181,6 +181,7 @@ public class Player : MonoBehaviour
     public void StopAttacking()
     {
         playerAttackRange.gameObject.SetActive(false);
+        Enemy.TakenDamage = false;
     }
     private void  DashAttack()
     {
@@ -331,7 +332,6 @@ public class Player : MonoBehaviour
         }
         camera = Camera.main;
         Time.timeScale = 1f;
-        
         if (playerAttackRange != null && playerDashRange != null)
         {
             playerAttackRange.gameObject.SetActive(true);
