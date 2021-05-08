@@ -4,19 +4,28 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    [SerializeField] GameObject enemySound;
     public static Dictionary<string,AudioSource> sources = new Dictionary<string,AudioSource>();
     public static Dictionary<string, AudioClip> audioClips = new Dictionary<string, AudioClip>();
     AudioClip[] clipsSaved;
 
     private void Start()
     {
-        sources.Add("PlayerSound", FindObjectOfType<Player>().GetComponent<AudioSource>());
-        sources.Add("VFXSound", GetComponent<AudioSource>());
-        sources.Add("EnemySound", GetComponentInChildren<AudioSource>());
-        clipsSaved = Resources.LoadAll<AudioClip>("usefull");
-        for (int i = 0; i < clipsSaved.Length; i++)
+        if (sources != null)
         {
-            audioClips.Add(clipsSaved[i].name, clipsSaved[i]);
+            sources.Add("PlayerSound", FindObjectOfType<Player>().GetComponent<AudioSource>());
+            sources.Add("VFXSound", GetComponent<AudioSource>());
+            sources.Add("EnemySound", enemySound.GetComponent<AudioSource>());
+            Debug.Log(sources["EnemySound"]);
+            clipsSaved = Resources.LoadAll<AudioClip>("usefull");
+            for (int i = 0; i < clipsSaved.Length; i++)
+            {
+                audioClips.Add(clipsSaved[i].name, clipsSaved[i]);
+            }
+        }
+        else
+        {
+            Debug.Log("Stuff already exists!");
         }
     }
 

@@ -172,7 +172,7 @@ public class Player : MonoBehaviour
     void AttackingActivated()
     {
         PlayerAnm.Instance.AttackTrigger();
-        AudioManager.PlaySound("LaserShot","PlayerSound");
+        AudioManager.PlaySound("LowSwings","PlayerSound");
     }
     public void StartAttacking()
     {

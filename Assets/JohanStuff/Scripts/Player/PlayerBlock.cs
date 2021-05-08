@@ -39,6 +39,7 @@ public class PlayerBlock : MonoBehaviour
                 isBlocking = true;
                 blockParticle.SetActive(true);
                 PlayerAnm.Instance.BlockTrigger();
+                AudioManager.PlaySound("EnergyShieldActivated", "PlayerSound");
             }
         }
     }

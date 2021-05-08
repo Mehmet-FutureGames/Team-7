@@ -62,13 +62,13 @@ public class CoinDrop : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (!AudioManager.AudioSourcePlaying("VFXSound"))
-            {
-                AudioManager.PlaySound("SpaceCoinDropped", "VFXSound");
-            }
-            else if(AudioManager.AudioSourcePlaying("VFXSound"))
+            if (AudioManager.AudioSourcePlaying("VFXSound"))
             {
                 AudioManager.PlaySound("coinsDrop", "VFXSound");
+            }
+            else if(!AudioManager.AudioSourcePlaying("VFXSound"))
+            {
+                AudioManager.PlaySound("SpaceCoinDropped", "VFXSound");
             }
             other.gameObject.GetComponent<PlayerCoinHandler>().AddCoins(coinValue);
             gameObject.SetActive(false);

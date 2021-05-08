@@ -109,6 +109,8 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(float damage, bool isDash)
     {
+        if(!AudioManager.AudioSourcePlaying("EnemySound"))
+        AudioManager.PlaySound("MeleeSwingsPack_hit", "EnemySound");
         health -= damage;
         if (floatingText)
         {
