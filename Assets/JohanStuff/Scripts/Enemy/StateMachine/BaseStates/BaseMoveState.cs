@@ -26,7 +26,7 @@ public class BaseMoveState : State
         base.NoteEventUpdate();
         if (enemy.distanceToPlayer <= enemy.attackRange)
         {
-            stateMachine.ChangeState(enemy.combatPhase2);
+            stateMachine.ChangeState(enemy.combatPhase1);
             return;
         }
         Action();
