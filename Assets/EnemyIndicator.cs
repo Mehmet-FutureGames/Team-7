@@ -21,14 +21,14 @@ public class EnemyIndicator : MonoBehaviour
         while (true)
         {
             distance = (player.position - transform.position).magnitude;
-            if(distance > 40)
+            if(distance > 45)
             {
                 if (!obj.activeSelf)
                 {
                     obj.SetActive(true);
                 }
             }
-            else if(distance < 40 && obj.activeSelf)
+            else if(distance < 45 && obj.activeSelf)
             {
                 obj.SetActive(false);
             }
