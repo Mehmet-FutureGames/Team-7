@@ -31,13 +31,16 @@ public class LobberMoveState : State
             stateMachine.ChangeState(enemy.combatPhase1);
             return;
         }
+       
         Action();
 
     }
+    
 
     public override void Action()
     {
         base.Action();
+        
         enemy.moveCounter++;
         if (enemy.moveCounter == enemy.notesToMove)
         {
@@ -108,6 +111,7 @@ public class LobberMoveState : State
                     break;
             }
         }
+        
 
     }
 }
