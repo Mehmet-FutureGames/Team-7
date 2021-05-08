@@ -61,6 +61,8 @@ public class PlayerStatsMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager.sources.Clear();
+        AudioManager.audioClips.Clear();
         cantBuyCharacter.gameObject.SetActive(false);
         hasStartedFirstTime = PlayerPrefs.GetInt("hasStartedFirstTime") == 1;
         Debug.Log(hasStartedFirstTime);

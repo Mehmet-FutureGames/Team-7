@@ -70,7 +70,6 @@ public class NoteManager : MonoBehaviour
     private void OnLevelWasLoaded(int level)
     {
         camera.GetComponent<AudioSource>().Stop();
-
         if(level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex)
         {
             LoadPresetData(shopSongPreset);

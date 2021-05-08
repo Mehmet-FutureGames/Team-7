@@ -27,7 +27,7 @@ public class TransisitionToNextLevel : MonoBehaviour
     }
     private void NextLevel()
     {
-        SceneManager.LoadScene(currentScene.buildIndex + manager.levelsCompletedThisRun);
+        SceneManager.LoadScene(currentScene.buildIndex + LevelManager.levelsCompletedThisRun);
     }
     private void OnLevelWasLoaded(int level)
     {

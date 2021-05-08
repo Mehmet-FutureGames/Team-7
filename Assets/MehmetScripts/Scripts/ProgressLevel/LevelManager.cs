@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
 
     public int currentLevel = 0;
 
-    public int levelsCompletedThisRun;
+    public static int levelsCompletedThisRun;
 
     public int levelsCompletedOverall;
 
