@@ -17,15 +17,11 @@ public class SceneFader : MonoBehaviour
             fadeTimer = value;
         }
     }
-    private void Start()
+    private void Awake()
     {
-        StartCoroutine(Reference());
-    }
-    IEnumerator Reference()
-    {
-        yield return new WaitForSeconds(0.1f);
+
         fadeImage = GameObject.FindGameObjectWithTag("FadeImage").GetComponent<Image>();
-        musicSource = Camera.main.GetComponent<AudioSource>();
+        musicSource = GetComponent<AudioSource>();
     }
 
     public static IEnumerator FadeOut(FadeDelegate method)
@@ -72,13 +68,13 @@ public class SceneFader : MonoBehaviour
 
             musicSource.volume = Mathf.Lerp(0,NoteManager.currentSongMaxVolume, FadeTimer * 0.1f);
             FadeTimer = FadeTimer + 0.1f;
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSecondsRealtime(0.01f);
         }
         
     }
     private void OnLevelWasLoaded(int level)
     {
-        if (level == SceneManager.GetSceneByName("CoinShop").buildIndex)
+        if (level == SceneManager.GetSceneByName("CoinShop").buildIndex || level == SceneManager.GetSceneByName("Shop").buildIndex)
         {
             StartCoroutine(FadeIn());
         }
@@ -90,8 +86,18 @@ public class SceneFader : MonoBehaviour
         {
             StartCoroutine(FadeIn());
         }
-        
+        else if (level == SceneManager.GetSceneByName("CharacterChange").buildIndex)
+        {
+            StartCoroutine(Refrence());
+            
+        }
 
 
+    }
+    IEnumerator Refrence()
+    {
+        yield return new WaitForSeconds(0.01f);
+        fadeImage = GameObject.FindGameObjectWithTag("FadeImage").GetComponent<Image>();
+        musicSource = GetComponent<AudioSource>();
     }
 }
