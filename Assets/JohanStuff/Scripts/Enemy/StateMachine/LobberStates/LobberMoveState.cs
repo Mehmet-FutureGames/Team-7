@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class LobberMoveState : State
 {
@@ -44,7 +45,7 @@ public class LobberMoveState : State
         enemy.moveCounter++;
         if (enemy.moveCounter == enemy.notesToMove)
         {
-            Vector3 dirToPlayer;
+            Vector3 dirToSteer;
             Vector3 randomVector;
             Vector3 agentToRandom;
             Vector3 dir;
@@ -53,16 +54,22 @@ public class LobberMoveState : State
                 case MovePattern.TowardsPlayer:
                     if (enemy.moveCounter == enemy.notesToMove)
                     {
-                        dirToPlayer = (enemy.player.position - enemy.agentObj.transform.position).normalized;
+                        NavMeshPath path = new NavMeshPath();
                         if (enemy.distanceToPlayer < enemy.moveDistance)
                         {
-                            enemy.agent.SetDestination(enemy.player.position);
+                            enemy.agent.CalculatePath(enemy.player.position, path);
+                            enemy.agent.SetPath(path);
+                            dirToSteer = (enemy.agent.steeringTarget - enemy.agentObj.transform.position).normalized;
+                            enemy.agent.SetDestination(enemy.agentObj.transform.position + dirToSteer * enemy.moveDistance);
                         }
                         else
                         {
-                            enemy.agent.SetDestination(enemy.agentObj.transform.position + dirToPlayer * enemy.moveDistance);
+                            enemy.agent.CalculatePath(enemy.player.position, path);
+                            enemy.agent.SetPath(path);
+                            dirToSteer = (enemy.agent.steeringTarget - enemy.agentObj.transform.position).normalized;
+                            enemy.agent.SetDestination(enemy.agentObj.transform.position + dirToSteer * enemy.moveDistance);
                         }
-                        enemy.agentObj.transform.rotation = Quaternion.LookRotation(dirToPlayer);
+                        enemy.agentObj.transform.rotation = Quaternion.LookRotation(dirToSteer);
 
                     }
                     if (enemy.moveCounter == enemy.notesToMove) { enemy.moveCounter = 0; }
@@ -83,14 +90,14 @@ public class LobberMoveState : State
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                 case MovePattern.ProximityDetection:
-                    dirToPlayer = (enemy.player.position - enemy.agentObj.transform.position).normalized;
+                    dirToSteer = (enemy.player.position - enemy.agentObj.transform.position).normalized;
                     if (enemy.moveCounter == enemy.notesToMove)
                     {
 
                         if (enemy.distanceToPlayer <= enemy.detectionRange)
                         {
-                            enemy.agent.SetDestination(enemy.agentObj.transform.position + dirToPlayer * enemy.moveDistance);
-                            enemy.agentObj.transform.rotation = Quaternion.LookRotation(dirToPlayer);
+                            enemy.agent.SetDestination(enemy.agentObj.transform.position + dirToSteer * enemy.moveDistance);
+                            enemy.agentObj.transform.rotation = Quaternion.LookRotation(dirToSteer);
                         }
                         else
                         {

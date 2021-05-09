@@ -123,7 +123,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 0a18b6956c53f364eafdfd6cecb284b4, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 4e4f236b8583795409d42379519fa0a2, type: 2}
 --- !u!1001 &5976216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1869,18 +1869,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94821366}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &96506593 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7934633022390698154, guid: 4693bb05872ed41469aefc057d451c49,
-    type: 3}
-  m_PrefabInstance: {fileID: 1378560772}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &98533402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13870,7 +13858,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
-  levelsCompletedThisRun: 0
   levelsCompletedOverall: 0
 --- !u!4 &819439419
 Transform:
@@ -20509,6 +20496,10 @@ PrefabInstance:
       value: SM_Env_Ground_Tile_Supports_02
       objectReference: {fileID: 0}
     - target: {fileID: 1467127172587068, guid: af2820a49d84489478b3b98df29bb9b1, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467127172587068, guid: af2820a49d84489478b3b98df29bb9b1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -22078,6 +22069,7 @@ GameObject:
   - component: {fileID: 1371375436}
   - component: {fileID: 1371375435}
   - component: {fileID: 1371375434}
+  - component: {fileID: 1371375438}
   m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
@@ -22094,9 +22086,9 @@ MeshCollider:
   m_GameObject: {fileID: 1371375433}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1371375435
@@ -22162,6 +22154,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1371375438
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371375433}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.1, z: 10.000001}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1371540613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4240577228766462, guid: 8a4f2276ebfcdc541ac877445abef006,
@@ -26172,7 +26177,7 @@ PrefabInstance:
         type: 3}
       propertyPath: waveText
       value: 
-      objectReference: {fileID: 96506593}
+      objectReference: {fileID: 0}
     - target: {fileID: 8966836275058985840, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: m_Name

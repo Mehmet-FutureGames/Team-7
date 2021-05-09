@@ -280,7 +280,13 @@ public class Enemy : MonoBehaviour
         notePublisher.noteHitAttack -= EventUpdate;
         manager.UnSubscribe(this);
     }
-
+    private void OnDestroy()
+    {
+        movePlayer.playerRegMove -= EventUpdate;
+        notePublisher.noteNotHit -= EventUpdate;
+        notePublisher.noteHitBlock -= EventUpdate;
+        notePublisher.noteHitAttack -= EventUpdate;
+    }
     private void Update()
     {
         movementSM.CurrentState.HandleInput();
