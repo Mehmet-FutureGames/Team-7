@@ -70,24 +70,27 @@ public class ItemPurchase : MonoBehaviour
             {
                 player.GetComponent<PlayerHealth>().UpgradeHealth(upgradeAmount);
                 PlayerCoinHandler.Instance.Coins -= itemCost;
-                gameObject.SetActive(false);
+                AudioManager.PlaySound("SingeCoinSound", "VFXSound");
                 ItemCanvas.isInBuyArea = false;
+                gameObject.SetActive(false);
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.AttackUpgrade && player.GetComponent<PlayerCoinHandler>().coins >= itemCost)
             {
                 player.GetComponent<Player>().UpgradeDamageMelee(upgradeAmount);
                 PlayerCoinHandler.Instance.Coins -= itemCost;
-                gameObject.SetActive(false);
+                AudioManager.PlaySound("SingeCoinSound", "VFXSound");
                 ItemCanvas.isInBuyArea = false;
+                gameObject.SetActive(false);
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.DashAttackUpgrade && player.GetComponent<PlayerCoinHandler>().coins >= itemCost)
             {
                 player.GetComponent<Player>().UpgradeDamageDash(upgradeAmount);
                 PlayerCoinHandler.Instance.Coins -= itemCost;
-                gameObject.SetActive(false);
+                AudioManager.PlaySound("SingeCoinSound", "VFXSound");
                 ItemCanvas.isInBuyArea = false;
+                gameObject.SetActive(false);
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.FrenzyUpgrade && player.GetComponent<PlayerCoinHandler>().coins >= itemCost)
@@ -95,8 +98,9 @@ public class ItemPurchase : MonoBehaviour
                 int upgrade = (int)upgradeAmount;
                 player.GetComponent<PlayerFrenzy>().maxFrenzy += upgrade;
                 PlayerCoinHandler.Instance.Coins -= itemCost;
-                gameObject.SetActive(false);
+                AudioManager.PlaySound("SingeCoinSound", "VFXSound");
                 ItemCanvas.isInBuyArea = false;
+                gameObject.SetActive(false);
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.ComboSaverUpgrade && player.GetComponent<PlayerCoinHandler>().coins >= itemCost)
@@ -104,6 +108,8 @@ public class ItemPurchase : MonoBehaviour
                 float upgrade = upgradeAmount;
                 ComboHandler.Instance.comboDepletionMult *= upgrade;
                 PlayerCoinHandler.Instance.Coins -= itemCost;
+                AudioManager.PlaySound("SingeCoinSound", "VFXSound");
+                ItemCanvas.isInBuyArea = false;
                 gameObject.SetActive(false);
                 RemoveItemFromList();
             }
@@ -119,22 +125,26 @@ public class ItemPurchase : MonoBehaviour
             {
                 player.GetComponent<PlayerHealth>().UpgradeHealth(upgradeAmount);
                 NoteCurrencyHandler.Instance.NoteCurrency -= itemCostNotes;
-                gameObject.SetActive(false);
+                AudioManager.PlaySound("SingeCoinSound", "VFXSound");
                 ItemCanvas.isInBuyArea = false;
+                gameObject.SetActive(false);
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.AttackUpgrade && player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= itemCostNotes)
             {
                 player.GetComponent<Player>().UpgradeDamageMelee(upgradeAmount);
                 NoteCurrencyHandler.Instance.NoteCurrency -= itemCostNotes;
-                gameObject.SetActive(false);
+                AudioManager.PlaySound("SingeCoinSound", "VFXSound");
                 ItemCanvas.isInBuyArea = false;
+                gameObject.SetActive(false);
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.DashAttackUpgrade && player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= itemCostNotes)
             {
                 player.GetComponent<Player>().UpgradeDamageDash(upgradeAmount);
                 NoteCurrencyHandler.Instance.NoteCurrency -= itemCostNotes;
+                AudioManager.PlaySound("SingeCoinSound", "VFXSound");
+                ItemCanvas.isInBuyArea = false;
                 gameObject.SetActive(false);
                 RemoveItemFromList();
             }
@@ -143,8 +153,9 @@ public class ItemPurchase : MonoBehaviour
                 int upgrade = (int)upgradeAmount;
                 player.GetComponent<PlayerFrenzy>().maxFrenzy += upgrade;
                 NoteCurrencyHandler.Instance.NoteCurrency -= itemCostNotes;
-                gameObject.SetActive(false);
+                AudioManager.PlaySound("SingeCoinSound", "VFXSound");
                 ItemCanvas.isInBuyArea = false;
+                gameObject.SetActive(false);
                 RemoveItemFromList();
             }
             else if (itemType == ItemType.ComboSaverUpgrade && player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= itemCost)
@@ -152,8 +163,9 @@ public class ItemPurchase : MonoBehaviour
                 float upgrade = upgradeAmount;
                 ComboHandler.Instance.comboDepletionMult *= upgrade;
                 NoteCurrencyHandler.Instance.NoteCurrency -= itemCost;
-                gameObject.SetActive(false);
+                AudioManager.PlaySound("SingeCoinSound", "VFXSound");
                 ItemCanvas.isInBuyArea = false;
+                gameObject.SetActive(false);
                 RemoveItemFromList();
             }
             else
@@ -167,7 +179,6 @@ public class ItemPurchase : MonoBehaviour
         if (level == 2)
         {
             buyWithCoins = true;
-            Debug.Log("yes");
         }
     }
     private void RemoveItemFromList()

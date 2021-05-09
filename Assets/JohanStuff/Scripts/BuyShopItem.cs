@@ -66,6 +66,7 @@ public class BuyShopItem : MonoBehaviour
                 useItem.OnPickUpItem(activeItems);
                 ItemCanvas.isInBuyArea = false;
                 useItem = null;
+                AudioManager.PlaySound("SingeCoinSound", "VFXSound");
                 gameObject.SetActive(false);
                 hasPurchasedItem = true;
             }
@@ -79,6 +80,7 @@ public class BuyShopItem : MonoBehaviour
                 useItem.OnPickUpItem(activeItems);
                 ItemCanvas.isInBuyArea = false;
                 useItem = null;
+                AudioManager.PlaySound("SingeCoinSound", "VFXSound");
                 gameObject.SetActive(false);
                 hasPurchasedItem = true;
             }
