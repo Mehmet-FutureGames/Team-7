@@ -26,13 +26,19 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame()
     {
+        StartCoroutine(SceneFader.FadeOut(PlayGameMethod));
+        
+    }
+
+    private void PlayGameMethod()
+    {
         if (!PlayerStatsMenu.hasStartedFirstTime)
         {
             SceneManager.LoadScene("TutorialPC");
             PlayerStatsMenu.hasStartedFirstTime = true;
             PlayerPrefs.SetInt("hasStartedFirstTime", PlayerStatsMenu.hasStartedFirstTime ? 1 : 0);
         }
-        else if(GetComponentInChildren<CharacterStats>().hasBeenBought && PlayerStatsMenu.hasStartedFirstTime)
+        else if (GetComponentInChildren<CharacterStats>().hasBeenBought && PlayerStatsMenu.hasStartedFirstTime)
         {
             SceneManager.LoadScene("Shop");
         }
@@ -40,6 +46,7 @@ public class MainMenu : MonoBehaviour
         {
             StartCoroutine(GetComponent<PlayerStatsMenu>().cantbuyChar());
         }
+        FindObjectOfType<MusicSingleton>().DestroyThis();
     }
 
     public void Settings()
