@@ -12,6 +12,7 @@ public class ShopHandler : MonoBehaviour
 
     public GameObject priceCanvasPrefab;
     public GameObject itemNameCanvasPrefab;
+    Scene scene;
 
     public static ShopHandler Instance;
 
@@ -32,7 +33,7 @@ public class ShopHandler : MonoBehaviour
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(0.1f);
-
+        scene = SceneManager.GetActiveScene();
 
         if ((itemPool != null && shopItemHolders != null) && itemPool.Count > 0)
         {
@@ -53,7 +54,14 @@ public class ShopHandler : MonoBehaviour
                 GameObject priceCanvas = Instantiate(priceCanvasPrefab, shopItemHolders[i].transform);
                 GameObject itemNameCanvas = Instantiate(itemNameCanvasPrefab, shopItemHolders[i].transform);
                 itemNameCanvas.GetComponentInChildren<TextMeshProUGUI>().text = obj.GetComponent<ItemParameter>().itemName;
-                priceCanvas.GetComponentInChildren<TextMeshProUGUI>().text = obj.GetComponent<ItemParameter>().coinCost.ToString();
+                if (scene == SceneManager.GetSceneByName("Shop"))
+                {
+                    priceCanvas.GetComponentInChildren<TextMeshProUGUI>().text = obj.GetComponent<ItemParameter>().noteCost.ToString();
+                }
+                else
+                {
+                    priceCanvas.GetComponentInChildren<TextMeshProUGUI>().text = obj.GetComponent<ItemParameter>().coinCost.ToString();
+                }
                 obj.name = obj.name.Replace("(Clone)", "");
                 //items.RemoveAt(e);
             }
