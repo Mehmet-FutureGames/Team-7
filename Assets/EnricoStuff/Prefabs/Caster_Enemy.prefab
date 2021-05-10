@@ -48,10 +48,12 @@ MonoBehaviour:
   animator: {fileID: 0}
   playerIsInAttackArea: 0
   area: {fileID: 0}
+  area2: {fileID: 0}
+  attackAreaScale: {x: 0, y: 0, z: 0}
+  attackAreaScale2: {x: 0, y: 0, z: 0}
   isRanged: 0
   agentObj: {fileID: 0}
   agent: {fileID: 0}
-  attackAreaScale: {x: 0, y: 0, z: 0}
   moveDistance: 0
   defaultMoveDistance: 0
   notesToMove: 0
