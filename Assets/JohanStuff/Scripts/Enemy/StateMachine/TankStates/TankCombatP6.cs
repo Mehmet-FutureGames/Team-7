@@ -13,7 +13,8 @@ public class TankCombatP6 : State
         hasAttacked = false;
         timer = 0.08f;
         //Will perform frontal cone attack.
-        enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+        //enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+        enemy.animator.SetTrigger("SpecialAttack");
     }
     float timer;
     bool hasAttacked;

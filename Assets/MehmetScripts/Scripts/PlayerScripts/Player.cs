@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
     public static Player Instance;
     private void Awake()
     {
-        player = this;        
+        player = this;
         camera = Camera.main;
         if (!developerMode)
         {
@@ -136,7 +136,7 @@ public class Player : MonoBehaviour
 
 #endif
 #if UNITY_STANDALONE
-        private void Subscribe()
+    private void Subscribe()
     {
         notePublisher.noteHitAttack += NormalAttackActivated;
     }
@@ -162,7 +162,7 @@ public class Player : MonoBehaviour
         for (int i = 0; i < EnemyTransforms.Count; i++)
         {
             float distance = Vector3.Distance(enemyTransforms[i].position, transform.position);
-            if(distance < minDistance)
+            if (distance < minDistance)
             {
                 closestEnemy = enemyTransforms[i];
                 minDistance = distance;
@@ -170,9 +170,9 @@ public class Player : MonoBehaviour
         }
         return closestEnemy;
     }
-#endregion
+    #endregion
 
-#region Attacks
+    #region Attacks
     void AttackingActivated()
     {
         PlayerAnm.Instance.AttackTrigger();
@@ -187,7 +187,7 @@ public class Player : MonoBehaviour
         playerAttackRange.gameObject.SetActive(false);
         Enemy.TakenDamage = false;
     }
-    private void  DashAttack()
+    private void DashAttack()
     {
         if (movePlayer.isMoving)
         {
@@ -215,7 +215,7 @@ public class Player : MonoBehaviour
         GetComponent<PlayerHealth>().currentHealth = maxHealth;
         Time.timeScale = 1f;
     }
-#region References
+    #region References
     IEnumerator References()
     {
         yield return new WaitForSeconds(0.0001f);
@@ -223,7 +223,7 @@ public class Player : MonoBehaviour
         //main menu and adds the scriptable object to the
         //stats variable to take its stats and use them
         selectedCharacter = PlayerPrefs.GetInt("currentSelectedCharacter");
-        
+
         playerChoose = GetComponent<ObjectReferences>();
         models = GetComponent<PlayerModels>();
         switch (selectedCharacter)
@@ -235,8 +235,8 @@ public class Player : MonoBehaviour
                     playerModelDefault.AddComponent<PlayerAnm>();
                 break;
             case 0:
-               stats = playerChoose.stats[0];
-               var playerModel1 = stats.playerModel = models.models[selectedCharacter];
+                stats = playerChoose.stats[0];
+                var playerModel1 = stats.playerModel = models.models[selectedCharacter];
                 if (!playerModel1.GetComponent<PlayerAnm>())
                     playerModel1.AddComponent<PlayerAnm>();
                 break;
@@ -249,11 +249,11 @@ public class Player : MonoBehaviour
             case 2:
                 stats = playerChoose.stats[2];
                 var playerModel3 = stats.playerModel = models.models[selectedCharacter];
-                if(!playerModel3.GetComponent<PlayerAnm>())
-                playerModel3.AddComponent<PlayerAnm>();
+                if (!playerModel3.GetComponent<PlayerAnm>())
+                    playerModel3.AddComponent<PlayerAnm>();
                 break;
         }
-        if(character == null)
+        if (character == null)
         {
             character = Instantiate(stats.playerModel, transform);
             character.transform.localScale = new Vector3(2, 2, 2);
@@ -292,8 +292,8 @@ public class Player : MonoBehaviour
         playerAttackRange.gameObject.SetActive(false);
         playerDashRange.gameObject.SetActive(false);
     }
-#endregion
-#region UpgradeStats
+    #endregion
+    #region UpgradeStats
     IEnumerator UpgradeDamageMeleeActivator(float damage)
     {
         playerAttackRange.gameObject.SetActive(true);
@@ -301,7 +301,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
         playerAttackRange.gameObject.SetActive(false);
     }
-    
+
     IEnumerator UpgradeDamageDashActivator(float damage)
     {
         playerDashRange.gameObject.SetActive(true);
@@ -318,8 +318,8 @@ public class Player : MonoBehaviour
     {
         StartCoroutine(UpgradeDamageDashActivator(damage));
     }
-#endregion
-    
+    #endregion
+
     void SetTrailSpeed()
     {
         noteManager = FindObjectOfType<NoteManager>();
@@ -335,15 +335,15 @@ public class Player : MonoBehaviour
                 GetComponent<TrailRenderer>().time = 60 / FindObjectOfType<NoteManager>().beatTempo * 0.25f;
                 break;
         }
-        
+
     }
     private void OnLevelWasLoaded(int level)
     {
-        if(level == SceneManager.GetSceneByName("ThankYou").buildIndex)
+        if (level == SceneManager.GetSceneByName("ThankYou").buildIndex)
         {
             DestroyEverything();
         }
-        if(level != 3 || level != 5)
+        if (level != 3 || level != 5)
         {
             gameMode = true;
         }
@@ -373,5 +373,23 @@ public class Player : MonoBehaviour
         Destroy(Publishers);
         Destroy(gameObject);
         Destroy(camera.gameObject);
+    }
+    public void DeactivateAll()
+    {
+        overlayCamera.SetActive(false);
+        mainCanvas.SetActive(false);
+        managers.SetActive(false);
+        Publishers.SetActive(false);
+        camera.gameObject.SetActive(false);
+        gameObject.SetActive(false);
+    }
+    public void ActivateAll()
+    {
+        overlayCamera.SetActive(true);
+        mainCanvas.SetActive(true);
+        managers.SetActive(true);
+        Publishers.SetActive(true);
+        camera.gameObject.SetActive(true);
+        gameObject.SetActive(true);
     }
 }
