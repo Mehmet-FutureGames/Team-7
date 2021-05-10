@@ -5,8 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
-    public AudioClip enemysound;
-    public AudioClip enemy2sound;
+
 
     public static bool TakenDamage;
 
@@ -86,7 +85,7 @@ public class Enemy : MonoBehaviour
     #region Methods
     public void EnemyAttack()
     {
-        AudioSource.PlayClipAtPoint(enemysound, transform.position);
+        AudioManager.PlaySound("Dagger woosh 2", "EnemySound");
 
         if (playerIsInAttackArea)
         {
@@ -96,7 +95,7 @@ public class Enemy : MonoBehaviour
     public void EnemyRangedAttack()
     {
         ObjectPooler.Instance.SpawnFormPool("EnemyBomb", area.transform.position); // for explosion animation
-        AudioSource.PlayClipAtPoint(enemy2sound, transform.position);
+        AudioManager.PlaySound("MissileLaunchFast", "EnemySound");
         if (playerIsInAttackArea)
         {
             player.GetComponent<PlayerHealth>().TakeUnblockableDamage(attackDamage);
@@ -104,6 +103,9 @@ public class Enemy : MonoBehaviour
     }
     public void EnemyConeAttack()
     {
+        AudioManager.PlaySound("Heavy sword woosh 2","EnemySound");
+        
+
         if (playerIsInAttackArea)
         {
             player.GetComponent<PlayerHealth>().TakeUnblockableDamage(attackDamage);

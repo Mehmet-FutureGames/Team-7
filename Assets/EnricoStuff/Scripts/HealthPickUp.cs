@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class HealthPickUp : MonoBehaviour
 {
-    public AudioClip healthsound;
+    
 
     public float healthRecovered;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            AudioSource.PlayClipAtPoint(healthsound, transform.position);
+            AudioManager.PlaySound("ConfusingFallingDown", "SFXSound");
             other.gameObject.GetComponent<PlayerHealth>().RecoverHealth(healthRecovered);
             gameObject.SetActive(false);
         }
