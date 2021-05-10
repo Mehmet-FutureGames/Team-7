@@ -20,10 +20,8 @@ public class ObjectPooler : MonoBehaviour
         Instance = this;
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
     }
-    public List<NoteObject> noteObj;
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
-    public List<GameObject> notePoolList = new List<GameObject>();
     Queue<GameObject> objectPool;
     void Start()
     {
@@ -69,6 +67,20 @@ public class ObjectPooler : MonoBehaviour
         objectToSpawn.SetActive(true);
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
+        poolDictionary[tag].Enqueue(objectToSpawn);
+        return objectToSpawn;
+    }
+    public GameObject SpawnFormPool2(string tag, Vector3 position, Quaternion localRotation)
+    {
+        if (!poolDictionary.ContainsKey(tag))
+        {
+            Debug.LogWarning("Pool with tag " + tag + " doesn't exist.");
+            return null;
+        }
+        GameObject objectToSpawn = poolDictionary[tag].Dequeue();
+        objectToSpawn.SetActive(true);
+        objectToSpawn.transform.position = position;
+        objectToSpawn.transform.localRotation =  Quaternion.Euler(localRotation.eulerAngles);
         poolDictionary[tag].Enqueue(objectToSpawn);
         return objectToSpawn;
     }

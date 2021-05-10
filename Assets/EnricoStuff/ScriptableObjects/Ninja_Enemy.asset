@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b003b01bd880a44d96e3bab38f6eacf, type: 3}
+  m_Name: Ninja_Enemy
+  m_EditorClassIdentifier: 
+  enemyName: 
+  movePattern: 0
+  enemyType: 4
+  enemyModel: {fileID: 2898098801520197479, guid: 2fc631ebb8e147747a46d75aa8bde0d1,
+    type: 3}
+  floatingText: {fileID: 7834719628194316170, guid: 2f7ade109394de44e8c41a4781951eaf,
+    type: 3}
+  attackAreaShape: {fileID: 5142904849790710492, guid: 0276f6d96dfb9c141a6591ed02f83c65,
+    type: 3}
+  attackAreaScale: {x: 1.5, y: 5, z: 1.5}
+  attackAreaShape2: {fileID: 1178725643994930611, guid: 46e188008eaf89243816bd5080d7b0b9,
+    type: 3}
+  attackAreaScale2: {x: 0, y: 0, z: 0}
+  isRanged: 0
+  movementSpeed: 2
+  moveDistance: 8
+  detectionRange: 100
+  notesToMove: 1
+  attackDamage: 20
+  attackRange: 20
+  health: 75
+  noteDropChance: 6.9
+  coinMinDropCount: 1
+  coinMaxDropCount: 2
+  coinValue: 1
