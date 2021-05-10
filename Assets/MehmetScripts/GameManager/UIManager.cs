@@ -64,6 +64,7 @@ public class UIManager : MonoBehaviour
         deathScreen.SetActive(false);
         gameOverPanel.SetActive(false);
         UpdateWaveLevel();
+        SkipText();
     }
     private void Update()
     {
