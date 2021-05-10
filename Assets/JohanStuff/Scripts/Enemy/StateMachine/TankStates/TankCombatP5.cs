@@ -15,7 +15,8 @@ public class TankCombatP5 : State
         //enemy.area.transform.position = enemy.player.position;
         enemy.area2.transform.position = enemy.agentObj.transform.position + (dirToPlayer * enemy.attackAreaScale2.z);
         //will prepare frontal Cone Attack and add marker
-        enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.green;
+        //enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.green;
+        enemy.animator.SetTrigger("SpecialPreparing");
     }
 
 

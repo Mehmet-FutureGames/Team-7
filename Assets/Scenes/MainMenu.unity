@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18199882, g: 0.090182774, b: 0.11102808, a: 1}
+  m_IndirectSpecularColor: {r: 0.13737452, g: 0.064087905, b: 0.081601776, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -199,7 +199,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 6c2a728357d5a46448bcdbd7e76aa54d, type: 3}
+      objectReference: {fileID: 8300000, guid: ef254e830be9f154e8996e2438c9d601, type: 3}
     - target: {fileID: 2475605862539421215, guid: f4b90e9f11def3246bdd9cae4ef0e07b,
         type: 3}
       propertyPath: m_PlayOnAwake
@@ -396,6 +396,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc737b80b710254eb16c29aeae1a236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterVolume: {fileID: 0}
+  SFXVolume: {fileID: 0}
+  musicVolume: {fileID: 0}
 --- !u!1 &470050772
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,8 +483,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2136841245}
-        m_TargetAssemblyTypeName: MainMeny, Assembly-CSharp
+      - m_Target: {fileID: 469278044}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -798,8 +801,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2136841245}
-        m_TargetAssemblyTypeName: MainMeny, Assembly-CSharp
+      - m_Target: {fileID: 469278044}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: Settings
         m_Mode: 1
         m_Arguments:
@@ -905,7 +908,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 0a91f5b9f51e88b4099da48b3e95f3d9, type: 3}
+      objectReference: {fileID: 8300000, guid: 8309e21d92ba5124d986dbf1e77409d9, type: 3}
     - target: {fileID: 3635404459196166474, guid: 932cd95773363d24b96f0ecea3808cfc,
         type: 3}
       propertyPath: m_PlayOnAwake
@@ -1212,7 +1215,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2136841245}
+      - m_Target: {fileID: 469278044}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: ChangeCharacterScene
         m_Mode: 1
@@ -1494,7 +1497,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2136841244}
-  - component: {fileID: 2136841245}
   m_Layer: 5
   m_Name: MainMenuCanvas
   m_TagString: Untagged
@@ -1524,15 +1526,3 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1241.1733, y: 568}
   m_Pivot: {x: 0, y: 0.5}
---- !u!114 &2136841245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2136841243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fc737b80b710254eb16c29aeae1a236, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

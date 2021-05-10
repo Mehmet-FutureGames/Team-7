@@ -10,7 +10,15 @@ public class NinjaMoveState : State
 
     public override void Enter()
     {
+        if (enemy.area.activeSelf)
+        {
+            enemy.area.SetActive(false);
+        }
         base.Enter();
+        if(enemy.trailRenderer.enabled == true)
+        {
+            enemy.trailRenderer.enabled = false;
+        }
         //enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.yellow;
     }
     public override void LogicUpdate()

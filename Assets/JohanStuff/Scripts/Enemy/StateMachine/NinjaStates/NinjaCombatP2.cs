@@ -7,46 +7,43 @@ public class NinjaCombatP2 : State
     public NinjaCombatP2(Enemy enemy, StateMachine stateMachine) : base(enemy, stateMachine)
     {
     }
-    List<GameObject> arrows = new List<GameObject>();
-    bool hasarrowList;
+    Vector3 dirToPlayer;
+    Vector3 target;
     public override void Enter()
     {
-        if (!hasarrowList)
-        {
-            for (int i = 0; i < (int)enemy.attackRange; i++)
-            {
-                Vector3 pos = new Vector3(enemy.agentObj.transform.localPosition.x, enemy.agentObj.transform.localPosition.y, enemy.agentObj.transform.localPosition.z + i);
-                arrows.Add(ObjectPooler.Instance.SpawnFormPool("EnemyDashArrow", pos, Quaternion.Euler(90, 0, 0)));
-            }
-            hasarrowList = true;
-        }
-        else
-        {
-            for (int i = 0; i < arrows.Count; i++)
-            {
-                arrows[i].SetActive(true);
-            }
-        }
-
+        base.Enter();
+        dirToPlayer = (new Vector3(enemy.player.position.x, 0, enemy.player.position.z) - enemy.agentObj.transform.position).normalized;
+        target = enemy.ninjaTarget;
+        enemy.trailRenderer.enabled = true;
+        enemy.area.SetActive(true);
+        enemy.agent.enabled = false;
+        enemy.agentObj.GetComponent<TrailRenderer>().enabled = true;
     }
 
-    public override void Exit()
+    public override void PhysicsUpdate()
     {
-        base.Exit();
-        for (int i = 0; i < arrows.Count; i++)
+        base.PhysicsUpdate();
+        float distance = (target - enemy.agentObj.transform.position).magnitude;
+        enemy.agentObj.transform.position = Vector3.MoveTowards(enemy.agentObj.transform.position, target, distance * 2 * Time.deltaTime);
+        if (enemy.playerIsInAttackArea && PlayerBlock.isBlocking)
         {
-            arrows[i].SetActive(false);
+            stateMachine.ChangeState(enemy.combatPhase3);
+        }
+        else if(enemy.playerIsInAttackArea && !PlayerBlock.isBlocking)
+        {
+            enemy.EnemyAttack();
         }
     }
-
     public override void NoteEventUpdate()
     {
         base.NoteEventUpdate();
+        enemy.agent.enabled = true;
+        if (enemy.distanceToPlayer <= enemy.attackRange)
+        {
+            stateMachine.ChangeState(enemy.combatPhase1);
+            return;
+        }
         stateMachine.ChangeState(enemy.moveState);
     }
-
-    public override void Action()
-    {
-        base.Action();
-    }
+    
 }

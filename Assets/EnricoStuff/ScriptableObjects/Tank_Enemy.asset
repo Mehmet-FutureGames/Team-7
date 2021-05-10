@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: Tank
   movePattern: 0
   enemyType: 2
-  enemyModel: {fileID: 842564877813625475, guid: 5bf66ef819771154eaade1c58ac57c93,
+  enemyModel: {fileID: 4824998867512050019, guid: 535716f537321044d952b93180c2cc2c,
     type: 3}
   floatingText: {fileID: 7834719628194316170, guid: 2f7ade109394de44e8c41a4781951eaf,
     type: 3}

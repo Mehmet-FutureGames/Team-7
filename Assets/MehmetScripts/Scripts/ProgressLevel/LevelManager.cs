@@ -15,8 +15,11 @@ public class LevelManager : MonoBehaviour
 
     public int levelsCompletedOverall;
 
+    public static Scene currentScene;
+
     private void Awake()
     {
+        currentScene = SceneManager.GetActiveScene();
         if (_instance != null)
         {
             Destroy(gameObject);
@@ -31,6 +34,14 @@ public class LevelManager : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
+        if(SceneManager.GetSceneByName("SettingsUI").buildIndex == level)
+        {
+            Debug.Log("You went into settings");
+        }
+        else
+        {
+            currentScene = SceneManager.GetActiveScene();
+        }
         //Sets the current scene to the current level
         //To be changed (maybe)
         currentLevel = level;

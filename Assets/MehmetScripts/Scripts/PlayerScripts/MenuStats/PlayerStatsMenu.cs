@@ -349,7 +349,7 @@ public class PlayerStatsMenu : MonoBehaviour
         confirmUpgrade.SetActive(false);
         StartCoroutine(StatsSaved());
 
-
+        //Saves the current selected characters health,damage,frenzy and notes.
         PlayerPrefs.SetInt("UpgradeHealth" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth);
         PlayerPrefs.SetInt("UpgradeDamage" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage);
         PlayerPrefs.SetInt("UpgradeFrenzy" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost);

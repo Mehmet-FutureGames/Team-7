@@ -5,8 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
-    public AudioClip enemysound;
-    public AudioClip enemy2sound;
+
 
     public static bool TakenDamage;
 
@@ -38,7 +37,8 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public NavMeshAgent agent;
     Transform parent;
-    
+    [HideInInspector]
+    public Vector3 ninjaTarget;
 
     MovePlayer movePlayer;
     float movementSpeed;
@@ -69,6 +69,8 @@ public class Enemy : MonoBehaviour
     public int moveCounter = 0;
 
     [HideInInspector]
+    public TrailRenderer trailRenderer;
+    [HideInInspector]
     public float distanceToPlayer;
 
     [HideInInspector]
@@ -86,7 +88,7 @@ public class Enemy : MonoBehaviour
     #region Methods
     public void EnemyAttack()
     {
-        AudioSource.PlayClipAtPoint(enemysound, transform.position);
+        AudioManager.PlaySound("Dagger woosh 2", "EnemySound");
 
         if (playerIsInAttackArea)
         {
@@ -96,7 +98,7 @@ public class Enemy : MonoBehaviour
     public void EnemyRangedAttack()
     {
         ObjectPooler.Instance.SpawnFormPool("EnemyBomb", area.transform.position); // for explosion animation
-        AudioSource.PlayClipAtPoint(enemy2sound, transform.position);
+        AudioManager.PlaySound("MissileLaunchFast", "EnemySound");
         if (playerIsInAttackArea)
         {
             player.GetComponent<PlayerHealth>().TakeUnblockableDamage(attackDamage);
@@ -104,6 +106,9 @@ public class Enemy : MonoBehaviour
     }
     public void EnemyConeAttack()
     {
+        AudioManager.PlaySound("Heavy sword woosh 2","EnemySound");
+        
+
         if (playerIsInAttackArea)
         {
             player.GetComponent<PlayerHealth>().TakeUnblockableDamage(attackDamage);
@@ -207,6 +212,14 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        agentObj = Instantiate(stats.enemyModel, transform.position, Quaternion.identity, parent);
+        if (agentObj.GetComponent<TrailRenderer>() != null)
+        {
+            trailRenderer = agentObj.GetComponent<TrailRenderer>();
+        }
+        Player.EnemyTransforms.Add(agentObj.transform);
+        area = Instantiate(stats.attackAreaShape, agentObj.transform.position, Quaternion.identity, agentObj.transform);
+
         animator = agentObj.GetComponentInChildren<Animator>();
         floatingText = stats.floatingText;
         area.SetActive(false);
@@ -217,8 +230,6 @@ public class Enemy : MonoBehaviour
             area2.SetActive(false);
         }
         area.transform.localScale = stats.attackAreaScale;
-
-        //gameObject.GetComponentInChildren<EnemyHitArea>().transform.localScale = stats.attackAreaScale;
         agent = GetComponentInChildren<NavMeshAgent>();
 
         player = FindObjectOfType<MovePlayer>().transform;
@@ -252,28 +263,28 @@ public class Enemy : MonoBehaviour
         movePattern = stats.movePattern;
         enemyType = stats.enemyType;
         notePublisher = FindObjectOfType<NotePublisher>();
+        player = FindObjectOfType<MovePlayer>().transform;
         movePlayer.playerRegMove += EventUpdate;
         notePublisher.noteNotHit += EventUpdate;
         notePublisher.noteHitBlock += EventUpdate;
         notePublisher.noteHitAttack += EventUpdate;
+        player = FindObjectOfType<MovePlayer>().transform;
 
-        movementSM = new StateMachine();
-        InitializeEnemyType.Instance.Initialize(this, movementSM);
+        if (movementSM == null)
+        {
+            movementSM = new StateMachine();
+            InitializeEnemyType.Instance.Initialize(this, movementSM);
+        }
         SetStats();
 
         parent = GetComponent<Transform>();
-
-        agentObj = Instantiate(stats.enemyModel,transform.position, Quaternion.identity ,parent);
-        Player.EnemyTransforms.Add(agentObj.transform);
-        area = Instantiate(stats.attackAreaShape, agentObj.transform.position, Quaternion.identity, agentObj.transform);
-
 
 
         
     }
     private void OnDisable()
     {
-        
+        movementSM.CurrentState.OnDisable();
         movePlayer.playerRegMove -= EventUpdate;
         notePublisher.noteNotHit -= EventUpdate;
         notePublisher.noteHitBlock -= EventUpdate;
@@ -286,6 +297,7 @@ public class Enemy : MonoBehaviour
         notePublisher.noteNotHit -= EventUpdate;
         notePublisher.noteHitBlock -= EventUpdate;
         notePublisher.noteHitAttack -= EventUpdate;
+        movementSM.CurrentState.OnDestroy();
     }
     private void Update()
     {

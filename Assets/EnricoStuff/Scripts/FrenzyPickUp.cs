@@ -7,6 +7,7 @@ public class FrenzyPickUp : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            AudioManager.PlaySound("OptionSelect", "VFXSound");
             other.gameObject.GetComponent<PlayerFrenzy>().AddFrenzyPickUp(frenzyGain);
             gameObject.SetActive(false);
         }
