@@ -84,6 +84,7 @@ public class MovePlayer : MonoBehaviour
 
             // if there's a wall between the player and the mouse position, make the player move to the normal point of the wall.
             distance = (transform.position - mousePos).magnitude;
+            MovementValue = (distance * moveSpeedMultiplier * Time.deltaTime) * 10;
             float modifier = (distance + moveSpeedModifier) * moveSpeedMultiplier * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, mousePos, modifier);
         }
