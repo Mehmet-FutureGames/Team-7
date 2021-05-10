@@ -17,7 +17,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         hasWatchedAd = false;
         respawnPlayer = FindObjectOfType<UIManager>();
         Advertisement.AddListener(this);
-        Advertisement.Initialize("4120115");
+        Advertisement.Initialize("4120115", true);
     }
 
     public void ShowAd()
