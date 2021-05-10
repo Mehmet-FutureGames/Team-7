@@ -23,11 +23,12 @@ public class NoteHandler : MonoBehaviour
     private void Start()
     {
         noteManager = FindObjectOfType<NoteManager>();
+        startDelay = noteManager.noteStartDelay;
         notePrefab = noteManager.notePrefab;
         noteManager.SetDifficulty();
         notePooler = ObjectPooler.Instance;
         delayDone = false;
-        startDelay = noteManager.noteStartDelay;
+        
     }
     void FixedUpdate()
     {
@@ -49,6 +50,8 @@ public class NoteHandler : MonoBehaviour
             }
         }
     }
+
+
 
     IEnumerator StartDelay()
     {
