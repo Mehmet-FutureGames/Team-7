@@ -1170,6 +1170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4315780710204044}
   - component: {fileID: 95920370992967356}
+  - component: {fileID: -3534298114258690897}
   m_Layer: 0
   m_Name: Character_Hologram_Female_01
   m_TagString: Untagged
@@ -1239,6 +1240,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-3534298114258690897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318303238961424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdeb3f8ddd0ce1843b8d38e1efcc534b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1322280273036292
 GameObject:
   m_ObjectHideFlags: 0
