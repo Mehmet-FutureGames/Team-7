@@ -65,7 +65,6 @@ public class PlayerStatsMenu : MonoBehaviour
         AudioManager.audioClips.Clear();
         cantBuyCharacter.gameObject.SetActive(false);
         hasStartedFirstTime = PlayerPrefs.GetInt("hasStartedFirstTime") == 1;
-        Debug.Log(hasStartedFirstTime);
         currentCharacterSelected = 0;
 
         PlayerPrefs.SetInt("currentSelectedCharacter", currentCharacterSelected);
@@ -80,7 +79,6 @@ public class PlayerStatsMenu : MonoBehaviour
         UpdateTextUpgrade();
         if (!hasStartedFirstTime)
         {
-            Debug.Log("Started for the first time!");
             notes = startingNotes;
             PlayerPrefs.SetInt("NoteCurrency", notes);
         }

@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         mixer = Resources.Load<AudioMixer>("test");
-        SavedVolume();
+        //SavedVolume();
         manager = FindObjectOfType<LevelManager>();
     }
 
