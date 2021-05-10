@@ -89,7 +89,7 @@ public class UIManager : MonoBehaviour
 
     private void UpdateWaveLevel()
     {
-        waveText.text = "Wave: " + manager.waveLevel + "/" + manager.waveMaximum;
+        //waveText.text = "Wave: " + manager.waveLevel + "/" + manager.waveMaximum;
     }
 
     private void SkipText()
@@ -117,7 +117,7 @@ public class UIManager : MonoBehaviour
     private void OnLevelWasLoaded(int level)
     {
         currentScene = SceneManager.GetActiveScene();
-        if(level == SceneManager.GetSceneByName("Shop").buildIndex || SceneManager.GetSceneByName("CoinShop").buildIndex == 4)
+        if(level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex || level == SceneManager.GetSceneByName("ThankYou").buildIndex)
         {
 
         }

@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     Player player;
     public static List<Transform> EnemyTransforms = new List<Transform>();
-
-    public AudioClip attacksound;
 
     public PlayerStats stats;
 
@@ -72,7 +71,7 @@ public class Player : MonoBehaviour
     public static Player Instance;
     private void Awake()
     {
-        player = this;
+        player = this;        
         camera = Camera.main;
         if (!developerMode)
         {
@@ -173,7 +172,7 @@ public class Player : MonoBehaviour
     void AttackingActivated()
     {
         PlayerAnm.Instance.AttackTrigger();
-        AudioSource.PlayClipAtPoint(attacksound, transform.position);
+        AudioManager.PlaySound("LowSwings", "PlayerSound", 0.1f);
     }
     public void StartAttacking()
     {
@@ -182,6 +181,7 @@ public class Player : MonoBehaviour
     public void StopAttacking()
     {
         playerAttackRange.gameObject.SetActive(false);
+        Enemy.TakenDamage = false;
     }
     private void  DashAttack()
     {
@@ -318,7 +318,11 @@ public class Player : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
-        if(level != 3)
+        if(level == SceneManager.GetSceneByName("ThankYou").buildIndex)
+        {
+            DestroyEverything();
+        }
+        if(level != 3 || level != 5)
         {
             gameMode = true;
         }
@@ -328,7 +332,6 @@ public class Player : MonoBehaviour
         }
         camera = Camera.main;
         Time.timeScale = 1f;
-        
         if (playerAttackRange != null && playerDashRange != null)
         {
             playerAttackRange.gameObject.SetActive(true);

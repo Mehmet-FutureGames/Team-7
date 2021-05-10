@@ -16,19 +16,19 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         startedWatchingAd = false;
         hasWatchedAd = false;
         respawnPlayer = FindObjectOfType<UIManager>();
+        Advertisement.AddListener(this);
+        Advertisement.Initialize("4120115", true);
     }
 
     public void ShowAd()
     {
         startedWatchingAd = true;
+        LevelManager.levelsCompletedThisRun++;
         StartCoroutine(ShowRewardedAd());
     }
 
     IEnumerator ShowRewardedAd()
     {
-        Advertisement.AddListener(this);
-        Advertisement.Initialize("4120115", true);
-
         while (!Advertisement.IsReady(placement))
             yield return null;
         Advertisement.Show(placement);

@@ -28,7 +28,7 @@ public class NoteObject : MonoBehaviour
     }
     IEnumerator SizePop()
     {
-        while(scaleValue < 0.5f)
+        while(scaleValue < 0.6f)
         {
             scaleValue += 0.20f;
             transform.localScale = new Vector3(scaleValue, scaleValue, scaleValue);
@@ -42,7 +42,7 @@ public class NoteObject : MonoBehaviour
     {
         while (scaleValue < 1f)
         {
-            scaleValue += 0.01f;
+            scaleValue += 0.004f;
             transform.localScale = new Vector3(scaleValue, scaleValue, scaleValue);
             
             yield return new WaitForFixedUpdate();
@@ -55,7 +55,7 @@ public class NoteObject : MonoBehaviour
     {
         transform.localScale = new Vector3(0, 0, 0);
         deActivated = false;
-        gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
+        //gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.white;
     }
     private void OnLevelWasLoaded(int level)
     {
@@ -99,10 +99,10 @@ public class NoteObject : MonoBehaviour
 
     public void ButtonAttack()
     {
-            publisher.NoteHitAttack();
-            gameObject.SetActive(false);
-            canBePressed = false;
-            NoteMiss.Instance.TriggerCountZero();
+        publisher.NoteHitAttack();
+        gameObject.SetActive(false);
+        canBePressed = false;
+        NoteMiss.Instance.TriggerCountZero();
     }
     public void ButtonBlock()
     {
@@ -122,10 +122,18 @@ public class NoteObject : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            publisher.NoteHit();
-            gameObject.SetActive(false);
-            canBePressed = false;
-            NoteMiss.Instance.TriggerCountZero();
+            if (OverGUICheck.Instance.IsPointerOverUIObject())
+            {
+
+            }
+            else
+            {
+                publisher.NoteHit();
+                gameObject.SetActive(false);
+                canBePressed = false;
+                NoteMiss.Instance.TriggerCountZero();
+            }
+
         }
         else if (Input.GetKeyDown(KeyCode.Mouse1))
         {

@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     public AudioClip enemysound;
     public AudioClip enemy2sound;
 
+    public static bool TakenDamage;
+
 
     EnemyPublisher enemyPublisher;
     public Action enemyDefeated;
@@ -110,6 +112,11 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage, bool isDash)
     {
         health -= damage;
+        if (AudioManager.AudioSourcePlaying("PlayerSound"))
+        {
+            AudioManager.StopSound("PlayerSound");
+            AudioManager.PlaySound("MeleeSwingsPack_hit2", "PlayerSound");
+        }
         if (floatingText)
         {
             GameObject blood = ObjectPooler.Instance.SpawnFormPool("Blood", agentObj.transform.position, transform.rotation);
@@ -227,20 +234,8 @@ public class Enemy : MonoBehaviour
 
     private void EventUpdate()
     {
-        movementSM.CurrentState.NoteEventUpdate();
         distanceToPlayer = (agentObj.transform.position - player.position).magnitude;
-        if (player != null)
-        {
-            
-            
-        }
-        else
-        {
-            //player = FindObjectOfType<MovePlayer>().transform;
-        }
-        
-
-
+        movementSM.CurrentState.NoteEventUpdate();
     }
 
     private void Awake()
@@ -285,7 +280,13 @@ public class Enemy : MonoBehaviour
         notePublisher.noteHitAttack -= EventUpdate;
         manager.UnSubscribe(this);
     }
-
+    private void OnDestroy()
+    {
+        movePlayer.playerRegMove -= EventUpdate;
+        notePublisher.noteNotHit -= EventUpdate;
+        notePublisher.noteHitBlock -= EventUpdate;
+        notePublisher.noteHitAttack -= EventUpdate;
+    }
     private void Update()
     {
         movementSM.CurrentState.HandleInput();

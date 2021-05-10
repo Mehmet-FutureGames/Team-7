@@ -76,10 +76,6 @@ public class ShopHandler : MonoBehaviour
         {
             StartCoroutine(Wait());
         }
-        else if(level != 3 && items != null)
-        {
-
-        }
         if(level == SceneManager.GetSceneByName("CoinShop").buildIndex && (items.Count > 0 || itemPool.Count > 0))
         {
             StartCoroutine(Wait());

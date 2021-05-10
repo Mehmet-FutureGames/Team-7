@@ -10,7 +10,6 @@ public class PlayerHealth : MonoBehaviour
     [HideInInspector] public float currentHealth;
     float defaultMaxHealth = 100f;
     float timerTillAdGone;
-    public AudioSource takeDamage;
 
     GameObject deadScreen;
     Image healthBar;
@@ -57,7 +56,7 @@ public class PlayerHealth : MonoBehaviour
                 if (playerStats.playerDamageText)
                 {
                     ShowFloatingText(damage);
-                    takeDamage.Play();
+                    AudioManager.PlaySound("NormalSwings", "PlayerSound");
                 }
                 if (currentHealth <= 0)
                 {
@@ -73,12 +72,12 @@ public class PlayerHealth : MonoBehaviour
     public void TakeUnblockableDamage(float damage)
     {
         currentHealth -= damage;
+        AudioManager.PlaySound("Monster Takes Damage 10","PlayerSound");
         if (movePlayer.MovementValue < 10)
         {
             if (playerStats.playerDamageText)
             {
                 ShowFloatingText(damage);
-                takeDamage.Play();
             }
             if (currentHealth < 0)
             {
@@ -113,9 +112,10 @@ public class PlayerHealth : MonoBehaviour
             Player.EnemyTransforms.Clear();
         }
 #endif
-
+#if UNITY_STANDALONE
         Time.timeScale = 0;
         UIManager.deadPanel.SetActive(true);
+#endif
     }
 
     IEnumerator StartTimer()

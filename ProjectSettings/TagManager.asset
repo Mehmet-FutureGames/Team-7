@@ -16,6 +16,7 @@ TagManager:
   - AttackButton
   - BlockButton
   - SpawnPos
+  - FadeImage
   layers:
   - Default
   - TransparentFX

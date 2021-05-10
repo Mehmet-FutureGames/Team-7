@@ -9,16 +9,21 @@ public class MusicSingleton : MonoBehaviour
     public static MusicSingleton Instance { get { return _instance; } }
     private void Awake()
     {
-        if (_instance != null)
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else if(_instance != this)
         {
             Destroy(gameObject);
         }
-        else
-        {
-            _instance = this;
-        }
-        DontDestroyOnLoad(this);
+        
 
+    }
+    public void DestroyThis()
+    {
+        Destroy(gameObject);
     }
     private void OnLevelWasLoaded(int level)
     {
@@ -28,8 +33,7 @@ public class MusicSingleton : MonoBehaviour
         }
         else
         {
-            GetComponent<AudioSource>().Stop();
-            Destroy(gameObject);
+            
         }
         
     }
