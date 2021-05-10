@@ -7853,6 +7853,7 @@ MonoBehaviour:
   - {fileID: 8989105477882484133, guid: 86376c33eb8c57b4b84c1797bff35fa6, type: 3}
   - {fileID: 3861465758524168464, guid: e063042cb5cafb84fadecc3fae73e9ca, type: 3}
   - {fileID: 1160920200431836, guid: 8b5900c6b38f5354c8f4b32582f6608c, type: 3}
+  - {fileID: 2832494053250210136, guid: 2b195acf7f8e7fb468b6a7ec7aeab25c, type: 3}
   items: []
   priceCanvasPrefab: {fileID: 3747744007782948079, guid: d77eebf8b905b67469e9a81725b6a64f,
     type: 3}
