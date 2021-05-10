@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13307974, g: 0.061124764, b: 0.07820953, a: 1}
+  m_IndirectSpecularColor: {r: 0.18008766, g: 0.089056976, b: 0.1096225, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1729,9 +1729,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc737b80b710254eb16c29aeae1a236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterVolume: {fileID: 0}
-  SFXVolume: {fileID: 0}
-  musicVolume: {fileID: 0}
 --- !u!1 &632357031
 GameObject:
   m_ObjectHideFlags: 0
@@ -4378,18 +4375,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 0a91f5b9f51e88b4099da48b3e95f3d9, type: 3}
+      objectReference: {fileID: 8300000, guid: 8309e21d92ba5124d986dbf1e77409d9, type: 3}
     - target: {fileID: 3635404459196166474, guid: 932cd95773363d24b96f0ecea3808cfc,
         type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3635404459196166474, guid: 932cd95773363d24b96f0ecea3808cfc,
-        type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 428236742113697161, guid: f5c7522d63e31814c8a37c83253a9f0c,
-        type: 2}
     - target: {fileID: 3635404459196166475, guid: 932cd95773363d24b96f0ecea3808cfc,
         type: 3}
       propertyPath: m_RootOrder
@@ -7515,8 +7506,7 @@ AudioSource:
   m_GameObject: {fileID: 1755558790}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 4351588204182710099, guid: f5c7522d63e31814c8a37c83253a9f0c,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 53b35e1918a94284e8520cd11a89b4f6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -8432,18 +8422,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 6c2a728357d5a46448bcdbd7e76aa54d, type: 3}
+      objectReference: {fileID: 8300000, guid: ef254e830be9f154e8996e2438c9d601, type: 3}
     - target: {fileID: 2475605862539421215, guid: f4b90e9f11def3246bdd9cae4ef0e07b,
         type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2475605862539421215, guid: f4b90e9f11def3246bdd9cae4ef0e07b,
-        type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 428236742113697161, guid: f5c7522d63e31814c8a37c83253a9f0c,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4b90e9f11def3246bdd9cae4ef0e07b, type: 3}
 --- !u!1 &1894053811
