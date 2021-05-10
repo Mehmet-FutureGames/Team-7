@@ -59,7 +59,7 @@ public class WaveManager : MonoBehaviour
 
         statItems = FindObjectOfType<ItemList>();
 
-        enemyContainer = GameObject.Find("EnemyContainer").transform;
+        enemyContainer = FindObjectOfType<WaveManager>().transform;
 
         spawnPoints = FindObjectsOfType<TypeOfEnemy>();
 
