@@ -20,10 +20,8 @@ public class ObjectPooler : MonoBehaviour
         Instance = this;
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
     }
-    public List<NoteObject> noteObj;
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
-    public List<GameObject> notePoolList = new List<GameObject>();
     Queue<GameObject> objectPool;
     void Start()
     {

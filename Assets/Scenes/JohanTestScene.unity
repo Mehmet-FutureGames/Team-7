@@ -1622,9 +1622,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyVariants:
-  - {fileID: 207381485540389465, guid: 6e2f5b5d7b9d52c4089051c65677c867, type: 3}
-  - {fileID: 207381485540389465, guid: 6e2f5b5d7b9d52c4089051c65677c867, type: 3}
-  - {fileID: 207381485540389465, guid: 6e2f5b5d7b9d52c4089051c65677c867, type: 3}
+  - {fileID: 4839025464020082310, guid: 55d5f7b4cbd8bec4a878dc1d81fde3b7, type: 3}
+  - {fileID: 4839025464020082310, guid: 55d5f7b4cbd8bec4a878dc1d81fde3b7, type: 3}
+  - {fileID: 4839025464020082310, guid: 55d5f7b4cbd8bec4a878dc1d81fde3b7, type: 3}
   spawnPointPatternsEasy:
   - {fileID: 8470090771960676430, guid: 1ebbfa9f2dd36d14ea042f6c95c2713c, type: 3}
   spawnPointPatternsMedium:
@@ -2683,6 +2683,27 @@ PrefabInstance:
       propertyPath: displayCombo
       value: 
       objectReference: {fileID: 1140630324}
+    - target: {fileID: 4022026153558576498, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: pools.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022026153558576498, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: pools.Array.data[8].tag
+      value: EnemyDashArrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022026153558576498, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: pools.Array.data[8].size
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022026153558576498, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: pools.Array.data[8].prefab
+      value: 
+      objectReference: {fileID: 4444651715984652842, guid: 27e4ac232fa549647965c0160f0c7559,
+        type: 3}
     - target: {fileID: 8966836273629194616, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: player

@@ -14,7 +14,8 @@ public enum EnemyType
     Base,
     Caster,
     Tanky,
-    Lobber
+    Lobber,
+    Ninja
 }
 [CreateAssetMenu(fileName = "New EnemyStats", menuName = "ScriptableObjects/EnemyStats", order = 1)]
 public class EnemyStats : ScriptableObject
