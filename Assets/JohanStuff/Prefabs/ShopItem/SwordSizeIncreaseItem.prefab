@@ -127,4 +127,5 @@ MonoBehaviour:
   noteCost: 10
   coinCost: 10
   itemName: SwordSize
+  itemDescription: 
   buyWithCoins: 0
