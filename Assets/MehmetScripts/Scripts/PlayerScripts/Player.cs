@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField] LayerMask ground;
     [SerializeField] LayerMask enemyLayer;
 
+    GameObject character;
+
     ObjectReferences playerChoose;
     PlayerModels models;
     NoteManager noteManager;
@@ -101,7 +103,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(References());
+        //THIS MUST BE REMOVED BEFORE LAUNCH
+        StartCoroutine(References());
         SetTrailSpeed();
     }
     #region AttacksActivation
@@ -250,12 +253,11 @@ public class Player : MonoBehaviour
                 playerModel3.AddComponent<PlayerAnm>();
                 break;
         }
-        var character = Instantiate(stats.playerModel, transform);
         if(character == null)
         {
-Instantiate(stats.playerModel, transform);
+            character = Instantiate(stats.playerModel, transform);
+            character.transform.localScale = new Vector3(2, 2, 2);
         }
-        Debug.Log("I spawned 2 characters");
         movePlayer = GetComponent<MovePlayer>();
         //References to all the things needed.
         playerName = stats.playerName;
