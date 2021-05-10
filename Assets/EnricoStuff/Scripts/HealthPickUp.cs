@@ -9,7 +9,7 @@ public class HealthPickUp : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            AudioManager.PlaySound("ConfusingFallingDown", "SFXSound");
+            AudioManager.PlaySound("OptionSelect", "VFXSound");
             other.gameObject.GetComponent<PlayerHealth>().RecoverHealth(healthRecovered);
             gameObject.SetActive(false);
         }

@@ -2333,6 +2333,18 @@ PrefabInstance:
       propertyPath: displayCombo
       value: 
       objectReference: {fileID: 743805854}
+    - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: shopSongPreset
+      value: 
+      objectReference: {fileID: 11400000, guid: ba218dcb143f89342bae6be14d1289a8,
+        type: 2}
+    - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: enricoSceneSongPreset
+      value: 
+      objectReference: {fileID: 11400000, guid: ba218dcb143f89342bae6be14d1289a8,
+        type: 2}
     - target: {fileID: 8966836274532626828, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: audio
