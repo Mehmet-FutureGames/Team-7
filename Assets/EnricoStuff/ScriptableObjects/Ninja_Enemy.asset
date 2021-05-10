@@ -15,13 +15,13 @@ MonoBehaviour:
   enemyName: 
   movePattern: 0
   enemyType: 4
-  enemyModel: {fileID: 6182000829908483884, guid: fd2fb663cac2feb47b4343198f34ca32,
+  enemyModel: {fileID: 2898098801520197479, guid: 2fc631ebb8e147747a46d75aa8bde0d1,
     type: 3}
   floatingText: {fileID: 7834719628194316170, guid: 2f7ade109394de44e8c41a4781951eaf,
     type: 3}
-  attackAreaShape: {fileID: 5413893435592207300, guid: 8bbfbd6b7efa6f440bec64f8d53f9173,
+  attackAreaShape: {fileID: 5142904849790710492, guid: 0276f6d96dfb9c141a6591ed02f83c65,
     type: 3}
-  attackAreaScale: {x: 0, y: 0, z: 0}
+  attackAreaScale: {x: 1.5, y: 5, z: 1.5}
   attackAreaShape2: {fileID: 1178725643994930611, guid: 46e188008eaf89243816bd5080d7b0b9,
     type: 3}
   attackAreaScale2: {x: 0, y: 0, z: 0}
@@ -31,7 +31,7 @@ MonoBehaviour:
   detectionRange: 100
   notesToMove: 1
   attackDamage: 20
-  attackRange: 12
+  attackRange: 20
   health: 75
   noteDropChance: 6.9
   coinMinDropCount: 1

@@ -50,6 +50,7 @@ public class InitializeEnemyType : MonoBehaviour
                 enemy.moveState = new NinjaMoveState(enemy, stateMachine);
                 enemy.combatPhase1 = new NinjaCombatP1(enemy, stateMachine);
                 enemy.combatPhase2 = new NinjaCombatP2(enemy, stateMachine);
+                enemy.combatPhase3 = new NinjaCombatP3(enemy, stateMachine);
                 break;
             default:
                 break;
