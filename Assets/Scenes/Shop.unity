@@ -4385,6 +4385,25 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 743805851}
+    - target: {fileID: 1265919859299697, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318301721875612, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2551097791748213235, guid: 8bbdca35cac70f143b906cf2b0652137,
+        type: 3}
+      propertyPath: models.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2551097791748213235, guid: 8bbdca35cac70f143b906cf2b0652137,
+        type: 3}
+      propertyPath: models.Array.data[3]
+      value: 
+      objectReference: {fileID: 1565935239740110, guid: 4d5e45013e2bb8042b0207cf4a203289,
+        type: 3}
     - target: {fileID: 3283491656840261334, guid: 8bbdca35cac70f143b906cf2b0652137,
         type: 3}
       propertyPath: m_Volume
@@ -4456,7 +4475,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 1503124750, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}
 --- !u!1001 &638154060
 PrefabInstance:
@@ -7834,6 +7853,7 @@ MonoBehaviour:
   - {fileID: 8989105477882484133, guid: 86376c33eb8c57b4b84c1797bff35fa6, type: 3}
   - {fileID: 3861465758524168464, guid: e063042cb5cafb84fadecc3fae73e9ca, type: 3}
   - {fileID: 1160920200431836, guid: 8b5900c6b38f5354c8f4b32582f6608c, type: 3}
+  - {fileID: 2832494053250210136, guid: 2b195acf7f8e7fb468b6a7ec7aeab25c, type: 3}
   items: []
   priceCanvasPrefab: {fileID: 3747744007782948079, guid: d77eebf8b905b67469e9a81725b6a64f,
     type: 3}

@@ -14,7 +14,6 @@ public class AudioManager : MonoBehaviour
         sources.Add("PlayerSound", FindObjectOfType<Player>().GetComponent<AudioSource>());
         sources.Add("VFXSound", GetComponent<AudioSource>());
         sources.Add("EnemySound", enemySound.GetComponent<AudioSource>());
-        Debug.Log(sources["EnemySound"]);
         clipsSaved = Resources.LoadAll<AudioClip>("usefull");
         for (int i = 0; i < clipsSaved.Length; i++)
         {
