@@ -10,6 +10,10 @@ public class NinjaMoveState : State
 
     public override void Enter()
     {
+        if (enemy.area.GetComponent<MeshRenderer>().enabled)
+        {
+            enemy.area.GetComponent<MeshRenderer>().enabled = false;
+        }
         if (enemy.area.activeSelf)
         {
             enemy.area.SetActive(false);
