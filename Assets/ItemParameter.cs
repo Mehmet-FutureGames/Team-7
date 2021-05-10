@@ -9,6 +9,8 @@ public class ItemParameter : MonoBehaviour
     public int noteCost;
     public int coinCost;
     public string itemName;
+    [TextArea(10,10)]
+    public string itemDescription;
     public bool buyWithCoins;
     private void Awake()
     {

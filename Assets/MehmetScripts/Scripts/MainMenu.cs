@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
@@ -9,6 +10,11 @@ public class MainMenu : MonoBehaviour
     int levelSelected;
     LevelManager manager;
     static AudioMixer mixer;
+
+    [SerializeField] Slider masterVolume;
+    [SerializeField] Slider SFXVolume;
+    [SerializeField] Slider MusicVolume;
+
     private void Start()
     {
         mixer = Resources.Load<AudioMixer>("test");
