@@ -10,10 +10,20 @@ public class TransisitionToNextLevel : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] Transform spawnPos;
     Scene currentScene;
+    public float fadeTimer;
     // Start is called before the first frame update
     void Awake()
     {
+        
         currentScene = SceneManager.GetActiveScene();
+        Debug.Log(currentScene.buildIndex + LevelManager.levelsCompletedThisRun);
+        if(currentScene.buildIndex + LevelManager.levelsCompletedThisRun >= 8)
+        {
+            LevelManager.levelsCompletedThisRun--;
+            LevelManager.levelsCompletedThisRun--;
+            Debug.Log("testingtestweaaeaeaea");
+            Debug.Log(LevelManager.levelsCompletedThisRun);
+        }
         player = FindObjectOfType<Player>().gameObject;
         manager = FindObjectOfType<LevelManager>();
         GetComponent<BoxCollider>().isTrigger = true;
@@ -22,12 +32,12 @@ public class TransisitionToNextLevel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            NextLevel();
+            StartCoroutine(SceneFader.FadeOut(NextLevel));
         }
     }
     private void NextLevel()
     {
-        SceneManager.LoadScene(currentScene.buildIndex + 1);
+        SceneManager.LoadScene(currentScene.buildIndex + LevelManager.levelsCompletedThisRun);
     }
     private void OnLevelWasLoaded(int level)
     {
@@ -38,4 +48,5 @@ public class TransisitionToNextLevel : MonoBehaviour
             player.GetComponent<MovePlayer>().mousePos = spawnPos.transform.position;
         }
     }
+
 }

@@ -11,9 +11,6 @@ public enum Difficulty
 
 public class NoteManager : MonoBehaviour
 {
-    public Vector3 StartScale;
-    [Range(0f, 1)]
-    public float downScaleMultiplier;
 
     [Space]
     public Difficulty difficulty;
@@ -34,7 +31,7 @@ public class NoteManager : MonoBehaviour
     [SerializeField] AudioScriptableObject enricoSceneSongPreset;
     [SerializeField] CalibrationSaver calibrationSaver;
     Camera camera;
-
+    public static float currentSongMaxVolume;
     private void Awake()
     {
         camera = Camera.main;
@@ -51,7 +48,8 @@ public class NoteManager : MonoBehaviour
     {
         beatTempo = preset.BPM;
         noteStartDelay = calibrationSaver.delay + preset.noteStartDelay;
-        camera.GetComponent<AudioSource>().volume = preset.volume;
+        //camera.GetComponent<AudioSource>().volume = preset.volume;
+        currentSongMaxVolume = preset.volume;
         clip = preset.audioClip;
         camera.GetComponent<AudioSource>().clip = clip;
     }
@@ -73,7 +71,6 @@ public class NoteManager : MonoBehaviour
     private void OnLevelWasLoaded(int level)
     {
         camera.GetComponent<AudioSource>().Stop();
-
         if(level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex)
         {
             LoadPresetData(shopSongPreset);
@@ -82,7 +79,7 @@ public class NoteManager : MonoBehaviour
         {
             LoadPresetData(emilSSceneSongPreset);
         }
-        else if (level == SceneManager.GetSceneByName("Level_Graybox2").buildIndex)
+        else if (level == SceneManager.GetSceneByName("Level_2").buildIndex)
         {
             LoadPresetData(enricoSceneSongPreset);
         }

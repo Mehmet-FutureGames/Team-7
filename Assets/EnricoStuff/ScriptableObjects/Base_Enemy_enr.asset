@@ -27,7 +27,7 @@ MonoBehaviour:
   attackAreaScale2: {x: 0, y: 0, z: 0}
   isRanged: 0
   movementSpeed: 2
-  moveDistance: 8
+  moveDistance: 10
   detectionRange: 100
   notesToMove: 1
   attackDamage: 20

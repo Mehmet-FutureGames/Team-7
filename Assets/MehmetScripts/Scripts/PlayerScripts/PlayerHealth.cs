@@ -10,7 +10,6 @@ public class PlayerHealth : MonoBehaviour
     [HideInInspector] public float currentHealth;
     float defaultMaxHealth = 100f;
     float timerTillAdGone;
-    bool timeDone = false;
 
     GameObject deadScreen;
     Image healthBar;
@@ -21,24 +20,28 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
-        playerStats = GetComponentInParent<Player>();
-        movePlayer = FindObjectOfType<MovePlayer>();
-        StartCoroutine(ReferenceHealth());
-        comboHandler = FindObjectOfType<ComboHandler>();
-        deadScreen = UIManager.deathScreen;
-        Debug.Log(deadScreen);
-        healthBar = GameObject.Find("HealthBar").GetComponent<Image>();
-        Respawn();
+        Invoke("Reference", 0.1f);
     }
     private void Update()
     {
 
     }
+    private void Reference()
+    {
+        playerStats = GetComponentInParent<Player>();
+        movePlayer = FindObjectOfType<MovePlayer>();
+        StartCoroutine(ReferenceHealth());
+        comboHandler = FindObjectOfType<ComboHandler>();
+        deadScreen = UIManager.deathScreen;
+        healthBar = GameObject.Find("HealthBar").GetComponent<Image>();
+    }
 
     public void Respawn()
     {
         Time.timeScale = 1;
+    #if UNITY_ANDROID
         deadScreen.SetActive(false);
+    #endif
         RefillHealth();
     }
 
@@ -53,6 +56,7 @@ public class PlayerHealth : MonoBehaviour
                 if (playerStats.playerDamageText)
                 {
                     ShowFloatingText(damage);
+                    AudioManager.PlaySound("NormalSwings", "PlayerSound");
                 }
                 if (currentHealth <= 0)
                 {
@@ -68,6 +72,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeUnblockableDamage(float damage)
     {
         currentHealth -= damage;
+        AudioManager.PlaySound("Monster Takes Damage 10","PlayerSound");
         if (movePlayer.MovementValue < 10)
         {
             if (playerStats.playerDamageText)
@@ -90,27 +95,48 @@ public class PlayerHealth : MonoBehaviour
 
     private void Dead()
     {
-        UIManager.deadSlider.GetComponent<Image>().fillAmount = 0.5f * 10;
-        deadScreen.SetActive(true);
-        timerTillAdGone = Time.realtimeSinceStartup - UIManager.timer + 5;
-        StartCoroutine(StartTimer());
+#if UNITY_ANDROID
+        if (!AdsManager.hasWatchedAd)
+        {
+            UIManager.deadSlider.GetComponent<Image>().fillAmount = 0.5f * 10;
+            deadScreen.SetActive(true);
+            timerTillAdGone = Time.realtimeSinceStartup - UIManager.timer + 5;
+            StartCoroutine(StartTimer());
+            Time.timeScale = 0;
+            Player.EnemyTransforms.Clear();
+        }
+        else
+        {
+            UIManager.gameOverPanel.SetActive(true);
+            Time.timeScale = 0;
+            Player.EnemyTransforms.Clear();
+        }
+#endif
+#if UNITY_STANDALONE
         Time.timeScale = 0;
-        Player.EnemyTransforms.Clear();        
+        UIManager.deadPanel.SetActive(true);
+#endif
     }
 
     IEnumerator StartTimer()
     {
-        while (timerTillAdGone > 0)
-        {
-            timerTillAdGone -= 0.050f;
-            UIManager.timerDead.text = timerTillAdGone.ToString("F0");
-            UIManager.deadSlider.GetComponent<Image>().fillAmount -= 0.01f;
-            if (timerTillAdGone <= 0)
+            while (timerTillAdGone > 0 && !AdsManager.hasWatchedAd)
             {
-                SceneManager.LoadScene("MainMenu");
+                timerTillAdGone -= 0.050f;
+                UIManager.timerDead.text = timerTillAdGone.ToString("F0");
+                UIManager.deadSlider.GetComponent<Image>().fillAmount -= 0.01f;
+                if (timerTillAdGone <= 0)
+                {
+                    PauseMenu.LoadMenu();
+                }
+            if (AdsManager.startedWatchingAd)
+            {
+                break;
             }
-            yield return new WaitForSecondsRealtime(0.1f);
-        }
+                yield return new WaitForSecondsRealtime(0.1f);
+
+            }
+                        
     }
 
     IEnumerator ReferenceHealth()

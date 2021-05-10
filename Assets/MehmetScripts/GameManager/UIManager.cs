@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
 
     public static GameObject deadSlider;
 
+    public static GameObject deadPanel;
+
     public static GameObject deathScreen;
 
     public static GameObject gameOverPanel;
@@ -34,19 +36,18 @@ public class UIManager : MonoBehaviour
 
     PressAnyKey musicStart;
 
-    private void Awake()
+    private void Start()
     {
         timer = Time.realtimeSinceStartup;
 
+        deadPanel = GameObject.Find("DeadPanel");
+        deadPanel.SetActive(false);
         timerDead = GameObject.Find("TimerText").GetComponent<TextMeshProUGUI>();
         deadSlider = GameObject.Find("TimerSlider");
-        Debug.Log(deadSlider);
         deathScreen = GameObject.Find("DeathScreenPanel");
         gameOverPanel = GameObject.Find("GameOverPanel");
         uiPanel = GameObject.Find("UIPanel");
-    }
-    private void Start()
-    {
+
         StartCoroutine(ShowAndStopShowingText());
 
         musicStart = GetComponent<PressAnyKey>();
@@ -74,6 +75,13 @@ public class UIManager : MonoBehaviour
     }
     public void RetryButton()
     {
+        if(player == null || spawnPos == null) 
+        {
+            player = FindObjectOfType<Player>();
+            spawnPos = GameObject.FindGameObjectWithTag("SpawnPos").transform;
+        }
+        deadPanel.SetActive(false);
+        currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.buildIndex);
         player.RestartCharacter(spawnPos);
         player.GetComponent<PlayerHealth>().Respawn();
@@ -81,7 +89,7 @@ public class UIManager : MonoBehaviour
 
     private void UpdateWaveLevel()
     {
-        waveText.text = "Wave: " + manager.waveLevel + "/" + manager.waveMaximum;
+        //waveText.text = "Wave: " + manager.waveLevel + "/" + manager.waveMaximum;
     }
 
     private void SkipText()
@@ -109,9 +117,9 @@ public class UIManager : MonoBehaviour
     private void OnLevelWasLoaded(int level)
     {
         currentScene = SceneManager.GetActiveScene();
-        if(level == SceneManager.GetSceneByName("Shop").buildIndex || SceneManager.GetSceneByName("CoinShop").buildIndex == 4)
+        if(level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex || level == SceneManager.GetSceneByName("ThankYou").buildIndex)
         {
-            Debug.Log("You are in the shop!");
+
         }
         else
         {

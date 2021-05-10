@@ -63,9 +63,10 @@ public class BuyShopItem : MonoBehaviour
             {
                 PlayerCoinHandler.Instance.Coins -= itemParameter.coinCost;
                 RemoveItemFromList();
-                useItem.OnPickUpItem(activeItems.itemIndex, activeItems);
+                useItem.OnPickUpItem(activeItems);
                 ItemCanvas.isInBuyArea = false;
                 useItem = null;
+                AudioManager.PlaySound("SingeCoinSound", "VFXSound");
                 gameObject.SetActive(false);
                 hasPurchasedItem = true;
             }
@@ -76,9 +77,10 @@ public class BuyShopItem : MonoBehaviour
             {
                 noteCurrency.NoteCurrency -= itemParameter.noteCost;
                 RemoveItemFromList();
-                useItem.OnPickUpItem(activeItems.itemIndex, activeItems);
+                useItem.OnPickUpItem(activeItems);
                 ItemCanvas.isInBuyArea = false;
                 useItem = null;
+                AudioManager.PlaySound("SingeCoinSound", "VFXSound");
                 gameObject.SetActive(false);
                 hasPurchasedItem = true;
             }

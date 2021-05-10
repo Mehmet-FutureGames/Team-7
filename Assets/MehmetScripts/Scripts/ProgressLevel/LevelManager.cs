@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
 
     public int currentLevel = 0;
 
-    public int levelsCompletedThisRun;
+    public static int levelsCompletedThisRun;
 
     public int levelsCompletedOverall;
 
@@ -34,5 +34,9 @@ public class LevelManager : MonoBehaviour
         //Sets the current scene to the current level
         //To be changed (maybe)
         currentLevel = level;
+        if(level == SceneManager.GetSceneByName("EmilSTestScene").buildIndex)
+        {
+            --levelsCompletedThisRun;
+        }
     }
 }

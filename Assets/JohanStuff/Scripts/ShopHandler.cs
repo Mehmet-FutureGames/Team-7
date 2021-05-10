@@ -47,7 +47,6 @@ public class ShopHandler : MonoBehaviour
                     break;
                 }
             }
-            Debug.Log(shopItemHolders.Count);
             for (int i = 0; i < items.Count; i++)
             {
                 GameObject obj = Instantiate(items[i], shopItemHolders[i].transform.position, shopItemHolders[i].transform.rotation, shopItemHolders[i].transform);
@@ -76,10 +75,6 @@ public class ShopHandler : MonoBehaviour
         if (level == SceneManager.GetSceneByName("Shop").buildIndex && (items.Count > 0 || itemPool.Count > 0))
         {
             StartCoroutine(Wait());
-        }
-        else if(level != 3 && items != null)
-        {
-
         }
         if(level == SceneManager.GetSceneByName("CoinShop").buildIndex && (items.Count > 0 || itemPool.Count > 0))
         {

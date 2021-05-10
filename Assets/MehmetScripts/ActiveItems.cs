@@ -6,22 +6,25 @@ public class ActiveItems : MonoBehaviour
 {
 
 
-    //protected int cost;
     public int itemIndex;
-    //protected string itemName;
 
     public ItemCanvas itemCanvas;
+    protected bool cooldownReady;
+    public int cooldown = 5;
+    protected int cooldownCount;
 
     protected virtual void Start()
     {
         itemCanvas = FindObjectOfType<ItemCanvas>();
-        //cost = GetComponent<ItemParameter>().cost;
-        //itemName = GetComponent<ItemParameter>().itemName;
+        cooldownReady = true;
+        cooldown = cooldown * 10;
+        cooldownCount = cooldown;
     }
 
     public virtual void PerformAction()
     {
 
     }
+
 
 }

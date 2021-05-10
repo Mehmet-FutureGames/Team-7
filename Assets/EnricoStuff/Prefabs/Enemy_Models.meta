@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/JohanStuff/Prefabs/Canvas/Materials.meta
+guid: a58947d08f447ec4dbfc96d14c70d3fc
+=======
 guid: d4f906ee19a2cc348bcdfb64f16c2a66
+>>>>>>> Mehmet-Branch:Assets/EnricoStuff/Prefabs/Enemy_Models.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -18,11 +18,11 @@ MonoBehaviour:
     type: 3}
   playerName: Joe
   movementSpeed: 0
-  attackDamage: 250
-  health: 50
-  dashDamage: 10
+  attackDamage: 15
+  health: 100
+  dashDamage: 25
   meleeAttackDuration: 1
-  maxFrenzy: 115
+  maxFrenzy: 100
   dashAttackDuration: 1
   dashAttackFrenzyCost: 5
   distanceToClick: 6

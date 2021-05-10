@@ -17,11 +17,9 @@ public class ButtonController : MonoBehaviour
         notePublisher = FindObjectOfType<NotePublisher>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         NewMethod();
-        //transform.localScale = new Vector3(transform.localScale.x, 3 + AudioReader.bandBuffer[0] * 5, transform.localScale.z) ;
     }
 
     private void NewMethod()
@@ -30,19 +28,20 @@ public class ButtonController : MonoBehaviour
         {
             if (NoteMiss.Instance.TriggerCount == 0)
             {
+
                 if (Physics.Raycast(transform.position, Vector3.left, out hit, rayDist))
                 {
                     if (hit.collider.gameObject.CompareTag("Note"))
                     {
                         hit.collider.gameObject.GetComponent<NoteObject>().deActivated = true;
-                        hit.collider.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+                        hit.collider.gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.red;
                     }
                 }
             }
             GetComponent<MeshRenderer>().material.color = Color.white;
         }
 
-        if (Input.GetKeyUp(keyToPress) || Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.Mouse1))
+       if (Input.GetKeyUp(keyToPress) || Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.Mouse1))
         {
             GetComponent<MeshRenderer>().material.color = defaultColor;
 
