@@ -19,9 +19,9 @@ MonoBehaviour:
   movementSpeed: 0
   attackDamage: 50
   health: 150
-  dashDamage: 20
+  dashDamage: 45
   meleeAttackDuration: 1
-  maxFrenzy: 150
+  maxFrenzy: 200
   dashAttackDuration: 0.8
   dashAttackFrenzyCost: 5
   distanceToClick: 6

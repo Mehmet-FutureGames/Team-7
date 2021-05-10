@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] LayerMask enemyLayer;
 
     ObjectReferences playerChoose;
+    PlayerModels models;
     NoteManager noteManager;
     MovePlayer movePlayer;
     RaycastHit hit;
@@ -100,7 +101,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(References());
+        //StartCoroutine(References());
         SetTrailSpeed();
     }
     #region AttacksActivation
@@ -221,22 +222,40 @@ public class Player : MonoBehaviour
         selectedCharacter = PlayerPrefs.GetInt("currentSelectedCharacter");
         
         playerChoose = GetComponent<ObjectReferences>();
+        models = GetComponent<PlayerModels>();
         switch (selectedCharacter)
         {
             default:
                 stats = playerChoose.stats[0];
+                var playerModelDefault = stats.playerModel = models.models[selectedCharacter];
+                if (!playerModelDefault.GetComponent<PlayerAnm>())
+                    playerModelDefault.AddComponent<PlayerAnm>();
                 break;
             case 0:
-                stats = playerChoose.stats[0];
+               stats = playerChoose.stats[0];
+               var playerModel1 = stats.playerModel = models.models[selectedCharacter];
+                if (!playerModel1.GetComponent<PlayerAnm>())
+                    playerModel1.AddComponent<PlayerAnm>();
                 break;
             case 1:
                 stats = playerChoose.stats[1];
+                var playerModel2 = stats.playerModel = models.models[selectedCharacter];
+                if (!playerModel2.GetComponent<PlayerAnm>())
+                    playerModel2.AddComponent<PlayerAnm>();
                 break;
             case 2:
                 stats = playerChoose.stats[2];
+                var playerModel3 = stats.playerModel = models.models[selectedCharacter];
+                if(!playerModel3.GetComponent<PlayerAnm>())
+                playerModel3.AddComponent<PlayerAnm>();
                 break;
         }
-        //Instantiate(stats.playerModel, transform);
+        var character = Instantiate(stats.playerModel, transform);
+        if(character == null)
+        {
+Instantiate(stats.playerModel, transform);
+        }
+        Debug.Log("I spawned 2 characters");
         movePlayer = GetComponent<MovePlayer>();
         //References to all the things needed.
         playerName = stats.playerName;
