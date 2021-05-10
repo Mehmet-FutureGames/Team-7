@@ -356,6 +356,7 @@ public class PlayerStatsMenu : MonoBehaviour
         PlayerPrefs.SetInt("NoteCurrency", notes);
 
         File.WriteAllText(path, playerStatsJson.ToString());
+        hasUpgraded = false;
     }
     public void LoadData()
     {
