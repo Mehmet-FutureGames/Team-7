@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
     public static Dictionary<string, AudioClip> audioClips = new Dictionary<string, AudioClip>();
     AudioClip[] clipsSaved;
 
-    private void Start()
+    void Start()
     {
         sources.Add("PlayerSound", FindObjectOfType<Player>().GetComponent<AudioSource>());
         sources.Add("VFXSound", GetComponent<AudioSource>());

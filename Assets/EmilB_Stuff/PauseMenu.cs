@@ -8,6 +8,10 @@ public class PauseMenu : MonoBehaviour
 
     public static bool GameIsPaused = false;
 
+    public static Player player;
+
+    public static AsyncOperation scene;
+
     public GameObject pauseMenuUI;
 
     PressAnyKey audio;
@@ -15,6 +19,7 @@ public class PauseMenu : MonoBehaviour
     private void Start()
     {
         audio = FindObjectOfType<PressAnyKey>();
+        player = FindObjectOfType<Player>();
     }
 
     void Update()
@@ -53,6 +58,17 @@ public class PauseMenu : MonoBehaviour
         FindObjectOfType<Player>().DestroyEverything();
         SceneManager.LoadScene("MainMenu",LoadSceneMode.Single);
     } 
+    public void GoToSettings()
+    {
+        foreach (GameObject g in SceneManager.GetActiveScene().GetRootGameObjects())
+        {
+            g.SetActive(false);
+        }
+        Scene activeScene = SceneManager.GetActiveScene();
+        scene = SceneManager.LoadSceneAsync("SettingsUI", LoadSceneMode.Additive);
+        scene.allowSceneActivation = true;
+        player.DeactivateAll();
+    }
 
     public void QuitGame()
     {
