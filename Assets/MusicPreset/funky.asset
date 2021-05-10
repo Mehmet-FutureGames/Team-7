@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   songName: 
   BPM: 100
-  audioClip: {fileID: 8300000, guid: 22bca6e6fa80b46f4b7a290bfd182e24, type: 3}
-  volume: 0
+  audioClip: {fileID: 8300000, guid: 27a6b7bb6a6a8414db885256a51b7d12, type: 3}
+  volume: 0.683
   noteStartDelay: 0
