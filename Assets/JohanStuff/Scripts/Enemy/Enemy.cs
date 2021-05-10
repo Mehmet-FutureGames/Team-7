@@ -212,6 +212,14 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        agentObj = Instantiate(stats.enemyModel, transform.position, Quaternion.identity, parent);
+        if (agentObj.GetComponent<TrailRenderer>() != null)
+        {
+            trailRenderer = agentObj.GetComponent<TrailRenderer>();
+        }
+        Player.EnemyTransforms.Add(agentObj.transform);
+        area = Instantiate(stats.attackAreaShape, agentObj.transform.position, Quaternion.identity, agentObj.transform);
+
         animator = agentObj.GetComponentInChildren<Animator>();
         floatingText = stats.floatingText;
         area.SetActive(false);
@@ -255,25 +263,21 @@ public class Enemy : MonoBehaviour
         movePattern = stats.movePattern;
         enemyType = stats.enemyType;
         notePublisher = FindObjectOfType<NotePublisher>();
+        player = FindObjectOfType<MovePlayer>().transform;
         movePlayer.playerRegMove += EventUpdate;
         notePublisher.noteNotHit += EventUpdate;
         notePublisher.noteHitBlock += EventUpdate;
         notePublisher.noteHitAttack += EventUpdate;
+        player = FindObjectOfType<MovePlayer>().transform;
 
-        movementSM = new StateMachine();
-        InitializeEnemyType.Instance.Initialize(this, movementSM);
+        if (movementSM == null)
+        {
+            movementSM = new StateMachine();
+            InitializeEnemyType.Instance.Initialize(this, movementSM);
+        }
         SetStats();
 
         parent = GetComponent<Transform>();
-
-        agentObj = Instantiate(stats.enemyModel,transform.position, Quaternion.identity ,parent);
-        if(agentObj.GetComponent<TrailRenderer>() != null)
-        {
-            trailRenderer = agentObj.GetComponent<TrailRenderer>();
-        }
-        Player.EnemyTransforms.Add(agentObj.transform);
-        area = Instantiate(stats.attackAreaShape, agentObj.transform.position, Quaternion.identity, agentObj.transform);
-
 
 
         

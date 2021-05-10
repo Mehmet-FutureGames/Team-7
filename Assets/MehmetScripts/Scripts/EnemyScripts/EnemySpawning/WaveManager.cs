@@ -95,12 +95,12 @@ public class WaveManager : MonoBehaviour
                 randomPattern = Random.Range(0, spawnPointPatternsEasy.Count);
                 Instantiate(spawnPointPatternsEasy[randomPattern], transform.position, Quaternion.identity, transform);
             }
-            else if (waveLevel <= numberOfWavesForMediumLevel)
+            else if (waveLevel < numberOfWavesForMediumLevel)
             {
                 randomPattern = Random.Range(0, spawnPointPatternsMedium.Count);
                 Instantiate(spawnPointPatternsMedium[randomPattern], transform.position, Quaternion.identity, transform);
             }
-            else if (waveLevel <= numberOfWavesForHardLevel)
+            else if (waveLevel < numberOfWavesForHardLevel)
             {
                 randomPattern = Random.Range(0, spawnPointPatternsHard.Count);
                 Instantiate(spawnPointPatternsHard[randomPattern], transform.position, Quaternion.identity, transform);

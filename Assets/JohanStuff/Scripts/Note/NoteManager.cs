@@ -68,6 +68,14 @@ public class NoteManager : MonoBehaviour
                 break;
         }
     }
+    public void test()
+    {
+        if (MainMenu.hasGoneToSettings)
+        {
+            camera.GetComponent<AudioSource>().Play();
+            Debug.Log(camera.GetComponent<AudioSource>().isPlaying);
+        }
+    }
     private void OnLevelWasLoaded(int level)
     {
         camera.GetComponent<AudioSource>().Stop();

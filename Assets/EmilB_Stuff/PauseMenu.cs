@@ -42,6 +42,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         audio.audio.UnPause();
+        MainMenu.hasGoneToSettings = false;
         GameIsPaused = false;
     }
 

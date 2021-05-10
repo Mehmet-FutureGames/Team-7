@@ -25973,7 +25973,7 @@ PrefabInstance:
     - target: {fileID: 372634849033238746, guid: 7bf9ed6f5067c8049850a5d2a4d78c0f,
         type: 3}
       propertyPath: waveMaximum
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 372634849033238746, guid: 7bf9ed6f5067c8049850a5d2a4d78c0f,
         type: 3}

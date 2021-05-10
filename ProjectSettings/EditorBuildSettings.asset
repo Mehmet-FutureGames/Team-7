@@ -26,9 +26,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/EmilSStuff/Level_2.unity
     guid: 4125dfee2f93f404abfa38caa7536cd2
-  - enabled: 1
-    path: Assets/Scenes/ThankYou.unity
-    guid: f70d12a7fc6c5c2478c736ac75ebaff9
   - enabled: 0
     path: Assets/Scenes/JohanTestScene.unity
     guid: ebc338b4e4261d146ae845f38e400cc4
@@ -38,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SettingsUI.unity
     guid: f4a0c9797a707dc4cb399b46b059ea8f
+  - enabled: 1
+    path: Assets/Scenes/ThankYou.unity
+    guid: f70d12a7fc6c5c2478c736ac75ebaff9
   - enabled: 1
     path: Assets/JohanStuff/MetronomeTest/Scene/MetronomeTestScene.unity
     guid: 271d88c25b46f5e4f84731fee839ee61
