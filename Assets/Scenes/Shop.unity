@@ -7833,14 +7833,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPool:
-  - {fileID: 8989105477882484133, guid: 86376c33eb8c57b4b84c1797bff35fa6, type: 3}
   - {fileID: 2101108902833678568, guid: 52ca2936b35ed614c8f2c96ee962074b, type: 3}
-  - {fileID: 2101108902833678568, guid: 52ca2936b35ed614c8f2c96ee962074b, type: 3}
-  - {fileID: 2101108902833678568, guid: 52ca2936b35ed614c8f2c96ee962074b, type: 3}
-  - {fileID: 8989105477882484133, guid: 86376c33eb8c57b4b84c1797bff35fa6, type: 3}
   - {fileID: 8989105477882484133, guid: 86376c33eb8c57b4b84c1797bff35fa6, type: 3}
   - {fileID: 3861465758524168464, guid: e063042cb5cafb84fadecc3fae73e9ca, type: 3}
-  - {fileID: 1160920200431836, guid: 8b5900c6b38f5354c8f4b32582f6608c, type: 3}
+  - {fileID: 6998256459805086475, guid: a857b8dedfbfc5543ac9f228de7756d5, type: 3}
   - {fileID: 2832494053250210136, guid: 2b195acf7f8e7fb468b6a7ec7aeab25c, type: 3}
   items: []
   priceCanvasPrefab: {fileID: 3747744007782948079, guid: d77eebf8b905b67469e9a81725b6a64f,
