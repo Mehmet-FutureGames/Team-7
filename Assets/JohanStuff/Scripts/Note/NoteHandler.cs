@@ -71,13 +71,14 @@ public class NoteHandler : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
+        timer = 0;
+        delayDone = false;
+        delayStarted = false;
         if (level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex)
         {
             StartCoroutine(Wait());
         }
-        timer = 0;
-        delayDone = false;
-        delayStarted = false;
+        
     }
 
 
