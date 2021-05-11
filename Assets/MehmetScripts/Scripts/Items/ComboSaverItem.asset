@@ -15,6 +15,6 @@ MonoBehaviour:
   nameItem: ComboSaver
   itemModel: {fileID: 1887554220882472, guid: e6c063d8d186ffe4998180d1a03abc18, type: 3}
   upgradeAmount: 0.5
-  itemCostCoins: 0
-  itemCostNotes: 0
+  itemCostCoins: 30
+  itemCostNotes: 1
   itemType: 4
