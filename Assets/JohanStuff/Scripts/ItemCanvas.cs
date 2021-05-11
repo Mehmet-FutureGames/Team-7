@@ -9,6 +9,7 @@ public class ItemCanvas : MonoBehaviour
     public static ItemCanvas Instance;
     public static bool isInBuyArea;
     [SerializeField]GameObject panel;
+    public TextMeshProUGUI descriptionText;
     private void Awake()
     {
         if(Instance == null)
@@ -17,6 +18,10 @@ public class ItemCanvas : MonoBehaviour
         }
         mainCamrea = Camera.main;
         transform.LookAt(transform.position - mainCamrea.transform.rotation * Vector3.back, mainCamrea.transform.rotation * Vector3.up);
+    }
+    private void Start()
+    {
+        
     }
     private void Update()
     {

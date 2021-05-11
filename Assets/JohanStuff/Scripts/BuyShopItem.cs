@@ -42,6 +42,7 @@ public class BuyShopItem : MonoBehaviour
             useItem = other.GetComponent<UseItem>();
             ItemCanvas.isInBuyArea = true;
             isInBuyArea = true;
+            ItemCanvas.Instance.descriptionText.text = itemParameter.itemDescription;
         }
 
     }
