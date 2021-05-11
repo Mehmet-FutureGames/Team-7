@@ -12,7 +12,7 @@ public class ThankYou : MonoBehaviour
     IEnumerator ThankYouAndGoodByeYousuck()
     {
         yield return new WaitForSeconds(10f);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
 
 
