@@ -75,3 +75,7 @@ MonoBehaviour:
     prefab: {fileID: 6750638194679102895, guid: ef83c5b57bc75e343b0d79026c978052,
       type: 3}
     size: 20
+  - tag: EnemyDashArrow
+    prefab: {fileID: 4444651715984652842, guid: 27e4ac232fa549647965c0160f0c7559,
+      type: 3}
+    size: 200
