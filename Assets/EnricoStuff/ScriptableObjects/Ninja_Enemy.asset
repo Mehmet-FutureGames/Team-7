@@ -37,3 +37,6 @@ MonoBehaviour:
   coinMinDropCount: 1
   coinMaxDropCount: 2
   coinValue: 1
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 256

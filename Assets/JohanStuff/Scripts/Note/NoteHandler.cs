@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 
 public class NoteHandler : MonoBehaviour
@@ -28,7 +28,6 @@ public class NoteHandler : MonoBehaviour
         noteManager.SetDifficulty();
         notePooler = ObjectPooler.Instance;
         delayDone = false;
-        
     }
     void FixedUpdate()
     {
