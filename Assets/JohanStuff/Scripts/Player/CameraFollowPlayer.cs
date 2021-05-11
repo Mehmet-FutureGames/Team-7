@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class CameraFollowPlayer : MonoBehaviour
 {
     Transform player;
 
     float camFollowSpeed;
     Vector3 cameraOffset;
-
+    Animator anim;
     private CameraManager cameraManager;
 
     float distance;
@@ -63,5 +63,47 @@ public class CameraFollowPlayer : MonoBehaviour
             Debug.Log("!");
         }
         shakeCamera = false;
+    }
+    IEnumerator CheckCameraAnim()
+    {
+        while (true)
+        {
+            yield return new WaitForSecondsRealtime(0.1f);
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("CameraStartAnim"))
+            {
+                //Time.timeScale = 1;
+                break;
+            }
+        }
+        
+    }
+    public void ÁnimationDone()
+    {
+        Time.timeScale = 1;
+        anim.enabled = false;
+    }
+    IEnumerator WaitForTimeScale()
+    {
+        
+        yield return new WaitForSeconds(0.01f);
+        Time.timeScale = 0;
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+        anim = GetComponent<Animator>();
+        if (level == SceneManager.GetSceneByName("EmilSTestScene").buildIndex)
+        {
+            anim.enabled = true;
+            Time.timeScale = 0;
+            //StartCoroutine(WaitForTimeScale());
+        }
+        else if (level == SceneManager.GetSceneByName("Level_2").buildIndex)
+        {
+            StartCoroutine(WaitForTimeScale());
+        }
+        else
+        {
+            anim.enabled = false;
+        }
     }
 }

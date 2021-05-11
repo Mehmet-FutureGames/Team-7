@@ -27,7 +27,7 @@ public class PlayerStatsMenu : MonoBehaviour
 
     string savedPlayerName;
 
-    [SerializeField] bool hasUpgraded;
+    [SerializeField] public static bool hasUpgraded;
 
     bool hasSaved;
 
@@ -79,6 +79,7 @@ public class PlayerStatsMenu : MonoBehaviour
         UpdateTextUpgrade();
         if (!hasStartedFirstTime)
         {
+            hasStartedFirstTime = true;
             notes = startingNotes;
             PlayerPrefs.SetInt("NoteCurrency", notes);
         }

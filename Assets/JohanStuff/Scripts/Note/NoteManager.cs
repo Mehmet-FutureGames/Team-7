@@ -67,7 +67,7 @@ public class NoteManager : MonoBehaviour
                 break;
         }
     }
-    public void test()
+    public void StartMusic()
     {
         if (MainMenu.hasGoneToSettings)
         {

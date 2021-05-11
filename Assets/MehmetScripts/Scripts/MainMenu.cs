@@ -12,6 +12,8 @@ public class MainMenu : MonoBehaviour
     LevelManager manager;
     public static AudioMixer mixer;
 
+    public static AsyncOperation scene;
+
     [SerializeField] Slider masterVolume;
     [SerializeField] Slider SFXVolume;
     [SerializeField] Slider musicVolume;
@@ -109,19 +111,21 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame()
     {
-        StartCoroutine(SceneFader.FadeOut(PlayGameMethod));
-        
+        if(GetComponentInChildren<CharacterStats>().hasBeenBought && PlayerStatsMenu.hasStartedFirstTime && !PlayerStatsMenu.hasUpgraded)
+        {
+            StartCoroutine(SceneFader.FadeOut(PlayGameMethod));
+        }
     }
 
     private void PlayGameMethod()
     {
-        if (!PlayerStatsMenu.hasStartedFirstTime)
+        if (!PlayerStatsMenu.hasStartedFirstTime && !PlayerStatsMenu.hasUpgraded)
         {
             SceneManager.LoadScene("TutorialPC");
             PlayerStatsMenu.hasStartedFirstTime = true;
             PlayerPrefs.SetInt("hasStartedFirstTime", PlayerStatsMenu.hasStartedFirstTime ? 1 : 0);
         }
-        else if (GetComponentInChildren<CharacterStats>().hasBeenBought && PlayerStatsMenu.hasStartedFirstTime)
+        else if (GetComponentInChildren<CharacterStats>().hasBeenBought && PlayerStatsMenu.hasStartedFirstTime && !PlayerStatsMenu.hasUpgraded)
         {
             SceneManager.LoadScene("Shop");
         }
@@ -165,7 +169,44 @@ public class MainMenu : MonoBehaviour
     }
     public void CalibrationMenu()
     {
-        SceneManager.LoadScene("MetronomeTestScene");
+        if (Application.CanStreamedLevelBeLoaded(SceneManager.GetActiveScene().buildIndex))
+        {
+            if (PauseMenu.player != null)
+            {
+                Scene activeScene = SceneManager.GetSceneByName("SettingsUI");
+                Debug.Log(activeScene.name);
+                scene = SceneManager.LoadSceneAsync("MetronomeTestScene", LoadSceneMode.Additive);
+                scene.allowSceneActivation = true;
+                Debug.Log(hasGoneToSettings);
+                foreach (GameObject g in activeScene.GetRootGameObjects())
+                {
+                    g.SetActive(false);
+                }
+            }
+            else
+            {
+                SceneManager.LoadScene("MetronomeTestScene");
+            }
+        }
+    }
+    public void BackButtonForCaliScene()
+    {
+        if (Application.CanStreamedLevelBeLoaded(SceneManager.GetActiveScene().buildIndex))
+        {
+            if (PauseMenu.player != null)
+            {
+                hasGoneToSettings = true;
+                SceneManager.UnloadSceneAsync("MetronomeTestScene");
+                foreach (GameObject g in SceneManager.GetSceneByName("SettingsUI").GetRootGameObjects())
+                {
+                    g.SetActive(true);
+                }
+            }
+            else
+            {
+                SceneManager.LoadScene("SettingsUI");
+            }
+        }
     }
     public void ChangeGraphics(int qualityLevel)
     {

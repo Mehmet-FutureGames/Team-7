@@ -347,12 +347,20 @@ public class Player : MonoBehaviour
         {
             gameMode = true;
         }
+        if (level == SceneManager.GetSceneByName("EmilSTestScene").buildIndex)
+        {
+            transform.position = new Vector3(0, 0, -42);
+        }
+        else if (level == SceneManager.GetSceneByName("Level_2").buildIndex)
+        {
+            transform.position = new Vector3(0, 0, -42);
+        }
         else
         {
             gameMode = false;
         }
         camera = Camera.main;
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
         if (playerAttackRange != null && playerDashRange != null)
         {
             playerAttackRange.gameObject.SetActive(true);

@@ -55,7 +55,7 @@ public class EnemyStats : ScriptableObject
     [Range(0,10)]
     public int coinMaxDropCount;
     public float coinValue;
-
+    public LayerMask obstacleLayer;
 }
 
 
