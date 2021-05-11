@@ -182,7 +182,8 @@ AudioSource:
   m_GameObject: {fileID: 2142267719}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 428236742113697161, guid: f5c7522d63e31814c8a37c83253a9f0c,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -454,10 +455,10 @@ MonoBehaviour:
   difficultyMultiplier: 0
   notePrefab: {fileID: 6543781459419842161, guid: 7566e28e77de9454ba42a18f524fd71f,
     type: 3}
-  shopSongPreset: {fileID: 11400000, guid: 1f885ec131f070343b72fb48045a3636, type: 2}
+  shopSongPreset: {fileID: 11400000, guid: 6f1e440efaf157e49bf94dd3374a7dc7, type: 2}
   emilSSceneSongPreset: {fileID: 11400000, guid: a140ffb0235c5e443be301fedc7b08c6,
     type: 2}
-  enricoSceneSongPreset: {fileID: 11400000, guid: 1bb3d6021e216b14ba69caf9fc3a32be,
+  enricoSceneSongPreset: {fileID: 11400000, guid: a140ffb0235c5e443be301fedc7b08c6,
     type: 2}
   calibrationSaver: {fileID: 11400000, guid: 8b15af7586a8aca49b6b5611ddb5a3c3, type: 2}
 --- !u!1 &8966836274532626866

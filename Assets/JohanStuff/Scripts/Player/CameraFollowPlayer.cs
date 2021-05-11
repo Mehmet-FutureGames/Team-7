@@ -74,26 +74,5 @@ public class CameraFollowPlayer : MonoBehaviour
         anim.StopPlayback();
         anim.enabled = false;
     }
-    IEnumerator WaitForTimeScale()
-    {
-        
-        yield return new WaitForSeconds(0.01f);
-        Time.timeScale = 0;
-    }
-    private void OnLevelWasLoaded(int level)
-    {
-       
-        if (level == SceneManager.GetSceneByName("EmilSTestScene").buildIndex)
-        {
-            
-        }
-        else if (level == SceneManager.GetSceneByName("Level_2").buildIndex)
-        {
 
-        }
-        else
-        {
-           
-        }
-    }
 }
