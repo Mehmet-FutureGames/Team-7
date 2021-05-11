@@ -11,7 +11,7 @@ public enum Difficulty
 
 public class NoteManager : MonoBehaviour
 {
-
+    NoteHandler noteHandler;
     [Space]
     public Difficulty difficulty;
 
@@ -36,7 +36,7 @@ public class NoteManager : MonoBehaviour
     {
         camera = Camera.main;
         //LoadPresetData();
-        
+        noteHandler = FindObjectOfType<NoteHandler>();
     }
 
     private void Start()
@@ -44,11 +44,10 @@ public class NoteManager : MonoBehaviour
         SetDifficulty();
     }
 
-    void LoadPresetData(AudioScriptableObject preset)
+    public void LoadPresetData(AudioScriptableObject preset)
     {
         beatTempo = preset.BPM;
         noteStartDelay = calibrationSaver.delay + preset.noteStartDelay;
-        //camera.GetComponent<AudioSource>().volume = preset.volume;
         currentSongMaxVolume = preset.volume;
         clip = preset.audioClip;
         camera.GetComponent<AudioSource>().clip = clip;

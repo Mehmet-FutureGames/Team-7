@@ -9,9 +9,11 @@ public class NinjaCombatP2 : State
     }
     Vector3 dirToPlayer;
     Vector3 target;
+    bool hasAttacked;
     public override void Enter()
     {
         base.Enter();
+        hasAttacked = false;
         dirToPlayer = (new Vector3(enemy.player.position.x, 0, enemy.player.position.z) - enemy.agentObj.transform.position).normalized;
         target = enemy.ninjaTarget;
         enemy.trailRenderer.enabled = true;
@@ -29,10 +31,16 @@ public class NinjaCombatP2 : State
         {
             stateMachine.ChangeState(enemy.combatPhase3);
         }
-        else if(enemy.playerIsInAttackArea && !PlayerBlock.isBlocking)
+        else if((enemy.playerIsInAttackArea && !PlayerBlock.isBlocking) && !hasAttacked)
         {
             enemy.EnemyAttack();
+            hasAttacked = true;
         }
+    }
+    public override void Exit()
+    {
+        base.Exit();
+        hasAttacked = false;
     }
     public override void NoteEventUpdate()
     {
