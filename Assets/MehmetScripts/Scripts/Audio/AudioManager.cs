@@ -11,13 +11,17 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
+        //Clears the dictionaries just incase there are elements 
+        //can cause crashes without
+        audioClips.Clear();
+        sources.Clear();
         sources.Add("PlayerSound", FindObjectOfType<Player>().GetComponent<AudioSource>());
         sources.Add("VFXSound", GetComponent<AudioSource>());
         sources.Add("EnemySound", enemySound.GetComponent<AudioSource>());
         clipsSaved = Resources.LoadAll<AudioClip>("usefull");
         for (int i = 0; i < clipsSaved.Length; i++)
         {
-            audioClips.Add(clipsSaved[i].name, clipsSaved[i]);
+            audioClips.Add(clipsSaved[i].name, clipsSaved[i]); 
         }
     }
 

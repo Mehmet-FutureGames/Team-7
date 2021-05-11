@@ -7,6 +7,7 @@ using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
+    public static bool hasGoneToSettings = false;
     int levelSelected;
     LevelManager manager;
     public static AudioMixer mixer;
@@ -22,6 +23,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        hasGoneToSettings = false;
         currentScene = SceneManager.GetActiveScene();
         mixer = Resources.Load<AudioMixer>("MainMixer");
         manager = FindObjectOfType<LevelManager>();
@@ -39,11 +41,19 @@ public class MainMenu : MonoBehaviour
     }
     public void LoadVolume()
     {
+        Debug.Log("Hello");
         masterVolumeFloat = PlayerPrefs.GetFloat("masterVolume");
         SFXVolumeFloat = PlayerPrefs.GetFloat("SFXvolume");
         musicVolumeFloat = PlayerPrefs.GetFloat("MusicVol");
 
-        if(mixer == null)
+        if (masterVolume != null)
+        {
+            masterVolumeFloat = masterVolume.value;
+            SFXVolumeFloat = SFXVolume.value;
+            musicVolumeFloat = musicVolume.value;
+        }
+
+        if (mixer == null)
         {
             mixer = Resources.Load<AudioMixer>("MainMixer");
         }
@@ -135,18 +145,23 @@ public class MainMenu : MonoBehaviour
     {
         if (Application.CanStreamedLevelBeLoaded(SceneManager.GetActiveScene().buildIndex))
         {
-            PauseMenu.player.gameObject.SetActive(true);
-            PauseMenu.player.ActivateAll();
-            foreach (GameObject g in SceneManager.GetActiveScene().GetRootGameObjects())
+            if (PauseMenu.player != null)
             {
-                g.SetActive(true);
+                hasGoneToSettings = true;
+                PauseMenu.player.gameObject.SetActive(true);
+                PauseMenu.player.ActivateAll();
+                foreach (GameObject g in SceneManager.GetActiveScene().GetRootGameObjects())
+                {
+                    g.SetActive(true);                    
+                }
+                SceneManager.UnloadSceneAsync("SettingsUI");
             }
-            SceneManager.UnloadSceneAsync("SettingsUI");
+            else
+            {
+                SceneManager.LoadScene("MainMenu");     
+            }
         }
-        else
-        {
-            SceneManager.LoadScene("MainMenu");
-        }
+
     }
     public void CalibrationMenu()
     {

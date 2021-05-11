@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using System.Collections;
 
 public interface IState
 {
@@ -48,6 +48,15 @@ public abstract class State : IState
     public virtual void Action()
     {
         
+    }
+
+    public virtual void OnDestroy()
+    {
+
+    }
+    public virtual void OnDisable()
+    {
+
     }
     
 }
