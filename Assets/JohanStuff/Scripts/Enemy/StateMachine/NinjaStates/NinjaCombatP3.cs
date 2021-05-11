@@ -19,7 +19,11 @@ public class NinjaCombatP3 : State
         if (enemy.trailRenderer.enabled == true)
         {
             enemy.trailRenderer.enabled = false;
+
+            //stunned animation should be here
+            //enemy.gameObject.GetComponentInChildren<Animator>().SetTrigger("Idle");
         }
+        
     }
 
     public override void Exit()
