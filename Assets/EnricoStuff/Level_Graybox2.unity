@@ -35262,6 +35262,12 @@ PrefabInstance:
       propertyPath: displayCombo
       value: 
       objectReference: {fileID: 542542728}
+    - target: {fileID: 4022026153558576498, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: pools.Array.data[8].prefab
+      value: 
+      objectReference: {fileID: 4170315450527332109, guid: 81df30b70f47ee44498048c86a1fbe61,
+        type: 3}
     - target: {fileID: 8966836274532626828, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: audio
