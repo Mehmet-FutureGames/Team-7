@@ -49,6 +49,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!PlayerBlock.isBlocking)
         {
+            CameraFollowPlayer.Instance.CameraShake();
             comboHandler.SetCombo(0);
             currentHealth -= damage;
             if (movePlayer.MovementValue < 10)
@@ -71,6 +72,7 @@ public class PlayerHealth : MonoBehaviour
     }
     public void TakeUnblockableDamage(float damage)
     {
+        CameraFollowPlayer.Instance.CameraShake();
         currentHealth -= damage;
         AudioManager.PlaySound("Monster Takes Damage 10","PlayerSound");
         if (movePlayer.MovementValue < 10)

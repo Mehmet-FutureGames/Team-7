@@ -116,6 +116,7 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(float damage, bool isDash)
     {
+        CameraFollowPlayer.Instance.CameraShake();
         health -= damage;
         if (AudioManager.AudioSourcePlaying("PlayerSound"))
         {
