@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
-
+    public LayerMask obstacleLayer;
 
     public static bool TakenDamage;
 
@@ -116,6 +116,7 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(float damage, bool isDash)
     {
+        CameraFollowPlayer.Instance.CameraShake();
         health -= damage;
         if (AudioManager.AudioSourcePlaying("PlayerSound"))
         {
@@ -179,6 +180,7 @@ public class Enemy : MonoBehaviour
 
     private void SetStats()
     {
+        obstacleLayer = stats.obstacleLayer;
         enemyName = stats.enemyName;
         movementSpeed = stats.movementSpeed;
         moveDistance = stats.moveDistance;

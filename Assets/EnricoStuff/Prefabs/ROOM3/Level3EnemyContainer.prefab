@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1002755439607144220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1002755439607144222}
+  - component: {fileID: 1002755439607144223}
+  m_Layer: 0
+  m_Name: Level3EnemyContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1002755439607144222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002755439607144220}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1002755439607144223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002755439607144220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e1ac85ea69b0484c8f4293bc37c0e2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyVariants:
+  - {fileID: 4839025464020082310, guid: d1ec307304b8b8d4ea9ccabacf527855, type: 3}
+  - {fileID: 207381485540389465, guid: 6e2f5b5d7b9d52c4089051c65677c867, type: 3}
+  - {fileID: 8744423220382229699, guid: ac3568e37f30e9949b32b772b3a82984, type: 3}
+  spawnPointPatternsEasy:
+  - {fileID: 8502531389408535226, guid: ff5e04910a7debc4998852b7ce6a1cbe, type: 3}
+  - {fileID: 7888625592124846983, guid: de28fd98dc486004b9d3f0d71f7db7f5, type: 3}
+  - {fileID: 8373436415135545830, guid: 11da6c976999f4442af779fa88154c43, type: 3}
+  - {fileID: 9199075383309719553, guid: 80d25d4cc1d6a474ca93cb597c29d293, type: 3}
+  - {fileID: 8996499574770348072, guid: 81911a18968eff44394db24cd64306c5, type: 3}
+  - {fileID: 2833270096229774520, guid: 9a71fabfd2b019244a3b3e4a10f27c1b, type: 3}
+  spawnPointPatternsMedium:
+  - {fileID: 232069384754691250, guid: ab383cb0be678424a9d176d91b9add45, type: 3}
+  - {fileID: 7576406481274490073, guid: f834f4f566bbe9341a2a4f2be83efb0e, type: 3}
+  - {fileID: 1147225790637089410, guid: 85a0e0fee619994408c46dd8ac3a4b21, type: 3}
+  - {fileID: 3374888999541722987, guid: 7722cda18d11e604aaacc763cfe259ea, type: 3}
+  - {fileID: 2678597111674849819, guid: 95fc54c49f5b89c49b1f520f1687c845, type: 3}
+  spawnPointPatternsHard:
+  - {fileID: 5773519632384000336, guid: 4d66bac8570e91a4c882c5006c4cb218, type: 3}
+  - {fileID: 3512057658318808610, guid: 7f0e96be4896b5841a203b1a8547ddbf, type: 3}
+  - {fileID: 3693939517923048449, guid: 089dfce5b4762db43b6a4478fb534674, type: 3}
+  itemSpawnLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  door: {fileID: 9092595639840711224, guid: acaaa9e4dc0463d4da802e01dfd4aca6, type: 3}
+  waveLevel: 0
+  numberOfWavesForEasyLevel: 3
+  numberOfWavesForMediumLevel: 3
+  numberOfWavesForHardLevel: 2
+  waveMaximum: 8
