@@ -12,7 +12,7 @@ public class PressAnyKey : MonoBehaviour
 
     void Start()
     {
-        hasStarted = false;
+        hasStarted = true;
     }
 
     public void StartGame()
