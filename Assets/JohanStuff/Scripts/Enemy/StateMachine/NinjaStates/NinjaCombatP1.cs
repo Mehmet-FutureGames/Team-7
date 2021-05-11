@@ -39,6 +39,7 @@ public class NinjaCombatP1 : State
             enemy.ninjaTarget = hit.point + dirToAgent * 2;
         }
         CoroutineRunner.Instance.SCouroutine(SpawnArrows());
+        enemy.gameObject.GetComponentInChildren<Animator>().SetTrigger("Idle");
     }
 
     public override void Exit()
