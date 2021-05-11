@@ -13,7 +13,7 @@ public class CasterCombatP2 : State
         enemy.agentObj.transform.rotation = Quaternion.LookRotation(dirToPlayer);
         enemy.area.transform.position = enemy.player.position;
         enemy.area.SetActive(true);
-        if (!AudioManager.AudioSourcePlaying("EnemySound"))
+        if (!AudioManager.IsPlaying("EnemySound"))
         {
             AudioManager.PlaySound("Scanning", "EnemySound");
         }
