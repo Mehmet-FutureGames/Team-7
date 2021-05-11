@@ -2268,13 +2268,13 @@ PrefabInstance:
         type: 3}
       propertyPath: shopSongPreset
       value: 
-      objectReference: {fileID: 11400000, guid: ba218dcb143f89342bae6be14d1289a8,
+      objectReference: {fileID: 11400000, guid: 6f1e440efaf157e49bf94dd3374a7dc7,
         type: 2}
     - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: enricoSceneSongPreset
       value: 
-      objectReference: {fileID: 11400000, guid: ba218dcb143f89342bae6be14d1289a8,
+      objectReference: {fileID: 11400000, guid: a140ffb0235c5e443be301fedc7b08c6,
         type: 2}
     - target: {fileID: 8966836274532626828, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
@@ -7345,12 +7345,12 @@ PrefabInstance:
     - target: {fileID: 4586355822766427328, guid: 22bff96d8096e3e4494ea75ff7e7a309,
         type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4586355822766427328, guid: 22bff96d8096e3e4494ea75ff7e7a309,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4586355822766427328, guid: 22bff96d8096e3e4494ea75ff7e7a309,
         type: 3}
@@ -7380,12 +7380,12 @@ PrefabInstance:
     - target: {fileID: 4586355822766427328, guid: 22bff96d8096e3e4494ea75ff7e7a309,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4586355822766427328, guid: 22bff96d8096e3e4494ea75ff7e7a309,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4586355822766427328, guid: 22bff96d8096e3e4494ea75ff7e7a309,
         type: 3}
