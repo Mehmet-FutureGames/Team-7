@@ -21,6 +21,7 @@ public class CameraFollowPlayer : MonoBehaviour
     bool shakeCamera;
     private void Awake()
     {
+        
         Instance = this;
     }
     void Start()
@@ -64,22 +65,13 @@ public class CameraFollowPlayer : MonoBehaviour
         }
         shakeCamera = false;
     }
-    IEnumerator CheckCameraAnim()
-    {
-        while (true)
-        {
-            yield return new WaitForSecondsRealtime(0.1f);
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("CameraStartAnim"))
-            {
-                //Time.timeScale = 1;
-                break;
-            }
-        }
-        
-    }
+
     public void ÁnimationDone()
     {
+        GetComponent<AudioSource>().Play();
         Time.timeScale = 1;
+        anim = GetComponent<Animator>();
+        anim.StopPlayback();
         anim.enabled = false;
     }
     IEnumerator WaitForTimeScale()
@@ -90,20 +82,18 @@ public class CameraFollowPlayer : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
-        anim = GetComponent<Animator>();
+       
         if (level == SceneManager.GetSceneByName("EmilSTestScene").buildIndex)
         {
-            anim.enabled = true;
-            Time.timeScale = 0;
-            //StartCoroutine(WaitForTimeScale());
+            
         }
         else if (level == SceneManager.GetSceneByName("Level_2").buildIndex)
         {
-            StartCoroutine(WaitForTimeScale());
+
         }
         else
         {
-            anim.enabled = false;
+           
         }
     }
 }
