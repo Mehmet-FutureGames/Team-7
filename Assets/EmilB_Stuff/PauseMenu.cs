@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-
+    GameObject pauseButton;
     public static bool GameIsPaused = false;
 
     public static Player player;
@@ -18,6 +18,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
+        pauseButton = GameObject.Find("PauseMobileButton");
         audio = FindObjectOfType<PressAnyKey>();
         player = FindObjectOfType<Player>();
     }
@@ -43,14 +44,20 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         audio.audio.UnPause();
         GameIsPaused = false;
+#if UNITY_ANDROID
+        pauseButton.SetActive(true);
+#endif
     }
 
-    void Pause()
+    public void Pause()
     {
         pauseMenuUI.SetActive(true);
         audio.audio.Pause();
         Time.timeScale = 0f;
         GameIsPaused = true;
+#if UNITY_ANDROID
+        pauseButton.SetActive(false);
+#endif
     }
 
     public static void LoadMenu()

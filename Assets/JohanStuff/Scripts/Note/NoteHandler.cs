@@ -27,7 +27,6 @@ public class NoteHandler : MonoBehaviour
     public void NoteHandlerInitialize()
     {
         startDelay = noteManager.noteStartDelay;
-        Debug.Log(startDelay);
         noteManager.SetDifficulty();
         notePooler = ObjectPooler.Instance;
         delayDone = false;
@@ -61,7 +60,6 @@ public class NoteHandler : MonoBehaviour
         Instantiate(notePrefab, transform.position +Vector3.right * 2 - delayOffset, Quaternion.identity, ObjectPooler.Instance.transform);
         Instantiate(notePrefab, transform.position + Vector3.right * 4 - delayOffset, Quaternion.identity, ObjectPooler.Instance.transform);
         Instantiate(notePrefab, transform.position + Vector3.right * 6 - delayOffset, Quaternion.identity, ObjectPooler.Instance.transform);
-        Debug.Log("!!!");
     }
 
         IEnumerator StartDelay()
