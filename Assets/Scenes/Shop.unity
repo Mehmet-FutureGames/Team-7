@@ -2272,6 +2272,12 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
+      propertyPath: emilSSceneSongPreset
+      value: 
+      objectReference: {fileID: 11400000, guid: 1bebcb4a8395c5c41a2e475e04216bd9,
+        type: 2}
+    - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
       propertyPath: enricoSceneSongPreset
       value: 
       objectReference: {fileID: 11400000, guid: a140ffb0235c5e443be301fedc7b08c6,
