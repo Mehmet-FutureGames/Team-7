@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class NoteHandler : MonoBehaviour
 {
+    public Action beat;
     private float startDelay;
 
     public GameObject notePrefab;
@@ -47,6 +49,10 @@ public class NoteHandler : MonoBehaviour
                 {
                     Instantiate(notePrefab, transform.position, Quaternion.identity, ObjectPooler.Instance.transform);
                     timer -= (60 / noteManager.beatTempo) * noteManager.difficultyMultiplier;
+                    if (beat != null)
+                    {
+                        beat();
+                    }
                 }
             }
         }
