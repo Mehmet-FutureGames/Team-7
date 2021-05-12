@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class CameraFollowPlayer : MonoBehaviour
 {
     Transform player;
 
     float camFollowSpeed;
     Vector3 cameraOffset;
-
+    Animator anim;
     private CameraManager cameraManager;
 
     float distance;
@@ -21,6 +21,7 @@ public class CameraFollowPlayer : MonoBehaviour
     bool shakeCamera;
     private void Awake()
     {
+        
         Instance = this;
     }
     void Start()
@@ -63,5 +64,36 @@ public class CameraFollowPlayer : MonoBehaviour
             Debug.Log("!");
         }
         shakeCamera = false;
+    }
+
+    public void ÁnimationDone()
+    {
+        GetComponent<AudioSource>().Play();
+        Time.timeScale = 1;
+        anim = GetComponent<Animator>();
+        anim.StopPlayback();
+        anim.enabled = false;
+    }
+    IEnumerator WaitForTimeScale()
+    {
+        
+        yield return new WaitForSeconds(0.01f);
+        Time.timeScale = 0;
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+       
+        if (level == SceneManager.GetSceneByName("EmilSTestScene").buildIndex)
+        {
+            
+        }
+        else if (level == SceneManager.GetSceneByName("Level_2").buildIndex)
+        {
+
+        }
+        else
+        {
+           
+        }
     }
 }

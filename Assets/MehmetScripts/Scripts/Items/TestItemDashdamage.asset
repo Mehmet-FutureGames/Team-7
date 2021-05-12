@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: TestItemDashdamage
   m_EditorClassIdentifier: 
   nameItem: Johan cool new item
-  itemModel: {fileID: 2234150962986478426, guid: 61cd96b9cbde0ea46a7d7be51260141a,
-    type: 3}
+  itemModel: {fileID: 100000, guid: 9a18fd4d37d8ab44789d6ad9d5a2aef7, type: 3}
   upgradeAmount: 50
   itemCostCoins: 50
   itemCostNotes: 15

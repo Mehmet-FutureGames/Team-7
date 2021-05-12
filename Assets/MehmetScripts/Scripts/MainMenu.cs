@@ -12,10 +12,11 @@ public class MainMenu : MonoBehaviour
     LevelManager manager;
     public static AudioMixer mixer;
 
+    public static AsyncOperation scene;
+
     [SerializeField] Slider masterVolume;
     [SerializeField] Slider SFXVolume;
     [SerializeField] Slider musicVolume;
-     Scene currentScene;
 
      float masterVolumeFloat;
      float SFXVolumeFloat;
@@ -24,7 +25,6 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         hasGoneToSettings = false;
-        currentScene = SceneManager.GetActiveScene();
         mixer = Resources.Load<AudioMixer>("MainMixer");
         manager = FindObjectOfType<LevelManager>();
         LoadVolume();
@@ -41,17 +41,12 @@ public class MainMenu : MonoBehaviour
     }
     public void LoadVolume()
     {
-        Debug.Log("Hello");
-        masterVolumeFloat = PlayerPrefs.GetFloat("masterVolume");
-        SFXVolumeFloat = PlayerPrefs.GetFloat("SFXvolume");
-        musicVolumeFloat = PlayerPrefs.GetFloat("MusicVol");
-
-        if (masterVolume != null)
-        {
-            masterVolumeFloat = masterVolume.value;
-            SFXVolumeFloat = SFXVolume.value;
-            musicVolumeFloat = musicVolume.value;
-        }
+        if (masterVolume != null)       
+            masterVolume.value = PlayerPrefs.GetFloat("masterVolume");
+        if (SFXVolume != null)
+            SFXVolume.value = PlayerPrefs.GetFloat("SFXvolume");
+        if (musicVolume != null)
+            musicVolume.value = PlayerPrefs.GetFloat("MusicVol");
 
         if (mixer == null)
         {
@@ -59,17 +54,11 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
-            mixer.SetFloat("MasterVol", masterVolumeFloat);
-            mixer.SetFloat("SFXVol", SFXVolumeFloat);
-            mixer.SetFloat("MusicVol", musicVolumeFloat);
+            mixer.SetFloat("MasterVol", PlayerPrefs.GetFloat("masterVolume"));
+            mixer.SetFloat("SFXVol", PlayerPrefs.GetFloat("SFXvolume"));
+            mixer.SetFloat("MusicVol", PlayerPrefs.GetFloat("MusicVol"));
         }
 
-        if (currentScene.buildIndex == SceneManager.GetSceneByName("SettingsUI").buildIndex)
-        {
-            masterVolume.value = PlayerPrefs.GetFloat("masterVolume"); 
-            SFXVolume.value = PlayerPrefs.GetFloat("SFXvolume");
-            musicVolume.value = PlayerPrefs.GetFloat("MusicVol");
-        }
     }
 
     public void ChangeVolume(int volumeChanged)
@@ -79,9 +68,6 @@ public class MainMenu : MonoBehaviour
         musicVolumeFloat = musicVolume.value;
         switch (volumeChanged)
         {
-            default:
-                mixer.SetFloat("MasterVol", masterVolumeFloat);
-                break;
             case 0:
                 mixer.SetFloat("MasterVol", masterVolumeFloat);
                 break;
@@ -109,19 +95,21 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame()
     {
-        StartCoroutine(SceneFader.FadeOut(PlayGameMethod));
-        
+        if(GetComponentInChildren<CharacterStats>().hasBeenBought && PlayerStatsMenu.hasStartedFirstTime && !PlayerStatsMenu.hasUpgraded)
+        {
+            StartCoroutine(SceneFader.FadeOut(PlayGameMethod));
+        }
     }
 
     private void PlayGameMethod()
     {
-        if (!PlayerStatsMenu.hasStartedFirstTime)
+        if (!PlayerStatsMenu.hasStartedFirstTime && !PlayerStatsMenu.hasUpgraded)
         {
             SceneManager.LoadScene("TutorialPC");
             PlayerStatsMenu.hasStartedFirstTime = true;
             PlayerPrefs.SetInt("hasStartedFirstTime", PlayerStatsMenu.hasStartedFirstTime ? 1 : 0);
         }
-        else if (GetComponentInChildren<CharacterStats>().hasBeenBought && PlayerStatsMenu.hasStartedFirstTime)
+        else if (GetComponentInChildren<CharacterStats>().hasBeenBought && PlayerStatsMenu.hasStartedFirstTime && !PlayerStatsMenu.hasUpgraded)
         {
             SceneManager.LoadScene("Shop");
         }
@@ -165,7 +153,44 @@ public class MainMenu : MonoBehaviour
     }
     public void CalibrationMenu()
     {
-        SceneManager.LoadScene("MetronomeTestScene");
+        if (Application.CanStreamedLevelBeLoaded(SceneManager.GetActiveScene().buildIndex))
+        {
+            if (PauseMenu.player != null)
+            {
+                Scene activeScene = SceneManager.GetSceneByName("SettingsUI");
+                Debug.Log(activeScene.name);
+                scene = SceneManager.LoadSceneAsync("MetronomeTestScene", LoadSceneMode.Additive);
+                scene.allowSceneActivation = true;
+                Debug.Log(hasGoneToSettings);
+                foreach (GameObject g in activeScene.GetRootGameObjects())
+                {
+                    g.SetActive(false);
+                }
+            }
+            else
+            {
+                SceneManager.LoadScene("MetronomeTestScene");
+            }
+        }
+    }
+    public void BackButtonForCaliScene()
+    {
+        if (Application.CanStreamedLevelBeLoaded(SceneManager.GetActiveScene().buildIndex))
+        {
+            if (PauseMenu.player != null)
+            {
+                hasGoneToSettings = true;
+                SceneManager.UnloadSceneAsync("MetronomeTestScene");
+                foreach (GameObject g in SceneManager.GetSceneByName("SettingsUI").GetRootGameObjects())
+                {
+                    g.SetActive(true);
+                }
+            }
+            else
+            {
+                SceneManager.LoadScene("SettingsUI");
+            }
+        }
     }
     public void ChangeGraphics(int qualityLevel)
     {

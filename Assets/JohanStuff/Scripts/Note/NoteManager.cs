@@ -11,6 +11,7 @@ public enum Difficulty
 
 public class NoteManager : MonoBehaviour
 {
+    Animator cameraAnim;
     NoteHandler noteHandler;
     [Space]
     public Difficulty difficulty;
@@ -67,7 +68,7 @@ public class NoteManager : MonoBehaviour
                 break;
         }
     }
-    public void test()
+    public void StartMusic()
     {
         if (MainMenu.hasGoneToSettings)
         {
@@ -78,18 +79,25 @@ public class NoteManager : MonoBehaviour
     private void OnLevelWasLoaded(int level)
     {
         camera.GetComponent<AudioSource>().Stop();
+        cameraAnim = camera.GetComponent<Animator>();
         if(level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex)
         {
             LoadPresetData(shopSongPreset);
+            cameraAnim.enabled = false;
+            camera.GetComponent<AudioSource>().Play();
         }
         else if( level == SceneManager.GetSceneByName("EmilSTestScene").buildIndex)
         {
             LoadPresetData(emilSSceneSongPreset);
+            cameraAnim.enabled = true;
+            Time.timeScale = 0;
         }
         else if (level == SceneManager.GetSceneByName("Level_2").buildIndex)
         {
             LoadPresetData(enricoSceneSongPreset);
+            cameraAnim.enabled = true;
+            cameraAnim.Play("CameraStartAnim", 0, 0f);
+            Time.timeScale = 0;
         }
-        camera.GetComponent<AudioSource>().Play();
     }
 }
