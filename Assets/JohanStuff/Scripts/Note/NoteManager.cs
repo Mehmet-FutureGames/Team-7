@@ -76,13 +76,20 @@ public class NoteManager : MonoBehaviour
             Debug.Log(camera.GetComponent<AudioSource>().isPlaying);
         }
     }
+
     private void OnLevelWasLoaded(int level)
     {
+        if(noteHandler == null)
+        {
+            noteHandler = FindObjectOfType<NoteHandler>();
+        }
         camera.GetComponent<AudioSource>().Stop();
         cameraAnim = camera.GetComponent<Animator>();
         if(level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex)
         {
             LoadPresetData(shopSongPreset);
+            noteHandler.NoteHandlerInitialize();
+            PressAnyKey.hasStarted = true;
             cameraAnim.enabled = false;
             camera.GetComponent<AudioSource>().Play();
         }
@@ -90,6 +97,7 @@ public class NoteManager : MonoBehaviour
         {
             LoadPresetData(emilSSceneSongPreset);
             cameraAnim.enabled = true;
+            noteHandler.NoteHandlerInitialize();
             Time.timeScale = 0;
         }
         else if (level == SceneManager.GetSceneByName("Level_2").buildIndex)
@@ -97,7 +105,9 @@ public class NoteManager : MonoBehaviour
             LoadPresetData(enricoSceneSongPreset);
             cameraAnim.enabled = true;
             cameraAnim.Play("CameraStartAnim", 0, 0f);
+            noteHandler.NoteHandlerInitialize();
             Time.timeScale = 0;
         }
+        
     }
 }

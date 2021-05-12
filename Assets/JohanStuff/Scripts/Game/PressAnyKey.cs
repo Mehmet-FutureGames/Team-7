@@ -10,9 +10,13 @@ public class PressAnyKey : MonoBehaviour
 
     public AudioSource audio;
 
+    private void Awake()
+    {
+        //hasStarted = true;
+    }
     void Start()
     {
-        hasStarted = true;
+        //hasStarted = true;
     }
 
     public void StartGame()
