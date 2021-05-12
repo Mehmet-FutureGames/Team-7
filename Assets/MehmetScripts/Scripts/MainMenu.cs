@@ -191,6 +191,42 @@ public class MainMenu : MonoBehaviour
             }
         }
     }
+    public void MuteAudio(int audioSource)
+    {
+        switch (audioSource)
+        {
+            case 0:
+                mixer.SetFloat("MasterVol", -80);
+                masterVolume.value = -80;
+                break;
+            case 1:
+                mixer.SetFloat("SFXVol", -80);
+                SFXVolume.value = -80;
+                break;
+            case 2:
+                mixer.SetFloat("MusicVol", -80);
+                musicVolume.value = -80;
+                break;
+        }
+    }
+    public void UnMuteAudio(int audioSource)
+    {
+        switch (audioSource)
+        {
+            case 0:
+                mixer.SetFloat("MasterVol", 0);
+                masterVolume.value = 0;
+                break;
+            case 1:
+                mixer.SetFloat("SFXVol", 0);
+                SFXVolume.value = 0;
+                break;
+            case 2:
+                mixer.SetFloat("MusicVol", 0);
+                musicVolume.value = 0;
+                break;
+        }
+    }
     public void ChangeGraphics(int qualityLevel)
     {
         QualitySettings.SetQualityLevel(qualityLevel);
