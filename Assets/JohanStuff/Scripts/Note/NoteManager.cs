@@ -52,6 +52,8 @@ public class NoteManager : MonoBehaviour
         currentSongMaxVolume = preset.volume;
         clip = preset.audioClip;
         camera.GetComponent<AudioSource>().clip = clip;
+        noteHandler.NoteHandlerInitialize();
+        noteHandler.StartCoroutine(noteHandler.Wait());
     }
     public void SetDifficulty()
     {
@@ -74,6 +76,7 @@ public class NoteManager : MonoBehaviour
         {
             camera.GetComponent<AudioSource>().Play();
             Debug.Log(camera.GetComponent<AudioSource>().isPlaying);
+            MainMenu.hasGoneToSettings = false;
         }
     }
 
@@ -88,8 +91,7 @@ public class NoteManager : MonoBehaviour
         if(level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex)
         {
             LoadPresetData(shopSongPreset);
-            noteHandler.NoteHandlerInitialize();
-            PressAnyKey.hasStarted = true;
+            PressAnyKey.hasStarted = true; 
             cameraAnim.enabled = false;
             camera.GetComponent<AudioSource>().Play();
         }
@@ -97,7 +99,7 @@ public class NoteManager : MonoBehaviour
         {
             LoadPresetData(emilSSceneSongPreset);
             cameraAnim.enabled = true;
-            noteHandler.NoteHandlerInitialize();
+            cameraAnim.Play("CameraStartAnim", 0, 0f);
             Time.timeScale = 0;
         }
         else if (level == SceneManager.GetSceneByName("Level_2").buildIndex)
@@ -105,7 +107,6 @@ public class NoteManager : MonoBehaviour
             LoadPresetData(enricoSceneSongPreset);
             cameraAnim.enabled = true;
             cameraAnim.Play("CameraStartAnim", 0, 0f);
-            noteHandler.NoteHandlerInitialize();
             Time.timeScale = 0;
         }
         

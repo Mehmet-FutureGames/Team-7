@@ -42,7 +42,6 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         audio.audio.UnPause();
-        MainMenu.hasGoneToSettings = false;
         GameIsPaused = false;
     }
 
@@ -57,7 +56,8 @@ public class PauseMenu : MonoBehaviour
     public static void LoadMenu()
     {
         FindObjectOfType<Player>().DestroyEverything();
-        SceneManager.LoadScene("MainMenu",LoadSceneMode.Single);
+        SceneManager.LoadScene("MainMenu");
+        FindObjectOfType<Player>().DestroyEverything();
     } 
     public void GoToSettings()
     {

@@ -27,6 +27,7 @@ public class FireTrail : ActiveItems
             hasStartedEffect = true;
             Debug.Log("FIRETRAIL");
             cooldownReady = false;
+            charge.fillAmount = 0;
             StartCoroutine(Timer());
         }
 
@@ -62,15 +63,16 @@ public class FireTrail : ActiveItems
     }
     IEnumerator CountCooldown()
     {
-        
         while (true)
         {
-            yield return new WaitForSeconds(0.1f);
-            cooldownCount--;
-            if (cooldownCount <= 0)
+            yield return new WaitForSeconds(0.01f);
+            cooldownCount++;
+            float value = (cooldownCount / cooldown);
+            charge.fillAmount = value;
+            if (value >= 1f)
             {
                 cooldownReady = true;
-                cooldownCount = cooldown;
+                cooldownCount = 0;
                 break;
             }
         }

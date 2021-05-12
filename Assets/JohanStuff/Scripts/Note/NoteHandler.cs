@@ -16,7 +16,7 @@ public class NoteHandler : MonoBehaviour
     NoteManager noteManager;
 
     ObjectPooler notePooler;
-
+    int counter;
     bool delayDone;
     bool delayStarted;
     private void Awake()
@@ -24,13 +24,10 @@ public class NoteHandler : MonoBehaviour
         noteManager = FindObjectOfType<NoteManager>();
         notePrefab = noteManager.notePrefab;
     }
-    private void Start()
-    {
-        
-    }
     public void NoteHandlerInitialize()
     {
         startDelay = noteManager.noteStartDelay;
+        Debug.Log(startDelay);
         noteManager.SetDifficulty();
         notePooler = ObjectPooler.Instance;
         delayDone = false;
@@ -56,9 +53,9 @@ public class NoteHandler : MonoBehaviour
         }
     }
 
-    IEnumerator Wait()
+    public IEnumerator Wait()
     {
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.0001f);
         Vector3 delayOffset = new Vector3(noteManager.noteStartDelay, 0, 0);
         Instantiate(notePrefab, transform.position, Quaternion.identity, ObjectPooler.Instance.transform);
         Instantiate(notePrefab, transform.position +Vector3.right * 2 - delayOffset, Quaternion.identity, ObjectPooler.Instance.transform);
@@ -67,7 +64,7 @@ public class NoteHandler : MonoBehaviour
         Debug.Log("!!!");
     }
 
-    IEnumerator StartDelay()
+        IEnumerator StartDelay()
     {
         yield return new WaitForSeconds(startDelay);
         delayDone = true;
@@ -80,10 +77,7 @@ public class NoteHandler : MonoBehaviour
         delayStarted = false;
         if (level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex)
         {
-            StartCoroutine(Wait());
+
         }
-        
     }
-
-
 }

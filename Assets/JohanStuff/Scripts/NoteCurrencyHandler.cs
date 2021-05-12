@@ -34,6 +34,7 @@ public class NoteCurrencyHandler : MonoBehaviour
         text = GameObject.Find("NoteCurrencyText").GetComponent<TextMeshProUGUI>();
         noteCurrency = PlayerPrefs.GetInt("NoteCurrency");
         SetText(NoteCurrency);
+        text.text = noteCurrency.ToString("F0");
     }
 
     public void AddNoteCurrency(int amount)

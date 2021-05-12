@@ -127,7 +127,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: -1, z: 0}
 --- !u!114 &4996938553255210480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
   noteCost: 3
   coinCost: 100
   itemName: SwordSize
-  itemDescription: 
+  itemDescription: Hello?
   buyWithCoins: 0
 --- !u!114 &6137317245210378667
 MonoBehaviour:
@@ -157,6 +157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aabe776c85eb4946ad84db90e0457d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordObjSizeMult: 4
-  hitAreaMult: 4
+  swordObjSizeMult: 2
+  hitAreaMult: 2
   canBuy: 0

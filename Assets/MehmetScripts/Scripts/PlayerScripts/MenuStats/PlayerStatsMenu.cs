@@ -79,7 +79,9 @@ public class PlayerStatsMenu : MonoBehaviour
         UpdateTextUpgrade();
         if (!hasStartedFirstTime)
         {
+            Debug.Log("Started first time");
             hasStartedFirstTime = true;
+            PlayerPrefs.SetInt("hasStartedFirstTime",hasStartedFirstTime? 1:0);
             notes = startingNotes;
             PlayerPrefs.SetInt("NoteCurrency", notes);
         }
