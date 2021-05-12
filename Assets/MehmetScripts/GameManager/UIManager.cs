@@ -101,8 +101,8 @@ public class UIManager : MonoBehaviour
             StopAllCoroutines();
             //Time.timeScale = 0;
             uiPanel.SetActive(false);
-            musicStart.audio.Play();
-            musicStart.StartGame();
+            //musicStart.audio.Play();
+            //musicStart.StartGame();
             //Time.timeScale = 1;
         }
     }
@@ -111,8 +111,8 @@ public class UIManager : MonoBehaviour
             //Time.timeScale = 0;
             yield return new WaitForSecondsRealtime(5f);
             uiPanel.SetActive(false);
-            musicStart.audio.Play();
-            musicStart.StartGame();
+            //musicStart.audio.Play();
+            //musicStart.StartGame();
             //Time.timeScale = 1;        
     }
     private void OnLevelWasLoaded(int level)

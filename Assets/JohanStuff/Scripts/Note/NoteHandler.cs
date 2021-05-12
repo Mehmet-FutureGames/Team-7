@@ -24,13 +24,10 @@ public class NoteHandler : MonoBehaviour
         noteManager = FindObjectOfType<NoteManager>();
         notePrefab = noteManager.notePrefab;
     }
-    private void Start()
-    {
-        
-    }
     public void NoteHandlerInitialize()
     {
         startDelay = noteManager.noteStartDelay;
+        Debug.Log(startDelay);
         noteManager.SetDifficulty();
         notePooler = ObjectPooler.Instance;
         delayDone = false;
