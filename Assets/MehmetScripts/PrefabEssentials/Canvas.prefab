@@ -6519,13 +6519,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7064889913549196347, guid: e7df13f83af75c246932f38f0cfddb7c,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064889913549196347, guid: e7df13f83af75c246932f38f0cfddb7c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064889913549196347, guid: e7df13f83af75c246932f38f0cfddb7c,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7064889913549196347, guid: e7df13f83af75c246932f38f0cfddb7c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RetryButton
+      value: RetryButtonPC
       objectReference: {fileID: 0}
     - target: {fileID: 7064889913549196347, guid: e7df13f83af75c246932f38f0cfddb7c,
         type: 3}

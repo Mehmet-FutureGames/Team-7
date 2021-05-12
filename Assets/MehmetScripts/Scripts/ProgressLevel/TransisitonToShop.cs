@@ -15,7 +15,6 @@ public class TransisitonToShop : MonoBehaviour
         {
             LevelManager.levelsCompletedThisRun--;
         }
-        GetComponent<Animator>().enabled = true;
         manager = FindObjectOfType<LevelManager>();
     }
 
