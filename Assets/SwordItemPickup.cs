@@ -43,6 +43,7 @@ public class SwordItemPickup : MonoBehaviour
             canBuy = true;
             ItemCanvas.isInBuyArea = true;
             ItemCanvas.Instance.descriptionText.text = itemParameter.itemDescription;
+            ItemCanvas.Instance.itemName.text = itemParameter.itemName;
         }
         
     }
