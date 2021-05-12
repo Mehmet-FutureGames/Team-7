@@ -15,7 +15,7 @@ public class NoteManager : MonoBehaviour
     NoteHandler noteHandler;
     [Space]
     public Difficulty difficulty;
-
+    Player player;
     [HideInInspector]
     public float beatTempo;
     [HideInInspector]
@@ -38,6 +38,7 @@ public class NoteManager : MonoBehaviour
         camera = Camera.main;
         //LoadPresetData();
         noteHandler = FindObjectOfType<NoteHandler>();
+        player = FindObjectOfType<Player>();
     }
 
     private void Start()
@@ -54,6 +55,7 @@ public class NoteManager : MonoBehaviour
         camera.GetComponent<AudioSource>().clip = clip;
         noteHandler.NoteHandlerInitialize();
         noteHandler.StartCoroutine(noteHandler.Wait());
+        player.SetTrailSpeed();
     }
     public void SetDifficulty()
     {

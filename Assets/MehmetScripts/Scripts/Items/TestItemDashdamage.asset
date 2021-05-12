@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f5adbe229116746947608c0674f60a, type: 3}
   m_Name: TestItemDashdamage
   m_EditorClassIdentifier: 
-  nameItem: Johan cool new item
+  nameItem: Burger
   itemModel: {fileID: 100000, guid: 9a18fd4d37d8ab44789d6ad9d5a2aef7, type: 3}
   upgradeAmount: 50
   itemCostCoins: 50
