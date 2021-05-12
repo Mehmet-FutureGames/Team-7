@@ -146,7 +146,10 @@ public class MainMenu : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("MainMenu");     
+                if (!PlayerStatsMenu.hasUpgraded)
+                {
+                    SceneManager.LoadScene("MainMenu");
+                }
             }
         }
 
