@@ -15,7 +15,7 @@ public class CasterCombatP2 : State
         enemy.area.SetActive(true);
         if (!AudioManager.IsPlaying("EnemySound"))
         {
-            AudioManager.PlaySound("Scanning", "EnemySound");
+            AudioManager.PlaySound("Scanning2", "EnemySound");
         }
         //enemy.area.gameObject.GetComponent<MeshRenderer>().material.color = new Color(1f, 1f, 0f, 0.5f);
         //enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.green;
