@@ -107,7 +107,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 1
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
@@ -115,7 +115,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.33333334
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -1470,7 +1470,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 119
   m_IsActive: 1
 --- !u!4 &110298902
 Transform:
@@ -5961,7 +5961,7 @@ Transform:
   - {fileID: 553824444}
   - {fileID: 683661221}
   m_Father: {fileID: 1647875275}
-  m_RootOrder: 33
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &655398128
 PrefabInstance:
@@ -8921,6 +8921,10 @@ PrefabInstance:
       value: SM_Env_Greeble_Cube_01 (6)
       objectReference: {fileID: 0}
     - target: {fileID: 1626647699222634, guid: 3a843a0d0b9616045aa9a5220ca6e083, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626647699222634, guid: 3a843a0d0b9616045aa9a5220ca6e083, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -10432,7 +10436,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 0
 --- !u!65 &1081553275
 BoxCollider:
@@ -10443,7 +10447,7 @@ BoxCollider:
   m_GameObject: {fileID: 1081553274}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -10454,7 +10458,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081553274}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -10504,8 +10508,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081553274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1348, y: -0.5, z: -8.000001}
-  m_LocalScale: {x: 169.28503, y: 0, z: 87.837074}
+  m_LocalPosition: {x: 0.2347, y: 0, z: -8.2049}
+  m_LocalScale: {x: 160.0914, y: 0, z: 87.42424}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -11798,7 +11802,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 119
   m_IsActive: 1
 --- !u!4 &1234471704
 Transform:
@@ -11899,7 +11903,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 119
   m_IsActive: 1
 --- !u!4 &1246595652
 Transform:
@@ -12432,7 +12436,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 119
   m_IsActive: 1
 --- !u!4 &1269143410
 Transform:
@@ -12785,7 +12789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1467127172587068, guid: af2820a49d84489478b3b98df29bb9b1, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 8
+      value: 119
       objectReference: {fileID: 0}
     - target: {fileID: 4388325559848486, guid: af2820a49d84489478b3b98df29bb9b1, type: 3}
       propertyPath: m_RootOrder
@@ -13644,6 +13648,10 @@ PrefabInstance:
       value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 1626647699222634, guid: 3a843a0d0b9616045aa9a5220ca6e083, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626647699222634, guid: 3a843a0d0b9616045aa9a5220ca6e083, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -14432,6 +14440,10 @@ PrefabInstance:
       value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 1626647699222634, guid: 3a843a0d0b9616045aa9a5220ca6e083, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626647699222634, guid: 3a843a0d0b9616045aa9a5220ca6e083, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -14874,6 +14886,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1647875275}
     m_Modifications:
+    - target: {fileID: 102302, guid: 07bee576df5b5e049a39f20f65b6ddb1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 120096, guid: 07bee576df5b5e049a39f20f65b6ddb1, type: 3}
       propertyPath: m_Name
       value: FX_LightRayCube
@@ -15103,7 +15119,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 119
   m_IsActive: 1
 --- !u!4 &1588411064
 Transform:
@@ -15779,6 +15795,7 @@ Transform:
   - {fileID: 1259579141}
   - {fileID: 2100857306}
   - {fileID: 1697219937}
+  - {fileID: 646026454}
   - {fileID: 809435320}
   - {fileID: 1798758336}
   - {fileID: 358670461}
@@ -15788,13 +15805,12 @@ Transform:
   - {fileID: 397271655}
   - {fileID: 940076860}
   - {fileID: 1043260688}
+  - {fileID: 311998088}
   - {fileID: 1845964688}
+  - {fileID: 1921562739}
   - {fileID: 489230723}
   - {fileID: 142348090}
   - {fileID: 1110703873}
-  - {fileID: 646026454}
-  - {fileID: 1921562739}
-  - {fileID: 311998088}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19581,6 +19597,10 @@ PrefabInstance:
     - target: {fileID: 1626647699222634, guid: 3a843a0d0b9616045aa9a5220ca6e083, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626647699222634, guid: 3a843a0d0b9616045aa9a5220ca6e083, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1626647699222634, guid: 3a843a0d0b9616045aa9a5220ca6e083, type: 3}
       propertyPath: m_StaticEditorFlags
