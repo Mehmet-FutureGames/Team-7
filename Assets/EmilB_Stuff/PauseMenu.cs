@@ -44,7 +44,9 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         audio.audio.UnPause();
         GameIsPaused = false;
+#if UNITY_ANDROID
         pauseButton.SetActive(true);
+#endif
     }
 
     public void Pause()
@@ -53,7 +55,9 @@ public class PauseMenu : MonoBehaviour
         audio.audio.Pause();
         Time.timeScale = 0f;
         GameIsPaused = true;
+#if UNITY_ANDROID
         pauseButton.SetActive(false);
+#endif
     }
 
     public static void LoadMenu()
