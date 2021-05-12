@@ -61,7 +61,6 @@ public class CameraFollowPlayer : MonoBehaviour
             cameraShakeOffset = new Vector3(Random.Range(0f, cameraShakeMaxOffset.x), Random.Range(0f, cameraShakeMaxOffset.y), Random.Range(0f, cameraShakeMaxOffset.z));
             yield return new WaitForSeconds(0.05f);
             cameraShakeCounter += 0.05f;
-            Debug.Log("!");
         }
         shakeCamera = false;
     }
