@@ -11,7 +11,7 @@ public class ItemPurchase : MonoBehaviour
     [SerializeField] bool canBuy;
     NotePublisher notePublisher;
     public StatItem itemStats;
-
+    ItemParameter itemParameter;
     [HideInInspector] public string itemName;
     [HideInInspector] public float upgradeAmount;
     [HideInInspector] public ItemType itemType;
@@ -48,14 +48,17 @@ public class ItemPurchase : MonoBehaviour
         itemType = itemStats.itemType;
         itemCost = itemStats.itemCostCoins;
         itemCostNotes = itemStats.itemCostNotes;
-        GetComponent<ItemParameter>().noteCost = itemCostNotes;
-        GetComponent<ItemParameter>().coinCost = itemCost;
-        GetComponent<ItemParameter>().itemName = itemName;
+        itemParameter = GetComponent<ItemParameter>();
+        itemParameter.noteCost = itemCostNotes;
+        itemParameter.coinCost = itemCost;
+        itemParameter.itemName = itemName;
+        
     }
     private void OnTriggerEnter(Collider other)
     {
         canBuy = true;
         ItemCanvas.isInBuyArea = true;
+        ItemCanvas.Instance.descriptionText.text = itemParameter.itemDescription;
     }
     private void OnTriggerExit(Collider other)
     {

@@ -14,6 +14,7 @@ public class SwordItemPickup : MonoBehaviour
     bool buyWithCoins = false;
     [SerializeField] bool canBuy;
     NotePublisher notePublisher;
+    ItemParameter itemParameter;
     private void Awake()
     {
         currentLevel = SceneManager.GetActiveScene();
@@ -30,7 +31,7 @@ public class SwordItemPickup : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<Player>();
-        
+        itemParameter = GetComponent<ItemParameter>();
         sword = FindObjectOfType<SwordScript>();
         playerAttack = FindObjectOfType<PlayerAttack>();
     }
@@ -39,6 +40,7 @@ public class SwordItemPickup : MonoBehaviour
     {
         canBuy = true;
         ItemCanvas.isInBuyArea = true;
+        ItemCanvas.Instance.descriptionText.text = itemParameter.itemDescription;
     }
     private void OnTriggerExit(Collider other)
     {
@@ -54,6 +56,7 @@ public class SwordItemPickup : MonoBehaviour
             {
                 DoTheUpgradeStuff();
                 PlayerCoinHandler.Instance.Coins -= GetComponent<ItemParameter>().coinCost;
+                ItemCanvas.isInBuyArea = false;
             }
         }
         else if (!buyWithCoins && canBuy)
@@ -62,6 +65,7 @@ public class SwordItemPickup : MonoBehaviour
             {
                 DoTheUpgradeStuff();
                 NoteCurrencyHandler.Instance.NoteCurrency -= GetComponent<ItemParameter>().coinCost;
+                ItemCanvas.isInBuyArea = false;
             }
         }
     }
