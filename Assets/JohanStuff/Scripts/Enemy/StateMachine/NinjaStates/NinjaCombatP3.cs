@@ -21,7 +21,7 @@ public class NinjaCombatP3 : State
             enemy.trailRenderer.enabled = false;
 
             //stunned animation should be here
-            //enemy.gameObject.GetComponentInChildren<Animator>().SetTrigger("Idle");
+            enemy.gameObject.GetComponentInChildren<Animator>().SetTrigger("Stun");
         }
         
     }
