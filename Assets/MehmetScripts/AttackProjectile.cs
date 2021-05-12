@@ -21,7 +21,6 @@ public class AttackProjectile : ActiveItems
             {
                 ObjectPooler.Instance.SpawnFormPool("PlayerProjectile", transform.position);
             }
-            Debug.Log("ATTACKPROJECTILE");
             
             StartCoroutine(CountCooldown());
         }

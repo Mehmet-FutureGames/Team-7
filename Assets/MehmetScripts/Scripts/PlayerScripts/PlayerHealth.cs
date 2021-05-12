@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
         deadScreen = UIManager.deadPanelPC;
 #endif
 #if UNITY_ANDROID
-deadScreen = UIManager.deathScreen;
+deadScreen = UIManager.gameOverPanel;
 #endif
         healthBar = GameObject.Find("HealthBar").GetComponent<Image>();
     }
