@@ -7719,7 +7719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1478764365
 Transform:
   m_ObjectHideFlags: 0
@@ -8878,7 +8878,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1649263342
 Transform:
   m_ObjectHideFlags: 0
@@ -10513,7 +10513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1956725354
 Transform:
   m_ObjectHideFlags: 0
@@ -11753,6 +11753,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1655188030, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
+      propertyPath: m_text
+      value: COIN SHOP
+      objectReference: {fileID: 0}
     - target: {fileID: 356292055034090012, guid: 95f3b341ff7fe0d4281c8964895abd80,
         type: 3}
       propertyPath: m_IsActive

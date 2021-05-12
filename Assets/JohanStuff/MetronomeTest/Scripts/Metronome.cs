@@ -34,6 +34,7 @@ public class Metronome : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         accent = signatureHi;
         double startTick = AudioSettings.dspTime;
         sampleRate = AudioSettings.outputSampleRate;
