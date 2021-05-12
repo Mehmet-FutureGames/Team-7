@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1443334169809807630}
   - component: {fileID: 8396448777491749737}
   - component: {fileID: 3307410818138386471}
-  - component: {fileID: 7134141758948352329}
   m_Layer: 0
   m_Name: JohansItem
   m_TagString: Untagged
@@ -84,18 +83,6 @@ MonoBehaviour:
   itemName: 
   itemDescription: 
   buyWithCoins: 0
---- !u!114 &7134141758948352329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3861465758524168464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 490205da46a9cad4a8ca05465523be7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7254100595183739118
 PrefabInstance:
   m_ObjectHideFlags: 0

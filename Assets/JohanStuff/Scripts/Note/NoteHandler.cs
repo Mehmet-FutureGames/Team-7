@@ -77,29 +77,7 @@ public class NoteHandler : MonoBehaviour
         delayStarted = false;
         if (level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex)
         {
-            //StartCoroutine(Wait());
-            counter = 0;
+
         }
-        else
-        {
-            counter = 3;
-        }
-        
     }
-
-    public void ReadyUpMethod()
-    {
-        if (counter == 0)
-        {
-
-        }
-        if (counter > 0)
-        {
-            counter--;
-            Debug.Log(counter);
-        }
-        
-    }
-
-
 }
