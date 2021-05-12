@@ -20,6 +20,7 @@ public class NinjaCombatP2 : State
         enemy.area.SetActive(true);
         enemy.agent.enabled = false;
         enemy.agentObj.GetComponent<TrailRenderer>().enabled = true;
+        enemy.gameObject.GetComponentInChildren<Animator>().SetTrigger("DashAttack");
     }
 
     public override void PhysicsUpdate()

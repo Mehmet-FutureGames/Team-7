@@ -62,7 +62,7 @@ public class CoinDrop : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (!AudioManager.AudioSourcePlaying("VFXSound"))
+            if (!AudioManager.IsPlaying("VFXSound"))
             {
                 AudioManager.PlaySound("SingeCoinSound", "VFXSound", 0.1f);
             }
