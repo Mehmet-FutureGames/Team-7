@@ -40,8 +40,6 @@ public class UIManager : MonoBehaviour
 
     Player player;
 
-    PressAnyKey musicStart;
-
     private void Start()
     {
         hasRestartedPC = false;
@@ -59,16 +57,14 @@ public class UIManager : MonoBehaviour
         //ANDROID REFERENCES
         timerDead = GameObject.Find("TimerText").GetComponent<TextMeshProUGUI>();
         deadSlider = GameObject.Find("TimerSlider");
-        noRetryScreen = GameObject.Find("DeathScreenPanel");
-        gameOverPanel = GameObject.Find("GameOverPanel");
+        noRetryScreen = GameObject.Find("GameOverPanel");
+        gameOverPanel = GameObject.Find("DeathScreenPanel");
         gameOverPanel.SetActive(false);
         noRetryScreen.SetActive(false);
 
         uiPanel = GameObject.Find("UIPanel");
 
         StartCoroutine(ShowAndStopShowingText());
-
-        musicStart = GetComponent<PressAnyKey>();
 
         notePublisher = FindObjectOfType<NotePublisher>();
 
@@ -89,6 +85,19 @@ public class UIManager : MonoBehaviour
         }
     }
     public void RetryButton()
+    {
+            hasRestartedPC = true;
+            if (player == null || spawnPos == null)
+            {
+                player = FindObjectOfType<Player>();
+                spawnPos = GameObject.FindGameObjectWithTag("SpawnPos").transform;
+            }
+            currentScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currentScene.buildIndex);
+            player.RestartCharacter(spawnPos);
+            player.GetComponent<PlayerHealth>().Respawn();        
+    }
+    public void RetryButtonPC()
     {
         if (NoteCurrencyHandler.Instance.NoteCurrency >= notesNeeded)
         {
