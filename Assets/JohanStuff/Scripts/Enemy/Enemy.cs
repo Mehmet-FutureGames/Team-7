@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour
     GameObject floatingText;
 
     WaveManager manager;
-
+    string damagePlayerSound;
 
     #region Methods
     public void EnemyAttack()
@@ -92,7 +92,7 @@ public class Enemy : MonoBehaviour
 
         if (playerIsInAttackArea)
         {
-            player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+            player.GetComponent<PlayerHealth>().TakeDamage(attackDamage, damagePlayerSound);
         }
     }
     public void EnemyRangedAttack()
@@ -101,7 +101,7 @@ public class Enemy : MonoBehaviour
         
         if (playerIsInAttackArea)
         {
-            player.GetComponent<PlayerHealth>().TakeUnblockableDamage(attackDamage);
+            player.GetComponent<PlayerHealth>().TakeUnblockableDamage(attackDamage, damagePlayerSound);
         }
     }
     public void EnemyConeAttack()
@@ -111,7 +111,7 @@ public class Enemy : MonoBehaviour
 
         if (playerIsInAttackArea)
         {
-            player.GetComponent<PlayerHealth>().TakeUnblockableDamage(attackDamage);
+            player.GetComponent<PlayerHealth>().TakeUnblockableDamage(attackDamage, damagePlayerSound);
         }
     }
     public void TakeDamage(float damage, bool isDash)
@@ -180,6 +180,7 @@ public class Enemy : MonoBehaviour
 
     private void SetStats()
     {
+        damagePlayerSound = stats.damagePlayerSound;
         obstacleLayer = stats.obstacleLayer;
         enemyName = stats.enemyName;
         movementSpeed = stats.movementSpeed;

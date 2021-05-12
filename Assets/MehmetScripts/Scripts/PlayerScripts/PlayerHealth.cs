@@ -46,6 +46,8 @@ deadScreen = UIManager.deathScreen;
         RefillHealth();
     }
 
+
+    #region TakeDamage
     public void TakeDamage(float damage)
     {
         if (!PlayerBlock.isBlocking)
@@ -71,11 +73,69 @@ deadScreen = UIManager.deathScreen;
             comboHandler.AddToCombo();
         }
     }
+    public void TakeDamage(float damage, string damageSound)
+    {
+        if (!PlayerBlock.isBlocking)
+        {
+            CameraFollowPlayer.Instance.CameraShake();
+            comboHandler.SetCombo(0);
+            currentHealth -= damage;
+            if (movePlayer.MovementValue < 10)
+            {
+                if (playerStats.playerDamageText)
+                {
+                    ShowFloatingText(damage);
+                    if(damageSound == null || damageSound == "")
+                    {
+                        AudioManager.PlaySound("NormalSwings", "PlayerSound");
+                    }
+                    else
+                    {
+                        AudioManager.PlaySound(damageSound, "PlayerSound");
+                    }
+                    
+                }
+                if (currentHealth <= 0)
+                {
+                    Dead();
+                }
+            }
+        }
+        else
+        {
+            comboHandler.AddToCombo();
+        }
+    }
+    
     public void TakeUnblockableDamage(float damage)
     {
         CameraFollowPlayer.Instance.CameraShake();
         currentHealth -= damage;
-        AudioManager.PlaySound("Monster Takes Damage 10","PlayerSound");
+        AudioManager.PlaySound("Monster Takes Damage 10", "PlayerSound");
+        if (movePlayer.MovementValue < 10)
+        {
+            if (playerStats.playerDamageText)
+            {
+                ShowFloatingText(damage);
+            }
+            if (currentHealth < 0)
+            {
+                Dead();
+            }
+        }
+    }
+    public void TakeUnblockableDamage(float damage, string damageSound)
+    {
+        CameraFollowPlayer.Instance.CameraShake();
+        currentHealth -= damage;
+        if (damageSound == null || damageSound == "")
+        {
+            AudioManager.PlaySound("Monster Takes Damage 10", "PlayerSound");
+        }
+        else
+        {
+            AudioManager.PlaySound(damageSound, "PlayerSound");
+        }
         if (movePlayer.MovementValue < 10)
         {
             if (playerStats.playerDamageText)
@@ -88,7 +148,7 @@ deadScreen = UIManager.deathScreen;
             }
         }
     }
-
+    #endregion
     private void ShowFloatingText(float damage)
     {
         var text = Instantiate(playerStats.playerDamageText, transform.position, Quaternion.identity, transform);
