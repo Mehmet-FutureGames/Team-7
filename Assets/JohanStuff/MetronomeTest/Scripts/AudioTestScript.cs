@@ -35,7 +35,7 @@ public class AudioTestScript : MonoBehaviour
     }
     private void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.X)) && counter < 10)
+        if (((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.X)) && counter < 11) && metronome.enabled)
         {
             if (hasStartedTapping)
             {
