@@ -13,7 +13,7 @@ public class CasterCombatP4 : State
         attackOnce = false;
         timer = 0.08f;
         //enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
-        enemy.gameObject.GetComponentInChildren<Animator>().SetTrigger("Attack");
+        //enemy.gameObject.GetComponentInChildren<Animator>().SetTrigger("Attack");
 
     }
     float timer;

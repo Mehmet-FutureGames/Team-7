@@ -77,4 +77,9 @@ public class AudioManager : MonoBehaviour
     {
         return sources[audio].isPlaying;
     }
+    public static void PlayClickSound(string clip)
+    {
+        sources["VFXSound"].clip = audioClips[clip];
+        sources["VFXSound"].Play();
+    }
 }

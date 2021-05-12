@@ -53,6 +53,7 @@ public class NoteManager : MonoBehaviour
         clip = preset.audioClip;
         camera.GetComponent<AudioSource>().clip = clip;
         noteHandler.NoteHandlerInitialize();
+        noteHandler.StartCoroutine(noteHandler.Wait());
     }
     public void SetDifficulty()
     {
@@ -75,6 +76,7 @@ public class NoteManager : MonoBehaviour
         {
             camera.GetComponent<AudioSource>().Play();
             Debug.Log(camera.GetComponent<AudioSource>().isPlaying);
+            MainMenu.hasGoneToSettings = false;
         }
     }
 
@@ -97,6 +99,7 @@ public class NoteManager : MonoBehaviour
         {
             LoadPresetData(emilSSceneSongPreset);
             cameraAnim.enabled = true;
+            cameraAnim.Play("CameraStartAnim", 0, 0f);
             Time.timeScale = 0;
         }
         else if (level == SceneManager.GetSceneByName("Level_2").buildIndex)
