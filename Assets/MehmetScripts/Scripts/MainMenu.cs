@@ -161,7 +161,6 @@ public class MainMenu : MonoBehaviour
                 Debug.Log(activeScene.name);
                 scene = SceneManager.LoadSceneAsync("MetronomeTestScene", LoadSceneMode.Additive);
                 scene.allowSceneActivation = true;
-                Debug.Log(hasGoneToSettings);
                 foreach (GameObject g in activeScene.GetRootGameObjects())
                 {
                     g.SetActive(false);

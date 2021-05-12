@@ -7,20 +7,26 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    public static bool hasRestartedPC;
     Scene currentScene;
 
     public static float timer;
 
     public static TextMeshProUGUI timerDead;
+    public static TextMeshProUGUI sliderTimerTextPC;
+    public static TextMeshProUGUI notesNeededToRevive;
     Transform spawnPos;
 
     public static GameObject deadSlider;
 
     public static GameObject deadPanel;
 
-    public static GameObject deathScreen;
+    public static GameObject noRetryScreen;
 
     public static GameObject gameOverPanel;
+
+    public static GameObject deadPanelPC;
+    public static GameObject timerOverSliderPC;
 
     GameObject uiPanel;
 
@@ -28,9 +34,9 @@ public class UIManager : MonoBehaviour
 
     NotePublisher notePublisher;
 
-    WaveManager manager;
-
     bool skip = false;
+
+    [SerializeField] int notesNeeded;
 
     Player player;
 
@@ -38,21 +44,31 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        hasRestartedPC = false;
+        //Keeps time incase we need a timer
         timer = Time.realtimeSinceStartup;
 
-        deadPanel = GameObject.Find("DeadPanel");
-        deadPanel.SetActive(false);
+        //PC REFERENCES
+        notesNeededToRevive = GameObject.Find("NoteCost").GetComponent<TextMeshProUGUI>();
+        notesNeededToRevive.text = notesNeeded.ToString();
+        deadPanelPC = GameObject.Find("DeathScreenPanelPC");
+        sliderTimerTextPC = GameObject.Find("TimerTextPC").GetComponent<TextMeshProUGUI>(); 
+        timerOverSliderPC = GameObject.Find("TimerSliderPC");
+        deadPanelPC.SetActive(false);
+
+        //ANDROID REFERENCES
         timerDead = GameObject.Find("TimerText").GetComponent<TextMeshProUGUI>();
         deadSlider = GameObject.Find("TimerSlider");
-        deathScreen = GameObject.Find("DeathScreenPanel");
+        noRetryScreen = GameObject.Find("DeathScreenPanel");
         gameOverPanel = GameObject.Find("GameOverPanel");
+        gameOverPanel.SetActive(false);
+        noRetryScreen.SetActive(false);
+
         uiPanel = GameObject.Find("UIPanel");
 
         StartCoroutine(ShowAndStopShowingText());
 
         musicStart = GetComponent<PressAnyKey>();
-
-        manager = FindObjectOfType<WaveManager>();
 
         notePublisher = FindObjectOfType<NotePublisher>();
 
@@ -61,8 +77,6 @@ public class UIManager : MonoBehaviour
 
         player = FindObjectOfType<Player>();
 
-        deathScreen.SetActive(false);
-        gameOverPanel.SetActive(false);
         UpdateWaveLevel();
         SkipText();
     }
@@ -76,18 +90,29 @@ public class UIManager : MonoBehaviour
     }
     public void RetryButton()
     {
-        if(player == null || spawnPos == null) 
+        if (NoteCurrencyHandler.Instance.NoteCurrency >= notesNeeded)
         {
-            player = FindObjectOfType<Player>();
-            spawnPos = GameObject.FindGameObjectWithTag("SpawnPos").transform;
+            hasRestartedPC = true;
+            if (player == null || spawnPos == null)
+            {
+                player = FindObjectOfType<Player>();
+                spawnPos = GameObject.FindGameObjectWithTag("SpawnPos").transform;
+            }
+            deadPanelPC.SetActive(false);
+            currentScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currentScene.buildIndex);
+            player.RestartCharacter(spawnPos);
+            player.GetComponent<PlayerHealth>().Respawn();
+            StartCoroutine(TimeStart());
+            NoteCurrencyHandler.Instance.NoteCurrency -= notesNeeded;
+            PlayerPrefs.SetInt("NoteCurrency", NoteCurrencyHandler.Instance.NoteCurrency);
         }
-        deadPanel.SetActive(false);
-        currentScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(currentScene.buildIndex);
-        player.RestartCharacter(spawnPos);
-        player.GetComponent<PlayerHealth>().Respawn();
     }
-
+    IEnumerator TimeStart()
+    {
+        yield return new WaitForSecondsRealtime(0.1f);
+        Time.timeScale = 1f;
+    }
     private void UpdateWaveLevel()
     {
         //waveText.text = "Wave: " + manager.waveLevel + "/" + manager.waveMaximum;

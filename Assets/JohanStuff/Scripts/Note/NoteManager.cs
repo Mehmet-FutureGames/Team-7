@@ -76,6 +76,7 @@ public class NoteManager : MonoBehaviour
         {
             camera.GetComponent<AudioSource>().Play();
             Debug.Log(camera.GetComponent<AudioSource>().isPlaying);
+            MainMenu.hasGoneToSettings = false;
         }
     }
 
