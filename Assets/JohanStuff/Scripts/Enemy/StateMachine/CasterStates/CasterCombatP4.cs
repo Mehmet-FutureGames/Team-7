@@ -14,7 +14,7 @@ public class CasterCombatP4 : State
         timer = 0.08f;
         //enemy.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
         //enemy.gameObject.GetComponentInChildren<Animator>().SetTrigger("Attack");
-
+        AudioManager.PlaySound("FireExplosion2", "EnemySound");
     }
     float timer;
 
