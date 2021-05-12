@@ -161,11 +161,11 @@ public class ItemPurchase : MonoBehaviour
                 gameObject.SetActive(false);
                 RemoveItemFromList();
             }
-            else if (itemType == ItemType.ComboSaverUpgrade && player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= itemCost)
+            else if (itemType == ItemType.ComboSaverUpgrade && player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= itemCostNotes)
             {
                 float upgrade = upgradeAmount;
                 ComboHandler.Instance.comboDepletionMult *= upgrade;
-                NoteCurrencyHandler.Instance.NoteCurrency -= itemCost;
+                NoteCurrencyHandler.Instance.NoteCurrency -= itemCostNotes;
                 AudioManager.PlaySound("SingeCoinSound", "VFXSound");
                 ItemCanvas.isInBuyArea = false;
                 gameObject.SetActive(false);
