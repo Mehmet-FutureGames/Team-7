@@ -522,6 +522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveText: {fileID: 0}
+  notesNeeded: 25
 --- !u!114 &524446087
 MonoBehaviour:
   m_ObjectHideFlags: 0
