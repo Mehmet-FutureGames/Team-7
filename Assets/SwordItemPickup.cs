@@ -38,14 +38,21 @@ public class SwordItemPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        canBuy = true;
-        ItemCanvas.isInBuyArea = true;
-        ItemCanvas.Instance.descriptionText.text = itemParameter.itemDescription;
+        if (other.CompareTag("Player"))
+        {
+            canBuy = true;
+            ItemCanvas.isInBuyArea = true;
+            ItemCanvas.Instance.descriptionText.text = itemParameter.itemDescription;
+        }
+        
     }
     private void OnTriggerExit(Collider other)
     {
-        ItemCanvas.isInBuyArea = false;
-        canBuy = false;
+        if (other.CompareTag("Player"))
+        {
+            ItemCanvas.isInBuyArea = false;
+            canBuy = false;
+        }
     }
 
     void Purchase()
