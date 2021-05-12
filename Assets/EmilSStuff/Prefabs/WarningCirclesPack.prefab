@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1172254904453073718}
   - component: {fileID: 1172254904453073717}
+  - component: {fileID: 6423493150775552132}
   m_Layer: 0
   m_Name: WarningCircle
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172254904453073716}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 4.6208115, y: -6.9150934, z: -9.519432}
+  m_LocalPosition: {x: 0, y: -7.67, z: 0}
   m_LocalScale: {x: 1.755598, y: 1.755598, z: 1.755598}
   m_Children: []
   m_Father: {fileID: 8145789388867634285}
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 16eeb86f79eefd943b6921e8c4482792, type: 3}
-  m_Color: {r: 0.98811245, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.9867562, b: 0.75, a: 0.5176471}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -82,6 +83,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!111 &6423493150775552132
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172254904453073716}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &2037265643400085833
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1843937929944791537}
   - component: {fileID: 2656849812470954248}
+  - component: {fileID: 828415947614905225}
   m_Layer: 0
   m_Name: WarningCircle (2)
   m_TagString: Untagged
@@ -107,7 +124,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037265643400085833}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 4.6208115, y: 2.0749063, z: -9.519432}
+  m_LocalPosition: {x: 0, y: 1.32, z: 0}
   m_LocalScale: {x: 0.5363352, y: 0.5363352, z: 0.5363352}
   m_Children: []
   m_Father: {fileID: 8145789388867634285}
@@ -154,7 +171,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 16eeb86f79eefd943b6921e8c4482792, type: 3}
-  m_Color: {r: 0.98811245, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.9867562, b: 0.75, a: 0.5176471}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -164,6 +181,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!111 &828415947614905225
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037265643400085833}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &2506974841316961179
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,6 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4714221632061676212}
   - component: {fileID: 2108238462702715574}
+  - component: {fileID: 893301123035932322}
   m_Layer: 0
   m_Name: WarningCircle (1)
   m_TagString: Untagged
@@ -189,7 +222,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2506974841316961179}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 4.6208115, y: -2.3650932, z: -9.519432}
+  m_LocalPosition: {x: 0, y: -3.1199994, z: 0}
   m_LocalScale: {x: 1.1411387, y: 1.1411387, z: 1.1411387}
   m_Children: []
   m_Father: {fileID: 8145789388867634285}
@@ -236,7 +269,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 16eeb86f79eefd943b6921e8c4482792, type: 3}
-  m_Color: {r: 0.98811245, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.9867562, b: 0.75, a: 0.5176471}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -246,6 +279,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!111 &893301123035932322
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2506974841316961179}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 42185c9567d2f40409540194cb51d691, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &3090840566250765180
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +320,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3090840566250765180}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 4.6208115, y: 2.0749063, z: -9.519432}
+  m_LocalPosition: {x: 0, y: 2.0749063, z: 0}
   m_LocalScale: {x: 0.5363352, y: 0.5363352, z: 0.5363352}
   m_Children: []
   m_Father: {fileID: 6523187374432815802}
@@ -318,7 +367,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 16eeb86f79eefd943b6921e8c4482792, type: 3}
-  m_Color: {r: 0.98811245, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.9867562, b: 0.75, a: 0.5176471}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -353,7 +402,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4633809194547928915}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 4.6208115, y: -6.9150934, z: -9.519432}
+  m_LocalPosition: {x: 0, y: -6.9150934, z: 0}
   m_LocalScale: {x: 1.755598, y: 1.755598, z: 1.755598}
   m_Children: []
   m_Father: {fileID: 6523187374432815802}
@@ -400,7 +449,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 16eeb86f79eefd943b6921e8c4482792, type: 3}
-  m_Color: {r: 0.98811245, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.9867562, b: 0.75, a: 0.5176471}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -451,6 +500,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6523187374432815802}
+  - component: {fileID: 6000131569523054694}
   m_Layer: 0
   m_Name: WarningCircles (1)
   m_TagString: Untagged
@@ -466,7 +516,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4864573349330842560}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.93336487, y: 9.713195, z: 14.062043}
+  m_LocalPosition: {x: 3.48, y: 8.23, z: 4.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4012896842132542588}
@@ -475,6 +525,22 @@ Transform:
   m_Father: {fileID: 2203317833983580334}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &6000131569523054694
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4864573349330842560}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 42185c9567d2f40409540194cb51d691, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 42185c9567d2f40409540194cb51d691, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &5089877681365120852
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,7 +566,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5089877681365120852}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 4.6208115, y: -2.3650932, z: -9.519432}
+  m_LocalPosition: {x: 0, y: -2.3650932, z: 0}
   m_LocalScale: {x: 1.1411387, y: 1.1411387, z: 1.1411387}
   m_Children: []
   m_Father: {fileID: 6523187374432815802}
@@ -547,7 +613,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 16eeb86f79eefd943b6921e8c4482792, type: 3}
-  m_Color: {r: 0.98811245, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.9867562, b: 0.75, a: 0.5176471}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -566,6 +632,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8145789388867634285}
+  - component: {fileID: 199944312090771572}
   m_Layer: 0
   m_Name: WarningCircles
   m_TagString: Untagged
@@ -581,7 +648,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7104239263714628452}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.93336487, y: 9.713195, z: -21.958527}
+  m_LocalPosition: {x: 3.46, y: 8.23, z: -31.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1172254904453073718}
@@ -590,3 +657,19 @@ Transform:
   m_Father: {fileID: 2203317833983580334}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &199944312090771572
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7104239263714628452}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 42185c9567d2f40409540194cb51d691, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 42185c9567d2f40409540194cb51d691, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
