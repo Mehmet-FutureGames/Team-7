@@ -26,6 +26,10 @@ public class NoteHandler : MonoBehaviour
     }
     private void Start()
     {
+        
+    }
+    public void NoteHandlerInitialize()
+    {
         startDelay = noteManager.noteStartDelay;
         noteManager.SetDifficulty();
         notePooler = ObjectPooler.Instance;
