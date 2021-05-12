@@ -89,7 +89,7 @@ public class NoteManager : MonoBehaviour
         {
             LoadPresetData(shopSongPreset);
             noteHandler.NoteHandlerInitialize();
-            PressAnyKey.hasStarted = true;
+            PressAnyKey.hasStarted = true; 
             cameraAnim.enabled = false;
             camera.GetComponent<AudioSource>().Play();
         }
