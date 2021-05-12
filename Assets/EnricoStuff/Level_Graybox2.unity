@@ -123,6 +123,75 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: e796787cfd2e77b46a09c92c7a109116, type: 2}
+--- !u!1001 &3118679
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2895046878589968127, guid: 2fc631ebb8e147747a46d75aa8bde0d1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895046878589968127, guid: 2fc631ebb8e147747a46d75aa8bde0d1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.508213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895046878589968127, guid: 2fc631ebb8e147747a46d75aa8bde0d1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00000047683716
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895046878589968127, guid: 2fc631ebb8e147747a46d75aa8bde0d1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -41.431217
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895046878589968127, guid: 2fc631ebb8e147747a46d75aa8bde0d1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895046878589968127, guid: 2fc631ebb8e147747a46d75aa8bde0d1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895046878589968127, guid: 2fc631ebb8e147747a46d75aa8bde0d1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895046878589968127, guid: 2fc631ebb8e147747a46d75aa8bde0d1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895046878589968127, guid: 2fc631ebb8e147747a46d75aa8bde0d1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895046878589968127, guid: 2fc631ebb8e147747a46d75aa8bde0d1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895046878589968127, guid: 2fc631ebb8e147747a46d75aa8bde0d1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2898098801520197479, guid: 2fc631ebb8e147747a46d75aa8bde0d1,
+        type: 3}
+      propertyPath: m_Name
+      value: Ninja_Enemy_agent
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2fc631ebb8e147747a46d75aa8bde0d1, type: 3}
 --- !u!1001 &5621758
 PrefabInstance:
   m_ObjectHideFlags: 0
