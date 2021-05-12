@@ -1847,7 +1847,7 @@ PrefabInstance:
     - target: {fileID: 4302139401329153454, guid: b78e7b4e4eb00ed4b8369073dfd9b257,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 4302139401329153454, guid: b78e7b4e4eb00ed4b8369073dfd9b257,
         type: 3}
@@ -2682,21 +2682,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 604856062519011729, guid: 4693bb05872ed41469aefc057d451c49,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265840550985382286, guid: 4693bb05872ed41469aefc057d451c49,
-        type: 3}
-      propertyPath: m_Name
-      value: ChargeBarPC
-      objectReference: {fileID: 0}
-    - target: {fileID: 7620059557240723042, guid: 4693bb05872ed41469aefc057d451c49,
-        type: 3}
-      propertyPath: m_Name
-      value: ChargeBar
-      objectReference: {fileID: 0}
     - target: {fileID: 7982927049351044176, guid: 4693bb05872ed41469aefc057d451c49,
         type: 3}
       propertyPath: m_Pivot.x
