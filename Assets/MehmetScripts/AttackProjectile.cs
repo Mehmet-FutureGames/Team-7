@@ -16,6 +16,7 @@ public class AttackProjectile : ActiveItems
     {
         if (cooldownReady)
         {
+            cooldownReady = false;
             for (int i = 0; i < projectileCount; i++)
             {
                 ObjectPooler.Instance.SpawnFormPool("PlayerProjectile", transform.position);
