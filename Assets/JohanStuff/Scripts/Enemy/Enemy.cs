@@ -118,7 +118,7 @@ public class Enemy : MonoBehaviour
     {
         CameraFollowPlayer.Instance.CameraShake();
         health -= damage;
-        if (AudioManager.AudioSourcePlaying("PlayerSound"))
+        if (AudioManager.IsPlaying("PlayerSound"))
         {
             AudioManager.StopSound("PlayerSound");
             AudioManager.PlaySound("MeleeSwingsPack_hit2", "PlayerSound");

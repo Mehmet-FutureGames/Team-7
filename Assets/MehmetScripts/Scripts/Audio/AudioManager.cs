@@ -24,35 +24,56 @@ public class AudioManager : MonoBehaviour
             audioClips.Add(clipsSaved[i].name, clipsSaved[i]); 
         }
     }
-
+    /// <summary>
+    /// This will play the audio string you input, at the specified at the audio source
+    /// </summary>
+    /// <param name="clip"></param>
+    /// <param name="audio"></param>
     public static void PlaySound(string clip, string audio)
     {
         sources[audio].clip = audioClips[clip];
         sources[audio].Play();
         
     }
+    /// <summary>
+    /// This will play the audio string you input, at the specified audiosource and at the specified delay
+    /// </summary>
+    /// <param name="clip"></param>
+    /// <param name="audio"></param>
+    /// <param name="delay"></param>
     public static void PlaySound(string clip, string audio, float delay)
-    {
- 
+    { 
         if (delay > 0)
         {
             sources[audio].clip = audioClips[clip];
             sources[audio].PlayDelayed(delay);
         }
         sources[audio].clip = audioClips[clip];
-        sources[audio].Play();
-        
+        sources[audio].Play();        
     }
+    /// <summary>
+    /// This stops the audio
+    /// </summary>
+    /// <param name="audio"></param>
     public static void StopSound(string audio)
     {
         sources[audio].Stop();
     }
-    public void PlayHoverSound(string clip)
+    /// <summary>
+    /// This will play the hovered name
+    /// </summary>
+    /// <param name="clip"></param>
+    public void PlayHoverSound(string clip) 
     {
         sources["VFXSound"].clip = audioClips[clip];
         sources["VFXSound"].Play();
     }
-    public static bool AudioSourcePlaying(string audio)
+    /// <summary>
+    /// This checks if the audio is playing
+    /// </summary>
+    /// <param name="audio"></param>
+    /// <returns>1 if playing, 0 if not</returns>
+    public static bool IsPlaying(string audio)
     {
         return sources[audio].isPlaying;
     }
