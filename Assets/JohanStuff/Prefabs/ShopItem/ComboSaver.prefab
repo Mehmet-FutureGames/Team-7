@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 2832494053250210142}
   - component: {fileID: 2832494053250210137}
   - component: {fileID: 3668519614757757632}
+  - component: {fileID: 2026841615946187214}
   m_Layer: 0
   m_Name: ComboSaver
   m_TagString: Untagged
@@ -58,7 +59,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.5, y: 2.5, z: 2.5}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!114 &2832494053250210137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +97,18 @@ MonoBehaviour:
   itemDescription: 'Tired of losing your combo so fast? Then you should buy the Combo
     Saver, which makes it a little easier to keep your combo up. '
   buyWithCoins: 0
+--- !u!114 &2026841615946187214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2832494053250210136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 490205da46a9cad4a8ca05465523be7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &799227435092270415
 PrefabInstance:
   m_ObjectHideFlags: 0
