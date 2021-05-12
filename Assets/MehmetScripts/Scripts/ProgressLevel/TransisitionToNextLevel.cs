@@ -16,7 +16,6 @@ public class TransisitionToNextLevel : MonoBehaviour
     {
         
         currentScene = SceneManager.GetActiveScene();
-        Debug.Log(currentScene.buildIndex + LevelManager.levelsCompletedThisRun);
         if(currentScene.buildIndex + LevelManager.levelsCompletedThisRun >= 8)
         {
             LevelManager.levelsCompletedThisRun--;

@@ -66,8 +66,7 @@ public class PauseMenu : MonoBehaviour
             g.SetActive(false);
         }
         Scene activeScene = SceneManager.GetActiveScene();
-        scene = SceneManager.LoadSceneAsync("SettingsUI", LoadSceneMode.Additive);
-        scene.allowSceneActivation = true;
+        SceneManager.LoadScene("SettingsUI", LoadSceneMode.Additive);
         player.DeactivateAll();
     }
 

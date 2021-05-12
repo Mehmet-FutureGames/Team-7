@@ -99,21 +99,21 @@ public class UIManager : MonoBehaviour
         {
             skip = true;
             StopAllCoroutines();
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             uiPanel.SetActive(false);
             musicStart.audio.Play();
             musicStart.StartGame();
-            Time.timeScale = 1;
+            //Time.timeScale = 1;
         }
     }
     IEnumerator ShowAndStopShowingText()
     {
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             yield return new WaitForSecondsRealtime(5f);
             uiPanel.SetActive(false);
             musicStart.audio.Play();
             musicStart.StartGame();
-            Time.timeScale = 1;        
+            //Time.timeScale = 1;        
     }
     private void OnLevelWasLoaded(int level)
     {
