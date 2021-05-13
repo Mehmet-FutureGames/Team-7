@@ -15,7 +15,6 @@ public class TransisitionToNextLevel : MonoBehaviour
     void Awake()
     {        
         currentScene = SceneManager.GetActiveScene();
-        Debug.Log(currentScene.buildIndex);
         player = FindObjectOfType<Player>().gameObject;
         manager = FindObjectOfType<LevelManager>();
         GetComponent<BoxCollider>().isTrigger = true;
