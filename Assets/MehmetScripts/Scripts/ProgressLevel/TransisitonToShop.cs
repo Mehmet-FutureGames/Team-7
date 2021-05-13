@@ -21,6 +21,7 @@ public class TransisitonToShop : MonoBehaviour
         {
             if (!hasProceeded)
             {
+                other.GetComponent<MovePlayer>().mousePos = other.GetComponent<Transform>().position;
                 StartCoroutine(SceneFader.FadeOut(LoadScene));
                 LevelManager.levelsCompletedThisRun++;
                 //LoadScene();

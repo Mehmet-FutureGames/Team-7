@@ -94,8 +94,7 @@ public class SceneFader : MonoBehaviour
         }
         else if (level == SceneManager.GetSceneByName("CharacterChange").buildIndex)
         {
-            StartCoroutine(Refrence());
-            
+            StartCoroutine(Refrence());            
         }
 
 

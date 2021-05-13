@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TesItem
   m_EditorClassIdentifier: 
   nameItem: 
-  itemModel: {fileID: 6378292201598529548, guid: d2dd8b826ae77e64b9d9616ffcee6c5d,
-    type: 3}
+  itemModel: {fileID: 1307808152828228, guid: 20ce11b57cae03a4d87f17a803c49111, type: 3}
   upgradeAmount: 25
-  itemCost: 1
+  itemCostCoins: 0
+  itemCostNotes: 0
   itemType: 3

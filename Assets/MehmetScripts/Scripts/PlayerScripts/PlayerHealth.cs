@@ -187,7 +187,7 @@ deadScreen = UIManager.gameOverPanel;
         }
         else
         {
-            UIManager.gameOverPanel.SetActive(true);
+            UIManager.noRetryScreen.SetActive(true);
             Time.timeScale = 0;
             Player.EnemyTransforms.Clear();
         }

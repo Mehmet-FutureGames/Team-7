@@ -10441,7 +10441,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56740df2e5e9fb4ea0d3d26e006ab62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasItem: 0
   activeItems1: {fileID: 0}
+  keyCodeChange: 120
 --- !u!114 &6430466938662035385
 MonoBehaviour:
   m_ObjectHideFlags: 0

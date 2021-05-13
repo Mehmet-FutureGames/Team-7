@@ -72,13 +72,13 @@ public class MainMenu : MonoBehaviour
         switch (volumeChanged)
         {
             case 0:
-                mixer.SetFloat("MasterVol", masterVolumeFloat);
+                mixer.SetFloat("MasterVol", Mathf.Log10(masterVolumeFloat) * 20);
                 break;
             case 1:
-                mixer.SetFloat("SFXVol", SFXVolumeFloat);
+                mixer.SetFloat("SFXVol", Mathf.Log10(SFXVolumeFloat) * 20);
                 break;
             case 2:
-                mixer.SetFloat("MusicVol", musicVolumeFloat);
+                mixer.SetFloat("MusicVol", Mathf.Log10(musicVolumeFloat) * 20);
                 break;
         }
     }
@@ -138,6 +138,7 @@ public class MainMenu : MonoBehaviour
         {
             if (PauseMenu.player != null)
             {
+                FindObjectOfType<MusicSingleton>().DestroyThis();
                 hasGoneToSettings = true;
                 PauseMenu.player.gameObject.SetActive(true);
                 PauseMenu.player.ActivateAll();
@@ -145,6 +146,8 @@ public class MainMenu : MonoBehaviour
                 {
                     g.SetActive(true);                    
                 }
+                    
+                
                 SceneManager.UnloadSceneAsync("SettingsUI");
             }
             else
@@ -206,16 +209,16 @@ public class MainMenu : MonoBehaviour
         switch (audioSource)
         {
             case 0:
-                mixer.SetFloat("MasterVol", -80);
-                masterVolume.value = -80;
+                mixer.SetFloat("MasterVol", Mathf.Log10(0.0001f) * 20);
+                masterVolume.value = 0.0001f;
                 break;
             case 1:
-                mixer.SetFloat("SFXVol", -80);
-                SFXVolume.value = -80;
+                mixer.SetFloat("SFXVol", Mathf.Log10(0.0001f) * 20);
+                SFXVolume.value = 0.0001f;
                 break;
             case 2:
-                mixer.SetFloat("MusicVol", -80);
-                musicVolume.value = -80;
+                mixer.SetFloat("MusicVol", Mathf.Log10(0.0001f) * 20);
+                musicVolume.value = 0.0001f;
                 break;
         }
     }
@@ -224,16 +227,16 @@ public class MainMenu : MonoBehaviour
         switch (audioSource)
         {
             case 0:
-                mixer.SetFloat("MasterVol", 0);
-                masterVolume.value = 0;
+                mixer.SetFloat("MasterVol", Mathf.Log10(1) * 20);
+                masterVolume.value = 1;
                 break;
             case 1:
-                mixer.SetFloat("SFXVol", 0);
-                SFXVolume.value = 0;
+                mixer.SetFloat("SFXVol", Mathf.Log10(1) * 20);
+                SFXVolume.value = 1;
                 break;
             case 2:
-                mixer.SetFloat("MusicVol", 0);
-                musicVolume.value = 0;
+                mixer.SetFloat("MusicVol", Mathf.Log10(1) * 20);
+                musicVolume.value = 1;
                 break;
         }
     }
