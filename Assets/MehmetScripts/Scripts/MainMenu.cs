@@ -150,7 +150,10 @@ public class MainMenu : MonoBehaviour
         {
             if (PauseMenu.player != null)
             {
-                FindObjectOfType<MusicSingleton>().DestroyThis();
+                if (FindObjectOfType<MusicSingleton>() != null)
+                {
+                    FindObjectOfType<MusicSingleton>().DestroyThis();
+                }
                 hasGoneToSettings = true;
                 PauseMenu.player.gameObject.SetActive(true);
                 PauseMenu.player.ActivateAll();
