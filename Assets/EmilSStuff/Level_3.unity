@@ -1715,10 +1715,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7982927049351044180, guid: 4693bb05872ed41469aefc057d451c49,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8840224516020580053, guid: 4693bb05872ed41469aefc057d451c49,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4693bb05872ed41469aefc057d451c49, type: 3}
@@ -5696,6 +5701,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: --MANAGERS--
       objectReference: {fileID: 0}
+    - target: {fileID: 8966836275058985840, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8966836275058985841, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: m_RootOrder
@@ -6713,6 +6723,11 @@ PrefabInstance:
     - target: {fileID: 3804869890812005848, guid: f0bb7670195c5104c9e49a38d4e01cd1,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926097763226772322, guid: f0bb7670195c5104c9e49a38d4e01cd1,
+        type: 3}
+      propertyPath: SubModule.enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7863,6 +7878,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PUBLISHERS
       objectReference: {fileID: 0}
+    - target: {fileID: 1592661818090006660, guid: 458f36d2f5eedb44a857344ab45652d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 458f36d2f5eedb44a857344ab45652d1, type: 3}
 --- !u!4 &1038167663 stripped
@@ -8582,6 +8602,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: OverlayCam
+      objectReference: {fileID: 0}
+    - target: {fileID: 87044960873636164, guid: 9cddfa94a8dbb5f498fac657b403b928,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cddfa94a8dbb5f498fac657b403b928, type: 3}
@@ -9353,6 +9378,11 @@ PrefabInstance:
     - target: {fileID: 3804869890812005848, guid: f0bb7670195c5104c9e49a38d4e01cd1,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926097763226772322, guid: f0bb7670195c5104c9e49a38d4e01cd1,
+        type: 3}
+      propertyPath: SubModule.enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -13070,6 +13100,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7914652014459963307, guid: 8bbdca35cac70f143b906cf2b0652137,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7914652014459963313, guid: 8bbdca35cac70f143b906cf2b0652137,
         type: 3}
       propertyPath: m_RootOrder
@@ -14223,6 +14258,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 7753023273115067106, guid: a1a29c4f959c6a94297623fce0b429ed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7753023273115067110, guid: a1a29c4f959c6a94297623fce0b429ed,
         type: 3}
       propertyPath: cameraShakeTime
@@ -14511,6 +14551,11 @@ PrefabInstance:
     - target: {fileID: 3804869890812005848, guid: f0bb7670195c5104c9e49a38d4e01cd1,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926097763226772322, guid: f0bb7670195c5104c9e49a38d4e01cd1,
+        type: 3}
+      propertyPath: SubModule.enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -14803,6 +14848,11 @@ PrefabInstance:
     - target: {fileID: 3804869890812005848, guid: f0bb7670195c5104c9e49a38d4e01cd1,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926097763226772322, guid: f0bb7670195c5104c9e49a38d4e01cd1,
+        type: 3}
+      propertyPath: SubModule.enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

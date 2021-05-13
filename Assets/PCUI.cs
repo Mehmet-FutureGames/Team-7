@@ -9,6 +9,9 @@ public class PCUI : MonoBehaviour
 #if UNITY_ANDROID
     gameObject.SetActive(false);
 #endif
+#if UNITY_STANDALONE
+        gameObject.SetActive(true);
+#endif
     }
 
 }

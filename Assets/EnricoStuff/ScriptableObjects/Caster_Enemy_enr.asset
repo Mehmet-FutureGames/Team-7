@@ -37,3 +37,7 @@ MonoBehaviour:
   coinMinDropCount: 6
   coinMaxDropCount: 10
   coinValue: 10
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  damagePlayerSound: Aj

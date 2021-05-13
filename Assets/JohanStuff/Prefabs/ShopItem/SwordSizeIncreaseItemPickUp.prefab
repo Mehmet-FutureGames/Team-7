@@ -142,8 +142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteCost: 3
   coinCost: 100
-  itemName: SwordSize
-  itemDescription: Hello?
+  itemName: Sword Size+
+  itemDescription: Bigger thing.. tihi
   buyWithCoins: 0
 --- !u!114 &6137317245210378667
 MonoBehaviour:

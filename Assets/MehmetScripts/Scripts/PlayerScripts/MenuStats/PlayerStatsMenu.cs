@@ -377,7 +377,6 @@ public class PlayerStatsMenu : MonoBehaviour
             var currentCharacter = playerStatsJson["character-" + currentCharacterSelected];
             if (currentCharacter == null)
                 return;
-            Debug.Log(currentCharacter);
             stats.health = currentCharacter["Health"];
             stats.attackDamage = currentCharacter["Damage"];
             stats.maxFrenzy = currentCharacter["Frenzy"];

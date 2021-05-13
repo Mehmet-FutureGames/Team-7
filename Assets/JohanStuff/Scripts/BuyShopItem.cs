@@ -43,6 +43,7 @@ public class BuyShopItem : MonoBehaviour
             ItemCanvas.isInBuyArea = true;
             isInBuyArea = true;
             ItemCanvas.Instance.descriptionText.text = itemParameter.itemDescription;
+            ItemCanvas.Instance.itemName.text = itemParameter.itemName;
         }
 
     }

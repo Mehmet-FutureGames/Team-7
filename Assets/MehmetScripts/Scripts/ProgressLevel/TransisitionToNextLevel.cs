@@ -6,22 +6,15 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class TransisitionToNextLevel : MonoBehaviour
 {
-    LevelManager manager;
     [SerializeField] GameObject player;
     [SerializeField] Transform spawnPos;
     Scene currentScene;
     public float fadeTimer;
     // Start is called before the first frame update
     void Awake()
-    {
-        
+    {        
         currentScene = SceneManager.GetActiveScene();
-        if(currentScene.buildIndex + LevelManager.levelsCompletedThisRun >= 8)
-        {
-            LevelManager.levelsCompletedThisRun--;
-        }
         player = FindObjectOfType<Player>().gameObject;
-        manager = FindObjectOfType<LevelManager>();
         GetComponent<BoxCollider>().isTrigger = true;
     }
     private void OnTriggerEnter(Collider other)

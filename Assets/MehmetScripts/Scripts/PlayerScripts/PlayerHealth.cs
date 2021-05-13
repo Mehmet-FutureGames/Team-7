@@ -39,7 +39,7 @@ deadScreen = UIManager.gameOverPanel;
 
     public void Respawn()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 0;
 #if UNITY_ANDROID
         deadScreen.SetActive(false);
 #endif
@@ -170,7 +170,7 @@ deadScreen = UIManager.gameOverPanel;
         }
         else
         {
-            UIManager.gameOverPanel.SetActive(true);
+            UIManager.noRetryScreen.SetActive(true);
             Time.timeScale = 0;
             Player.EnemyTransforms.Clear();
         }

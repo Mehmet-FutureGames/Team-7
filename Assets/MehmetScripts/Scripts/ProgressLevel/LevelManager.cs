@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
+        levelsCompletedThisRun = 0;
         currentScene = SceneManager.GetActiveScene();
         if (_instance != null)
         {
@@ -29,7 +30,7 @@ public class LevelManager : MonoBehaviour
             _instance = this;
         }
         DontDestroyOnLoad(this);
-        levelsCompletedThisRun++;
+        ++levelsCompletedThisRun;
         currentLevel = SceneManager.GetActiveScene().buildIndex;
     }
     private void OnLevelWasLoaded(int level)
@@ -52,7 +53,7 @@ public class LevelManager : MonoBehaviour
         currentLevel = level;
         if(level == SceneManager.GetSceneByName("EmilSTestScene").buildIndex)
         {
-            --levelsCompletedThisRun;
+            levelsCompletedThisRun = 0;
         }
     }
 }

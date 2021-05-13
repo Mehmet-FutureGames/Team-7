@@ -78,6 +78,7 @@ public class Player : MonoBehaviour
         camera = Camera.main;
         if (!developerMode)
         {
+            //keeps one instance of all gameobjects
             mainCanvas = GameObject.Find("Canvas");
             overlayCamera = GameObject.Find("OverlayCam");
             managers = GameObject.Find("--MANAGERS--");
@@ -213,7 +214,7 @@ public class Player : MonoBehaviour
         transform.position = spawnPos.transform.position;
         GetComponent<MovePlayer>().mousePos = spawnPos.transform.position;
         GetComponent<PlayerHealth>().currentHealth = maxHealth;
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
     }
     #region References
     IEnumerator References()
@@ -320,7 +321,7 @@ public class Player : MonoBehaviour
     }
     #endregion
 
-    void SetTrailSpeed()
+    public void SetTrailSpeed()
     {
         noteManager = FindObjectOfType<NoteManager>();
         switch (noteManager.difficulty)
@@ -341,6 +342,8 @@ public class Player : MonoBehaviour
     {
         if (level == SceneManager.GetSceneByName("ThankYou").buildIndex)
         {
+            //if reached finale
+            //reset everything
             DestroyEverything();
         }
         if (level != 3 || level != 5)

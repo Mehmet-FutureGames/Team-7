@@ -15,7 +15,6 @@ public class NoteDrop : MonoBehaviour
     {
         noteHandler = FindObjectOfType<NoteHandler>();
         tone = Random.Range(0, 6);
-        Debug.Log(tone);
         notePublisher = FindObjectOfType<NotePublisher>();
         player = FindObjectOfType<Player>().transform;
         noteHandler.beat += SetNoteColor;

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class SceneFader : MonoBehaviour
 {
+
     private static float fadeTimer = 1f;
     public delegate void FadeDelegate();
     public static AudioSource musicSource;
@@ -72,8 +73,10 @@ public class SceneFader : MonoBehaviour
         }
         
     }
+
     private void OnLevelWasLoaded(int level)
     {
+
         if (level == SceneManager.GetSceneByName("CoinShop").buildIndex || level == SceneManager.GetSceneByName("Shop").buildIndex)
         {
             StartCoroutine(FadeIn());
@@ -83,6 +86,10 @@ public class SceneFader : MonoBehaviour
             StartCoroutine(FadeIn());
         }
         else if (level == SceneManager.GetSceneByName("Level_2").buildIndex)
+        {
+            StartCoroutine(FadeIn());
+        }
+        else if (level == SceneManager.GetSceneByName("Level_3").buildIndex)
         {
             StartCoroutine(FadeIn());
         }
