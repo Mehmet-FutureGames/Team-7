@@ -121,7 +121,7 @@ public class Enemy : MonoBehaviour
         if (AudioManager.IsPlaying("PlayerSound"))
         {
             AudioManager.StopSound("PlayerSound");
-            AudioManager.PlaySound("MeleeSwingsPack_hit2", "PlayerSound");
+            AudioManager.PlaySound("MeleeSwingsPack_hit2", "PlayerSound", 0, UnityEngine.Random.Range(0.80f,1.20f));
         }
         if (floatingText)
         {
