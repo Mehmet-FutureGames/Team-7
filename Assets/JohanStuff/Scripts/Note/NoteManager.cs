@@ -110,6 +110,13 @@ public class NoteManager : MonoBehaviour
             cameraAnim.Play("CameraStartAnim", 0, 0f);
             Time.timeScale = 0;
         }
-        
+        else if (level == SceneManager.GetSceneByName("Level_3").buildIndex)
+        {
+            LoadPresetData(enricoSceneSongPreset);
+            cameraAnim.enabled = true;
+            cameraAnim.Play("CameraStartAnim", 0, 0f);
+            Time.timeScale = 0;
+        }
+
     }
 }
