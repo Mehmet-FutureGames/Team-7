@@ -55,7 +55,7 @@ deadScreen = UIManager.gameOverPanel;
             CameraFollowPlayer.Instance.CameraShake();
             comboHandler.SetCombo(0);
             currentHealth -= damage;
-            if (movePlayer.MovementValue < 10)
+            if (movePlayer.MovementValue < 3)
             {
                 if (playerStats.playerDamageText)
                 {
@@ -80,7 +80,7 @@ deadScreen = UIManager.gameOverPanel;
             CameraFollowPlayer.Instance.CameraShake();
             comboHandler.SetCombo(0);
             currentHealth -= damage;
-            if (movePlayer.MovementValue < 10)
+            if (movePlayer.MovementValue < 3)
             {
                 if (playerStats.playerDamageText)
                 {
@@ -112,13 +112,13 @@ deadScreen = UIManager.gameOverPanel;
         CameraFollowPlayer.Instance.CameraShake();
         currentHealth -= damage;
         AudioManager.PlaySound("Monster Takes Damage 10", "PlayerSound");
-        if (movePlayer.MovementValue < 10)
+        if (movePlayer.MovementValue < 3)
         {
             if (playerStats.playerDamageText)
             {
                 ShowFloatingText(damage);
             }
-            if (currentHealth < 0)
+            if (currentHealth <= 0)
             {
                 Dead();
             }
@@ -136,13 +136,13 @@ deadScreen = UIManager.gameOverPanel;
         {
             AudioManager.PlaySound(damageSound, "PlayerSound");
         }
-        if (movePlayer.MovementValue < 10)
+        if (movePlayer.MovementValue < 3)
         {
             if (playerStats.playerDamageText)
             {
                 ShowFloatingText(damage);
             }
-            if (currentHealth < 0)
+            if (currentHealth <= 0)
             {
                Dead();
             }
