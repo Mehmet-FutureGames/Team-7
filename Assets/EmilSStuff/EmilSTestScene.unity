@@ -4171,7 +4171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyVariants:
   - {fileID: 4839025464020082310, guid: d1ec307304b8b8d4ea9ccabacf527855, type: 3}
-  - {fileID: 8744423220382229699, guid: ac3568e37f30e9949b32b772b3a82984, type: 3}
+  - {fileID: 207381485540389465, guid: 6e2f5b5d7b9d52c4089051c65677c867, type: 3}
   - {fileID: 8744423220382229699, guid: ac3568e37f30e9949b32b772b3a82984, type: 3}
   spawnPointPatternsEasy:
   - {fileID: 4117254152123635958, guid: 4bdc00db512fb5b4d99192023ea10e6e, type: 3}

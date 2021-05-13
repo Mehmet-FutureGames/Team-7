@@ -657,6 +657,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8966836275058985841}
     m_Modifications:
+    - target: {fileID: 315575563269993078, guid: 27c63d8dfd1d1b54796bd4f9ec216fed,
+        type: 3}
+      propertyPath: pools.Array.data[8].prefab
+      value: 
+      objectReference: {fileID: 4170315450527332109, guid: 81df30b70f47ee44498048c86a1fbe61,
+        type: 3}
     - target: {fileID: 3214765537081477664, guid: 27c63d8dfd1d1b54796bd4f9ec216fed,
         type: 3}
       propertyPath: m_Name
