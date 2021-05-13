@@ -6,7 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class TransisitionToNextLevel : MonoBehaviour
 {
-    LevelManager manager;
     [SerializeField] GameObject player;
     [SerializeField] Transform spawnPos;
     Scene currentScene;
@@ -16,7 +15,6 @@ public class TransisitionToNextLevel : MonoBehaviour
     {        
         currentScene = SceneManager.GetActiveScene();
         player = FindObjectOfType<Player>().gameObject;
-        manager = FindObjectOfType<LevelManager>();
         GetComponent<BoxCollider>().isTrigger = true;
     }
     private void OnTriggerEnter(Collider other)

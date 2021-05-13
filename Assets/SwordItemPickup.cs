@@ -69,10 +69,10 @@ public class SwordItemPickup : MonoBehaviour
         }
         else if (!buyWithCoins && canBuy)
         { 
-            if(player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= GetComponent<ItemParameter>().coinCost)
+            if(player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= GetComponent<ItemParameter>().noteCost)
             {
                 DoTheUpgradeStuff();
-                NoteCurrencyHandler.Instance.NoteCurrency -= GetComponent<ItemParameter>().coinCost;
+                NoteCurrencyHandler.Instance.NoteCurrency -= GetComponent<ItemParameter>().noteCost;
                 ItemCanvas.isInBuyArea = false;
             }
         }

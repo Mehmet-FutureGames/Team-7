@@ -7,8 +7,8 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public static bool hasRestartedPC;
     Scene currentScene;
+    public static bool hasRestartedPC;
 
     public static float timer;
 
@@ -32,8 +32,6 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI waveText;
 
-    NotePublisher notePublisher;
-
     bool skip = false;
 
     [SerializeField] int notesNeeded;
@@ -44,6 +42,7 @@ public class UIManager : MonoBehaviour
     {
         hasRestartedPC = false;
         //Keeps time incase we need a timer
+        //while the game is stopped
         timer = Time.realtimeSinceStartup;
 
         //PC REFERENCES
@@ -66,14 +65,7 @@ public class UIManager : MonoBehaviour
 
         StartCoroutine(ShowAndStopShowingText());
 
-        notePublisher = FindObjectOfType<NotePublisher>();
-
-        notePublisher.noteHit += UpdateWaveLevel;
-        notePublisher.noteNotHit += UpdateWaveLevel;
-
         player = FindObjectOfType<Player>();
-
-        UpdateWaveLevel();
         SkipText();
     }
     private void Update()
@@ -115,15 +107,6 @@ public class UIManager : MonoBehaviour
             PlayerPrefs.SetInt("NoteCurrency", NoteCurrencyHandler.Instance.NoteCurrency);
         }
     }
-    IEnumerator TimeStart()
-    {
-        yield return new WaitForSecondsRealtime(0.1f);
-        Time.timeScale = 1f;
-    }
-    private void UpdateWaveLevel()
-    {
-        //waveText.text = "Wave: " + manager.waveLevel + "/" + manager.waveMaximum;
-    }
 
     private void SkipText()
     {
@@ -149,7 +132,6 @@ public class UIManager : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
-        currentScene = SceneManager.GetActiveScene();
         if(level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex || level == SceneManager.GetSceneByName("ThankYou").buildIndex)
         {
 
