@@ -45,7 +45,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.0872636, y: 3.6118271, z: 3.0283966}
+  m_Size: {x: 3, y: 2, z: 6}
   m_Center: {x: 0.08236432, y: 0, z: 0.44021988}
 --- !u!114 &8396448777491749737
 MonoBehaviour:
@@ -78,11 +78,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a2d20796720454d8978fd0cc2f9bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteCost: 15
-  coinCost: 50
+  noteCost: 5
+  coinCost: 500
   itemName: Burger
-  itemDescription: 'Brought from other end of the unisverse. It''s known as "The
-    cross burger". '
+  itemDescription: 'It''s easier to take a punch when your stomache is full. '
   buyWithCoins: 0
 --- !u!114 &5958083507770216966
 MonoBehaviour:
