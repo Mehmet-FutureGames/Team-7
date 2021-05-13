@@ -14,7 +14,7 @@ public class CoinGainFloat : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        value -= 0.01f;
+        value -= 0.005f;
         tmPro.color = tmPro.color * new Color(1, 1, 1, 1 * value);
         transform.Translate(Vector3.up *10 * Time.fixedDeltaTime);
     }
