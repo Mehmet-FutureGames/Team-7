@@ -22,7 +22,6 @@ public class UseItem : MonoBehaviour
         {
             gameObject.AddComponent(activeItems.GetType());
             hasItem = true;
-            activeItems1.charge.gameObject.SetActive(true);
         }
         else
         {
