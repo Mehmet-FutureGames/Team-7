@@ -41,10 +41,6 @@ public class CharacterStats : MonoBehaviour
         hasBeenBought = PlayerPrefs.GetInt("boughtCharacter" + currentSelectedCharacter) == 1;
         hasStartedFirstTime = PlayerPrefs.GetInt("hasStartedFirstTime") == 1;
 
-        notesCostHealth = PlayerPrefs.GetInt("UpgradeHealth" + currentSelectedCharacter);
-        notesCostDamage = PlayerPrefs.GetInt("UpgradeDamage" + currentSelectedCharacter);
-        notesFrenzyCost = PlayerPrefs.GetInt("UpgradeFrenzy" + currentSelectedCharacter);
-
         gameObject.SetActive(false);
     }
     private void OnEnable()
