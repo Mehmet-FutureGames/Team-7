@@ -147,6 +147,7 @@ public class PlayerStatsMenu : MonoBehaviour
             if (characters[currentCharacterSelected].GetComponent<CharacterStats>().hasBeenBought)
             {
                 lockScreen.SetActive(false);
+                cantBuyCharacter.gameObject.SetActive(false);
                 characters[i].SetActive(i == currentCharacterSelected);
             }
             else
@@ -155,6 +156,7 @@ public class PlayerStatsMenu : MonoBehaviour
                 //Needs two instances because unity is a very nice program.
                 characters[i].SetActive(i == currentCharacterSelected);
                 lockScreen.SetActive(true);
+                cantBuyCharacter.gameObject.SetActive(true);
                 characters[i].SetActive(i == currentCharacterSelected);
             }
         }
@@ -406,7 +408,7 @@ public class PlayerStatsMenu : MonoBehaviour
     }
     #endregion
 
-    public IEnumerator cantbuyChar()
+    public IEnumerator CantBuyChar()
     {
         cantBuyCharacter.gameObject.SetActive(true);
         yield return new WaitForSeconds(3);

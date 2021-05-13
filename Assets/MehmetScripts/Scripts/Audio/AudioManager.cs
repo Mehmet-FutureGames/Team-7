@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         //Clears the dictionaries just incase there are elements 
-        //can cause crashes without
+        //can cause crashes without clearing first
         audioClips.Clear();
         sources.Clear();
         sources.Add("PlayerSound", FindObjectOfType<Player>().GetComponent<AudioSource>());

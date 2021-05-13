@@ -97,7 +97,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Size: {x: 1.5, y: 1.5, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2101108902833678567
 MonoBehaviour:
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIndex: 1
   itemCanvas: {fileID: 0}
-  cooldown: 5
+  cooldown: 10
 --- !u!114 &9036313013210059732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,8 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a2d20796720454d8978fd0cc2f9bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteCost: 3
-  coinCost: 100
+  noteCost: 5
+  coinCost: 500
   itemName: Projectile
   itemDescription: 'Is this a shoot''em up? Unleash projectiles on all nearby enemies
     with this active ability. '

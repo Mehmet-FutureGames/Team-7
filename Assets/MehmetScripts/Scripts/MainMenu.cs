@@ -22,6 +22,9 @@ public class MainMenu : MonoBehaviour
      float SFXVolumeFloat;
      float musicVolumeFloat;
 
+    [SerializeField] GameObject saveButtonMenu;
+    [SerializeField] GameObject saveButtonSettings;
+
     private void Start()
     {
         hasGoneToSettings = false;
@@ -103,6 +106,10 @@ public class MainMenu : MonoBehaviour
 
     private void PlayGameMethod()
     {
+        if (!GetComponentInChildren<CharacterStats>().hasBeenBought)
+        {
+            StartCoroutine(GetComponent<PlayerStatsMenu>().CantBuyChar());
+        }
         if (!PlayerStatsMenu.hasStartedFirstTime && !PlayerStatsMenu.hasUpgraded)
         {
             SceneManager.LoadScene("TutorialPC");
@@ -112,10 +119,6 @@ public class MainMenu : MonoBehaviour
         else if (GetComponentInChildren<CharacterStats>().hasBeenBought && PlayerStatsMenu.hasStartedFirstTime && !PlayerStatsMenu.hasUpgraded)
         {
             SceneManager.LoadScene("Shop");
-        }
-        else
-        {
-            StartCoroutine(GetComponent<PlayerStatsMenu>().cantbuyChar());
         }
         FindObjectOfType<MusicSingleton>().DestroyThis();
     }
@@ -194,6 +197,10 @@ public class MainMenu : MonoBehaviour
             }
         }
     }
+    public static void ReturnToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
     public void MuteAudio(int audioSource)
     {
         switch (audioSource)
@@ -233,6 +240,5 @@ public class MainMenu : MonoBehaviour
     public void ChangeGraphics(int qualityLevel)
     {
         QualitySettings.SetQualityLevel(qualityLevel);
-        Debug.Log(QualitySettings.GetQualityLevel());
     }
 }
