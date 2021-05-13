@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class UseItem : MonoBehaviour
 {
-    private bool hasItem;
+    public bool hasItem;
     public ActiveItems activeItems1;
+    public KeyCode keyCodeChange;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(keyCodeChange))
         {
             OnUseItem();
         }
@@ -21,6 +22,7 @@ public class UseItem : MonoBehaviour
         {
             gameObject.AddComponent(activeItems.GetType());
             hasItem = true;
+            activeItems1.charge.gameObject.SetActive(true);
         }
         else
         {
