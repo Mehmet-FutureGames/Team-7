@@ -86,7 +86,6 @@ public class UIManager : MonoBehaviour
     }
     public void RetryButton()
     {
-            hasRestartedPC = true;
             if (player == null || spawnPos == null)
             {
                 player = FindObjectOfType<Player>();
@@ -112,7 +111,6 @@ public class UIManager : MonoBehaviour
             SceneManager.LoadScene(currentScene.buildIndex);
             player.RestartCharacter(spawnPos);
             player.GetComponent<PlayerHealth>().Respawn();
-            StartCoroutine(TimeStart());
             NoteCurrencyHandler.Instance.NoteCurrency -= notesNeeded;
             PlayerPrefs.SetInt("NoteCurrency", NoteCurrencyHandler.Instance.NoteCurrency);
         }
