@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7255216093412445543}
   m_Layer: 0
-  m_Name: SpawnPattern_medium2_r2
+  m_Name: SpawnPattern_medium3_r2
   m_TagString: PatternSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -427,7 +427,7 @@ PrefabInstance:
     - target: {fileID: 6599772492999253687, guid: 7882c1ed0d7cda743badb31752620dc5,
         type: 3}
       propertyPath: enemyType
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7882c1ed0d7cda743badb31752620dc5, type: 3}
