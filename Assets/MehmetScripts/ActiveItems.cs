@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ActiveItems : MonoBehaviour
 {
-    protected Image charge;
+    [HideInInspector]public Image charge;
 
     public int itemIndex;
 

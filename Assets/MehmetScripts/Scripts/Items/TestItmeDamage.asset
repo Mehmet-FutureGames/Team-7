@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: TestItmeDamage
   m_EditorClassIdentifier: 
   nameItem: 
-  itemModel: {fileID: 4096108176845153507, guid: 8b6c49798e65d694f86252d372a274d6,
+  itemModel: {fileID: 7861883854169727345, guid: edbc8888adca65340bd612c4e86463e0,
     type: 3}
   upgradeAmount: 25
-  itemCost: 50
-  itemType: 0
+  itemCostCoins: 0
+  itemCostNotes: 0
+  itemType: 1
