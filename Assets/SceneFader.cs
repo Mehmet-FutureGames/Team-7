@@ -20,7 +20,6 @@ public class SceneFader : MonoBehaviour
     }
     private void Awake()
     {
-
         fadeImage = GameObject.FindGameObjectWithTag("FadeImage").GetComponent<Image>();
         musicSource = GetComponent<AudioSource>();
     }

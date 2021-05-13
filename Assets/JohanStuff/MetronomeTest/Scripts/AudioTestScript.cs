@@ -24,8 +24,27 @@ public class AudioTestScript : MonoBehaviour
     int counter;
     bool hasStartedTapping;
     bool hasAddedList;
+
+    [SerializeField] GameObject saveButtonMenu;
+    [SerializeField] GameObject saveButtonSettings;
+
     private void Start()
     {
+        if (StartedGame.gameStartedFirstTime)
+        {
+            saveButtonMenu.SetActive(true);
+            saveButtonSettings.SetActive(false);
+        }
+        else
+        {
+            saveButtonMenu.SetActive(false);
+            saveButtonSettings.SetActive(true);
+        }
+
+        if (FindObjectOfType<MusicSingleton>() != null)
+        {
+            FindObjectOfType<MusicSingleton>().DestroyThis();
+        }
         metronome = FindObjectOfType<Metronome>();
         Metronome.OnBeat += OnBeat;
         Metronome.OnDownBeat += OnDownBeat;
