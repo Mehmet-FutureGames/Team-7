@@ -89,6 +89,10 @@ public class SceneFader : MonoBehaviour
         {
             StartCoroutine(FadeIn());
         }
+        else if (level == SceneManager.GetSceneByName("Level_3").buildIndex)
+        {
+            StartCoroutine(FadeIn());
+        }
         else if (level == SceneManager.GetSceneByName("CharacterChange").buildIndex)
         {
             StartCoroutine(Refrence());
