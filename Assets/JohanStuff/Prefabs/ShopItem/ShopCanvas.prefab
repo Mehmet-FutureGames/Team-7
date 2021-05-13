@@ -73,10 +73,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -116,6 +116,7 @@ MonoBehaviour:
   text: {fileID: 0}
   panel: {fileID: 8297070898337497179}
   descriptionText: {fileID: 8297070898435127008}
+  itemName: {fileID: 0}
 --- !u!1001 &949653871726082132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -176,17 +177,17 @@ PrefabInstance:
     - target: {fileID: 9081727655424686096, guid: bb90a3290c22c3340828acf1d9b09ebc,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.75
+      value: 1.4139947
       objectReference: {fileID: 0}
     - target: {fileID: 9081727655424686096, guid: bb90a3290c22c3340828acf1d9b09ebc,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.75
+      value: 1.4139947
       objectReference: {fileID: 0}
     - target: {fileID: 9081727655424686096, guid: bb90a3290c22c3340828acf1d9b09ebc,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 1.8853263
       objectReference: {fileID: 0}
     - target: {fileID: 9081727655424686096, guid: bb90a3290c22c3340828acf1d9b09ebc,
         type: 3}
@@ -226,12 +227,12 @@ PrefabInstance:
     - target: {fileID: 9081727655424686096, guid: bb90a3290c22c3340828acf1d9b09ebc,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -161.18329
+      value: -882
       objectReference: {fileID: 0}
     - target: {fileID: 9081727655424686096, guid: bb90a3290c22c3340828acf1d9b09ebc,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -9
+      value: -195
       objectReference: {fileID: 0}
     - target: {fileID: 9081727655424686096, guid: bb90a3290c22c3340828acf1d9b09ebc,
         type: 3}
@@ -252,6 +253,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.36767578
+      objectReference: {fileID: 0}
+    - target: {fileID: 9081727655597461171, guid: bb90a3290c22c3340828acf1d9b09ebc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.1870117
+      objectReference: {fileID: 0}
+    - target: {fileID: 9081727655870810339, guid: bb90a3290c22c3340828acf1d9b09ebc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.11279297
       objectReference: {fileID: 0}
     - target: {fileID: 9081727656219136776, guid: bb90a3290c22c3340828acf1d9b09ebc,
         type: 3}
