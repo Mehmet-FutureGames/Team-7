@@ -35,12 +35,12 @@ public class MainMenu : MonoBehaviour
 
     public void SavedVolume()
     {
-        PlayerPrefs.SetFloat("masterVolume", masterVolumeFloat);
+        PlayerPrefs.SetFloat("masterVolume",masterVolumeFloat);
         PlayerPrefs.SetFloat("SFXvolume", SFXVolumeFloat);
         PlayerPrefs.SetFloat("MusicVol", musicVolumeFloat);
-        mixer.SetFloat("MasterVol", masterVolumeFloat);
-        mixer.SetFloat("SFXVol", SFXVolumeFloat);
-        mixer.SetFloat("MusicVol", musicVolumeFloat);
+        mixer.SetFloat("MasterVol", Mathf.Log10(masterVolumeFloat) * 20);
+        mixer.SetFloat("SFXVol", Mathf.Log10(SFXVolumeFloat) * 20);
+        mixer.SetFloat("MusicVol", Mathf.Log10(musicVolumeFloat) * 20);
     }
     public void LoadVolume()
     {
@@ -51,17 +51,20 @@ public class MainMenu : MonoBehaviour
         if (musicVolume != null)
             musicVolume.value = PlayerPrefs.GetFloat("MusicVol");
 
+        masterVolumeFloat = PlayerPrefs.GetFloat("masterVolume");
+        SFXVolumeFloat = PlayerPrefs.GetFloat("SFXvolume");
+        musicVolumeFloat = PlayerPrefs.GetFloat("MusicVol");
+
         if (mixer == null)
         {
             mixer = Resources.Load<AudioMixer>("MainMixer");
         }
         else
         {
-            mixer.SetFloat("MasterVol", PlayerPrefs.GetFloat("masterVolume"));
-            mixer.SetFloat("SFXVol", PlayerPrefs.GetFloat("SFXvolume"));
-            mixer.SetFloat("MusicVol", PlayerPrefs.GetFloat("MusicVol"));
+            mixer.SetFloat("MasterVol", Mathf.Log10(masterVolumeFloat) * 20);
+            mixer.SetFloat("SFXVol", Mathf.Log10(SFXVolumeFloat) * 20);
+            mixer.SetFloat("MusicVol", Mathf.Log10(musicVolumeFloat) * 20);
         }
-
     }
 
     public void ChangeVolume(int volumeChanged)
