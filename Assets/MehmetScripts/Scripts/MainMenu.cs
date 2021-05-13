@@ -44,12 +44,21 @@ public class MainMenu : MonoBehaviour
     }
     public void LoadVolume()
     {
-        if (masterVolume != null)       
-            masterVolume.value = PlayerPrefs.GetFloat("masterVolume");
+        if (masterVolume != null)
+            if (PlayerPrefs.GetFloat("masterVolume") != 0)
+                masterVolume.value = PlayerPrefs.GetFloat("masterVolume");
+            else
+                masterVolume.value = 1;
         if (SFXVolume != null)
-            SFXVolume.value = PlayerPrefs.GetFloat("SFXvolume");
+            if (PlayerPrefs.GetFloat("SFXvolume") != 0)
+                SFXVolume.value = PlayerPrefs.GetFloat("SFXvolume");
+            else
+                SFXVolume.value = 1;
         if (musicVolume != null)
-            musicVolume.value = PlayerPrefs.GetFloat("MusicVol");
+            if (PlayerPrefs.GetFloat("MusicVol") != 0)
+                musicVolume.value = PlayerPrefs.GetFloat("MusicVol");
+            else
+                musicVolume.value = 1;
 
         masterVolumeFloat = PlayerPrefs.GetFloat("masterVolume");
         SFXVolumeFloat = PlayerPrefs.GetFloat("SFXvolume");
