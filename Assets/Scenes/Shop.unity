@@ -4613,6 +4613,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9016947051451766807, guid: 8bbdca35cac70f143b906cf2b0652137,
+        type: 3}
+      propertyPath: keyCodeChange
+      value: 120
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}
 --- !u!1001 &638154060
@@ -5044,6 +5049,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1609931668}
+    - target: {fileID: 2265840550985382286, guid: 4693bb05872ed41469aefc057d451c49,
+        type: 3}
+      propertyPath: m_Name
+      value: ChargeBarRingPC
+      objectReference: {fileID: 0}
     - target: {fileID: 2689089108131909372, guid: 4693bb05872ed41469aefc057d451c49,
         type: 3}
       propertyPath: m_Enabled
@@ -5074,6 +5084,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1609931668}
+    - target: {fileID: 6141932795067090556, guid: 4693bb05872ed41469aefc057d451c49,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6636406796728351949, guid: 4693bb05872ed41469aefc057d451c49,
         type: 3}
       propertyPath: m_IsActive

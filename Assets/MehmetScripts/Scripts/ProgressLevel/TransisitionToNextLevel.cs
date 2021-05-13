@@ -22,6 +22,7 @@ public class TransisitionToNextLevel : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             StartCoroutine(SceneFader.FadeOut(NextLevel));
+            other.GetComponent<MovePlayer>().mousePos = other.GetComponent<Transform>().position;
         }
     }
     private void NextLevel()

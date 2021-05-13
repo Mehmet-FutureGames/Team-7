@@ -89,6 +89,7 @@ public class NoteManager : MonoBehaviour
         }
         camera.GetComponent<AudioSource>().Stop();
         cameraAnim = camera.GetComponent<Animator>();
+        player.GetComponent<TrailRenderer>().enabled = false;
         if(level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex)
         {
             LoadPresetData(shopSongPreset);
@@ -117,6 +118,6 @@ public class NoteManager : MonoBehaviour
             cameraAnim.Play("CameraStartAnim", 0, 0f);
             Time.timeScale = 0;
         }
-
+        player.GetComponent<TrailRenderer>().enabled = true;
     }
 }

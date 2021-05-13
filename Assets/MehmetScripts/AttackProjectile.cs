@@ -33,7 +33,7 @@ public class AttackProjectile : ActiveItems
             yield return new WaitForSeconds(0.01f);
             cooldownCount++;
             float value = (cooldownCount / cooldown);
-            charge.fillAmount = value;
+            chargeRing.fillAmount = value;
             if (value >= 1f)
             {
                 cooldownReady = true;
