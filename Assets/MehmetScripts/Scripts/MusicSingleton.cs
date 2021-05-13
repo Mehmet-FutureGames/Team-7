@@ -20,9 +20,7 @@ public class MusicSingleton : MonoBehaviour
         else if(_instance != this)
         {
             Destroy(gameObject);
-        }
-        
-
+        }        
     }
     public void DestroyThis()
     {
@@ -33,10 +31,7 @@ public class MusicSingleton : MonoBehaviour
         currentScene = SceneManager.GetSceneByName("MainMenu");
         if (level == currentScene.buildIndex)
         {
-            if (!FindObjectOfType<SceneFader>())
-            {
-                gameObject.AddComponent<SceneFader>();
-            }
+             gameObject.AddComponent<SceneFader>();            
         }
     }
     

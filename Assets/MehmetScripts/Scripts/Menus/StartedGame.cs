@@ -11,9 +11,7 @@ public class StartedGame : MonoBehaviour
     void Start()
     {
         gameStartedFirstTime = false;
-        Debug.Log(gameStartedFirstTime);
         hasStartedFirstTimeMenu = PlayerPrefs.GetInt("hasStartedFirstTimeMenu") == 1;
-        Debug.Log(hasStartedFirstTimeMenu);
         if (!hasStartedFirstTimeMenu)
         {
             StartCoroutine(LoadLevelDelay());

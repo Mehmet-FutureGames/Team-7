@@ -138,6 +138,7 @@ public class MainMenu : MonoBehaviour
         {
             if (PauseMenu.player != null)
             {
+                FindObjectOfType<MusicSingleton>().DestroyThis();
                 hasGoneToSettings = true;
                 PauseMenu.player.gameObject.SetActive(true);
                 PauseMenu.player.ActivateAll();
@@ -145,6 +146,8 @@ public class MainMenu : MonoBehaviour
                 {
                     g.SetActive(true);                    
                 }
+                    
+                
                 SceneManager.UnloadSceneAsync("SettingsUI");
             }
             else
