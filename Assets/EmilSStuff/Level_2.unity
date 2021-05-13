@@ -1580,7 +1580,7 @@ MonoBehaviour:
   enemyVariants:
   - {fileID: 4839025464020082310, guid: d1ec307304b8b8d4ea9ccabacf527855, type: 3}
   - {fileID: 8744423220382229699, guid: ac3568e37f30e9949b32b772b3a82984, type: 3}
-  - {fileID: 8744423220382229699, guid: ac3568e37f30e9949b32b772b3a82984, type: 3}
+  - {fileID: 207381485540389465, guid: 6e2f5b5d7b9d52c4089051c65677c867, type: 3}
   spawnPointPatternsEasy:
   - {fileID: 8996499574770348072, guid: 81911a18968eff44394db24cd64306c5, type: 3}
   - {fileID: 4843945588639575226, guid: 5a2c07a69d385be47b9df808cb65df9b, type: 3}
