@@ -10,11 +10,8 @@ public class TransisitonToShop : MonoBehaviour
     bool hasProceeded = false;
     private void Awake()
     {
+        hasProceeded = false;
         level = SceneManager.GetActiveScene().buildIndex;
-        if (level == SceneManager.GetSceneByName("EmilSTestScene").buildIndex)
-        {
-            LevelManager.levelsCompletedThisRun--;
-        }
         manager = FindObjectOfType<LevelManager>();
     }
 
@@ -25,6 +22,7 @@ public class TransisitonToShop : MonoBehaviour
             if (!hasProceeded)
             {
                 StartCoroutine(SceneFader.FadeOut(LoadScene));
+                LevelManager.levelsCompletedThisRun++;
                 //LoadScene();
             }
         }
@@ -32,11 +30,9 @@ public class TransisitonToShop : MonoBehaviour
 
     private void LoadScene()
     {
-        LevelManager.levelsCompletedThisRun++;
-        manager.levelsCompletedOverall++;
+        hasProceeded = true;
         PlayerPrefs.SetInt("levelCompleted", manager.levelsCompletedOverall);
         SceneManager.LoadScene("CoinShop");
-        hasProceeded = true;
     }
 }
 

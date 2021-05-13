@@ -213,7 +213,7 @@ public class Player : MonoBehaviour
         transform.position = spawnPos.transform.position;
         GetComponent<MovePlayer>().mousePos = spawnPos.transform.position;
         GetComponent<PlayerHealth>().currentHealth = maxHealth;
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
     }
     #region References
     IEnumerator References()

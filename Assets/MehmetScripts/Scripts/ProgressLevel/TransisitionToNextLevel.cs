@@ -13,13 +13,9 @@ public class TransisitionToNextLevel : MonoBehaviour
     public float fadeTimer;
     // Start is called before the first frame update
     void Awake()
-    {
-        
+    {        
         currentScene = SceneManager.GetActiveScene();
-        if(currentScene.buildIndex + LevelManager.levelsCompletedThisRun >= 8)
-        {
-            LevelManager.levelsCompletedThisRun--;
-        }
+        Debug.Log(currentScene.buildIndex);
         player = FindObjectOfType<Player>().gameObject;
         manager = FindObjectOfType<LevelManager>();
         GetComponent<BoxCollider>().isTrigger = true;
