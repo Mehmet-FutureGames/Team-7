@@ -320,7 +320,7 @@ public class Player : MonoBehaviour
     }
     #endregion
 
-    void SetTrailSpeed()
+    public void SetTrailSpeed()
     {
         noteManager = FindObjectOfType<NoteManager>();
         switch (noteManager.difficulty)
