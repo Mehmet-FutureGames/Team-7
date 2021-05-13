@@ -1581,15 +1581,22 @@ MonoBehaviour:
   - {fileID: 4839025464020082310, guid: d1ec307304b8b8d4ea9ccabacf527855, type: 3}
   - {fileID: 207381485540389465, guid: 6e2f5b5d7b9d52c4089051c65677c867, type: 3}
   - {fileID: 8744423220382229699, guid: ac3568e37f30e9949b32b772b3a82984, type: 3}
+  - {fileID: 4839025464020082310, guid: 55d5f7b4cbd8bec4a878dc1d81fde3b7, type: 3}
   spawnPointPatternsEasy:
   - {fileID: 8996499574770348072, guid: 81911a18968eff44394db24cd64306c5, type: 3}
   - {fileID: 4843945588639575226, guid: 5a2c07a69d385be47b9df808cb65df9b, type: 3}
   - {fileID: 2833270096229774520, guid: 9a71fabfd2b019244a3b3e4a10f27c1b, type: 3}
   - {fileID: 115813019835676891, guid: c882362c1bfd8864fbfc9899f963bb36, type: 3}
+  - {fileID: 7778786924009451743, guid: f5f98de46ba02bf4998a9628380955cd, type: 3}
+  - {fileID: 683533686056787440, guid: 88d58ecd2120590418bcfc62feed7e69, type: 3}
+  - {fileID: 3453517299615687785, guid: b308866470614db4aae72b2d923a79e0, type: 3}
   spawnPointPatternsMedium:
   - {fileID: 3374888999541722987, guid: 7722cda18d11e604aaacc763cfe259ea, type: 3}
   - {fileID: 2678597111674849819, guid: 95fc54c49f5b89c49b1f520f1687c845, type: 3}
   - {fileID: 7255216093412445543, guid: 68ef84cd05cf03b4fad12585c194d789, type: 3}
+  - {fileID: 2719334508164959569, guid: 475a3a685b3909f4194e7d9bc6c3e31f, type: 3}
+  - {fileID: 6266688050107770090, guid: 204873dcd61407f48b9210d8d6917aad, type: 3}
+  - {fileID: 2572397728561085688, guid: aa090c5d59601e0439955db17beaea77, type: 3}
   spawnPointPatternsHard:
   - {fileID: 5773519632384000336, guid: 4d66bac8570e91a4c882c5006c4cb218, type: 3}
   - {fileID: 5382493046090657270, guid: 57ed65e2d90931d4f9ffde0a190affe8, type: 3}
