@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.14491698, g: 0.067696884, b: 0.08557799, a: 1}
+  m_IndirectSpecularColor: {r: 0.13758707, g: 0.06252233, b: 0.07989197, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -636,6 +636,7 @@ MonoBehaviour:
   beatValList: []
   storedValues: []
   nonAbsList: []
+  circleIndicator: {fileID: 480512407}
   saveButtonMenu: {fileID: 1741140706}
   saveButtonSettings: {fileID: 1881663490}
 --- !u!1 &891580935
