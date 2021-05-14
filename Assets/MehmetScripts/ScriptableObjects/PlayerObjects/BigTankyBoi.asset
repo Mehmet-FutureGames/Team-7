@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a0a8eb1dde53c84fa29e79686573e89, type: 3}
   m_Name: BigTankyBoi
   m_EditorClassIdentifier: 
-  playerModel: {fileID: 0}
+  playerModel: {fileID: 1887590721339854, guid: b1d589de4cb337b47a6b60a449d26b2b,
+    type: 3}
   playerDamageText: {fileID: 3411471724750393966, guid: 06a5d40551cdc894daaf72510bb45db9,
     type: 3}
-  playerName: R3D3
+  playerName: R3-D3
   movementSpeed: 0
   attackDamage: 50
-  health: 150
-  dashDamage: 45
+  health: 200
+  dashDamage: 25
   meleeAttackDuration: 1
-  maxFrenzy: 200
+  maxFrenzy: 110
   dashAttackDuration: 0.8
   dashAttackFrenzyCost: 5
   distanceToClick: 6
-  descriptionCharacter: The less successful cousin.  R3 was in need of new parts
-    but he was a bit short on the money so he asked a loan shark for money. Needless
-    to say after not being able to pay back he got In trouble  kidnapped and sold
-    into the Arena Now he is  forced to be part of the Gladiatorial games.
+  descriptionCharacter: R3-D3 is a 300 pounds iron robot, once forced to fight the
+    gladiators in the arena, he suddenly became self aware when he took a big swing
+    to the head.
