@@ -11,7 +11,8 @@ public class EnemyIndicator : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<Player>().transform;
-        obj = Instantiate(indicatorPrefab);
+        obj = Instantiate(indicatorPrefab, transform);
+        obj.transform.localScale = new Vector3(obj.transform.localScale.x / transform.localScale.x, obj.transform.localScale.y / transform.localScale.y, obj.transform.localScale.z / transform.localScale.z);
         obj.SetActive(false);
         StartCoroutine(IndicatorCheck());
     }
@@ -46,12 +47,5 @@ public class EnemyIndicator : MonoBehaviour
         
     }
 
-    private void OnDisable()
-    {
-        obj.SetActive(false);
-    }
-    private void OnDestroy()
-    {
-        obj.SetActive(false);
-    }
+
 }
