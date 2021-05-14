@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12873775, g: 0.05802705, b: 0.07493556, a: 1}
+  m_IndirectSpecularColor: {r: 0.07305352, g: 0.026647946, b: 0.039886203, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -506,9 +506,9 @@ MonoBehaviour:
   nameOfCharacter: {fileID: 1661150470}
   hasBeenBought: 0
   notesToPay: 0
-  notesFrenzyCost: 5
-  notesCostDamage: 5
-  notesCostHealth: 5
+  notesFrenzyCost: 10
+  notesCostDamage: 10
+  notesCostHealth: 10
 --- !u!1 &169354025
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,9 +1132,9 @@ MonoBehaviour:
   nameOfCharacter: {fileID: 1661150470}
   hasBeenBought: 0
   notesToPay: 20
-  notesFrenzyCost: 5
-  notesCostDamage: 5
-  notesCostHealth: 5
+  notesFrenzyCost: 10
+  notesCostDamage: 10
+  notesCostHealth: 10
 --- !u!4 &444760350 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4788729921527788, guid: e9a4f67b7f329ca4abf5de824f66db82,
@@ -1747,6 +1747,8 @@ MonoBehaviour:
   masterVolume: {fileID: 0}
   SFXVolume: {fileID: 0}
   musicVolume: {fileID: 0}
+  saveButtonMenu: {fileID: 0}
+  saveButtonSettings: {fileID: 0}
 --- !u!1 &609388806
 GameObject:
   m_ObjectHideFlags: 0
@@ -6588,9 +6590,9 @@ MonoBehaviour:
   nameOfCharacter: {fileID: 1661150470}
   hasBeenBought: 0
   notesToPay: 150
-  notesFrenzyCost: 5
-  notesCostDamage: 5
-  notesCostHealth: 5
+  notesFrenzyCost: 10
+  notesCostDamage: 10
+  notesCostHealth: 10
 --- !u!1 &1557423621
 GameObject:
   m_ObjectHideFlags: 0
