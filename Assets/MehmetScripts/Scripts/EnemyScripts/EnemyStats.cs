@@ -56,6 +56,7 @@ public class EnemyStats : ScriptableObject
     public int coinMaxDropCount;
     public float coinValue;
     public LayerMask obstacleLayer;
+    public string damagePlayerSound;
 }
 
 

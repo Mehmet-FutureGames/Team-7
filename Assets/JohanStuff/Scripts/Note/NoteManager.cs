@@ -15,7 +15,7 @@ public class NoteManager : MonoBehaviour
     NoteHandler noteHandler;
     [Space]
     public Difficulty difficulty;
-
+    Player player;
     [HideInInspector]
     public float beatTempo;
     [HideInInspector]
@@ -38,6 +38,7 @@ public class NoteManager : MonoBehaviour
         camera = Camera.main;
         //LoadPresetData();
         noteHandler = FindObjectOfType<NoteHandler>();
+        player = FindObjectOfType<Player>();
     }
 
     private void Start()
@@ -54,6 +55,7 @@ public class NoteManager : MonoBehaviour
         camera.GetComponent<AudioSource>().clip = clip;
         noteHandler.NoteHandlerInitialize();
         noteHandler.StartCoroutine(noteHandler.Wait());
+        player.SetTrailSpeed();
     }
     public void SetDifficulty()
     {
@@ -87,6 +89,7 @@ public class NoteManager : MonoBehaviour
         }
         camera.GetComponent<AudioSource>().Stop();
         cameraAnim = camera.GetComponent<Animator>();
+        player.GetComponent<TrailRenderer>().enabled = false;
         if(level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex)
         {
             LoadPresetData(shopSongPreset);
@@ -108,6 +111,13 @@ public class NoteManager : MonoBehaviour
             cameraAnim.Play("CameraStartAnim", 0, 0f);
             Time.timeScale = 0;
         }
-        
+        else if (level == SceneManager.GetSceneByName("Level_3").buildIndex)
+        {
+            LoadPresetData(enricoSceneSongPreset);
+            cameraAnim.enabled = true;
+            cameraAnim.Play("CameraStartAnim", 0, 0f);
+            Time.timeScale = 0;
+        }
+        player.GetComponent<TrailRenderer>().enabled = true;
     }
 }

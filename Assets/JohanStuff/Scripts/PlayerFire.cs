@@ -27,7 +27,7 @@ public class PlayerFire : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.GetComponentInParent<Enemy>().TakeDamage(5, false);
+            other.GetComponentInParent<Enemy>().TakeFireDamage(5, false);
         }
     }
 }

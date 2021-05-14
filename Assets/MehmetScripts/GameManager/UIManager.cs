@@ -7,8 +7,8 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public static bool hasRestartedPC;
     Scene currentScene;
+    public static bool hasRestartedPC;
 
     public static float timer;
 
@@ -32,20 +32,17 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI waveText;
 
-    NotePublisher notePublisher;
-
     bool skip = false;
 
     [SerializeField] int notesNeeded;
 
     Player player;
 
-    PressAnyKey musicStart;
-
     private void Start()
     {
         hasRestartedPC = false;
         //Keeps time incase we need a timer
+        //while the game is stopped
         timer = Time.realtimeSinceStartup;
 
         //PC REFERENCES
@@ -59,8 +56,8 @@ public class UIManager : MonoBehaviour
         //ANDROID REFERENCES
         timerDead = GameObject.Find("TimerText").GetComponent<TextMeshProUGUI>();
         deadSlider = GameObject.Find("TimerSlider");
-        noRetryScreen = GameObject.Find("DeathScreenPanel");
-        gameOverPanel = GameObject.Find("GameOverPanel");
+        noRetryScreen = GameObject.Find("GameOverPanel");
+        gameOverPanel = GameObject.Find("DeathScreenPanel");
         gameOverPanel.SetActive(false);
         noRetryScreen.SetActive(false);
 
@@ -68,16 +65,7 @@ public class UIManager : MonoBehaviour
 
         StartCoroutine(ShowAndStopShowingText());
 
-        musicStart = GetComponent<PressAnyKey>();
-
-        notePublisher = FindObjectOfType<NotePublisher>();
-
-        notePublisher.noteHit += UpdateWaveLevel;
-        notePublisher.noteNotHit += UpdateWaveLevel;
-
         player = FindObjectOfType<Player>();
-
-        UpdateWaveLevel();
         SkipText();
     }
     private void Update()
@@ -89,6 +77,18 @@ public class UIManager : MonoBehaviour
         }
     }
     public void RetryButton()
+    {
+            if (player == null || spawnPos == null)
+            {
+                player = FindObjectOfType<Player>();
+                spawnPos = GameObject.FindGameObjectWithTag("SpawnPos").transform;
+            }
+            currentScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currentScene.buildIndex);
+            player.RestartCharacter(spawnPos);
+            player.GetComponent<PlayerHealth>().Respawn();        
+    }
+    public void RetryButtonPC()
     {
         if (NoteCurrencyHandler.Instance.NoteCurrency >= notesNeeded)
         {
@@ -103,19 +103,9 @@ public class UIManager : MonoBehaviour
             SceneManager.LoadScene(currentScene.buildIndex);
             player.RestartCharacter(spawnPos);
             player.GetComponent<PlayerHealth>().Respawn();
-            StartCoroutine(TimeStart());
             NoteCurrencyHandler.Instance.NoteCurrency -= notesNeeded;
             PlayerPrefs.SetInt("NoteCurrency", NoteCurrencyHandler.Instance.NoteCurrency);
         }
-    }
-    IEnumerator TimeStart()
-    {
-        yield return new WaitForSecondsRealtime(0.1f);
-        Time.timeScale = 1f;
-    }
-    private void UpdateWaveLevel()
-    {
-        //waveText.text = "Wave: " + manager.waveLevel + "/" + manager.waveMaximum;
     }
 
     private void SkipText()
@@ -142,7 +132,6 @@ public class UIManager : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
-        currentScene = SceneManager.GetActiveScene();
         if(level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex || level == SceneManager.GetSceneByName("ThankYou").buildIndex)
         {
 

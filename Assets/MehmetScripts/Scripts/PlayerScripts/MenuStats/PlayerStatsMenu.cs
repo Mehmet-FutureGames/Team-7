@@ -91,6 +91,9 @@ public class PlayerStatsMenu : MonoBehaviour
             PlayerPrefs.SetInt("hasStartedFirstTime",hasStartedFirstTime? 1:0);
             notes = startingNotes;
             PlayerPrefs.SetInt("NoteCurrency", notes);
+            PlayerPrefs.SetInt("UpgradeHealth" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth);
+            PlayerPrefs.SetInt("UpgradeDamage" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage);
+            PlayerPrefs.SetInt("UpgradeFrenzy" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost);
         }
 
         //If file doesn't exist. Create empty JSONObject.
@@ -147,6 +150,7 @@ public class PlayerStatsMenu : MonoBehaviour
             if (characters[currentCharacterSelected].GetComponent<CharacterStats>().hasBeenBought)
             {
                 lockScreen.SetActive(false);
+                cantBuyCharacter.gameObject.SetActive(false);
                 characters[i].SetActive(i == currentCharacterSelected);
             }
             else
@@ -155,6 +159,7 @@ public class PlayerStatsMenu : MonoBehaviour
                 //Needs two instances because unity is a very nice program.
                 characters[i].SetActive(i == currentCharacterSelected);
                 lockScreen.SetActive(true);
+                cantBuyCharacter.gameObject.SetActive(true);
                 characters[i].SetActive(i == currentCharacterSelected);
             }
         }
@@ -377,7 +382,6 @@ public class PlayerStatsMenu : MonoBehaviour
             var currentCharacter = playerStatsJson["character-" + currentCharacterSelected];
             if (currentCharacter == null)
                 return;
-            Debug.Log(currentCharacter);
             stats.health = currentCharacter["Health"];
             stats.attackDamage = currentCharacter["Damage"];
             stats.maxFrenzy = currentCharacter["Frenzy"];
@@ -407,7 +411,7 @@ public class PlayerStatsMenu : MonoBehaviour
     }
     #endregion
 
-    public IEnumerator cantbuyChar()
+    public IEnumerator CantBuyChar()
     {
         cantBuyCharacter.gameObject.SetActive(true);
         yield return new WaitForSeconds(3);

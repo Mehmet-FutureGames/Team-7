@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MusicSingleton : MonoBehaviour
 {
+    Scene currentScene;
+
     private static MusicSingleton _instance;
 
     public static MusicSingleton Instance { get { return _instance; } }
@@ -17,9 +20,7 @@ public class MusicSingleton : MonoBehaviour
         else if(_instance != this)
         {
             Destroy(gameObject);
-        }
-        
-
+        }        
     }
     public void DestroyThis()
     {
@@ -27,15 +28,11 @@ public class MusicSingleton : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
-        if(level == 1 || level == 0)
+        currentScene = SceneManager.GetSceneByName("MainMenu");
+        if (level == currentScene.buildIndex)
         {
-            
+             gameObject.AddComponent<SceneFader>();            
         }
-        else
-        {
-            
-        }
-        
     }
     
 }

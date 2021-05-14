@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ActiveItems : MonoBehaviour
 {
-    protected Image charge;
+    
 
     public int itemIndex;
 
@@ -13,15 +13,10 @@ public class ActiveItems : MonoBehaviour
     protected bool cooldownReady;
     public float cooldown = 5;
     protected float cooldownCount;
-
+    protected Image charge;
+    protected Image chargeRing;
     protected virtual void Start()
     {
-#if UNITY_STANDALONE
-        charge = GameObject.Find("ChargeBarPC").GetComponent<Image>();
-#endif
-#if UNITY_ANDROID
- charge = GameObject.Find("ChargeBar").GetComponent<Image>();
-#endif
         itemCanvas = FindObjectOfType<ItemCanvas>();
         cooldownReady = true;
         cooldown = cooldown * 100;
@@ -32,6 +27,10 @@ public class ActiveItems : MonoBehaviour
     {
 
     }
-
+    public void GetChargeBar()
+    {
+        charge = GetComponent<UseItem>().charge;
+        chargeRing = GetComponent<UseItem>().chargeRing;
+    }
 
 }

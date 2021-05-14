@@ -34,13 +34,27 @@ public class PlayerProjectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(Player.EnemyTransforms.Count > 0 && target != null)
+        rb.velocity = transform.forward * speed;
+        if (Player.EnemyTransforms.Count > 0 && target != null)
         {
-            rb.velocity = transform.forward * speed;
-
+            turnSpeed += 0.5f;
             var targetRotation = Quaternion.LookRotation(target.position - transform.position);
 
             rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, turnSpeed * Time.fixedDeltaTime));
+        }
+        if(target == null)
+        {
+            Debug.Log("Projectile has no target");
+            if (Player.EnemyTransforms.Count > 0)
+            {
+                randomInt = Random.Range(0, Player.EnemyTransforms.Count);
+                target = Player.EnemyTransforms[randomInt];
+                if (target != null)
+                {
+                    Debug.Log(gameObject + " Projectile Found Target: " + target);
+                 }
+            }
+
         }
     }
 

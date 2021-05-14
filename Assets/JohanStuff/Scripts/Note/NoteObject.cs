@@ -113,6 +113,7 @@ public class NoteObject : MonoBehaviour
     }
     private void DesktopInput()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.X))
         {
             publisher.NoteHit();
@@ -120,6 +121,7 @@ public class NoteObject : MonoBehaviour
             canBePressed = false;
             NoteMiss.Instance.TriggerCountZero();
         }
+        */
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (OverGUICheck.Instance.IsPointerOverUIObject())

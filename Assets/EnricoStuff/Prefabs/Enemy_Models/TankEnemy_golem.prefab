@@ -29257,7 +29257,7 @@ GameObject:
   - component: {fileID: 6774446514128062714}
   - component: {fileID: 5186890877442007924}
   - component: {fileID: 5565450292736760200}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TankEnemy_golem
   m_TagString: Enemy
   m_Icon: {fileID: 0}

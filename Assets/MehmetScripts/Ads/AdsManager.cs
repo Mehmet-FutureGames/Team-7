@@ -13,6 +13,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
     public static bool startedWatchingAd = false;
     private void Start()
     {
+        //Initialize ad for faster loading and set static bools to false.
         startedWatchingAd = false;
         hasWatchedAd = false;
         respawnPlayer = FindObjectOfType<UIManager>();
@@ -43,6 +44,8 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
     }
     public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
     {
+        //if player has finished watching the ad
+        //Reward player
         if(showResult == ShowResult.Finished)
         {
             hasWatchedAd = true;

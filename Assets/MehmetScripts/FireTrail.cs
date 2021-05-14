@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FireTrail : ActiveItems
 {
@@ -23,16 +24,17 @@ public class FireTrail : ActiveItems
         //Spawn FireTrail at player position
         if (cooldownReady)
         {
+            AudioManager.PlaySound("FireTrailClip", "PlayerSound");
             timerDone = false;
             hasStartedEffect = true;
             Debug.Log("FIRETRAIL");
             cooldownReady = false;
-            charge.fillAmount = 0;
+            chargeRing.fillAmount = 0;
             StartCoroutine(Timer());
         }
 
     }
-    
+
     void Update()
     {
         if(hasStartedEffect)
@@ -68,7 +70,7 @@ public class FireTrail : ActiveItems
             yield return new WaitForSeconds(0.01f);
             cooldownCount++;
             float value = (cooldownCount / cooldown);
-            charge.fillAmount = value;
+            chargeRing.fillAmount = value;
             if (value >= 1f)
             {
                 cooldownReady = true;

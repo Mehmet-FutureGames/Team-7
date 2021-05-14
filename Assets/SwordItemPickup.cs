@@ -38,14 +38,22 @@ public class SwordItemPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        canBuy = true;
-        ItemCanvas.isInBuyArea = true;
-        ItemCanvas.Instance.descriptionText.text = itemParameter.itemDescription;
+        if (other.CompareTag("Player"))
+        {
+            canBuy = true;
+            ItemCanvas.isInBuyArea = true;
+            ItemCanvas.Instance.descriptionText.text = itemParameter.itemDescription;
+            ItemCanvas.Instance.itemName.text = itemParameter.itemName;
+        }
+        
     }
     private void OnTriggerExit(Collider other)
     {
-        ItemCanvas.isInBuyArea = false;
-        canBuy = false;
+        if (other.CompareTag("Player"))
+        {
+            ItemCanvas.isInBuyArea = false;
+            canBuy = false;
+        }
     }
 
     void Purchase()
@@ -61,10 +69,10 @@ public class SwordItemPickup : MonoBehaviour
         }
         else if (!buyWithCoins && canBuy)
         { 
-            if(player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= GetComponent<ItemParameter>().coinCost)
+            if(player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= GetComponent<ItemParameter>().noteCost)
             {
                 DoTheUpgradeStuff();
-                NoteCurrencyHandler.Instance.NoteCurrency -= GetComponent<ItemParameter>().coinCost;
+                NoteCurrencyHandler.Instance.NoteCurrency -= GetComponent<ItemParameter>().noteCost;
                 ItemCanvas.isInBuyArea = false;
             }
         }

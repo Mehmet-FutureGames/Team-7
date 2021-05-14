@@ -474,6 +474,7 @@ GameObject:
   - component: {fileID: 8966836274532626829}
   - component: {fileID: 524446087}
   - component: {fileID: 848976983}
+  - component: {fileID: 7584890043839115183}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -545,6 +546,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3df5441b5c5065f4da675619a4f2ef60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7584890043839115183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8966836274532626866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e90faf48b14414f9906cc34162cd91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8966836274875272974
@@ -657,6 +670,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8966836275058985841}
     m_Modifications:
+    - target: {fileID: 315575563269993078, guid: 27c63d8dfd1d1b54796bd4f9ec216fed,
+        type: 3}
+      propertyPath: pools.Array.data[8].prefab
+      value: 
+      objectReference: {fileID: 4170315450527332109, guid: 81df30b70f47ee44498048c86a1fbe61,
+        type: 3}
     - target: {fileID: 3214765537081477664, guid: 27c63d8dfd1d1b54796bd4f9ec216fed,
         type: 3}
       propertyPath: m_Name

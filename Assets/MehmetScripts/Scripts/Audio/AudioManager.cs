@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         //Clears the dictionaries just incase there are elements 
-        //can cause crashes without
+        //can cause crashes without clearing first
         audioClips.Clear();
         sources.Clear();
         sources.Add("PlayerSound", FindObjectOfType<Player>().GetComponent<AudioSource>());
@@ -31,6 +31,7 @@ public class AudioManager : MonoBehaviour
     /// <param name="audio"></param>
     public static void PlaySound(string clip, string audio)
     {
+        sources[audio].pitch = 1;
         sources[audio].clip = audioClips[clip];
         sources[audio].Play();
         
@@ -42,7 +43,8 @@ public class AudioManager : MonoBehaviour
     /// <param name="audio"></param>
     /// <param name="delay"></param>
     public static void PlaySound(string clip, string audio, float delay)
-    { 
+    {
+        sources[audio].pitch = 1;
         if (delay > 0)
         {
             sources[audio].clip = audioClips[clip];
@@ -50,6 +52,27 @@ public class AudioManager : MonoBehaviour
         }
         sources[audio].clip = audioClips[clip];
         sources[audio].Play();        
+    }
+    /// <summary>
+    /// This will play the audio string you input, at the specified audiosource with a specific pitch and at the specified delay
+    /// </summary>
+    /// <param name="clip"></param>
+    /// <param name="audio"></param>
+    /// <param name="delay"></param>
+    /// <param name="pitch"></param>
+    public static void PlaySound(string clip, string audio,float delay, float pitch)
+    {
+        sources[audio].pitch = pitch;
+        if (delay > 0)
+        {
+            sources[audio].clip = audioClips[clip];
+            sources[audio].PlayDelayed(delay);
+        }
+        else
+        {
+            sources[audio].clip = audioClips[clip];
+            sources[audio].Play();
+        }
     }
     /// <summary>
     /// This stops the audio

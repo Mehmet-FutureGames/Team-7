@@ -126,7 +126,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 3, y: 2, z: 6}
   m_Center: {x: 0, y: -1, z: 0}
 --- !u!114 &4996938553255210480
 MonoBehaviour:
@@ -140,10 +140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a2d20796720454d8978fd0cc2f9bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteCost: 3
-  coinCost: 100
-  itemName: SwordSize
-  itemDescription: Hello?
+  noteCost: 5
+  coinCost: 500
+  itemName: Sword Size+
+  itemDescription: You call that a sword? This is a sword!
   buyWithCoins: 0
 --- !u!114 &6137317245210378667
 MonoBehaviour:
@@ -157,6 +157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aabe776c85eb4946ad84db90e0457d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordObjSizeMult: 2
-  hitAreaMult: 2
+  swordObjSizeMult: 1.5
+  hitAreaMult: 1.5
   canBuy: 0
