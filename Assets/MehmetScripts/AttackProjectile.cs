@@ -16,6 +16,7 @@ public class AttackProjectile : ActiveItems
     {
         if (cooldownReady)
         {
+            AudioManager.PlaySound("AttackProjectileClip", "PlayerSound");
             cooldownReady = false;
             for (int i = 0; i < projectileCount; i++)
             {

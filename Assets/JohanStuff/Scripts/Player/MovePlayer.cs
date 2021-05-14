@@ -163,6 +163,7 @@ public class MovePlayer : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
+        MovementValue = 0;
         player = GetComponent<Player>();
     }
 }

@@ -37,7 +37,7 @@ public class BuyShopItem : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !PauseMenu.GameIsPaused)
         {
             useItem = other.GetComponent<UseItem>();
             ItemCanvas.isInBuyArea = true;

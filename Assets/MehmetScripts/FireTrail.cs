@@ -24,6 +24,7 @@ public class FireTrail : ActiveItems
         //Spawn FireTrail at player position
         if (cooldownReady)
         {
+            AudioManager.PlaySound("FireTrailClip", "PlayerSound");
             timerDone = false;
             hasStartedEffect = true;
             Debug.Log("FIRETRAIL");
