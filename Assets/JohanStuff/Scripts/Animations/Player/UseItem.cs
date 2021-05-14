@@ -66,6 +66,7 @@ public class UseItem : MonoBehaviour
     {
         if (HasItem)
         {
+            GetComponent<ActiveItems>().GetChargeBar();
             GetComponent<ActiveItems>().PerformAction();
         }
         

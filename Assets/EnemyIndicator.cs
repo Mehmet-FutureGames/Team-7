@@ -45,4 +45,13 @@ public class EnemyIndicator : MonoBehaviour
         }
         
     }
+
+    private void OnDisable()
+    {
+        obj.SetActive(false);
+    }
+    private void OnDestroy()
+    {
+        obj.SetActive(false);
+    }
 }

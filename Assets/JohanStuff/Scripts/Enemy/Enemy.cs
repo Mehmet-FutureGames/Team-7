@@ -61,6 +61,8 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public float attackRange;
     [SerializeField] float health;
+    float damageBundle;
+    bool isTakingFireDmg;
     [HideInInspector]
     public MovePattern movePattern;
     [HideInInspector]
@@ -138,8 +140,44 @@ public class Enemy : MonoBehaviour
         }
         Dead();
     }
+    public void TakeFireDamage(float damage, bool isDash)
+    {
+        CameraFollowPlayer.Instance.CameraShake();
+        damageBundle += damage;
+        if (!isTakingFireDmg)
+        {
+            StartCoroutine(FireDamageTick(isDash));
+        }
+        
+    }
+    IEnumerator FireDamageTick(bool isDash)
+    {
+        isTakingFireDmg = true;
+        yield return new WaitForSeconds(0.25f);
+        isTakingFireDmg = false;
+        health -= damageBundle;
+        
+        if (AudioManager.IsPlaying("PlayerSound"))
+        {
+            AudioManager.StopSound("PlayerSound");
+            AudioManager.PlaySound("MeleeSwingsPack_hit2", "PlayerSound", 0, UnityEngine.Random.Range(0.80f, 1.20f));
+        }
+        if (floatingText)
+        {
+            GameObject blood = ObjectPooler.Instance.SpawnFormPool("Blood", agentObj.transform.position, transform.rotation);
+            if (!isDash)
+            {
+                PlayerFrenzy.Instance.AddFrenzy();
+                ComboHandler.Instance.AddToCombo();
+            }
+            else { ComboHandler.Instance.AddToCombo(); }
 
-
+            //enemyPublisher.OnEnemyTakeDamage(); // Sends event upon taking damage. Subscribers: ComboHandler
+            ShowFloatingText(damageBundle);
+            damageBundle = 0;
+        }
+        Dead();
+    }
     private void ShowFloatingText(float damage)
     {        
         var text = Instantiate(floatingText, agentObj.transform.position, Quaternion.identity, agentObj.transform);

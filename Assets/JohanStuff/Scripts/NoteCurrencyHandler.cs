@@ -8,7 +8,7 @@ public class NoteCurrencyHandler : MonoBehaviour
 {
 
     public static NoteCurrencyHandler Instance;
-    int noteCurrency;
+    [SerializeField]int noteCurrency;
     [SerializeField] TextMeshProUGUI text;
 
     public int NoteCurrency
