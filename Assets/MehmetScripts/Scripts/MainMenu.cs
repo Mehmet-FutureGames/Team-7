@@ -35,21 +35,34 @@ public class MainMenu : MonoBehaviour
 
     public void SavedVolume()
     {
-        PlayerPrefs.SetFloat("masterVolume", masterVolumeFloat);
+        PlayerPrefs.SetFloat("masterVolume",masterVolumeFloat);
         PlayerPrefs.SetFloat("SFXvolume", SFXVolumeFloat);
         PlayerPrefs.SetFloat("MusicVol", musicVolumeFloat);
-        mixer.SetFloat("MasterVol", masterVolumeFloat);
-        mixer.SetFloat("SFXVol", SFXVolumeFloat);
-        mixer.SetFloat("MusicVol", musicVolumeFloat);
+        mixer.SetFloat("MasterVol", Mathf.Log10(masterVolumeFloat) * 20);
+        mixer.SetFloat("SFXVol", Mathf.Log10(SFXVolumeFloat) * 20);
+        mixer.SetFloat("MusicVol", Mathf.Log10(musicVolumeFloat) * 20);
     }
     public void LoadVolume()
     {
-        if (masterVolume != null)       
-            masterVolume.value = PlayerPrefs.GetFloat("masterVolume");
+        if (masterVolume != null)
+            if (PlayerPrefs.GetFloat("masterVolume") != 0)
+                masterVolume.value = PlayerPrefs.GetFloat("masterVolume");
+            else
+                masterVolume.value = 1;
         if (SFXVolume != null)
-            SFXVolume.value = PlayerPrefs.GetFloat("SFXvolume");
+            if (PlayerPrefs.GetFloat("SFXvolume") != 0)
+                SFXVolume.value = PlayerPrefs.GetFloat("SFXvolume");
+            else
+                SFXVolume.value = 1;
         if (musicVolume != null)
-            musicVolume.value = PlayerPrefs.GetFloat("MusicVol");
+            if (PlayerPrefs.GetFloat("MusicVol") != 0)
+                musicVolume.value = PlayerPrefs.GetFloat("MusicVol");
+            else
+                musicVolume.value = 1;
+
+        masterVolumeFloat = PlayerPrefs.GetFloat("masterVolume");
+        SFXVolumeFloat = PlayerPrefs.GetFloat("SFXvolume");
+        musicVolumeFloat = PlayerPrefs.GetFloat("MusicVol");
 
         if (mixer == null)
         {
@@ -57,11 +70,10 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
-            mixer.SetFloat("MasterVol", PlayerPrefs.GetFloat("masterVolume"));
-            mixer.SetFloat("SFXVol", PlayerPrefs.GetFloat("SFXvolume"));
-            mixer.SetFloat("MusicVol", PlayerPrefs.GetFloat("MusicVol"));
+            mixer.SetFloat("MasterVol", Mathf.Log10(masterVolumeFloat) * 20);
+            mixer.SetFloat("SFXVol", Mathf.Log10(SFXVolumeFloat) * 20);
+            mixer.SetFloat("MusicVol", Mathf.Log10(musicVolumeFloat) * 20);
         }
-
     }
 
     public void ChangeVolume(int volumeChanged)
@@ -138,7 +150,10 @@ public class MainMenu : MonoBehaviour
         {
             if (PauseMenu.player != null)
             {
-                FindObjectOfType<MusicSingleton>().DestroyThis();
+                if (FindObjectOfType<MusicSingleton>() != null)
+                {
+                    FindObjectOfType<MusicSingleton>().DestroyThis();
+                }
                 hasGoneToSettings = true;
                 PauseMenu.player.gameObject.SetActive(true);
                 PauseMenu.player.ActivateAll();

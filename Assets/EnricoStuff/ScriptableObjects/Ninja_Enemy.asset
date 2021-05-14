@@ -21,7 +21,7 @@ MonoBehaviour:
     type: 3}
   attackAreaShape: {fileID: 5142904849790710492, guid: 0276f6d96dfb9c141a6591ed02f83c65,
     type: 3}
-  attackAreaScale: {x: 1.5, y: 5, z: 1.5}
+  attackAreaScale: {x: 0.5, y: 5, z: 0.5}
   attackAreaShape2: {fileID: 1178725643994930611, guid: 46e188008eaf89243816bd5080d7b0b9,
     type: 3}
   attackAreaScale2: {x: 0, y: 0, z: 0}
@@ -40,3 +40,4 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 256
+  damagePlayerSound: 
