@@ -4886,7 +4886,7 @@ GameObject:
   - component: {fileID: 1287517941350225850}
   - component: {fileID: 1285874462005950020}
   m_Layer: 0
-  m_Name: FX_SwordSlash_01
+  m_Name: Sword_Slash_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5100,7 +5100,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.30882353, g: 0.8569978, b: 1, a: 1}
+      maxColor: {r: 0.6862745, g: 0.3372549, b: 0.6627451, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

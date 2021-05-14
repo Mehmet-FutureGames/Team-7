@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteCost: 5
-  coinCost: 500
+  coinCost: 250
   itemName: Projectile
   itemDescription: 'Is this a shoot''em up? Unleash projectiles on all nearby enemies
     with this active ability. '

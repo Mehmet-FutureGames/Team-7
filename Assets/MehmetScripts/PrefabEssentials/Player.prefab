@@ -10241,9 +10241,9 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.3820755, g: 0.9581362, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 1, g: 0.7786798, b: 0.3803922, a: 0}
+      key1: {r: 1, g: 1, b: 1, a: 0.60784316}
+      key2: {r: 0, g: 0, b: 0, a: 1}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -10258,8 +10258,8 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
-      atime2: 0
+      atime1: 14649
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -10267,7 +10267,7 @@ TrailRenderer:
       atime7: 0
       m_Mode: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
@@ -10415,7 +10415,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 0
+  coinBundle: 0
   text: {fileID: 0}
+  coinGainText: {fileID: 0}
+  textGainPrefab: {fileID: 0}
 --- !u!114 &1832600824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10428,6 +10431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9545a03940e21e74797b88cde2cc1614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noteCurrency: 0
   text: {fileID: 0}
 --- !u!114 &9016947051451766807
 MonoBehaviour:
@@ -10441,7 +10445,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56740df2e5e9fb4ea0d3d26e006ab62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasItem: 0
+  charge: {fileID: 0}
+  chargeRing: {fileID: 0}
   activeItems1: {fileID: 0}
   keyCodeChange: 120
 --- !u!114 &6430466938662035385

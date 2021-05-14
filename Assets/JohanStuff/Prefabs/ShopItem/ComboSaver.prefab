@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteCost: 5
-  coinCost: 500
+  coinCost: 250
   itemName: Combo Saver
   itemDescription: 'Tired of losing your combo so fast? Then this is the item for
     you. '
@@ -106,6 +106,10 @@ PrefabInstance:
     - target: {fileID: 1887554220882472, guid: e6c063d8d186ffe4998180d1a03abc18, type: 3}
       propertyPath: m_Name
       value: ComboSaverModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887554220882472, guid: e6c063d8d186ffe4998180d1a03abc18, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4991092209635334, guid: e6c063d8d186ffe4998180d1a03abc18, type: 3}
       propertyPath: m_RootOrder
@@ -163,6 +167,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23561513703817560, guid: e6c063d8d186ffe4998180d1a03abc18,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5846f1c3c4e5f1e42b95451831844600, type: 2}
     m_RemovedComponents:
     - {fileID: 64055394288783792, guid: e6c063d8d186ffe4998180d1a03abc18, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e6c063d8d186ffe4998180d1a03abc18, type: 3}

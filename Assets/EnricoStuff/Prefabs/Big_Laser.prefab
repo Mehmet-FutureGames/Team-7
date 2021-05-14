@@ -19010,7 +19010,7 @@ GameObject:
   - component: {fileID: 3926097763226772322}
   - component: {fileID: 3893139642825177656}
   m_Layer: 0
-  m_Name: FX_LazerBeam_01 (2)
+  m_Name: Big_Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19025,7 +19025,7 @@ Transform:
   m_GameObject: {fileID: 3803088805725916430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -20.34, y: 6.4, z: -60.84}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.038461536, y: 0.5, z: 0.01113189}
   m_Children:
   - {fileID: 3806468806480405334}
   - {fileID: 3804826064292383494}
@@ -19224,7 +19224,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.11764705, g: 0.18946378, b: 1, a: 1}
+      maxColor: {r: 0.79215693, g: 0.32156864, b: 0.6745098, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -22816,7 +22816,7 @@ ParticleSystem:
     - {fileID: 0}
   SubModule:
     serializedVersion: 2
-    enabled: 1
+    enabled: 0
     subEmitters:
     - serializedVersion: 3
       emitter: {fileID: 3892097163419153376}
