@@ -1144,7 +1144,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -123.493, y: -0}
+  m_AnchoredPosition: {x: -116.11315, y: 0}
   m_SizeDelta: {x: 113.293, y: 47.875}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1622786484
@@ -2322,7 +2322,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 86e63c770d711d34baa87ec91b401179, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ce3daa2a467179849b7e352d6d6f50d7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4296,7 +4296,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 73f0dfe946a1cc14a92879b08a002657, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ce3daa2a467179849b7e352d6d6f50d7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4824,7 +4824,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 709, y: 454}
+  m_AnchoredPosition: {x: 709, y: 439.47467}
   m_SizeDelta: {x: 915, y: 253}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5082962659506727137
@@ -4855,7 +4855,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f7f7f35edf716724bbceb477ede40b88, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3a4d15416e12a924080354a9774ce741, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5862,7 +5862,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e9aea97fbad129c4a828ae526d429d43,
+      objectReference: {fileID: 21300000, guid: fcef26a97adc5874d91259c25e1125fa,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad652efdc255ebb41b8ffdba14171b6a, type: 3}
@@ -6171,7 +6171,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6ee691c4406514c409669db01ee0d61f,
+      objectReference: {fileID: 21300000, guid: 412d19a5fb4b19d438ea9f1f8cbaf0b6,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 990956b9cce6f4942971150019230cc6, type: 3}
