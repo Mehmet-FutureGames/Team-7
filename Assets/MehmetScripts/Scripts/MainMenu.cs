@@ -146,7 +146,10 @@ public class MainMenu : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("MainMenu");     
+                if (!PlayerStatsMenu.hasUpgraded)
+                {
+                    SceneManager.LoadScene("MainMenu");
+                }
             }
         }
 
@@ -161,7 +164,6 @@ public class MainMenu : MonoBehaviour
                 Debug.Log(activeScene.name);
                 scene = SceneManager.LoadSceneAsync("MetronomeTestScene", LoadSceneMode.Additive);
                 scene.allowSceneActivation = true;
-                Debug.Log(hasGoneToSettings);
                 foreach (GameObject g in activeScene.GetRootGameObjects())
                 {
                     g.SetActive(false);
@@ -190,6 +192,42 @@ public class MainMenu : MonoBehaviour
             {
                 SceneManager.LoadScene("SettingsUI");
             }
+        }
+    }
+    public void MuteAudio(int audioSource)
+    {
+        switch (audioSource)
+        {
+            case 0:
+                mixer.SetFloat("MasterVol", -80);
+                masterVolume.value = -80;
+                break;
+            case 1:
+                mixer.SetFloat("SFXVol", -80);
+                SFXVolume.value = -80;
+                break;
+            case 2:
+                mixer.SetFloat("MusicVol", -80);
+                musicVolume.value = -80;
+                break;
+        }
+    }
+    public void UnMuteAudio(int audioSource)
+    {
+        switch (audioSource)
+        {
+            case 0:
+                mixer.SetFloat("MasterVol", 0);
+                masterVolume.value = 0;
+                break;
+            case 1:
+                mixer.SetFloat("SFXVol", 0);
+                SFXVolume.value = 0;
+                break;
+            case 2:
+                mixer.SetFloat("MusicVol", 0);
+                musicVolume.value = 0;
+                break;
         }
     }
     public void ChangeGraphics(int qualityLevel)

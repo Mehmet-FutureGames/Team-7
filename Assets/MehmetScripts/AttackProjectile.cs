@@ -16,11 +16,11 @@ public class AttackProjectile : ActiveItems
     {
         if (cooldownReady)
         {
+            cooldownReady = false;
             for (int i = 0; i < projectileCount; i++)
             {
                 ObjectPooler.Instance.SpawnFormPool("PlayerProjectile", transform.position);
             }
-            Debug.Log("ATTACKPROJECTILE");
             
             StartCoroutine(CountCooldown());
         }
@@ -28,18 +28,20 @@ public class AttackProjectile : ActiveItems
     }
     IEnumerator CountCooldown()
     {
-        cooldownReady = false;
         while (true)
         {
-            yield return new WaitForSeconds(0.1f);
-            cooldownCount--;
-            if(cooldownCount <= 0)
+            yield return new WaitForSeconds(0.01f);
+            cooldownCount++;
+            float value = (cooldownCount / cooldown);
+            charge.fillAmount = value;
+            if (value >= 1f)
             {
                 cooldownReady = true;
-                cooldownCount = cooldown;
+                cooldownCount = 0;
                 break;
             }
         }
         yield return null;
+
     }
 }

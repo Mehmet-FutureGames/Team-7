@@ -63,23 +63,32 @@ public class PlayerStatsMenu : MonoBehaviour
     {
         AudioManager.sources.Clear();
         AudioManager.audioClips.Clear();
-        cantBuyCharacter.gameObject.SetActive(false);
-        hasStartedFirstTime = PlayerPrefs.GetInt("hasStartedFirstTime") == 1;
-        currentCharacterSelected = 0;
-
-        PlayerPrefs.SetInt("currentSelectedCharacter", currentCharacterSelected);
-        characters[0].SetActive(true);
-        ChangeCharacters();
+        currentCharacterSelected = PlayerPrefs.GetInt("currentSelectedCharacter");
 
         notes = PlayerPrefs.GetInt("NoteCurrency");
         notesText = GameObject.Find("NotesAmount").GetComponent<TextMeshProUGUI>();
-        lockScreen.SetActive(false);
-        BuyCharacter();
-        savedPlayerName = stats.playerName;
+        hasStartedFirstTime = PlayerPrefs.GetInt("hasStartedFirstTime") == 1;
+        characters[currentCharacterSelected].SetActive(true);
+        RetrieveStats(currentCharacterSelected);
+
+        if (!characters[0].GetComponent<CharacterStats>().hasBeenBought)
+            BuyCharacter();
+        if (characters[currentCharacterSelected].GetComponent<CharacterStats>().hasBeenBought)
+        {
+            cantBuyCharacter.gameObject.SetActive(false);
+            lockScreen.SetActive(false);
+        }
+        else
+        {
+            cantBuyCharacter.gameObject.SetActive(true);
+            lockScreen.SetActive(true);
+        }
+
         UpdateTextUpgrade();
         if (!hasStartedFirstTime)
         {
             hasStartedFirstTime = true;
+            PlayerPrefs.SetInt("hasStartedFirstTime",hasStartedFirstTime? 1:0);
             notes = startingNotes;
             PlayerPrefs.SetInt("NoteCurrency", notes);
         }
@@ -117,6 +126,7 @@ public class PlayerStatsMenu : MonoBehaviour
                     notes -= pay;
                     notesText.text = notes.ToString();
                     lockScreen.SetActive(false);
+                    cantBuyCharacter.gameObject.SetActive(false);
                     PlayerPrefs.SetInt("boughtCharacter" + currentCharacterSelected, characters[i].GetComponent<CharacterStats>().hasBeenBought ? 1 : 0);
                     PlayerPrefs.SetInt("NoteCurrency", notes);
                 }
@@ -124,15 +134,9 @@ public class PlayerStatsMenu : MonoBehaviour
         }
     }
 
-    public void ChangeCharacters()
+    public void RetrieveStats(int i)
     {
-        for (int i = 0; i < characters.Count; i++)
-        {
-            if (characters[i].activeSelf == true)
-            {
-                stats = characters[i].GetComponent<CharacterStats>().stats;
-            }
-        }
+        stats = characters[i].GetComponent<CharacterStats>().stats;        
     }
 
     public void SelectCharacter()
@@ -155,7 +159,7 @@ public class PlayerStatsMenu : MonoBehaviour
             }
         }
         PlayerPrefs.SetInt("currentSelectedCharacter", currentCharacterSelected);
-        ChangeCharacters();
+        RetrieveStats(currentCharacterSelected);
         UpdateTextUpgrade();
         savedPlayerName = stats.playerName;
     }
@@ -165,6 +169,7 @@ public class PlayerStatsMenu : MonoBehaviour
         {
             currentCharacterSelected = Mathf.Clamp(--currentCharacterSelected, 0, 2);
             SelectCharacter();
+            PlayerPrefs.SetInt("currentSelectedCharacter", currentCharacterSelected);
         }
     }
     public void SelectCharacterPlus()
@@ -173,6 +178,7 @@ public class PlayerStatsMenu : MonoBehaviour
         {
             currentCharacterSelected = Mathf.Clamp(++currentCharacterSelected, 0, 2);
             SelectCharacter();
+            PlayerPrefs.SetInt("currentSelectedCharacter", currentCharacterSelected);
         }
     }
 
@@ -323,6 +329,7 @@ public class PlayerStatsMenu : MonoBehaviour
                         amountOfFrenzyUpgrades++;
                     }
                 }
+                confirmUpgrade.SetActive(true);
             }
         }
         if (amountofDamageUpgrades > 0 || amountOfFrenzyUpgrades > 0 || amountOfHealthUpgrades > 0)
@@ -332,7 +339,6 @@ public class PlayerStatsMenu : MonoBehaviour
         characters[currentCharacterSelected].GetComponent<CharacterStats>().UpdateText();
         notesText.text = notes.ToString();
         UpdateTextUpgrade();
-        confirmUpgrade.SetActive(true);
     }
     #region SavingAndLoadingStats
     public void SaveData()
@@ -354,6 +360,7 @@ public class PlayerStatsMenu : MonoBehaviour
         PlayerPrefs.SetInt("UpgradeHealth" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth);
         PlayerPrefs.SetInt("UpgradeDamage" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage);
         PlayerPrefs.SetInt("UpgradeFrenzy" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost);
+        PlayerPrefs.SetInt("currentSelectedCharacter", currentCharacterSelected);
         PlayerPrefs.SetInt("NoteCurrency", notes);
 
         File.WriteAllText(path, playerStatsJson.ToString());
@@ -368,14 +375,17 @@ public class PlayerStatsMenu : MonoBehaviour
             playerStatsJson = (JSONObject)JSON.Parse(jsonString);
 
             var currentCharacter = playerStatsJson["character-" + currentCharacterSelected];
+            if (currentCharacter == null)
+                return;
+            Debug.Log(currentCharacter);
             stats.health = currentCharacter["Health"];
             stats.attackDamage = currentCharacter["Damage"];
             stats.maxFrenzy = currentCharacter["Frenzy"];
+            
         }
         catch (System.Exception)
         {
             //Incase there is no save file we throw a base value into stats.
-            stats.playerName = savedPlayerName;
             stats.health = 100;
             stats.attackDamage = 20;
             stats.maxFrenzy = 10;

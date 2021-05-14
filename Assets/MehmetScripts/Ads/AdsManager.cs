@@ -47,7 +47,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         {
             hasWatchedAd = true;
             respawnPlayer.RetryButton();
-            UIManager.deathScreen.SetActive(false);
+            UIManager.noRetryScreen.SetActive(false);
         }
     }
     public void OnUnityAdsDidError(string message)

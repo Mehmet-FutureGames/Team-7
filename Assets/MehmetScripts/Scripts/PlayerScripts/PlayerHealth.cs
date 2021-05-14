@@ -22,26 +22,27 @@ public class PlayerHealth : MonoBehaviour
     {
         Invoke("Reference", 0.1f);
     }
-    private void Update()
-    {
-
-    }
     private void Reference()
     {
         playerStats = GetComponentInParent<Player>();
         movePlayer = FindObjectOfType<MovePlayer>();
         StartCoroutine(ReferenceHealth());
         comboHandler = FindObjectOfType<ComboHandler>();
-        deadScreen = UIManager.deathScreen;
+#if UNITY_STANDALONE
+        deadScreen = UIManager.deadPanelPC;
+#endif
+#if UNITY_ANDROID
+deadScreen = UIManager.gameOverPanel;
+#endif
         healthBar = GameObject.Find("HealthBar").GetComponent<Image>();
     }
 
     public void Respawn()
     {
         Time.timeScale = 1;
-    #if UNITY_ANDROID
+#if UNITY_ANDROID
         deadScreen.SetActive(false);
-    #endif
+#endif
         RefillHealth();
     }
 
@@ -115,8 +116,21 @@ public class PlayerHealth : MonoBehaviour
         }
 #endif
 #if UNITY_STANDALONE
-        Time.timeScale = 0;
-        UIManager.deadPanel.SetActive(true);
+        if (!UIManager.hasRestartedPC)
+        {
+            Time.timeScale = 0;
+            UIManager.deadPanelPC.SetActive(true);
+            UIManager.deadSlider.GetComponent<Image>().fillAmount = 0.5f * 10;
+            deadScreen.SetActive(true);
+            timerTillAdGone = Time.realtimeSinceStartup - UIManager.timer + 5;
+            StartCoroutine(StartTimerPC());
+        }
+        else
+        {
+            UIManager.gameOverPanel.SetActive(true);
+            Time.timeScale = 0;
+            Player.EnemyTransforms.Clear();
+        }
 #endif
     }
 
@@ -139,6 +153,25 @@ public class PlayerHealth : MonoBehaviour
 
             }
                         
+    }
+    IEnumerator StartTimerPC()
+    {
+        while (timerTillAdGone > 0 && !AdsManager.hasWatchedAd)
+        {
+            timerTillAdGone -= 0.050f;
+            UIManager.sliderTimerTextPC.text = timerTillAdGone.ToString("F0");
+            UIManager.timerOverSliderPC.GetComponent<Image>().fillAmount -= 0.01f;
+            if (timerTillAdGone <= 0)
+            {
+                PauseMenu.LoadMenu();
+            }
+            if (UIManager.hasRestartedPC)
+            {
+                break;
+            }
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
+
     }
 
     IEnumerator ReferenceHealth()

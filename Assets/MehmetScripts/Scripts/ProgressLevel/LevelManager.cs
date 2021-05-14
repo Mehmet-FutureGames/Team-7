@@ -42,6 +42,11 @@ public class LevelManager : MonoBehaviour
         {
             currentScene = SceneManager.GetActiveScene();
         }
+        if(SceneManager.GetSceneByName("MainMenu").buildIndex == level)
+        {
+            levelsCompletedThisRun = 0;
+            Destroy(gameObject);
+        }
         //Sets the current scene to the current level
         //To be changed (maybe)
         currentLevel = level;

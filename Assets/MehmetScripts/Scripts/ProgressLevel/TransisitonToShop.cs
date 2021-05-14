@@ -35,7 +35,6 @@ public class TransisitonToShop : MonoBehaviour
     {
         LevelManager.levelsCompletedThisRun++;
         manager.levelsCompletedOverall++;
-        Debug.Log(LevelManager.levelsCompletedThisRun);
         PlayerPrefs.SetInt("levelCompleted", manager.levelsCompletedOverall);
         SceneManager.LoadScene("CoinShop");
         hasProceeded = true;
