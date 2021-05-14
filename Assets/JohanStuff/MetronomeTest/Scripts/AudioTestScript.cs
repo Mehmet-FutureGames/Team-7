@@ -24,6 +24,23 @@ public class AudioTestScript : MonoBehaviour
     int counter;
     bool hasStartedTapping;
     bool hasAddedList;
+    [SerializeField]SpriteRenderer circleIndicator;
+    public bool HasStartedTapping
+    {
+        get { return hasStartedTapping; }
+        set
+        {
+            hasStartedTapping = value;
+            if (hasStartedTapping)
+            {
+                circleIndicator.color = new Color(1, 0.6f, 0.6f);
+            }
+            else
+            {
+                circleIndicator.color = new Color(1, 1, 1);
+            }
+        }
+    }
 
     [SerializeField] GameObject saveButtonMenu;
     [SerializeField] GameObject saveButtonSettings;
@@ -56,14 +73,14 @@ public class AudioTestScript : MonoBehaviour
     {
         if (((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.X)) && counter < 11) && metronome.enabled)
         {
-            if (hasStartedTapping)
+            if (HasStartedTapping)
             {
                 inputVal = Time.time;
                 inputValList.Add(inputVal);
                 Debug.Log(inputVal);
                 counter++;
             }
-            hasStartedTapping = true;
+            HasStartedTapping = true;
         }
         if((inputValList.Count == 10 && beatValList.Count == 10) && !hasAddedList)
         {
@@ -81,6 +98,7 @@ public class AudioTestScript : MonoBehaviour
             
             metronome.enabled = false;
             hasAddedList = true;
+            HasStartedTapping = false;
         }
         if(inputValList.Count > 10 || beatValList.Count > 10)
         {
@@ -91,7 +109,7 @@ public class AudioTestScript : MonoBehaviour
     {
         value = 0;
         hasAddedList = false;
-        hasStartedTapping = false;
+        HasStartedTapping = false;
         counter = 0;
         storedValues.Clear();
         inputValList.Clear();
@@ -117,7 +135,7 @@ public class AudioTestScript : MonoBehaviour
     }
     void OnDownBeat()
     {
-        if (hasStartedTapping && counter < 10)
+        if (HasStartedTapping && counter < 10)
         {
             beatVal = Time.time;
             beatValList.Add(beatVal);

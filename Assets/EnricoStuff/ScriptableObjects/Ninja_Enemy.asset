@@ -32,7 +32,7 @@ MonoBehaviour:
   notesToMove: 1
   attackDamage: 20
   attackRange: 20
-  health: 75
+  health: 50
   noteDropChance: 6.9
   coinMinDropCount: 1
   coinMaxDropCount: 2
