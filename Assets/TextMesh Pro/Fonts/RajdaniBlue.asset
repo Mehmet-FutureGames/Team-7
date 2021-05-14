@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: Rajdhani-Light SDF
+  m_Name: RajdaniBlue
   m_EditorClassIdentifier: 
-  hashCode: -1342750607
+  hashCode: -499894555
   material: {fileID: 1624186693579880278}
-  materialHashCode: 447165233
+  materialHashCode: -106061787
   m_Version: 1.1.0
   m_SourceFontFileGUID: 7c429d3efde515b408bf050577b0c9b0
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 7c429d3efde515b408bf050577b0c9b0,
@@ -2614,7 +2614,7 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.155
+    - _OutlineWidth: 0.412
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.8333333
