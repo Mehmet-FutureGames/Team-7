@@ -19010,7 +19010,7 @@ GameObject:
   - component: {fileID: 3926097763226772322}
   - component: {fileID: 3893139642825177656}
   m_Layer: 0
-  m_Name: FX_LazerBeam_01 (2)
+  m_Name: Big_Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19224,7 +19224,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.11764705, g: 0.18946378, b: 1, a: 1}
+      maxColor: {r: 0.93725497, g: 0.72156864, b: 0.21176472, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
