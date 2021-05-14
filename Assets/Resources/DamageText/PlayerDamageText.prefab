@@ -83,7 +83,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3411471724750393966}
-  m_Text: 'Damage
+  m_Text: '
 
 '
   m_OffsetZ: 0
