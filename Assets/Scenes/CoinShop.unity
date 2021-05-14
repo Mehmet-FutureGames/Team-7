@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.054155625, g: 0.019300435, b: 0.02867682, a: 1}
+  m_IndirectSpecularColor: {r: 0.13731214, g: 0.064152926, b: 0.08176584, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 2a3d8a308a8c7f94c99d2365d7f65d87,
+  m_LightingDataAsset: {fileID: 112000000, guid: 908472ee82297b74da881c96b18fe06e,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 434be4687cf20e743b390f342991490c,
     type: 2}
@@ -1629,15 +1629,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 563273943502274850, guid: 07a0797e9f31faa419fa3697f5698f6e,
-        type: 3}
-      propertyPath: m_text
-      value: 'Welcome to the shop!
-
-
-        Here you can use your coins to buy awesome
-        upgrades. '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a0797e9f31faa419fa3697f5698f6e, type: 3}
@@ -11786,6 +11777,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 270256257, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
+      propertyPath: m_Color.b
+      value: 0.32941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 270256257, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6156863
+      objectReference: {fileID: 0}
+    - target: {fileID: 270256257, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8980393
+      objectReference: {fileID: 0}
+    - target: {fileID: 270256257, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
+      propertyPath: m_Intensity
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 754980702, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 754980702, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 754980702, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 754980702, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
+      propertyPath: m_Intensity
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 767601335, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.85
@@ -11841,6 +11864,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1624186693579880278, guid: d2ef313347daf6c45ae161e3d87edd89,
         type: 2}
+    - target: {fileID: 794408701, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
+      propertyPath: m_Range
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147997606, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
+      propertyPath: m_Color.b
+      value: 0.32156864
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147997606, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
+      propertyPath: m_Color.g
+      value: 0.62352943
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147997606, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
+      propertyPath: m_Color.r
+      value: 0.90196085
+      objectReference: {fileID: 0}
     - target: {fileID: 1655188030, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
       propertyPath: m_text
       value: shop
@@ -11868,6 +11907,22 @@ PrefabInstance:
     - target: {fileID: 1655188032, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 3.755
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796223149, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796223149, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796223149, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796223149, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
+      propertyPath: m_Intensity
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 356292055034090012, guid: 95f3b341ff7fe0d4281c8964895abd80,
         type: 3}

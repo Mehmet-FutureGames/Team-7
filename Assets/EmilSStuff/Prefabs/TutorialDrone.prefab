@@ -215,8 +215,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This is the starter shop, here you can use the notes that you've gained
-    in previous runs to buy items that will boost your next run!
+  m_text: 'Welcome to the shop!
+
+
+    Here you can use your coins to buy awesome
+    upgrades. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d051e092a0dc1634b8d1c10ffada6d0f, type: 2}
   m_sharedMaterial: {fileID: 1624186693579880278, guid: d051e092a0dc1634b8d1c10ffada6d0f,
@@ -370,6 +373,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23638827291034866, guid: 5d594cd7305e4cc49bcb17f30167185a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5846f1c3c4e5f1e42b95451831844600, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d594cd7305e4cc49bcb17f30167185a, type: 3}
 --- !u!1 &563737339530054286 stripped
