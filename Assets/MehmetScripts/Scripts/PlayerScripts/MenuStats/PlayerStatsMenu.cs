@@ -13,7 +13,7 @@ public class PlayerStatsMenu : MonoBehaviour
     [SerializeField] int amountOfFrenzyUpgrades;
 
 
-    public static bool hasStartedFirstTime = false;
+    public bool hasStartedFirstTime = false;
 
     [SerializeField] PlayerStats stats;
 
@@ -87,7 +87,6 @@ public class PlayerStatsMenu : MonoBehaviour
         UpdateTextUpgrade();
         if (!hasStartedFirstTime)
         {
-            hasStartedFirstTime = true;
             PlayerPrefs.SetInt("hasStartedFirstTime",hasStartedFirstTime? 1:0);
             notes = startingNotes;
             PlayerPrefs.SetInt("NoteCurrency", notes);
@@ -107,13 +106,14 @@ public class PlayerStatsMenu : MonoBehaviour
             LoadData();
         }
         notesText.text = notes.ToString();
+        UpdateTextUpgrade();
     }
 
     private void UpdateTextUpgrade()
     {
-        frenzyText.text = characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost.ToString();
-        damageText.text = characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage.ToString();
-        healthText.text = characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth.ToString();
+        frenzyText.text = PlayerPrefs.GetInt("UpgradeFrenzy" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost).ToString();
+        damageText.text = PlayerPrefs.GetInt("UpgradeDamage" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost).ToString();
+        healthText.text = PlayerPrefs.GetInt("UpgradeHealth" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost).ToString();
     }
 
     public void BuyCharacter()
@@ -308,6 +308,7 @@ public class PlayerStatsMenu : MonoBehaviour
                         stats.health += 5;
                         notes -= characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth;
                         characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth += upgradeNotesAmount;
+                        PlayerPrefs.SetInt("UpgradeHealth" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth);
                         RemoveUpgrade(0);
                         amountOfHealthUpgrades++;
                     }
@@ -319,6 +320,7 @@ public class PlayerStatsMenu : MonoBehaviour
                         stats.attackDamage += 5;
                         notes -= characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage;
                         characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage += upgradeNotesAmount;
+                        PlayerPrefs.SetInt("UpgradeDamage" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage);
                         RemoveUpgrade(1);
                         amountofDamageUpgrades++;
                     }
@@ -330,6 +332,7 @@ public class PlayerStatsMenu : MonoBehaviour
                         stats.maxFrenzy += 5;
                         notes -= characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost;
                         characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost += upgradeNotesAmount;
+                        PlayerPrefs.SetInt("UpgradeFrenzy" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost);
                         RemoveUpgrade(2);
                         amountOfFrenzyUpgrades++;
                     }
@@ -365,6 +368,7 @@ public class PlayerStatsMenu : MonoBehaviour
         PlayerPrefs.SetInt("UpgradeHealth" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth);
         PlayerPrefs.SetInt("UpgradeDamage" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage);
         PlayerPrefs.SetInt("UpgradeFrenzy" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost);
+        Debug.Log(PlayerPrefs.GetInt("UpgradeFrenzy" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost));
         PlayerPrefs.SetInt("currentSelectedCharacter", currentCharacterSelected);
         PlayerPrefs.SetInt("NoteCurrency", notes);
 

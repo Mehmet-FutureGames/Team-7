@@ -93,9 +93,12 @@ public class NinjaCombatP1 : State
     {
         for (int i = 0; i < arrows.Count; i++)
         {
-            if (arrows[i].activeSelf)
+            if (arrows[i] != null)
             {
-                arrows[i].SetActive(false);
+                if (arrows[i].activeSelf)
+                {
+                    arrows[i].SetActive(false);
+                }
             }
         }
     }
@@ -103,9 +106,12 @@ public class NinjaCombatP1 : State
     {
         for (int i = 0; i < arrows.Count; i++)
         {
-            if (arrows[i].activeSelf)
+            if (arrows[i] != null)
             {
-                arrows[i].SetActive(false);
+                if (arrows[i].activeSelf)
+                {
+                    arrows[i].SetActive(false);
+                }
             }
         }
     }

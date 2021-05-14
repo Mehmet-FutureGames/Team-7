@@ -7,6 +7,7 @@ using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
+    PlayerStatsMenu playerStatsMenu;
     public static bool hasGoneToSettings = false;
     int levelSelected;
     LevelManager manager;
@@ -30,6 +31,7 @@ public class MainMenu : MonoBehaviour
         hasGoneToSettings = false;
         mixer = Resources.Load<AudioMixer>("MainMixer");
         manager = FindObjectOfType<LevelManager>();
+        playerStatsMenu = FindObjectOfType<PlayerStatsMenu>();
         LoadVolume();
     }
 
@@ -110,7 +112,12 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame()
     {
-        if(GetComponentInChildren<CharacterStats>().hasBeenBought && PlayerStatsMenu.hasStartedFirstTime && !PlayerStatsMenu.hasUpgraded)
+        Debug.Log(playerStatsMenu.hasStartedFirstTime);
+        if (!playerStatsMenu.hasStartedFirstTime && !PlayerStatsMenu.hasUpgraded)
+        {
+            StartCoroutine(SceneFader.FadeOut(StartTutorial));
+        }
+        else if(GetComponentInChildren<CharacterStats>().hasBeenBought && playerStatsMenu.hasStartedFirstTime && !PlayerStatsMenu.hasUpgraded)
         {
             StartCoroutine(SceneFader.FadeOut(PlayGameMethod));
         }
@@ -122,17 +129,17 @@ public class MainMenu : MonoBehaviour
         {
             StartCoroutine(GetComponent<PlayerStatsMenu>().CantBuyChar());
         }
-        if (!PlayerStatsMenu.hasStartedFirstTime && !PlayerStatsMenu.hasUpgraded)
-        {
-            SceneManager.LoadScene("TutorialPC");
-            PlayerStatsMenu.hasStartedFirstTime = true;
-            PlayerPrefs.SetInt("hasStartedFirstTime", PlayerStatsMenu.hasStartedFirstTime ? 1 : 0);
-        }
-        else if (GetComponentInChildren<CharacterStats>().hasBeenBought && PlayerStatsMenu.hasStartedFirstTime && !PlayerStatsMenu.hasUpgraded)
+        else if (GetComponentInChildren<CharacterStats>().hasBeenBought && playerStatsMenu.hasStartedFirstTime && !PlayerStatsMenu.hasUpgraded)
         {
             SceneManager.LoadScene("Shop");
         }
         FindObjectOfType<MusicSingleton>().DestroyThis();
+    }
+    private void StartTutorial()
+    {
+        SceneManager.LoadScene("TutorialPC");
+        playerStatsMenu.hasStartedFirstTime = true;
+        PlayerPrefs.SetInt("hasStartedFirstTime", playerStatsMenu.hasStartedFirstTime ? 1 : 0);
     }
 
     public void Settings()
