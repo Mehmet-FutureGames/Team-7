@@ -13,7 +13,7 @@ public class PlayerStatsMenu : MonoBehaviour
     [SerializeField] int amountOfFrenzyUpgrades;
 
 
-    public static bool hasStartedFirstTime = false;
+    public bool hasStartedFirstTime = false;
 
     [SerializeField] PlayerStats stats;
 
@@ -87,7 +87,6 @@ public class PlayerStatsMenu : MonoBehaviour
         UpdateTextUpgrade();
         if (!hasStartedFirstTime)
         {
-            hasStartedFirstTime = true;
             PlayerPrefs.SetInt("hasStartedFirstTime",hasStartedFirstTime? 1:0);
             notes = startingNotes;
             PlayerPrefs.SetInt("NoteCurrency", notes);
