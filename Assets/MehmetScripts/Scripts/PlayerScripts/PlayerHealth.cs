@@ -8,12 +8,22 @@ public class PlayerHealth : MonoBehaviour
 {
     Player playerStats;
     [HideInInspector] public float currentHealth;
+    public float CurrentHealth
+    {
+        get { return currentHealth; }
+        set
+        {
+            currentHealth = value;
+            healthSlider.value = currentHealth;
+        }
+    }
+    float HPSliderMaxScale;
     float defaultMaxHealth = 100f;
     float timerTillAdGone;
 
     GameObject deadScreen;
     Image healthBar;
-
+    Slider healthSlider;
     MovePlayer movePlayer;
 
     ComboHandler comboHandler;
@@ -35,6 +45,7 @@ public class PlayerHealth : MonoBehaviour
 deadScreen = UIManager.gameOverPanel;
 #endif
         healthBar = GameObject.Find("HealthBar").GetComponent<Image>();
+        healthSlider = GameObject.Find("HealthSlider").GetComponent<Slider>();
     }
 
     public void Respawn()
@@ -54,7 +65,7 @@ deadScreen = UIManager.gameOverPanel;
         {
             CameraFollowPlayer.Instance.CameraShake();
             comboHandler.SetCombo(0);
-            currentHealth -= damage;
+            CurrentHealth -= damage;
             if (movePlayer.MovementValue < 3)
             {
                 if (playerStats.playerDamageText)
@@ -62,7 +73,7 @@ deadScreen = UIManager.gameOverPanel;
                     ShowFloatingText(damage);
                     AudioManager.PlaySound("NormalSwings", "PlayerSound");
                 }
-                if (currentHealth <= 0)
+                if (CurrentHealth <= 0)
                 {
                     Dead();
                 }
@@ -79,7 +90,7 @@ deadScreen = UIManager.gameOverPanel;
         {
             CameraFollowPlayer.Instance.CameraShake();
             comboHandler.SetCombo(0);
-            currentHealth -= damage;
+            CurrentHealth -= damage;
             if (movePlayer.MovementValue < 3)
             {
                 if (playerStats.playerDamageText)
@@ -95,7 +106,7 @@ deadScreen = UIManager.gameOverPanel;
                     }
                     
                 }
-                if (currentHealth <= 0)
+                if (CurrentHealth <= 0)
                 {
                     Dead();
                 }
@@ -110,7 +121,7 @@ deadScreen = UIManager.gameOverPanel;
     public void TakeUnblockableDamage(float damage)
     {
         CameraFollowPlayer.Instance.CameraShake();
-        currentHealth -= damage;
+        CurrentHealth -= damage;
         AudioManager.PlaySound("Monster Takes Damage 10", "PlayerSound");
         if (movePlayer.MovementValue < 3)
         {
@@ -127,7 +138,7 @@ deadScreen = UIManager.gameOverPanel;
     public void TakeUnblockableDamage(float damage, string damageSound)
     {
         CameraFollowPlayer.Instance.CameraShake();
-        currentHealth -= damage;
+        CurrentHealth -= damage;
         if (damageSound == null || damageSound == "")
         {
             AudioManager.PlaySound("Monster Takes Damage 10", "PlayerSound");
@@ -142,7 +153,7 @@ deadScreen = UIManager.gameOverPanel;
             {
                 ShowFloatingText(damage);
             }
-            if (currentHealth <= 0)
+            if (CurrentHealth <= 0)
             {
                Dead();
             }
@@ -237,19 +248,28 @@ deadScreen = UIManager.gameOverPanel;
     IEnumerator ReferenceHealth()
     {
         yield return new WaitForSeconds(0.1f);
-        currentHealth = playerStats.maxHealth;
+        CurrentHealth = playerStats.maxHealth;
+
+        healthSlider.maxValue = playerStats.maxHealth;
+        healthSlider.value = healthSlider.maxValue;
+
         healthBar.transform.parent.localScale = new Vector2(healthBar.transform.parent.localScale.x * (playerStats.maxHealth / defaultMaxHealth), healthBar.transform.parent.localScale.y);
         healthBar.fillAmount = currentHealth / playerStats.maxHealth;
     }
     private void RefillHealth()
     {
+        healthSlider.value = healthSlider.maxValue;
         healthBar.fillAmount = currentHealth / playerStats.maxHealth;
     }
 
     public void UpgradeHealth(float upgradedHealth)
     {
+        healthSlider.maxValue += upgradedHealth;
+        healthSlider.value = healthSlider.maxValue;
+        healthSlider.transform.localScale = new Vector2(Mathf.Clamp(healthSlider.transform.localScale.x * healthSlider.maxValue / 100, 1, 2) , healthSlider.transform.localScale.y);
+
         playerStats.maxHealth += upgradedHealth;
-        GetComponent<PlayerHealth>().currentHealth = playerStats.maxHealth;
+        GetComponent<PlayerHealth>().CurrentHealth = playerStats.maxHealth;
         healthBar.transform.parent.localScale = new Vector2(healthBar.transform.parent.localScale.x * (playerStats.maxHealth / defaultMaxHealth), healthBar.transform.parent.localScale.y);
         healthBar.fillAmount = currentHealth / playerStats.maxHealth;
         RefillHealth();
@@ -257,10 +277,10 @@ deadScreen = UIManager.gameOverPanel;
 
     public void RecoverHealth(float healthRecovered)
     {
-        currentHealth += healthRecovered;
-        if(currentHealth > playerStats.maxHealth)
+        CurrentHealth += healthRecovered;
+        if(CurrentHealth > playerStats.maxHealth)
         {
-            currentHealth = playerStats.maxHealth;
+            CurrentHealth = playerStats.maxHealth;
         }
         healthBar.fillAmount = currentHealth / playerStats.maxHealth;
     }
