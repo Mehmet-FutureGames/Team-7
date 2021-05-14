@@ -358,6 +358,10 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector3(0, 0, -42);
         }
+        else if (level == SceneManager.GetSceneByName("Level_3").buildIndex)
+        {
+            transform.position = new Vector3(0, 0, -42);
+        }
         else
         {
             gameMode = false;
