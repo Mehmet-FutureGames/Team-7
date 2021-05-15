@@ -85,7 +85,7 @@ public class ComboHandler : MonoBehaviour
             StartCoroutine(Slide());
         }
     }
-    IEnumerator Slide()
+    IEnumerator Slide() // moves the combo slider down every time a beatNote spwans. To move it to the beat instead of just moving it down with time.
     {
         sliderRunning = true;
         float startSliderVal = slider.value;

@@ -11,7 +11,7 @@ public class PlayerFire : MonoBehaviour
 
     void DisableAfterSeconds()
     {
-        gameObject.SetActive(false);
+        gameObject.SetActive(false); // using Set active(false) since it's part of the objectpooler.
     }
 
     private void OnDisable()

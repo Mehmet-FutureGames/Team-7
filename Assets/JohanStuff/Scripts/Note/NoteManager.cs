@@ -38,7 +38,6 @@ public class NoteManager : MonoBehaviour
     private void Awake()
     {
         camera = Camera.main;
-        //LoadPresetData();
         noteHandler = FindObjectOfType<NoteHandler>();
         player = FindObjectOfType<Player>();
     }
