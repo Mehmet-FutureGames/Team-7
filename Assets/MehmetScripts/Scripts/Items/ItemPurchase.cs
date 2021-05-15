@@ -117,7 +117,7 @@ public class ItemPurchase : MonoBehaviour
             else if (itemType == ItemType.ComboSaverUpgrade && player.GetComponent<PlayerCoinHandler>().coins >= itemCost)
             {
                 float upgrade = upgradeAmount;
-                ComboHandler.Instance.comboDepletionMult *= upgrade;
+                ComboHandler.Instance.comboDepletionCount += (int)upgrade;
                 PlayerCoinHandler.Instance.Coins -= itemCost;
                 AudioManager.PlaySound("SingeCoinSound", "VFXSound");
                 ItemCanvas.isInBuyArea = false;
@@ -172,7 +172,7 @@ public class ItemPurchase : MonoBehaviour
             else if (itemType == ItemType.ComboSaverUpgrade && player.GetComponent<NoteCurrencyHandler>().NoteCurrency >= itemCostNotes)
             {
                 float upgrade = upgradeAmount;
-                ComboHandler.Instance.comboDepletionMult *= upgrade;
+                ComboHandler.Instance.comboDepletionCount += (int)upgrade;
                 NoteCurrencyHandler.Instance.NoteCurrency -= itemCostNotes;
                 AudioManager.PlaySound("SingeCoinSound", "VFXSound");
                 ItemCanvas.isInBuyArea = false;
