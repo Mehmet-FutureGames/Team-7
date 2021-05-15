@@ -21,6 +21,7 @@ public class NoteHandler : MonoBehaviour
     int counter;
     bool delayDone;
     bool delayStarted;
+    bool isInShop;
     private void Awake()
     {
         noteManager = FindObjectOfType<NoteManager>();
@@ -35,27 +36,31 @@ public class NoteHandler : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (PressAnyKey.hasStarted)
+        if (!NoteManager.IsInShop)
         {
-            if(delayDone == false && delayStarted == false)
+            if (PressAnyKey.hasStarted)
             {
-                StartCoroutine(StartDelay());
-                delayStarted = true;
-            }
-            else if (delayDone)
-            {
-                timer += Time.fixedDeltaTime;
-                if (timer >= (60 / noteManager.beatTempo) * noteManager.difficultyMultiplier)
+                if (delayDone == false && delayStarted == false)
                 {
-                    Instantiate(notePrefab, transform.position, Quaternion.identity, ObjectPooler.Instance.transform);
-                    timer -= (60 / noteManager.beatTempo) * noteManager.difficultyMultiplier;
-                    if (beat != null)
+                    StartCoroutine(StartDelay());
+                    delayStarted = true;
+                }
+                else if (delayDone)
+                {
+                    timer += Time.fixedDeltaTime;
+                    if (timer >= (60 / noteManager.beatTempo) * noteManager.difficultyMultiplier)
                     {
-                        beat();
+                        Instantiate(notePrefab, transform.position, Quaternion.identity, ObjectPooler.Instance.transform);
+                        timer -= (60 / noteManager.beatTempo) * noteManager.difficultyMultiplier;
+                        if (beat != null)
+                        {
+                            beat();
+                        }
                     }
                 }
             }
         }
+
     }
 
     public IEnumerator Wait()
@@ -63,16 +68,16 @@ public class NoteHandler : MonoBehaviour
         yield return new WaitForSeconds(0.0001f);
         Vector3 delayOffset = new Vector3(noteManager.noteStartDelay, 0, 0);
         Instantiate(notePrefab, transform.position, Quaternion.identity, ObjectPooler.Instance.transform);
-        Instantiate(notePrefab, transform.position +Vector3.right * 2 - delayOffset, Quaternion.identity, ObjectPooler.Instance.transform);
+        Instantiate(notePrefab, transform.position + Vector3.right * 2 - delayOffset, Quaternion.identity, ObjectPooler.Instance.transform);
         Instantiate(notePrefab, transform.position + Vector3.right * 4 - delayOffset, Quaternion.identity, ObjectPooler.Instance.transform);
         Instantiate(notePrefab, transform.position + Vector3.right * 6 - delayOffset, Quaternion.identity, ObjectPooler.Instance.transform);
     }
 
         IEnumerator StartDelay()
-    {
-        yield return new WaitForSeconds(startDelay);
-        delayDone = true;
-    }
+        {
+            yield return new WaitForSeconds(startDelay);
+            delayDone = true;
+        }
 
     private void OnLevelWasLoaded(int level)
     {

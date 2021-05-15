@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class MovePlayer : MonoBehaviour
 {
@@ -38,14 +39,14 @@ public class MovePlayer : MonoBehaviour
     Player player;
 
     Camera camera;
-
+    bool isInShop;
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void Awake()
     {
         mousePos = transform.position;
         publisher = FindObjectOfType<NotePublisher>();
-        publisher.noteHit += DelayMove;
+        
         player = GetComponent<Player>();
         camera = Camera.main;
     }
@@ -56,7 +57,16 @@ public class MovePlayer : MonoBehaviour
         moveSpeedModifier = characterManager.playerMovementSpeedModifier;
         moveSpeedMultiplier = characterManager.playerMovementSpeedMultiplier;
     }
-
+    private void Update()
+    {
+        if (isInShop)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                MovePlayerToMousePos();
+            }
+        }
+    }
     private void MoveCharacter()
     {
         if (!collided && !hitWall)
@@ -163,6 +173,21 @@ public class MovePlayer : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
+        if (publisher.noteHit != null)
+        {
+            publisher.noteHit -= DelayMove;
+        }
+        if (level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex)
+        {
+            isInShop = true;
+        }
+        else
+        {
+            isInShop = false;
+            publisher.noteHit += DelayMove;
+        }
+
+        
         MovementValue = 0;
         player = GetComponent<Player>();
     }
