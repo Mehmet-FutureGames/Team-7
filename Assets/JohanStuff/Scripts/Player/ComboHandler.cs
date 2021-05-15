@@ -140,6 +140,7 @@ public class ComboHandler : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
+        slider.gameObject.SetActive(false);
         Combo = 0;
         displayCombo.text = "";
     }

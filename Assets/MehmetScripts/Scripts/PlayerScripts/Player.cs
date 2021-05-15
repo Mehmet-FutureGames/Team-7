@@ -334,7 +334,10 @@ public class Player : MonoBehaviour
                 GetComponent<TrailRenderer>().time = 60 / FindObjectOfType<NoteManager>().beatTempo * 0.25f;
                 break;
         }
-
+        if (NoteManager.IsInShop)
+        {
+            GetComponent<TrailRenderer>().time = 0.1f;
+        }
     }
     private void OnLevelWasLoaded(int level)
     {

@@ -34,6 +34,7 @@ public class NoteManager : MonoBehaviour
     [SerializeField] CalibrationSaver calibrationSaver;
     Camera camera;
     public static float currentSongMaxVolume;
+    public static bool IsInShop;
     private void Awake()
     {
         camera = Camera.main;
@@ -55,7 +56,10 @@ public class NoteManager : MonoBehaviour
         clip = preset.audioClip;
         camera.GetComponent<AudioSource>().clip = clip;
         noteHandler.NoteHandlerInitialize();
-        noteHandler.StartCoroutine(noteHandler.Wait());
+        if (!IsInShop)
+        {
+            noteHandler.StartCoroutine(noteHandler.Wait());
+        }
         player.SetTrailSpeed();
     }
     public void SetDifficulty()
@@ -93,6 +97,7 @@ public class NoteManager : MonoBehaviour
         player.GetComponent<TrailRenderer>().enabled = false;
         if(level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex)
         {
+            IsInShop = true;
             LoadPresetData(shopSongPreset);
             PressAnyKey.hasStarted = true; 
             cameraAnim.enabled = false;
@@ -100,6 +105,7 @@ public class NoteManager : MonoBehaviour
         }
         else if( level == SceneManager.GetSceneByName("EmilSTestScene").buildIndex)
         {
+            IsInShop = false;
             LoadPresetData(emilSSceneSongPreset);
             cameraAnim.enabled = true;
             cameraAnim.Play("CameraStartAnim", 0, 0f);
@@ -107,6 +113,7 @@ public class NoteManager : MonoBehaviour
         }
         else if (level == SceneManager.GetSceneByName("Level_2").buildIndex)
         {
+            IsInShop = false;
             LoadPresetData(enricoSceneSongPreset);
             cameraAnim.enabled = true;
             cameraAnim.Play("CameraStartAnim", 0, 0f);
@@ -114,6 +121,7 @@ public class NoteManager : MonoBehaviour
         }
         else if (level == SceneManager.GetSceneByName("Level_3").buildIndex)
         {
+            IsInShop = false;
             LoadPresetData(enricoSceneSongPreset);
             cameraAnim.enabled = true;
             cameraAnim.Play("CameraStartAnim", 0, 0f);

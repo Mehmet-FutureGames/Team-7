@@ -24,6 +24,7 @@ public class NoteObject : MonoBehaviour
     void Start()
     {
         scaleValue = 0;
+        transform.localScale = new Vector3(0, 0, 0);
         StartCoroutine(SizePop());
     }
     IEnumerator SizePop()
@@ -53,9 +54,9 @@ public class NoteObject : MonoBehaviour
     }
     private void OnEnable()
     {
-        transform.localScale = new Vector3(0, 0, 0);
+        
         deActivated = false;
-        //gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.white;
+        
     }
     private void OnLevelWasLoaded(int level)
     {
