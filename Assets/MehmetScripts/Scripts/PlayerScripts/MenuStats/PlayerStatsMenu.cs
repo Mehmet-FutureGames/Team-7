@@ -75,6 +75,11 @@ public class PlayerStatsMenu : MonoBehaviour
         AudioManager.audioClips.Clear();
         currentCharacterSelected = PlayerPrefs.GetInt("currentSelectedCharacter");
 
+        if (!characters[currentCharacterSelected].GetComponent<CharacterStats>().hasBeenBought)
+        {
+            characters[currentCharacterSelected].GetComponentInChildren<SkinnedMeshRenderer>().material = lockedMaterial;
+        }
+
         notes = PlayerPrefs.GetInt("NoteCurrency");
         notesText = GameObject.Find("NotesAmount").GetComponent<TextMeshProUGUI>();
         hasStartedFirstTime = PlayerPrefs.GetInt("hasStartedFirstTime") == 1;
