@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   songName: Looperman
   BPM: 90
-  audioClip: {fileID: 8300000, guid: 09b2c03fb740a514cb8780a647fe811c, type: 3}
+  audioClip: {fileID: 8300000, guid: 8d17f19ae5a7fc04cab9c5dbde4398bd, type: 3}
   volume: 1
   noteStartDelay: 0
