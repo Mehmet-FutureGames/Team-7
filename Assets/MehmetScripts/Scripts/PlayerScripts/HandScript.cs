@@ -7,6 +7,7 @@ public class HandScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Adds a sword to the player to the hand.
         var sword = Instantiate(GetComponentInParent<PlayerModels>().models[3], transform.position,Quaternion.identity, transform);
         sword.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         sword.transform.localRotation = Quaternion.Euler(new Vector3(270, 0, 0));
