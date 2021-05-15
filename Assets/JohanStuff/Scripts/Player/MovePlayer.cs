@@ -126,7 +126,7 @@ public class MovePlayer : MonoBehaviour
         {
             hitWall = false;
             newPosition = this.hit.point;
-            mousePos = newPosition + new Vector3(0, 1, 0);
+            mousePos = newPosition;
             lookDir = newPosition + new Vector3(0, 1, 0);
             raycastDir = (mousePos - transform.position).normalized;
             raycastDistance = (mousePos - transform.position).magnitude;
@@ -137,8 +137,8 @@ public class MovePlayer : MonoBehaviour
         if (Physics.Raycast(transform.position, raycastDir, out hit, raycastDistance, obstaclLayer))
         {
             hitWall = true;
-            Vector3 point = new Vector3(hit.point.x, 1, hit.point.z);
-            Vector3 pointToNormalPos = new Vector3(hit.normal.x, 0, hit.normal.z) + point;
+            Vector3 point = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+            Vector3 pointToNormalPos = new Vector3(hit.normal.x, hit.normal.y, hit.normal.z) + point;
             mousePos = pointToNormalPos;
         }
         if(!hitWall && TargetEnemy.hasTarget)

@@ -255,6 +255,7 @@ public class Player : MonoBehaviour
         if (character == null)
         {
             character = Instantiate(stats.playerModel, transform);
+            
             character.transform.localScale = new Vector3(2, 2, 2);
         }
         movePlayer = GetComponent<MovePlayer>();
