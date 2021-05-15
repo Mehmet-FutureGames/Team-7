@@ -87,7 +87,7 @@ TextMesh:
 
 '
   m_OffsetZ: 0
-  m_CharacterSize: 0.1
+  m_CharacterSize: 0.2
   m_LineSpacing: 1
   m_Anchor: 1
   m_Alignment: 1
@@ -130,4 +130,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a86630a56cf2a46987bed904f2d1d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyTime: 1.05
+  destroyTime: 0.75
