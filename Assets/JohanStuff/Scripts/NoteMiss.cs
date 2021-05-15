@@ -36,12 +36,15 @@ public class NoteMiss : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        StartCoroutine(WaitForCount());
-        
+        if (!NoteManager.IsInShop)
+        {
+            StartCoroutine(WaitForCount());
+        }
     }
     IEnumerator WaitForCount()
     {
         yield return new WaitForSeconds(0.01f);
         TriggerCount = 0;
     }
+
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyIndicator : MonoBehaviour
 {
+    // A script that is put on every enemy model.
+    // Instantiates an arrow on the player position and puts the direction of it towards the enemy model.
     [SerializeField]GameObject indicatorPrefab;
     GameObject obj;
     Transform player;

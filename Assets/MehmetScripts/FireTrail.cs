@@ -41,7 +41,7 @@ public class FireTrail : ActiveItems
             SpawnFire();
     }
 
-    void SetTimer()
+    void SetTimer() // Set the timer when the player moves so it doesn't wait too long to spawn fires.
     {
         timer = 0.01f;
     }

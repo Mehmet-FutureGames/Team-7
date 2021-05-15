@@ -50,7 +50,7 @@ public class NoteHandler : MonoBehaviour
                     timer += Time.fixedDeltaTime;
                     if (timer >= (60 / noteManager.beatTempo) * noteManager.difficultyMultiplier)
                     {
-                        Instantiate(notePrefab, transform.position, Quaternion.identity, ObjectPooler.Instance.transform);
+                        Instantiate(notePrefab, transform.position, Quaternion.identity, ObjectPooler.Instance.transform); // spawns beatNotes to the beat.
                         timer -= (60 / noteManager.beatTempo) * noteManager.difficultyMultiplier;
                         if (beat != null)
                         {
@@ -65,6 +65,7 @@ public class NoteHandler : MonoBehaviour
 
     public IEnumerator Wait()
     {
+        // Instantiates beatNotes to be able to move sooner when the game starts.
         yield return new WaitForSeconds(0.0001f);
         Vector3 delayOffset = new Vector3(noteManager.noteStartDelay, 0, 0);
         Instantiate(notePrefab, transform.position, Quaternion.identity, ObjectPooler.Instance.transform);
@@ -75,7 +76,7 @@ public class NoteHandler : MonoBehaviour
 
         IEnumerator StartDelay()
         {
-            yield return new WaitForSeconds(startDelay);
+            yield return new WaitForSeconds(startDelay); // delays the spawning of beatNotes so it syncs better with the music. this is the calibration delay.
             delayDone = true;
         }
 
@@ -84,9 +85,6 @@ public class NoteHandler : MonoBehaviour
         timer = 0;
         delayDone = false;
         delayStarted = false;
-        if (level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex)
-        {
 
-        }
     }
 }

@@ -12,11 +12,11 @@ public class AttackProjectile : ActiveItems
 
     }
 
-    public override void PerformAction()
+    public override void PerformAction()// fires multiple homing projectiles that moves towards enemies.
     {
         if (cooldownReady)
         {
-            AudioManager.PlaySound("AttackProjectileClip", "PlayerSound");
+            AudioManager.PlaySound("AttackProjectileClip", "PlayerSound"); 
             cooldownReady = false;
             for (int i = 0; i < projectileCount; i++)
             {

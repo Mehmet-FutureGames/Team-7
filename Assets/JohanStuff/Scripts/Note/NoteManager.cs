@@ -38,7 +38,6 @@ public class NoteManager : MonoBehaviour
     private void Awake()
     {
         camera = Camera.main;
-        //LoadPresetData();
         noteHandler = FindObjectOfType<NoteHandler>();
         player = FindObjectOfType<Player>();
     }
@@ -102,6 +101,10 @@ public class NoteManager : MonoBehaviour
             PressAnyKey.hasStarted = true; 
             cameraAnim.enabled = false;
             camera.GetComponent<AudioSource>().Play();
+            GameObject noteObj = Instantiate(noteHandler.notePrefab);
+            noteObj.GetComponentInChildren<SpriteRenderer>().enabled = false;
+            noteObj.GetComponent<NoteObject>();
+            NoteMiss.Instance.TriggerCount = 1;
         }
         else if( level == SceneManager.GetSceneByName("EmilSTestScene").buildIndex)
         {
