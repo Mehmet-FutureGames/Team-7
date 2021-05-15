@@ -127,7 +127,7 @@ public class NoteManager : MonoBehaviour
         else if (level == SceneManager.GetSceneByName("Level_3").buildIndex)
         {
             IsInShop = false;
-            LoadPresetData(enricoSceneSongPreset);
+            LoadPresetData(level_3Preset);
             cameraAnim.enabled = true;
             cameraAnim.Play("CameraStartAnim", 0, 0f);
             AudioManager.PlaySound("Fanfare_Win", "PlayerSound");
