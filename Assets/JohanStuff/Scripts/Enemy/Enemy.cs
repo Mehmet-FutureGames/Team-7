@@ -180,8 +180,8 @@ public class Enemy : MonoBehaviour
     }
     private void ShowFloatingText(float damage)
     {        
-        var text = Instantiate(floatingText, agentObj.transform.position, Quaternion.identity, agentObj.transform);
-        text.GetComponent<TextMesh>().text = damage.ToString();
+        var text = ObjectPooler.Instance.SpawnTMProText("FloatingText", agentObj.transform.position + new Vector3(0,4,0), Quaternion.identity, damage.ToString());
+        //text.GetComponent<TextMesh>().text = damage.ToString();
     }
 
 

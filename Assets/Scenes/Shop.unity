@@ -2596,6 +2596,27 @@ PrefabInstance:
       propertyPath: comboDepletionCount
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4022026153558576498, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: pools.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022026153558576498, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: pools.Array.data[9].tag
+      value: FloatingText
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022026153558576498, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: pools.Array.data[9].size
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022026153558576498, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: pools.Array.data[9].prefab
+      value: 
+      objectReference: {fileID: 7834719628194316170, guid: 2f7ade109394de44e8c41a4781951eaf,
+        type: 3}
     - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: shopSongPreset
