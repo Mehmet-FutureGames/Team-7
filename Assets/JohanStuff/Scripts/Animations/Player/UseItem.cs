@@ -20,7 +20,10 @@ public class UseItem : MonoBehaviour
             {
                 GetComponent<ActiveItems>().GetChargeBar();
                 chargeRing.enabled = true;
-                charge.enabled = true;
+#if UNITY_STANDALONE
+charge.enabled = true;
+#endif
+
             }
         }
     }

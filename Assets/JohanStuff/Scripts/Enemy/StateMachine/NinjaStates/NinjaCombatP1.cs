@@ -36,7 +36,7 @@ public class NinjaCombatP1 : State
         if(Physics.Raycast(enemy.agentObj.transform.position, dirToPlayer, out hit, enemy.attackRange *2, enemy.obstacleLayer))
         {
             Vector3 dirToAgent = (hit.point - enemy.agentObj.transform.position).normalized;
-            enemy.ninjaTarget = hit.point + dirToAgent * 2;
+            enemy.ninjaTarget = hit.point + dirToAgent * 5;
         }
         CoroutineRunner.Instance.SCouroutine(SpawnArrows());
         enemy.gameObject.GetComponentInChildren<Animator>().SetTrigger("Idle");
@@ -54,12 +54,9 @@ public class NinjaCombatP1 : State
     public override void NoteEventUpdate()
     {
         base.NoteEventUpdate();
-        if (enemy.distanceToPlayer <= enemy.attackRange)
-        {
-            stateMachine.ChangeState(enemy.combatPhase2);
-            return;
-        }
-        stateMachine.ChangeState(enemy.moveState);
+
+        stateMachine.ChangeState(enemy.combatPhase2);
+
     }
 
     public override void Action()

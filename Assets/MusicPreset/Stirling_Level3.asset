@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b61be82e1ddb30749aabfde035f35dfc, type: 3}
-  m_Name: Scarlett
+  m_Name: Stirling_Level3
   m_EditorClassIdentifier: 
-  songName: Scarlett
+  songName: Stirling
   BPM: 135
-  audioClip: {fileID: 8300000, guid: 8829da0c1a732f84991ba6ddf995f6f5, type: 3}
+  audioClip: {fileID: 8300000, guid: 9d0dfe0e84cc78d498bd087d4e5fc46b, type: 3}
   volume: 0.5
   noteStartDelay: 0

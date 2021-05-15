@@ -47,8 +47,6 @@ public class WaveManager : MonoBehaviour
     int amountOfEnemies = 0;
 
     bool hasCompleted = true;
-
-    ItemList statItems;
     #region StartFunction
     // Start is called before the first frame update
     void Start()
@@ -56,8 +54,6 @@ public class WaveManager : MonoBehaviour
         Invoke("SpawnPointPattern", 0.1f);
 
         manager = FindObjectOfType<LevelManager>();
-
-        statItems = FindObjectOfType<ItemList>();
 
         enemyContainer = FindObjectOfType<WaveManager>().transform;
 
@@ -125,7 +121,6 @@ public class WaveManager : MonoBehaviour
     public void FinishFloor()
     {
         //Add behaviour for what happens when you finish a level.
-        spawnItems();
         floorLevel++;
         Instantiate(door);
         PlayerPrefs.SetInt("floorLevel", floorLevel);
@@ -167,15 +162,6 @@ public class WaveManager : MonoBehaviour
     public void UnSubscribe(Enemy enemy) 
     {
         enemy.enemyDefeated -= EnemyDefeated;
-    }
-
-    private void spawnItems()
-    {
-        for (int i = 0; i < itemSpawnLocations.Count; i++)
-        {
-            int randomItem = Random.Range(0, statItems.statItems.Count);
-            Instantiate(statItems.statItems[randomItem], itemSpawnLocations[i]);
-        }
     }
 
 }

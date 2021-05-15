@@ -63,7 +63,15 @@ public class MovePlayer : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                MovePlayerToMousePos();
+                if (OverGUICheck.Instance.IsPointerOverUIObject())
+                {
+
+                }
+                else 
+                {
+                    MovePlayerToMousePos();
+                }
+                
             }
         }
     }
