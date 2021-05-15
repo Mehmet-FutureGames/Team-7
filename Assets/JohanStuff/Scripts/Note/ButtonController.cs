@@ -34,7 +34,7 @@ public class ButtonController : MonoBehaviour
                     if (hit.collider.gameObject.CompareTag("Note"))
                     {
                         hit.collider.gameObject.GetComponent<NoteObject>().deActivated = true;
-                        hit.collider.gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(255, 2, 255);
+                        hit.collider.gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color32(29, 27, 117, 255);
                     }
                 }
             }

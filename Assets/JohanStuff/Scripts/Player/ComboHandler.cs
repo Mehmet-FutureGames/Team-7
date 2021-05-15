@@ -12,14 +12,11 @@ public class ComboHandler : MonoBehaviour
     NotePublisher publisher;
     EnemyPublisher enemyPublisher;
     MovePlayer movePlayer;
-    float coinMult;
-    float frenzyMult;
-    float timer;
     [SerializeField] Slider slider;
     [SerializeField] TextMeshProUGUI displayCombo;
     private bool hitNote;
-    [Range(0.01f, 2)]
-    public float comboDepletionMult;
+    [Range(1, 20)]
+    public int comboDepletionCount;
     public static float ComboMult;
     float dampVel;
     private int combo;
@@ -45,15 +42,6 @@ public class ComboHandler : MonoBehaviour
     }
 
 
-    private void Update()
-    {
-        /*
-        timer = Mathf.Clamp(timer - Time.deltaTime * comboDepletionMult, slider.minValue, slider.maxValue);
-        slider.value = timer;
-        */
-
-        
-    }
 
     private void Awake()
     {
@@ -101,7 +89,7 @@ public class ComboHandler : MonoBehaviour
     {
         sliderRunning = true;
         float startSliderVal = slider.value;
-        float reduction = slider.maxValue / 4;
+        float reduction = slider.maxValue / comboDepletionCount;
         nextSliderVal = startSliderVal - reduction;
         while (true)
         {
@@ -136,8 +124,6 @@ public class ComboHandler : MonoBehaviour
     public void AddToCombo()
     {
         slider.gameObject.SetActive(true);
-
-        timer = slider.maxValue;
         slider.value = slider.maxValue;
         hasHit = true;
         Combo += 1;

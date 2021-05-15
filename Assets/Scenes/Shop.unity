@@ -2456,6 +2456,11 @@ PrefabInstance:
       propertyPath: comboDepletionMult
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3588262258200070875, guid: 9a8011c633929384e963bdb55c94dcf7,
+        type: 3}
+      propertyPath: comboDepletionCount
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8966836273893231383, guid: 9a8011c633929384e963bdb55c94dcf7,
         type: 3}
       propertyPath: shopSongPreset
