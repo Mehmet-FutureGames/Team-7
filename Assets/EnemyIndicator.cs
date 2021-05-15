@@ -39,13 +39,11 @@ public class EnemyIndicator : MonoBehaviour
         }
         yield return null;
     }
-    private void Update()
+    private void LateUpdate()
     {
-        if (obj.activeSelf)
-        {
-            obj.transform.LookAt(transform.position);
-            obj.transform.position = player.position + (transform.position - player.transform.position).normalized * 2.5f;
-        }
+
+        obj.transform.LookAt(transform.position);
+        obj.transform.position = player.position + (transform.position - player.transform.position).normalized * 2.5f;
         
     }
 
