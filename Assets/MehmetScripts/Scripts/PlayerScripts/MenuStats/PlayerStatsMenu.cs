@@ -58,7 +58,17 @@ public class PlayerStatsMenu : MonoBehaviour
     [SerializeField] GameObject confirmUpgrade;
 
     [SerializeField] List<GameObject> characters = new List<GameObject>();
+
+    List<Material> unlockedMaterials = new List<Material>();
+    [SerializeField] Material lockedMaterial;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        for (int i = 0; i < characters.Count; i++)
+        {
+            unlockedMaterials.Add(characters[i].GetComponentInChildren<SkinnedMeshRenderer>().material);
+        }
+    }
     void Start()
     {
         AudioManager.sources.Clear();
@@ -132,6 +142,7 @@ public class PlayerStatsMenu : MonoBehaviour
                     cantBuyCharacter.gameObject.SetActive(false);
                     PlayerPrefs.SetInt("boughtCharacter" + currentCharacterSelected, characters[i].GetComponent<CharacterStats>().hasBeenBought ? 1 : 0);
                     PlayerPrefs.SetInt("NoteCurrency", notes);
+                    SelectCharacter();
                 }
             }
         }
@@ -152,11 +163,13 @@ public class PlayerStatsMenu : MonoBehaviour
                 lockScreen.SetActive(false);
                 cantBuyCharacter.gameObject.SetActive(false);
                 characters[i].SetActive(i == currentCharacterSelected);
+                characters[currentCharacterSelected].GetComponentInChildren<SkinnedMeshRenderer>().material = unlockedMaterials[currentCharacterSelected];
             }
             else
             {
                 //set the lock icon active and the character active
                 //Needs two instances because unity is a very nice program.
+                characters[currentCharacterSelected].GetComponentInChildren<SkinnedMeshRenderer>().material = lockedMaterial;
                 characters[i].SetActive(i == currentCharacterSelected);
                 lockScreen.SetActive(true);
                 cantBuyCharacter.gameObject.SetActive(true);
@@ -368,7 +381,6 @@ public class PlayerStatsMenu : MonoBehaviour
         PlayerPrefs.SetInt("UpgradeHealth" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth);
         PlayerPrefs.SetInt("UpgradeDamage" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage);
         PlayerPrefs.SetInt("UpgradeFrenzy" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost);
-        Debug.Log(PlayerPrefs.GetInt("UpgradeFrenzy" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost));
         PlayerPrefs.SetInt("currentSelectedCharacter", currentCharacterSelected);
         PlayerPrefs.SetInt("NoteCurrency", notes);
 
