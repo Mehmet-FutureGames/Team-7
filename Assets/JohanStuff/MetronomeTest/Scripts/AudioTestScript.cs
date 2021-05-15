@@ -33,7 +33,7 @@ public class AudioTestScript : MonoBehaviour
             hasStartedTapping = value;
             if (hasStartedTapping)
             {
-                circleIndicator.color = new Color(1, 0.6f, 0.6f);
+                circleIndicator.color = new Color32(29, 27, 117,255);
             }
             else
             {

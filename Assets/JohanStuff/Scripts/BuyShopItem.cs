@@ -8,13 +8,10 @@ public class BuyShopItem : MonoBehaviour
     ItemCanvas itemCanvas;
     UseItem useItem;
     NotePublisher notePublisher;
-    bool hasPurchasedItem;
     bool isInBuyArea;
     NoteCurrencyHandler noteCurrency;
     void Start()
     {
-        
-        hasPurchasedItem = false;
         itemParameter = GetComponent<ItemParameter>();
         noteCurrency = FindObjectOfType<NoteCurrencyHandler>();
         activeItems = GetComponent<ActiveItems>();
@@ -70,7 +67,6 @@ public class BuyShopItem : MonoBehaviour
                 useItem = null;
                 AudioManager.PlaySound("SingeCoinSound", "VFXSound");
                 gameObject.SetActive(false);
-                hasPurchasedItem = true;
             }
         }
         else
@@ -84,7 +80,6 @@ public class BuyShopItem : MonoBehaviour
                 useItem = null;
                 AudioManager.PlaySound("SingeCoinSound", "VFXSound");
                 gameObject.SetActive(false);
-                hasPurchasedItem = true;
             }
         }
 

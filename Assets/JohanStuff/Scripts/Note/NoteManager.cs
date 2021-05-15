@@ -30,6 +30,7 @@ public class NoteManager : MonoBehaviour
     [SerializeField] AudioScriptableObject shopSongPreset;
     [SerializeField] AudioScriptableObject emilSSceneSongPreset;
     [SerializeField] AudioScriptableObject enricoSceneSongPreset;
+    [SerializeField] AudioScriptableObject level_3Preset;
     [SerializeField] CalibrationSaver calibrationSaver;
     Camera camera;
     public static float currentSongMaxVolume;
