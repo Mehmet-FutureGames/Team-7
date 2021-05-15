@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class NoteObject : MonoBehaviour
 {
@@ -54,13 +55,19 @@ public class NoteObject : MonoBehaviour
     }
     private void OnEnable()
     {
-        
         deActivated = false;
-        
+        if (NoteManager.IsInShop)
+        {
+            canBePressed = true;
+        }
     }
     private void OnLevelWasLoaded(int level)
     {
-        gameObject.SetActive(false);
+        if (level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex)
+        {
+            canBePressed = true;
+        }
+        //gameObject.SetActive(false);
     }
 #if UNITY_STANDALONE
     void Update()
@@ -91,9 +98,7 @@ public class NoteObject : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 publisher.NoteHit();
-                gameObject.SetActive(false);
-                canBePressed = false;
-                NoteMiss.Instance.TriggerCountZero();
+                ButtonPressed();
             }
         }
     }
@@ -101,16 +106,12 @@ public class NoteObject : MonoBehaviour
     public void ButtonAttack()
     {
         publisher.NoteHitAttack();
-        gameObject.SetActive(false);
-        canBePressed = false;
-        NoteMiss.Instance.TriggerCountZero();
+        ButtonPressed();
     }
     public void ButtonBlock()
     {
         publisher.NoteHitBlock();
-        gameObject.SetActive(false);
-        canBePressed = false;
-        NoteMiss.Instance.TriggerCountZero();
+        ButtonPressed();
     }
     private void DesktopInput()
     {
@@ -132,28 +133,31 @@ public class NoteObject : MonoBehaviour
             else
             {
                 publisher.NoteHit();
-                gameObject.SetActive(false);
-                canBePressed = false;
-                NoteMiss.Instance.TriggerCountZero();
+                ButtonPressed();
             }
 
         }
         else if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             publisher.NoteHitBlock();
-            gameObject.SetActive(false);
-            canBePressed = false;
-            NoteMiss.Instance.TriggerCountZero();
+            ButtonPressed();
         }
         else if (Input.GetKeyDown(KeyCode.Z))
         {
             publisher.NoteHitAttack();
+            ButtonPressed();
+        }
+    }
+
+    private void ButtonPressed()
+    {
+        if (!NoteManager.IsInShop)
+        {
             gameObject.SetActive(false);
             canBePressed = false;
             NoteMiss.Instance.TriggerCountZero();
         }
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -177,5 +181,6 @@ public class NoteObject : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
     
 }

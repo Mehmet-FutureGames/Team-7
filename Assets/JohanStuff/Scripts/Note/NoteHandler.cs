@@ -85,5 +85,6 @@ public class NoteHandler : MonoBehaviour
         timer = 0;
         delayDone = false;
         delayStarted = false;
+
     }
 }
