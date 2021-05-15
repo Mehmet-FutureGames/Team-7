@@ -12,7 +12,7 @@ public class PlayerStatsMenu : MonoBehaviour
     [SerializeField] int amountofDamageUpgrades;
     [SerializeField] int amountOfFrenzyUpgrades;
 
-
+    [SerializeField] AudioClip[] boughtCharacterClips;
     [SerializeField] AudioSource boughtCharacterSound;
 
 
@@ -154,9 +154,24 @@ public class PlayerStatsMenu : MonoBehaviour
                     PlayerPrefs.SetInt("boughtCharacter" + currentCharacterSelected, characters[i].GetComponent<CharacterStats>().hasBeenBought ? 1 : 0);
                     PlayerPrefs.SetInt("NoteCurrency", notes);
                     SelectCharacter();
+                    boughtCharacterSound.clip = boughtCharacterClips[1];
                     boughtCharacterSound.Play();
                 }
             }
+        }
+    }
+    public void BuyCharacterWithMoney()
+    {
+        for (int i = 0; i < characters.Count; i++)
+        {
+            characters[i].GetComponent<CharacterStats>().hasBeenBought = true;
+            notesText.text = notes.ToString();
+            lockScreen.SetActive(false);
+            cantBuyCharacter.gameObject.SetActive(false);
+            PlayerPrefs.SetInt("boughtCharacter" + currentCharacterSelected, characters[i].GetComponent<CharacterStats>().hasBeenBought ? 1 : 0);
+            SelectCharacter();
+            boughtCharacterSound.clip = boughtCharacterClips[0];
+            boughtCharacterSound.Play();
         }
     }
 
