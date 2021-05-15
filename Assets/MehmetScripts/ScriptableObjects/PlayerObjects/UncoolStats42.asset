@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a0a8eb1dde53c84fa29e79686573e89, type: 3}
   m_Name: UncoolStats42
   m_EditorClassIdentifier: 
-  playerModel: {fileID: 0}
+  playerModel: {fileID: 1318303238961424, guid: 3470766f22e216142aa097c5eaa5a1c1,
+    type: 3}
   playerDamageText: {fileID: 3411471724750393966, guid: 06a5d40551cdc894daaf72510bb45db9,
     type: 3}
   playerName: Annie May
   movementSpeed: 0
-  attackDamage: 25
-  health: 25
-  dashDamage: 25
+  attackDamage: 145
+  health: 45
+  dashDamage: 40
   meleeAttackDuration: 1
   maxFrenzy: 150
   dashAttackDuration: 1
-  dashAttackFrenzyCost: 2
+  dashAttackFrenzyCost: 5
   distanceToClick: 6
-  descriptionCharacter: Anime or Enemy that's the question.  She was a ordinary person
-    looking for big pay check and fame.  that was when she found the Gladiatorial
-    music arena.
+  descriptionCharacter: Looking for fame, and the paycheck that comes with it - Annie
+    May figured she could use her talent to hit hard in the arena.
