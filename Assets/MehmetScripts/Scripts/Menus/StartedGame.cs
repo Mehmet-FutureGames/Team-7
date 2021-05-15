@@ -14,16 +14,15 @@ public class StartedGame : MonoBehaviour
         hasStartedFirstTimeMenu = PlayerPrefs.GetInt("hasStartedFirstTimeMenu") == 1;
         if (!hasStartedFirstTimeMenu)
         {
-            StartCoroutine(LoadLevelDelay());
+            LoadLevel();
             FindObjectOfType<MusicSingleton>().DestroyThis();
         }
     }
-    IEnumerator LoadLevelDelay()
+    private void LoadLevel()
     {
         hasStartedFirstTimeMenu = true;
         gameStartedFirstTime = true;
         PlayerPrefs.SetInt("hasStartedFirstTimeMenu", hasStartedFirstTimeMenu ? 1 : 0);
-        yield return new WaitForSecondsRealtime(0.1f);
         SceneManager.LoadScene("MetronomeTestScene", LoadSceneMode.Single);
     }
 }

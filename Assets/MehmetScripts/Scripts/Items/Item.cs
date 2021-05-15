@@ -16,6 +16,7 @@ public class Item : MonoBehaviour
 
     private void Awake()
     {
+        //Adds the instaniated items into list and sets the box collider trigger to true
         GetComponent<BoxCollider>().isTrigger = true;
         #region spawnItemModel
         if (itemStats.itemModel != null)

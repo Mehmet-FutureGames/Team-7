@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MusicSingleton : MonoBehaviour
 {
+    SceneFader faderScript;
+
     Scene currentScene;
 
     private static MusicSingleton _instance;
@@ -12,6 +14,7 @@ public class MusicSingleton : MonoBehaviour
     public static MusicSingleton Instance { get { return _instance; } }
     private void Awake()
     {
+        faderScript = GetComponent<SceneFader>();
         if (_instance == null)
         {
             _instance = this;
@@ -28,10 +31,12 @@ public class MusicSingleton : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
+        //Checks if scene fader exists, if it doesn't, add it to the gameobject.
         currentScene = SceneManager.GetSceneByName("MainMenu");
-        if (level == currentScene.buildIndex)
+        if (level == currentScene.buildIndex && faderScript == null)
         {
-             gameObject.AddComponent<SceneFader>();            
+            var fader = gameObject.AddComponent<SceneFader>();
+            faderScript = fader;
         }
     }
     
