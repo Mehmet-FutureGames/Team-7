@@ -67,7 +67,7 @@ public class NoteObject : MonoBehaviour
         {
             canBePressed = true;
         }
-        //gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 #if UNITY_STANDALONE
     void Update()
