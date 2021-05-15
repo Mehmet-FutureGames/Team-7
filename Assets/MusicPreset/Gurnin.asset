@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b61be82e1ddb30749aabfde035f35dfc, type: 3}
-  m_Name: Preset
+  m_Name: Gurnin
   m_EditorClassIdentifier: 
-  songName: 
-  BPM: 0
-  audioClip: {fileID: 0}
-  volume: 0
+  songName: Gurnin
+  BPM: 130
+  audioClip: {fileID: 8300000, guid: c25037a7f41f91649a2f3f841dfc215b, type: 3}
+  volume: 0.702
   noteStartDelay: 0

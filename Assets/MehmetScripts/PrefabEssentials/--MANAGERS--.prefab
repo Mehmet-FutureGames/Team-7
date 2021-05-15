@@ -458,8 +458,9 @@ MonoBehaviour:
   shopSongPreset: {fileID: 11400000, guid: 6f1e440efaf157e49bf94dd3374a7dc7, type: 2}
   emilSSceneSongPreset: {fileID: 11400000, guid: a140ffb0235c5e443be301fedc7b08c6,
     type: 2}
-  enricoSceneSongPreset: {fileID: 11400000, guid: a140ffb0235c5e443be301fedc7b08c6,
+  enricoSceneSongPreset: {fileID: 11400000, guid: 727ad674ea3dc1744a2f9e941f0c5fdb,
     type: 2}
+  level_3Preset: {fileID: 11400000, guid: f31120cb12aceb24e9398030dd67586c, type: 2}
   calibrationSaver: {fileID: 11400000, guid: 8b15af7586a8aca49b6b5611ddb5a3c3, type: 2}
 --- !u!1 &8966836274532626866
 GameObject:
@@ -623,7 +624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
   displayCombo: {fileID: 0}
-  comboDepletionMult: 0
+  comboDepletionCount: 0
 --- !u!1 &8966836275058985840
 GameObject:
   m_ObjectHideFlags: 0
