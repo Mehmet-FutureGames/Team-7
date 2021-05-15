@@ -8,6 +8,7 @@ using TMPro;
 public class ComboHandler : MonoBehaviour
 {
     public static ComboHandler Instance;
+    NoteHandler noteHandler;
     NotePublisher publisher;
     EnemyPublisher enemyPublisher;
     MovePlayer movePlayer;
@@ -20,8 +21,11 @@ public class ComboHandler : MonoBehaviour
     [Range(0.01f, 2)]
     public float comboDepletionMult;
     public static float ComboMult;
-
+    float dampVel;
     private int combo;
+    bool sliderRunning;
+    bool hasHit;
+    float nextSliderVal;
     public int Combo 
     {
         get { return combo; }
@@ -43,12 +47,12 @@ public class ComboHandler : MonoBehaviour
 
     private void Update()
     {
+        /*
         timer = Mathf.Clamp(timer - Time.deltaTime * comboDepletionMult, slider.minValue, slider.maxValue);
         slider.value = timer;
-        if (timer <= slider.minValue)
-        {
-            SetCombo(0);
-        }
+        */
+
+        
     }
 
     private void Awake()
@@ -58,6 +62,7 @@ public class ComboHandler : MonoBehaviour
             Instance = this;
         }
         else { Debug.Log("Warning!: " + this + " multiple instnce"); }
+        noteHandler = FindObjectOfType<NoteHandler>();
         enemyPublisher = FindObjectOfType<EnemyPublisher>();
         publisher = FindObjectOfType<NotePublisher>();
         movePlayer = FindObjectOfType<MovePlayer>();
@@ -65,6 +70,8 @@ public class ComboHandler : MonoBehaviour
     private void Start()
     {
         Combo = 0;
+        sliderRunning = false;
+        slider.gameObject.SetActive(false);
     }
 
     private void OnEnable()
@@ -72,13 +79,50 @@ public class ComboHandler : MonoBehaviour
         enemyPublisher.enemyTakeDamage += AddToCombo;
         publisher.noteHit += HitNote;
         publisher.noteNotHit += MissedNote;
+        noteHandler.beat += StartSlide;
     }
     private void OnDisable()
     {
+        enemyPublisher.enemyTakeDamage -= AddToCombo;
+        noteHandler.beat -= StartSlide;
         publisher.noteHit -= HitNote;
         publisher.noteNotHit -= MissedNote;
     }
 
+    void StartSlide()
+    {
+        
+        if (!sliderRunning && hasHit)
+        {
+            StartCoroutine(Slide());
+        }
+    }
+    IEnumerator Slide()
+    {
+        sliderRunning = true;
+        float startSliderVal = slider.value;
+        float reduction = slider.maxValue / 4;
+        nextSliderVal = startSliderVal - reduction;
+        while (true)
+        {
+            slider.value = Mathf.SmoothDamp(slider.value, nextSliderVal, ref dampVel, 0.1f);
+            Debug.Log( nextSliderVal + " " + slider.value);
+            yield return new WaitForFixedUpdate();
+            if(nextSliderVal + 0.05f >= slider.value)
+            {
+                break;
+            }
+            if (slider.value <= 0.01f)
+            {
+                hasHit = false;
+                slider.gameObject.SetActive(false);
+                SetCombo(0);
+                break;
+            }
+        }
+        sliderRunning = false;
+
+    }
     public void SetCombo(int combo)
     {
         if(combo <= 0)
@@ -92,16 +136,17 @@ public class ComboHandler : MonoBehaviour
     public void AddToCombo()
     {
         slider.gameObject.SetActive(true);
+
         timer = slider.maxValue;
+        slider.value = slider.maxValue;
+        hasHit = true;
         Combo += 1;
-        //displayCombo.text = "X " + Combo.ToString();
     }
 
     void MissedNote()
     {
         Combo = 0;
         hitNote = false;
-        //displayCombo.text = "";
     }
     void HitNote()
     {
