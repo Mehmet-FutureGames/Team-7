@@ -16,19 +16,23 @@ public class StartCountDown : MonoBehaviour
         textObj.SetActive(true);
         scaleVal = 1;
         textObj.transform.localScale = new Vector3(1, 1, 1);
+        AudioManager.PlaySound("Tone3", "VFXSound");
         text.text = "3";
     }
     public void CountTwo()
     {
         text.text = "2";
+        AudioManager.PlaySound("Tone3", "VFXSound");
     }
     public void CountOne()
     {
         text.text = "1";
+        AudioManager.PlaySound("Tone3", "VFXSound");
     }
     public void CountGo()
     {
         text.text = "GO!";
+        AudioManager.PlaySound("Tone6", "VFXSound");
         Invoke("RemoveText", 1f);
     }
     void RemoveText()
