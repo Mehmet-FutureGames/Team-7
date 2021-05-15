@@ -45,6 +45,7 @@ public class CharacterStats : MonoBehaviour
     }
     private void OnEnable()
     {
+        //Takes value from scriptable object to put in them into text fields.
         PlayerPrefs.SetInt("selectedCharacter", currentSelectedCharacter);
 
         hasBeenBought = PlayerPrefs.GetInt("boughtCharacter" + currentSelectedCharacter) == 1;

@@ -8,7 +8,6 @@ public class GetNoteList : MonoBehaviour
     public static List<NoteObject> NoteList = new List<NoteObject>();
     NotePublisher notePublisher;
     private Button button;
-    bool hasclickedDown;
     private void Start()
     {
         notePublisher = FindObjectOfType<NotePublisher>(); 
@@ -31,9 +30,5 @@ public class GetNoteList : MonoBehaviour
                 }
             }
         }
-    }
-    public void ReleaseButton()
-    {
-        hasclickedDown = false;
     }
 }
