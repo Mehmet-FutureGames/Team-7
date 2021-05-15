@@ -13,6 +13,9 @@ public class PlayerStatsMenu : MonoBehaviour
     [SerializeField] int amountOfFrenzyUpgrades;
 
 
+    [SerializeField] AudioSource boughtCharacterSound;
+
+
     public bool hasStartedFirstTime = false;
 
     [SerializeField] PlayerStats stats;
@@ -87,7 +90,10 @@ public class PlayerStatsMenu : MonoBehaviour
         RetrieveStats(currentCharacterSelected);
 
         if (!characters[0].GetComponent<CharacterStats>().hasBeenBought)
+        {
             BuyCharacter();
+            boughtCharacterSound.Stop();
+        }
         if (characters[currentCharacterSelected].GetComponent<CharacterStats>().hasBeenBought)
         {
             cantBuyCharacter.gameObject.SetActive(false);
@@ -148,6 +154,7 @@ public class PlayerStatsMenu : MonoBehaviour
                     PlayerPrefs.SetInt("boughtCharacter" + currentCharacterSelected, characters[i].GetComponent<CharacterStats>().hasBeenBought ? 1 : 0);
                     PlayerPrefs.SetInt("NoteCurrency", notes);
                     SelectCharacter();
+                    boughtCharacterSound.Play();
                 }
             }
         }
