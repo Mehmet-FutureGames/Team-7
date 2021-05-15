@@ -12,6 +12,9 @@ public class PlayerStatsMenu : MonoBehaviour
     [SerializeField] int amountofDamageUpgrades;
     [SerializeField] int amountOfFrenzyUpgrades;
 
+    [SerializeField] AudioClip[] boughtCharacterClips;
+    [SerializeField] AudioSource boughtCharacterSound;
+
 
     public bool hasStartedFirstTime = false;
 
@@ -75,6 +78,11 @@ public class PlayerStatsMenu : MonoBehaviour
         AudioManager.audioClips.Clear();
         currentCharacterSelected = PlayerPrefs.GetInt("currentSelectedCharacter");
 
+        if (!characters[currentCharacterSelected].GetComponent<CharacterStats>().hasBeenBought)
+        {
+            characters[currentCharacterSelected].GetComponentInChildren<SkinnedMeshRenderer>().material = lockedMaterial;
+        }
+
         notes = PlayerPrefs.GetInt("NoteCurrency");
         notesText = GameObject.Find("NotesAmount").GetComponent<TextMeshProUGUI>();
         hasStartedFirstTime = PlayerPrefs.GetInt("hasStartedFirstTime") == 1;
@@ -82,7 +90,10 @@ public class PlayerStatsMenu : MonoBehaviour
         RetrieveStats(currentCharacterSelected);
 
         if (!characters[0].GetComponent<CharacterStats>().hasBeenBought)
+        {
             BuyCharacter();
+            boughtCharacterSound.Stop();
+        }
         if (characters[currentCharacterSelected].GetComponent<CharacterStats>().hasBeenBought)
         {
             cantBuyCharacter.gameObject.SetActive(false);
@@ -143,8 +154,24 @@ public class PlayerStatsMenu : MonoBehaviour
                     PlayerPrefs.SetInt("boughtCharacter" + currentCharacterSelected, characters[i].GetComponent<CharacterStats>().hasBeenBought ? 1 : 0);
                     PlayerPrefs.SetInt("NoteCurrency", notes);
                     SelectCharacter();
+                    boughtCharacterSound.clip = boughtCharacterClips[1];
+                    boughtCharacterSound.Play();
                 }
             }
+        }
+    }
+    public void BuyCharacterWithMoney()
+    {
+        for (int i = 0; i < characters.Count; i++)
+        {
+            characters[i].GetComponent<CharacterStats>().hasBeenBought = true;
+            notesText.text = notes.ToString();
+            lockScreen.SetActive(false);
+            cantBuyCharacter.gameObject.SetActive(false);
+            PlayerPrefs.SetInt("boughtCharacter" + currentCharacterSelected, characters[i].GetComponent<CharacterStats>().hasBeenBought ? 1 : 0);
+            SelectCharacter();
+            boughtCharacterSound.clip = boughtCharacterClips[0];
+            boughtCharacterSound.Play();
         }
     }
 
