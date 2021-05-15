@@ -112,7 +112,6 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame()
     {
-        Debug.Log(playerStatsMenu.hasStartedFirstTime);
         if (!playerStatsMenu.hasStartedFirstTime && !PlayerStatsMenu.hasUpgraded)
         {
             StartCoroutine(SceneFader.FadeOut(StartTutorial));
@@ -137,7 +136,12 @@ public class MainMenu : MonoBehaviour
     }
     private void StartTutorial()
     {
+#if UNITY_STANDALONE
         SceneManager.LoadScene("TutorialPC");
+#endif
+#if UNITY_ANDROID
+SceneManager.LoadScene("TutorialMobile");
+#endif
         playerStatsMenu.hasStartedFirstTime = true;
         PlayerPrefs.SetInt("hasStartedFirstTime", playerStatsMenu.hasStartedFirstTime ? 1 : 0);
     }
