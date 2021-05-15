@@ -4794,6 +4794,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7914652014773267335, guid: 8bbdca35cac70f143b906cf2b0652137,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9016947051451766807, guid: 8bbdca35cac70f143b906cf2b0652137,
         type: 3}
       propertyPath: keyCodeChange
