@@ -163,7 +163,7 @@ deadScreen = UIManager.gameOverPanel;
     private void ShowFloatingText(float damage)
     {
         var text = Instantiate(playerStats.playerDamageText, transform.position, Quaternion.identity, transform);
-        text.GetComponent<TextMesh>().text = "Damage: " + damage.ToString();
+        text.GetComponent<TextMesh>().text = damage.ToString();
         healthBar.fillAmount = currentHealth / playerStats.maxHealth;
     }
 
