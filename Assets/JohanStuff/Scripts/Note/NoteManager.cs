@@ -112,6 +112,7 @@ public class NoteManager : MonoBehaviour
             LoadPresetData(emilSSceneSongPreset);
             cameraAnim.enabled = true;
             cameraAnim.Play("CameraStartAnim", 0, 0f);
+            AudioManager.PlaySound("Fanfare_Win", "PlayerSound");
             Time.timeScale = 0;
         }
         else if (level == SceneManager.GetSceneByName("Level_2").buildIndex)
@@ -120,6 +121,7 @@ public class NoteManager : MonoBehaviour
             LoadPresetData(enricoSceneSongPreset);
             cameraAnim.enabled = true;
             cameraAnim.Play("CameraStartAnim", 0, 0f);
+            AudioManager.PlaySound("Fanfare_Win", "PlayerSound");
             Time.timeScale = 0;
         }
         else if (level == SceneManager.GetSceneByName("Level_3").buildIndex)
@@ -128,6 +130,7 @@ public class NoteManager : MonoBehaviour
             LoadPresetData(enricoSceneSongPreset);
             cameraAnim.enabled = true;
             cameraAnim.Play("CameraStartAnim", 0, 0f);
+            AudioManager.PlaySound("Fanfare_Win", "PlayerSound");
             Time.timeScale = 0;
         }
         player.GetComponent<TrailRenderer>().enabled = true;
