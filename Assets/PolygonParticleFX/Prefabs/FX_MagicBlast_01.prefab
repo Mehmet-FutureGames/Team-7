@@ -4894,6 +4894,7 @@ GameObject:
   - component: {fileID: 4064708215141786}
   - component: {fileID: 198126008008065056}
   - component: {fileID: 199170670088039478}
+  - component: {fileID: 45506809234284206}
   m_Layer: 0
   m_Name: FX_MagicBlast_01
   m_TagString: Untagged
@@ -9767,3 +9768,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &45506809234284206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380329679129358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b6d7aba656f8b458811b603e1eaded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDisable: 2

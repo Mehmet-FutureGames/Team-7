@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TypeOfEnemy : MonoBehaviour
@@ -9,6 +7,7 @@ public class TypeOfEnemy : MonoBehaviour
     private void Start()
     {
         transform.position = new Vector3(transform.position.x,0,transform.position.z);
+        ObjectPooler.Instance.SpawnFormPool("EnemySpawn", transform.position);
     }
 
     public int ReturnEnemyType()
