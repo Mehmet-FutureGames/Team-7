@@ -98,12 +98,6 @@ public class Player : MonoBehaviour
 
 
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        //THIS MUST BE REMOVED BEFORE LAUNCH
-        SetTrailSpeed();
-    }
     #region AttacksActivation
     public void DashAttackActivated()
     {
@@ -341,26 +335,7 @@ public class Player : MonoBehaviour
     }
     #endregion
 
-    public void SetTrailSpeed()
-    {
-        noteManager = FindObjectOfType<NoteManager>();
-        switch (noteManager.difficulty)
-        {
-            case Difficulty.easy:
-                GetComponent<TrailRenderer>().time = 60 / FindObjectOfType<NoteManager>().beatTempo * 1;
-                break;
-            case Difficulty.normal:
-                GetComponent<TrailRenderer>().time = 60 / FindObjectOfType<NoteManager>().beatTempo * 0.5f;
-                break;
-            case Difficulty.hard:
-                GetComponent<TrailRenderer>().time = 60 / FindObjectOfType<NoteManager>().beatTempo * 0.25f;
-                break;
-        }
-        if (NoteManager.IsInShop)
-        {
-            GetComponent<TrailRenderer>().time = 0.1f;
-        }
-    }
+  
     private void OnLevelWasLoaded(int level)
     {
         if (level == SceneManager.GetSceneByName("ThankYou").buildIndex)

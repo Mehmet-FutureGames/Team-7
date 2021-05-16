@@ -59,7 +59,6 @@ public class NoteManager : MonoBehaviour
         {
             noteHandler.StartCoroutine(noteHandler.Wait());
         }
-        player.SetTrailSpeed();
     }
     public void SetDifficulty()
     {
@@ -93,7 +92,6 @@ public class NoteManager : MonoBehaviour
         }
         camera.GetComponent<AudioSource>().Stop();
         cameraAnim = camera.GetComponent<Animator>();
-        player.GetComponent<TrailRenderer>().enabled = false;
         if(level == SceneManager.GetSceneByName("Shop").buildIndex || level == SceneManager.GetSceneByName("CoinShop").buildIndex)
         {
             IsInShop = true;
@@ -133,6 +131,5 @@ public class NoteManager : MonoBehaviour
             AudioManager.PlaySound("Fanfare_Win", "PlayerSound");
             Time.timeScale = 0;
         }
-        player.GetComponent<TrailRenderer>().enabled = true;
     }
 }
