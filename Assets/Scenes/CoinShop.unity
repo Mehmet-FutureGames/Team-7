@@ -1113,7 +1113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDescription: 
+  enemyDescription: You have some great moves!
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
   distanceBetweenPlayer: 5
