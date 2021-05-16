@@ -94,7 +94,6 @@ public class ComboHandler : MonoBehaviour
         while (true)
         {
             slider.value = Mathf.SmoothDamp(slider.value, nextSliderVal, ref dampVel, 0.1f);
-            Debug.Log( nextSliderVal + " " + slider.value);
             yield return new WaitForFixedUpdate();
             if(nextSliderVal + 0.05f >= slider.value)
             {
