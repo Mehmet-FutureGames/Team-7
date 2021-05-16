@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameItem: Burger
   itemModel: {fileID: 100000, guid: 9a18fd4d37d8ab44789d6ad9d5a2aef7, type: 3}
-  upgradeAmount: 50
+  upgradeAmount: 100
   itemCostCoins: 250
   itemCostNotes: 5
   itemType: 0
