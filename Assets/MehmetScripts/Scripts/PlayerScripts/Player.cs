@@ -109,15 +109,35 @@ public class Player : MonoBehaviour
     #region AttacksActivation
     public void DashAttackActivated()
     {
-        Vector3 Playeroffset = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
-        Vector3 mouseOffset = new Vector3(movePlayer.mousePos.x, movePlayer.mousePos.y + 2, transform.position.z);
-        if (Physics.Raycast(Playeroffset, (mouseOffset - Playeroffset).normalized, out hit, (mouseOffset - Playeroffset).magnitude, enemyLayer))
+        if (playerFrenzy.CurrentFrenzy >= dashAttackFrenzyCost)
         {
-            if (!playerAttackRange.isActiveAndEnabled && playerFrenzy.CurrentFrenzy >= dashAttackFrenzyCost)
+            Vector3 Playeroffset = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+            Vector3 mouseOffset = new Vector3(movePlayer.mousePos.x, movePlayer.mousePos.y + 2, movePlayer.mousePos.z);
+            Vector3 leftOffset = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z) + transform.right;
+            Vector3 rightOffset = new Vector3(transform.localPosition.x, transform.localPosition.y + 2, transform.localPosition.z) - transform.right;
+            if (Physics.Raycast(Playeroffset, (mouseOffset - Playeroffset).normalized, out hit, (mouseOffset - Playeroffset).magnitude, enemyLayer))
             {
-                Invoke("DashAttack", 0.01f);
+                if (!playerAttackRange.isActiveAndEnabled)
+                {
+                    Invoke("DashAttack", 0.01f);
+                }
+            }
+            else if (Physics.Raycast(leftOffset, (mouseOffset - leftOffset).normalized, out hit, (mouseOffset - leftOffset).magnitude, enemyLayer))
+            {
+                if (!playerAttackRange.isActiveAndEnabled)
+                {
+                    Invoke("DashAttack", 0.01f);
+                }
+            }
+            else if (Physics.Raycast(rightOffset, (mouseOffset - rightOffset).normalized, out hit, (mouseOffset - rightOffset).magnitude, enemyLayer))
+            {
+                if (!playerAttackRange.isActiveAndEnabled)
+                {
+                    Invoke("DashAttack", 0.01f);
+                }
             }
         }
+
 
     }
 #if UNITY_ANDROID
