@@ -6,14 +6,14 @@ using TMPro;
 
 public class Dialogue : MonoBehaviour
 {
-    [TextArea(3, 3)]
+    [TextArea(3, 4)]
     [SerializeField] string enemyDescription;
     [SerializeField] GameObject textToShow;
     Player player;
     float playerDistance;
     bool hasSpawnedATextBox;
     GameObject text;
-    Vector3 offset = new Vector3(0, 15, 0);
+    Vector3 offset = new Vector3(0, 10, 0);
     // Start is called before the first frame update
     void Start()
     {
