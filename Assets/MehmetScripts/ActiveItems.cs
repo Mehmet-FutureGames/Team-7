@@ -32,5 +32,11 @@ public class ActiveItems : MonoBehaviour
         charge = GetComponent<UseItem>().charge;
         chargeRing = GetComponent<UseItem>().chargeRing;
     }
+    public void OnLevelWasLoaded(int level)
+    {
+        cooldownReady = true;
+        cooldownCount = cooldown;
+        chargeRing.fillAmount = cooldownCount;
+    }
 
 }
