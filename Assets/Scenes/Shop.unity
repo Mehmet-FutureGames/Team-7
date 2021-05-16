@@ -2960,6 +2960,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2995074747655495603, guid: a1a29c4f959c6a94297623fce0b429ed,
+        type: 3}
+      propertyPath: shopImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 8e613333554ecc14a9d9c4e7e6ae7293,
+        type: 3}
     - target: {fileID: 7753023273115067105, guid: a1a29c4f959c6a94297623fce0b429ed,
         type: 3}
       propertyPath: m_RootOrder
