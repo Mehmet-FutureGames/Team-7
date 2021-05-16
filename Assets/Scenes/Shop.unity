@@ -1894,7 +1894,8 @@ PrefabInstance:
       propertyPath: keyCodeChange
       value: 120
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7914652014459963314, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8bbdca35cac70f143b906cf2b0652137, type: 3}
 --- !u!1001 &688612256
 PrefabInstance:
