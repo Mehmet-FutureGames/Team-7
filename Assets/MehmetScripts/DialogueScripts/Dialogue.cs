@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Dialogue : MonoBehaviour
 {
@@ -52,7 +53,7 @@ public class Dialogue : MonoBehaviour
         {
             text = Instantiate(textToShow, transform.position, Quaternion.identity, transform);
             text.transform.position = new Vector3(text.transform.position.x, offset.y, text.transform.position.z);
-            text.GetComponent<TextMesh>().text = enemyDescription;
+            text.GetComponent<TextMeshPro>().text = enemyDescription;
             hasSpawnedATextBox = true;
         }
     }
