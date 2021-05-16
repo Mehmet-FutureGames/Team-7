@@ -21,6 +21,7 @@ public class TransisitionToNextLevel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            SceneFader.fadeImage.color = new Color(0, 0, 0, 0);
             StartCoroutine(SceneFader.FadeOut(NextLevel));
             other.GetComponent<MovePlayer>().mousePos = other.GetComponent<Transform>().position;
         }
