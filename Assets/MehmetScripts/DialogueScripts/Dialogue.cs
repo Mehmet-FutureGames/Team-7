@@ -6,14 +6,15 @@ using TMPro;
 
 public class Dialogue : MonoBehaviour
 {
-    [TextArea(3, 4)]
+    [TextArea(3, 3)]
     [SerializeField] string enemyDescription;
     [SerializeField] GameObject textToShow;
+    [SerializeField] float distanceBetweenPlayer = 5;
     Player player;
     float playerDistance;
     bool hasSpawnedATextBox;
     GameObject text;
-    Vector3 offset = new Vector3(0, 10, 0);
+    [SerializeField] Vector3 offset = new Vector3(0, 15, 0);
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +38,7 @@ public class Dialogue : MonoBehaviour
     private bool CalculateDistance()
     {
         playerDistance = (player.transform.position - transform.position).magnitude;
-        if(playerDistance < 5)
+        if (playerDistance < distanceBetweenPlayer)
         {
             return true;
         }
