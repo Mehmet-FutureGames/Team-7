@@ -9606,6 +9606,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 66410321}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1589561816 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7943124439002587146, guid: d86c8d4960f5b344c908a0d7a54dd76e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7944301738340275328}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1589561818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589561816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDescription: 'Hmm, I keep getting downed..
+
+    I wonder if you can block
+    those
+
+    yellow attacks.'
+  textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
+    type: 3}
 --- !u!4 &1599486799 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 423916, guid: 07bee576df5b5e049a39f20f65b6ddb1,
@@ -18055,13 +18081,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7944301738340275329}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDescription: "Man, that tank is really strong! \nI wonder if I can block his
-    second attack...?"
+  enemyDescription: 
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
 --- !u!1 &7944301738340275331 stripped
