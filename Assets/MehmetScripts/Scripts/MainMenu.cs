@@ -156,7 +156,10 @@ SceneManager.LoadScene("TutorialMobile");
 
     public void Settings()
     {
-        SceneManager.LoadScene("SettingsUI");
+        if (!PlayerStatsMenu.hasUpgraded)
+        {
+            SceneManager.LoadScene("SettingsUI");
+        }
     }
 
     public void LoadMotionBlurSetting()
