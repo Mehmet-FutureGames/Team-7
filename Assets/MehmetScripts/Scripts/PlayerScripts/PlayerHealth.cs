@@ -122,7 +122,7 @@ deadScreen = UIManager.gameOverPanel;
         CurrentHealth -= damage;
         if (damageSound == null || damageSound == "")
         {
-            AudioManager.PlaySound("Aj", "PlayerSound");
+            AudioManager.PlaySound("hit_taken", "PlayerSound");
         }
         else
         {
