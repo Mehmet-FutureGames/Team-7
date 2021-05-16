@@ -32,8 +32,12 @@ MonoBehaviour:
   notesToMove: 1
   attackDamage: 30
   attackRange: 12
-  health: 150
+  health: 300
   noteDropChance: 75
   coinMinDropCount: 4
   coinMaxDropCount: 10
   coinValue: 3
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  damagePlayerSound: 
