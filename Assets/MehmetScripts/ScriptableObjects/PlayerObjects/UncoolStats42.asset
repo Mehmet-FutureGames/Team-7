@@ -18,11 +18,11 @@ MonoBehaviour:
     type: 3}
   playerName: Annie May
   movementSpeed: 0
-  attackDamage: 145
-  health: 45
+  attackDamage: 125
+  health: 25
   dashDamage: 40
   meleeAttackDuration: 1
-  maxFrenzy: 150
+  maxFrenzy: 50
   dashAttackDuration: 1
   dashAttackFrenzyCost: 5
   distanceToClick: 6
