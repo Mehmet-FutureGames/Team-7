@@ -2530,7 +2530,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Rajdhani-Light SDF Material
   m_Shader: {fileID: 4800000, guid: dd89cf5b9246416f84610a006f916af7, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: GLOW_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -2572,13 +2572,13 @@ Material:
     - _ColorMask: 15
     - _CullMode: 0
     - _Diffuse: 0.5
-    - _FaceDilate: -0.005
+    - _FaceDilate: 0.355
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
-    - _GlowInner: 0.129
-    - _GlowOffset: 0.41
-    - _GlowOuter: 0.358
-    - _GlowPower: 0.662
+    - _GlowInner: 0.287
+    - _GlowOffset: -1
+    - _GlowOuter: 0.32
+    - _GlowPower: 0.285
     - _GradientScale: 11
     - _LightAngle: 3.1416
     - _MaskSoftnessX: 0
@@ -2586,12 +2586,12 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.131
+    - _OutlineWidth: 0.219
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 0.96153843
-    - _ScaleRatioB: 0.7860577
-    - _ScaleRatioC: 0.7860577
+    - _ScaleRatioA: 0.90909094
+    - _ScaleRatioB: 0.4159091
+    - _ScaleRatioC: 0.4159091
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
