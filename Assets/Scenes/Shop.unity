@@ -18001,3 +18001,24 @@ MonoBehaviour:
     \nI wonder if I can like block their attack right before they hit me?"
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
+--- !u!1 &7944301738340275333 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7943203920362796082, guid: d86c8d4960f5b344c908a0d7a54dd76e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7944301738340275328}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7944301738340275334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7944301738340275333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDescription: testest
+  textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
+    type: 3}

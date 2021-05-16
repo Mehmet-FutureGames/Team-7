@@ -7259,6 +7259,118 @@ PrefabInstance:
     - {fileID: 5886596776333826370, guid: d86c8d4960f5b344c908a0d7a54dd76e, type: 3}
     - {fileID: 6161566925428663707, guid: d86c8d4960f5b344c908a0d7a54dd76e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d86c8d4960f5b344c908a0d7a54dd76e, type: 3}
+--- !u!1 &1246531712 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7943078726105470179, guid: d86c8d4960f5b344c908a0d7a54dd76e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1246531711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1246531713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7943215474683814291, guid: d86c8d4960f5b344c908a0d7a54dd76e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1246531711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1246531714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7942704806756207495, guid: d86c8d4960f5b344c908a0d7a54dd76e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1246531711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1246531715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7943240851471833716, guid: d86c8d4960f5b344c908a0d7a54dd76e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1246531711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1246531716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246531712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDescription: That was a great fight! You totally showed those weird robots
+    who's the king!
+  textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
+    type: 3}
+--- !u!114 &1246531717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246531713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDescription: 
+  textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
+    type: 3}
+--- !u!114 &1246531718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246531714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDescription: That character
+  textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
+    type: 3}
+--- !u!114 &1246531719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246531715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDescription: 'Hmm... The armoured guy seemed to be pretty strong but you kicked
+    his ass!
+
+    Don''t forget, chill out at shop. Spend some cash and most importantly.
+
+    Dash
+    and Slash'
+  textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
+    type: 3}
+--- !u!1 &1246531720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7943203920362796082, guid: d86c8d4960f5b344c908a0d7a54dd76e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1246531711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1246531721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246531720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDescription: 
+  textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
+    type: 3}
 --- !u!4 &1249069534 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4069071470976808, guid: 54903e98cb7da0047ab01d65018f1d4f,
