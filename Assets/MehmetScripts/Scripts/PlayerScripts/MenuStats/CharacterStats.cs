@@ -6,7 +6,6 @@ using TMPro;
 
 public class CharacterStats : MonoBehaviour
 {
-    bool hasStartedFirstTime;
 
     public PlayerStats stats;
 
@@ -39,7 +38,6 @@ public class CharacterStats : MonoBehaviour
     private void Awake()
     {
         hasBeenBought = PlayerPrefs.GetInt("boughtCharacter" + currentSelectedCharacter) == 1;
-        hasStartedFirstTime = PlayerPrefs.GetInt("hasStartedFirstTime") == 1;
 
         gameObject.SetActive(false);
     }
