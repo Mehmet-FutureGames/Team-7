@@ -45,6 +45,10 @@ public class MusicSingleton : MonoBehaviour
             var fader = gameObject.AddComponent<SceneFader>();
             faderScript = fader;
         }
+        if(level == 2 || level == 11)
+        {
+            Destroy(gameObject);
+        }
     }
     
 }

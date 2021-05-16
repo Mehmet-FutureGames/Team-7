@@ -87,6 +87,7 @@ public class PlayerStatsMenu : MonoBehaviour
             characters[currentCharacterSelected].GetComponentInChildren<SkinnedMeshRenderer>().material = lockedMaterial;
         }
 
+        //Gets the amount of notes you have stored.
         notes = PlayerPrefs.GetInt("NoteCurrency");
         notesText = GameObject.Find("NotesAmount").GetComponent<TextMeshProUGUI>();
         hasStartedFirstTime = PlayerPrefs.GetInt("hasStartedFirstTime") == 1;
@@ -95,6 +96,8 @@ public class PlayerStatsMenu : MonoBehaviour
 
         if (!characters[0].GetComponent<CharacterStats>().hasBeenBought)
         {
+            //incase it's the first time that the player starts.
+            //Buy the first character but don't play the sound.
             BuyCharacter();
             boughtCharacterSound.Stop();
         }
