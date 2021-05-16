@@ -109,7 +109,9 @@ public class Player : MonoBehaviour
     #region AttacksActivation
     public void DashAttackActivated()
     {
-        if (Physics.Raycast(transform.position, (movePlayer.mousePos - transform.position).normalized, out hit, (movePlayer.mousePos - transform.position).magnitude, enemyLayer))
+        Vector3 Playeroffset = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+        Vector3 mouseOffset = new Vector3(movePlayer.mousePos.x, movePlayer.mousePos.y + 2, transform.position.z);
+        if (Physics.Raycast(Playeroffset, (mouseOffset - Playeroffset).normalized, out hit, (mouseOffset - Playeroffset).magnitude, enemyLayer))
         {
             if (!playerAttackRange.isActiveAndEnabled && playerFrenzy.CurrentFrenzy >= dashAttackFrenzyCost)
             {
