@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: Dash & Slash_Game
+  companyName: Team-7
+  productName: Coolest game in universium
   defaultCursor: {fileID: 2800000, guid: a3d0e35204d07a8448dae0b4fa8526b1, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -147,7 +147,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.DefaultCompany.DashSlash_Game
-    Standalone: com.DefaultCompany.DashSlash
+    Standalone: com.Team-7.Coolestgameinuniversium
   buildNumber:
     Standalone: 0
     iPhone: 0

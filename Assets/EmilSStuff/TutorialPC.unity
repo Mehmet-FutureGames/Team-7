@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13313764, g: 0.061155967, b: 0.078216426, a: 1}
+  m_IndirectSpecularColor: {r: 0.13921472, g: 0.06566817, b: 0.08371871, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1590,7 +1590,6 @@ GameObject:
   - component: {fileID: 546626917}
   - component: {fileID: 546626916}
   - component: {fileID: 546626920}
-  - component: {fileID: 546626921}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1716,19 +1715,6 @@ MonoBehaviour:
   - {fileID: 1626207486}
   - {fileID: 340848819}
   - {fileID: 970899034}
---- !u!114 &546626921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 546626915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09b7663946e46f144b2413d9fca6398f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shopImage: {fileID: 21300000, guid: 8e613333554ecc14a9d9c4e7e6ae7293, type: 3}
 --- !u!1 &568049180
 GameObject:
   m_ObjectHideFlags: 0
@@ -3619,6 +3605,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1282978002}
   - component: {fileID: 1282978001}
+  - component: {fileID: 1282978003}
   m_Layer: 0
   m_Name: TutorialMusic
   m_TagString: Untagged
@@ -3639,7 +3626,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: f09532d97b0f35449993bf27917ffc59, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.497
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3737,6 +3724,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1282978003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282978000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b7663946e46f144b2413d9fca6398f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopImage: {fileID: 21300000, guid: 8e613333554ecc14a9d9c4e7e6ae7293, type: 3}
 --- !u!1 &1285029467
 GameObject:
   m_ObjectHideFlags: 0

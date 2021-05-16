@@ -7,6 +7,10 @@ using UnityEngine.SceneManagement;
 public class SwitchPanels : MonoBehaviour
 {
     [SerializeField] List<GameObject> panels = new List<GameObject>();
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
 
     public void GoForwardPanel(int panel)
     {
@@ -28,7 +32,7 @@ public class SwitchPanels : MonoBehaviour
     }
     public void StartFromTutorial()
     {
-        StartCoroutine(SceneFader.FadeIn(LoadShop));
+        StartCoroutine(SceneFader.FadeOut(LoadShop));
     }
     private void LoadShop()
     {

@@ -115,32 +115,14 @@ deadScreen = UIManager.gameOverPanel;
         {
             comboHandler.AddToCombo();
         }
-    }
-    
-    public void TakeUnblockableDamage(float damage)
-    {
-        CameraFollowPlayer.Instance.CameraShake();
-        CurrentHealth -= damage;
-        AudioManager.PlaySound("Monster Takes Damage 10", "PlayerSound");
-        if (movePlayer.MovementValue < 3)
-        {
-            if (playerStats.playerDamageText)
-            {
-                ShowFloatingText(damage);
-            }
-            if (currentHealth <= 0)
-            {
-                Dead();
-            }
-        }
-    }
+    }    
     public void TakeUnblockableDamage(float damage, string damageSound)
     {
         CameraFollowPlayer.Instance.CameraShake();
         CurrentHealth -= damage;
         if (damageSound == null || damageSound == "")
         {
-            AudioManager.PlaySound("Monster Takes Damage 10", "PlayerSound");
+            AudioManager.PlaySound("Aj", "PlayerSound");
         }
         else
         {
