@@ -5619,12 +5619,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDescription: "This game sucks! I can never beat that stupid robot with rockets.\nI
-    wonder if I just dash at the exact right moment. \nI can dodge his attack!"
+  enemyDescription: 'The missile drone always gets me...
+
+    I wonder if I could
+    dodge its missiles.!'
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
   distanceBetweenPlayer: 5
-  offset: {x: 0, y: 15, z: 0}
+  offset: {x: 0, y: 10, z: 0}
 --- !u!4 &787700967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4901797596438614, guid: 0af7253adfe9a6c4ca7be0a1573f3c77,
@@ -8152,14 +8154,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDescription: 'pff, Anime May? She sucks! The real deal is Joe, now that''s
-    a real fighter.
-
-    Balanced and has some very cool dance moves!'
+  enemyDescription: "No, no, no! \nJoe is the real deal!\nBalanced, and also he has
+    \nsome very cool dance moves!"
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
   distanceBetweenPlayer: 5
-  offset: {x: 0, y: 15, z: 0}
+  offset: {x: 0, y: 10, z: 0}
 --- !u!4 &1249069534 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4069071470976808, guid: 54903e98cb7da0047ab01d65018f1d4f,
@@ -9561,14 +9561,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDescription: 'Hmm, I keep getting downed..
 
-    I wonder if you can block
-    those
+    I wonder if there''s a way
+    to tell
 
-    yellow attacks.'
+    which attacks I can block. '
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
   distanceBetweenPlayer: 5
-  offset: {x: 0, y: 15, z: 0}
+  offset: {x: 0, y: 10, z: 0}
 --- !u!4 &1599486799 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 423916, guid: 07bee576df5b5e049a39f20f65b6ddb1,
@@ -10122,17 +10122,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDescription: 'Annie May is obviously the best fighter, she is just too strong.
-
-    But,
-    she dies pretty easily because of her low starting health.
-
-    I wonder if someone
-    can upgrade her.'
+  enemyDescription: "Annie May is obviously the best fighter, she is so strong.\nBut,
+    I guess she isn't the tankiest of gladiators. \nI wonder if someone can upgrade
+    her..."
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
   distanceBetweenPlayer: 5
-  offset: {x: 0, y: 15, z: 0}
+  offset: {x: 0, y: 10, z: 0}
 --- !u!4 &1685431997 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4834984181873052, guid: 76602162c8e9a0e4c9ae4af0a1bb448a,
@@ -12425,12 +12421,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDescription: 'Woah, good luck out there!
 
-    You are defintiely going to
-    need it!'
+    You should grab an item on your
+    way out.
+
+    You are defintiely going to need it!'
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
   distanceBetweenPlayer: 5
-  offset: {x: 0, y: 15, z: 0}
+  offset: {x: 0, y: 10, z: 0}
 --- !u!1 &2071568138
 GameObject:
   m_ObjectHideFlags: 0
@@ -12972,66 +12970,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 563273943502274850, guid: 07a0797e9f31faa419fa3697f5698f6e,
-        type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 563273943502274850, guid: 07a0797e9f31faa419fa3697f5698f6e,
-        type: 3}
-      propertyPath: m_fontColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 563273943502274850, guid: 07a0797e9f31faa419fa3697f5698f6e,
-        type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 563273943502274850, guid: 07a0797e9f31faa419fa3697f5698f6e,
-        type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.7139205
-      objectReference: {fileID: 0}
-    - target: {fileID: 563273943502274850, guid: 07a0797e9f31faa419fa3697f5698f6e,
-        type: 3}
-      propertyPath: m_fontColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 563273943502274850, guid: 07a0797e9f31faa419fa3697f5698f6e,
-        type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278236927
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a0797e9f31faa419fa3697f5698f6e, type: 3}
---- !u!1 &563273943054576397 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 564333789678381630, guid: 07a0797e9f31faa419fa3697f5698f6e,
-    type: 3}
-  m_PrefabInstance: {fileID: 563273943054576396}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &563273943054576398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563273943054576397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyDescription: 'Welcome to the Notes shop!
-
-
-    Here you can boost your run
-    with items that you buy with Notes, a rare currency that you can find when playing
-    the game. '
-  textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
-    type: 3}
-  distanceBetweenPlayer: 5
-  offset: {x: 0, y: 15, z: 0}
 --- !u!1001 &4276114996034102437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18067,16 +18007,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7944301738340275329}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDescription: 
+  enemyDescription: "Oh, you're new here? \nGood luck out there. "
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
   distanceBetweenPlayer: 5
-  offset: {x: 0, y: 15, z: 0}
+  offset: {x: 0, y: 10, z: 0}
 --- !u!1 &7944301738340275331 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7942704806756207495, guid: d86c8d4960f5b344c908a0d7a54dd76e,
@@ -18095,12 +18035,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDescription: "Hmm, those small guys with the two swords seem pretty agile.
-    \nI wonder if I can like block their attack right before they hit me?"
+  enemyDescription: 'Have you met those ninja robots?
+
+    A good way to deal with
+    them is to
+
+    block their charge. '
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
   distanceBetweenPlayer: 5
-  offset: {x: 0, y: 15, z: 0}
+  offset: {x: 0, y: 10, z: 0}
 --- !u!1 &7944301738340275333 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7943203920362796082, guid: d86c8d4960f5b344c908a0d7a54dd76e,
@@ -18114,14 +18058,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7944301738340275333}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDescription: I am a cool guy with VR glasses. Look at me king in the castle,
-    king in the castle.
+  enemyDescription: 
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
   distanceBetweenPlayer: 5
-  offset: {x: 0, y: 15, z: 0}
+  offset: {x: 0, y: 10, z: 0}

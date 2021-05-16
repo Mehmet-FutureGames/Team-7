@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13315305, g: 0.06114547, b: 0.07819686, a: 1}
+  m_IndirectSpecularColor: {r: 0.13888037, g: 0.06700824, b: 0.08283318, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1693,9 +1693,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e62332ba46b9244483728880608a9e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfHealthUpgrades: 0
-  amountofDamageUpgrades: 0
-  amountOfFrenzyUpgrades: 0
   boughtCharacterClips:
   - {fileID: 8300000, guid: b730f0e59fe5a8e47acc0d9f3ec957be, type: 3}
   - {fileID: 8300000, guid: aa67848e4269bf245a5e451d3a213953, type: 3}
@@ -1704,7 +1701,10 @@ MonoBehaviour:
   stats: {fileID: 0}
   currentCharacterSelected: 0
   lockScreen: {fileID: 1973259816}
-  upgradeNotesAmount: 5
+  upgradeNotesAmount: 10
+  healthUpgrade: 10
+  damageUpgrade: 3
+  frenzyUpgrade: 5
   healthText: {fileID: 2059245182}
   damageText: {fileID: 220696802}
   frenzyText: {fileID: 2078245974}
