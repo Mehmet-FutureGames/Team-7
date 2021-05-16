@@ -28,15 +28,18 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] GameObject saveButtonMenu;
     [SerializeField] GameObject saveButtonSettings;
+    private void Awake()
+    {
+        mixer = Resources.Load<AudioMixer>("MainMixer");
+        Invoke("LoadVolume", 0.0001f);
+    }
 
     private void Start()
     {
         motionBlurSetting = PlayerPrefs.GetInt("MotionBlur") == 1;
         hasGoneToSettings = false;
-        mixer = Resources.Load<AudioMixer>("MainMixer");
         manager = FindObjectOfType<LevelManager>();
         playerStatsMenu = FindObjectOfType<PlayerStatsMenu>();
-        LoadVolume();
         LoadMotionBlurSetting();
     }
 
