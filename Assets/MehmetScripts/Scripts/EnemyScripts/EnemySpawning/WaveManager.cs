@@ -76,7 +76,7 @@ public class WaveManager : MonoBehaviour
                     amountOfEnemies++;
                 }
             }
-            DestroySpawnPattern();
+            Invoke("DestroySpawnPattern", 1f);
         }
     }
     #endregion
