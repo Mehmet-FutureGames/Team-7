@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a0a8eb1dde53c84fa29e79686573e89, type: 3}
   m_Name: NewCoolGuy
   m_EditorClassIdentifier: 
-  playerModel: {fileID: 1189353972192656, guid: 200bc6ccceeac474080a49c821b89775,
+  playerModel: {fileID: 1788802827204626, guid: 4ec55b0fc5a631142b1505018530d38b,
     type: 3}
   playerDamageText: {fileID: 3411471724750393966, guid: 06a5d40551cdc894daaf72510bb45db9,
     type: 3}
   playerName: Joe
   movementSpeed: 0
-  attackDamage: 120
-  health: 120
+  attackDamage: 150
+  health: 150
   dashDamage: 30
   meleeAttackDuration: 1
   maxFrenzy: 110
   dashAttackDuration: 1
-  dashAttackFrenzyCost: 5
+  dashAttackFrenzyCost: 0
   distanceToClick: 6
   descriptionCharacter: 'Not just your average Joe. This Joe comes from a long line
     of warriors. It''s not his fault his generation never had any great wars. '
