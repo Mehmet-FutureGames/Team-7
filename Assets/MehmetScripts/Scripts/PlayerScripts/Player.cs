@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    bool hasStarted = false;
     Player player;
     public static List<Transform> EnemyTransforms = new List<Transform>();
 
@@ -103,7 +104,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         //THIS MUST BE REMOVED BEFORE LAUNCH
-        StartCoroutine(References());
         SetTrailSpeed();
     }
     #region AttacksActivation
@@ -313,6 +313,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1f);
         playerAttackRange.gameObject.SetActive(false);
         playerDashRange.gameObject.SetActive(false);
+        hasStarted = true;
     }
     #endregion
     #region UpgradeStats
@@ -389,7 +390,10 @@ public class Player : MonoBehaviour
             playerAttackRange.gameObject.SetActive(true);
             playerDashRange.gameObject.SetActive(true);
         }
-        StartCoroutine(References());
+        if (!hasStarted)
+        {
+            StartCoroutine(References());
+        }
     }
     private void DontDestoryEverything(GameObject Everything)
     {
