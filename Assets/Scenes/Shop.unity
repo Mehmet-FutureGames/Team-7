@@ -8116,6 +8116,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 388708677}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1241170615 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7943078726105470179, guid: d86c8d4960f5b344c908a0d7a54dd76e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7944301738340275328}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1241170617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241170615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDescription: 'pff, Anime May? She sucks! The real deal is Joe, now that''s
+    a real fighter.
+
+    Balanced and has some very cool dance moves!'
+  textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
+    type: 3}
 --- !u!4 &1249069534 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4069071470976808, guid: 54903e98cb7da0047ab01d65018f1d4f,
@@ -10057,6 +10081,33 @@ RectTransform:
   m_AnchoredPosition: {x: 33.440536, y: -53.677265}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1668104629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7942932968105087289, guid: d86c8d4960f5b344c908a0d7a54dd76e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7944301738340275328}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1668104631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668104629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDescription: 'Annie May is obviously the best fighter, she is just too strong.
+
+    But,
+    she dies pretty easily because of her low starting health.
+
+    I wonder if someone
+    can upgrade her.'
+  textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
+    type: 3}
 --- !u!4 &1685431997 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4834984181873052, guid: 76602162c8e9a0e4c9ae4af0a1bb448a,
