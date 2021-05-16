@@ -16,7 +16,7 @@ public class MusicSingleton : MonoBehaviour
     private void Awake()
     {
         menuSong = GetComponent<AudioSource>();
-        PlaySong();
+        PlaySong(0f);
         faderScript = GetComponent<SceneFader>();
         if (_instance == null)
         {
@@ -32,9 +32,16 @@ public class MusicSingleton : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    public void PlaySong()
+    public void PlaySong(float delay)
     {
-        menuSong.Play();
+        if (delay > 0)
+        {
+            menuSong.PlayDelayed(delay);
+        }
+        else
+        {
+            menuSong.Play();
+        }
     }
     private void OnLevelWasLoaded(int level)
     {
