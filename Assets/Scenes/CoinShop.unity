@@ -1570,6 +1570,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1393242074, guid: 07a0797e9f31faa419fa3697f5698f6e, type: 3}
+      propertyPath: enemyDescription
+      value: "Woah, you got some serious coin out there!\n\nYou should see if you
+        can get any new items, \nyou will lose the coins if you're defeated\nso what's
+        the downside in spending it?"
+      objectReference: {fileID: 0}
     - target: {fileID: 563273943218113961, guid: 07a0797e9f31faa419fa3697f5698f6e,
         type: 3}
       propertyPath: m_Name
@@ -7295,12 +7301,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDescription: That was a great fight! You totally showed those weird robots
-    who's the king!
+  enemyDescription: "That was a great fight! \nYou totally showed those weird robots
+    who's the king!"
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
   distanceBetweenPlayer: 5
-  offset: {x: 0, y: 15, z: 0}
+  offset: {x: 0, y: 10, z: 0}
 --- !u!114 &1246531717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7313,14 +7319,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDescription: 'Hey, listen. I am from Daylight City and I have come to see
-    a good show.
+  enemyDescription: 'This is not a normal gladiator battle,
 
-    So, don''t let me down and remember '
+    remember that you
+    have to move to
+
+    the beat of the music!'
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
   distanceBetweenPlayer: 5
-  offset: {x: 0, y: 15, z: 0}
+  offset: {x: 0, y: 10, z: 0}
 --- !u!114 &1246531718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7333,15 +7341,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDescription: 'That player was really good! Did you see how the player killed
-    all of those robots?
-
-    And the gold they acquired, oh boy. They sure can buy
-    a lot of items!'
+  enemyDescription: That new gladiator out there looks promising!
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
   distanceBetweenPlayer: 5
-  offset: {x: 0, y: 15, z: 0}
+  offset: {x: 0, y: 10, z: 0}
 --- !u!114 &1246531719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7354,17 +7358,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDescription: 'Hmm... The armoured guy seemed to be pretty strong but you kicked
-    his ass!
-
-    Don''t forget, chill out at shop. Spend some cash and most importantly.
-
-    Dash
-    and Slash'
+  enemyDescription: "Just saw you out there, great job!\n\nThose big guys are pretty
+    tough, \nthey got me good with that overhead attack. "
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
   distanceBetweenPlayer: 5
-  offset: {x: 0, y: 15, z: 0}
+  offset: {x: 0, y: 10, z: 0}
 --- !u!1 &1246531720 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7943203920362796082, guid: d86c8d4960f5b344c908a0d7a54dd76e,
@@ -7383,10 +7382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDescription: 'Man, that ninja robot with the two swords looks so fricking
-    cool.
-
-    I wonder how the player is going to handle his super fast dash.'
+  enemyDescription: 
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
   distanceBetweenPlayer: 5
@@ -7419,7 +7415,7 @@ MonoBehaviour:
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
   distanceBetweenPlayer: 5
-  offset: {x: 0, y: 15, z: 0}
+  offset: {x: 0, y: 10, z: 0}
 --- !u!1 &1246531724 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7942932968105087289, guid: d86c8d4960f5b344c908a0d7a54dd76e,
@@ -7442,7 +7438,7 @@ MonoBehaviour:
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
   distanceBetweenPlayer: 5
-  offset: {x: 0, y: 15, z: 0}
+  offset: {x: 0, y: 10, z: 0}
 --- !u!4 &1249069534 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4069071470976808, guid: 54903e98cb7da0047ab01d65018f1d4f,
