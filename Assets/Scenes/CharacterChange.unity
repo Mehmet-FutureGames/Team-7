@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13888037, g: 0.06700824, b: 0.08283318, a: 1}
+  m_IndirectSpecularColor: {r: 0.070726134, g: 0.026947193, b: 0.03879041, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1703,8 +1703,8 @@ MonoBehaviour:
   lockScreen: {fileID: 1973259816}
   upgradeNotesAmount: 10
   healthUpgrade: 10
-  damageUpgrade: 3
-  frenzyUpgrade: 5
+  damageUpgrade: 5
+  frenzyUpgrade: 10
   healthText: {fileID: 2059245182}
   damageText: {fileID: 220696802}
   frenzyText: {fileID: 2078245974}
