@@ -17,8 +17,6 @@ public class PlayerHealth : MonoBehaviour
             healthSlider.value = currentHealth;
         }
     }
-    float HPSliderMaxScale;
-    float defaultMaxHealth = 100f;
     float timerTillAdGone;
 
     GameObject deadScreen;
@@ -54,7 +52,8 @@ deadScreen = UIManager.gameOverPanel;
 #if UNITY_ANDROID
         deadScreen.SetActive(false);
 #endif
-        RefillHealth();
+        //RefillHealth();
+        CurrentHealth = playerStats.maxHealth;
     }
 
 
@@ -252,27 +251,15 @@ deadScreen = UIManager.gameOverPanel;
 
         healthSlider.maxValue = playerStats.maxHealth;
         healthSlider.value = healthSlider.maxValue;
-
-        healthBar.transform.parent.localScale = new Vector2(healthBar.transform.parent.localScale.x * (playerStats.maxHealth / defaultMaxHealth), healthBar.transform.parent.localScale.y);
-        healthBar.fillAmount = currentHealth / playerStats.maxHealth;
+        healthSlider.transform.localScale = new Vector2(Mathf.Clamp(1 * (healthSlider.maxValue / 100), 0f, 2f), healthSlider.transform.localScale.y);
     }
-    private void RefillHealth()
-    {
-        healthSlider.value = healthSlider.maxValue;
-        healthBar.fillAmount = currentHealth / playerStats.maxHealth;
-    }
-
     public void UpgradeHealth(float upgradedHealth)
     {
-        healthSlider.maxValue += upgradedHealth;
-        healthSlider.value = healthSlider.maxValue;
-        healthSlider.transform.localScale = new Vector2(Mathf.Clamp(healthSlider.transform.localScale.x * healthSlider.maxValue / 100, 1, 2) , healthSlider.transform.localScale.y);
-
         playerStats.maxHealth += upgradedHealth;
-        GetComponent<PlayerHealth>().CurrentHealth = playerStats.maxHealth;
-        healthBar.transform.parent.localScale = new Vector2(healthBar.transform.parent.localScale.x * (playerStats.maxHealth / defaultMaxHealth), healthBar.transform.parent.localScale.y);
-        healthBar.fillAmount = currentHealth / playerStats.maxHealth;
-        RefillHealth();
+        healthSlider.maxValue = playerStats.maxHealth;
+        healthSlider.transform.localScale = new Vector2(Mathf.Clamp(1 * (healthSlider.maxValue / 100), 0f, 2f) , healthSlider.transform.localScale.y);
+        healthSlider.value = healthSlider.maxValue;
+        CurrentHealth = playerStats.maxHealth;
     }
 
     public void RecoverHealth(float healthRecovered)
