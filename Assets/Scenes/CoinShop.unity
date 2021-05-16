@@ -7299,6 +7299,8 @@ MonoBehaviour:
     who's the king!
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
+  distanceBetweenPlayer: 5
+  offset: {x: 0, y: 15, z: 0}
 --- !u!114 &1246531717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7311,9 +7313,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDescription: 
+  enemyDescription: 'Hey, listen. I am from Daylight City and I have come to see
+    a good show.
+
+    So, don''t let me down and remember '
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
+  distanceBetweenPlayer: 5
+  offset: {x: 0, y: 15, z: 0}
 --- !u!114 &1246531718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7326,9 +7333,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDescription: That character
+  enemyDescription: 'That player was really good! Did you see how the player killed
+    all of those robots?
+
+    And the gold they acquired, oh boy. They sure can buy
+    a lot of items!'
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
+  distanceBetweenPlayer: 5
+  offset: {x: 0, y: 15, z: 0}
 --- !u!114 &1246531719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7350,6 +7363,8 @@ MonoBehaviour:
     and Slash'
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
+  distanceBetweenPlayer: 5
+  offset: {x: 0, y: 15, z: 0}
 --- !u!1 &1246531720 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7943203920362796082, guid: d86c8d4960f5b344c908a0d7a54dd76e,
@@ -7368,9 +7383,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDescription: 'Man, that ninja robot with the two swords looks so fricking
+    cool.
+
+    I wonder how the player is going to handle his super fast dash.'
+  textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
+    type: 3}
+  distanceBetweenPlayer: 5
+  offset: {x: 0, y: 15, z: 0}
+--- !u!1 &1246531722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7943124439002587146, guid: d86c8d4960f5b344c908a0d7a54dd76e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1246531711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1246531723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246531722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDescription: 'I have experienced tranquility. I also know how to defeat those
+    ninjas.
+
+    For a small fee... I am just joking. Block as soon as they charge
+    at you.
+
+    That is all.'
+  textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
+    type: 3}
+  distanceBetweenPlayer: 5
+  offset: {x: 0, y: 15, z: 0}
+--- !u!1 &1246531724 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7942932968105087289, guid: d86c8d4960f5b344c908a0d7a54dd76e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1246531711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1246531725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246531724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   enemyDescription: 
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
+  distanceBetweenPlayer: 5
+  offset: {x: 0, y: 15, z: 0}
 --- !u!4 &1249069534 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4069071470976808, guid: 54903e98cb7da0047ab01d65018f1d4f,
@@ -12190,4 +12262,53 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents:
     - {fileID: 4276114994600908651, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
+    - {fileID: 389074745, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 95f3b341ff7fe0d4281c8964895abd80, type: 3}
+--- !u!1 &4276114996034102438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4274392372602514371, guid: 95f3b341ff7fe0d4281c8964895abd80,
+    type: 3}
+  m_PrefabInstance: {fileID: 4276114996034102437}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4276114996034102439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4276114996034102438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDescription: 'Hey, you. I have another message from Johnny.
+
+    Good job
+    out there, you started to remind me of me, 50 years back.
+
+    Minus the charisma
+    and impressive chicken'
+  textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
+    type: 3}
+  distanceBetweenPlayer: 5
+  offset: {x: 0, y: 15, z: 0}
+--- !u!95 &4276114996034102440
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4276114996034102438}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0cb08fb9263f33043b894ae72fd05edf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

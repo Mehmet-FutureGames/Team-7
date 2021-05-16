@@ -146,10 +146,11 @@ public class MovePlayer : MonoBehaviour
             mousePos = TargetEnemy.stopPos;
         }
         //////////////////////////////////////////////////////////////////////////////
+        TurnPlayerTowardsDir();
         SendPlayerRegMove();
         StartCoroutine(Move());
         collided = false;
-        TurnPlayerTowardsDir();
+        
         
     }
     void SendPlayerRegMove()
