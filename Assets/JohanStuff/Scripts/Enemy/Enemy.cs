@@ -286,6 +286,14 @@ public class Enemy : MonoBehaviour
 
     private void EventUpdate()
     {
+        if (GetComponentInChildren<NavMeshAgent>() == null)
+        {
+            agent = GetComponentInChildren<NavMeshAgent>();
+        }
+        if (!agent.enabled)
+        {
+            agent.enabled = true;
+        }
         distanceToPlayer = (agentObj.transform.position - player.position).magnitude;
         movementSM.CurrentState.NoteEventUpdate();
     }
