@@ -22,7 +22,8 @@ public class Player : MonoBehaviour
     MovePlayer movePlayer;
     RaycastHit hit;
     #region VariableSetInScriptableObject
-    PlayerAttack playerAttackRange;
+    [HideInInspector]
+    public  PlayerAttack playerAttackRange;
 
     PlayerDashAttack playerDashRange;
 

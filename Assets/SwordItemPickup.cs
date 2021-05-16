@@ -33,7 +33,7 @@ public class SwordItemPickup : MonoBehaviour
         player = FindObjectOfType<Player>();
         itemParameter = GetComponent<ItemParameter>();
         sword = FindObjectOfType<SwordScript>();
-        playerAttack = FindObjectOfType<PlayerAttack>();
+        playerAttack = FindObjectOfType<Player>().playerAttackRange;
     }
 
     private void OnTriggerEnter(Collider other)
