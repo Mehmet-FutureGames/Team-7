@@ -119,7 +119,7 @@ public class MainMenu : MonoBehaviour
     {
         if (!playerStatsMenu.hasStartedFirstTime && !PlayerStatsMenu.hasUpgraded)
         {
-            StartCoroutine(SceneFader.FadeOut(StartTutorial));
+            StartTutorial();
         }
         else if(GetComponentInChildren<CharacterStats>().hasBeenBought && playerStatsMenu.hasStartedFirstTime && !PlayerStatsMenu.hasUpgraded)
         {

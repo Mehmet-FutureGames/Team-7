@@ -28,6 +28,10 @@ public class SwitchPanels : MonoBehaviour
     }
     public void StartFromTutorial()
     {
+        StartCoroutine(SceneFader.FadeIn(LoadShop));
+    }
+    private void LoadShop()
+    {
         SceneManager.LoadScene("Shop");
     }
 }

@@ -30,4 +30,8 @@ public class PlayerFire : MonoBehaviour
             other.GetComponentInParent<Enemy>().TakeFireDamage(5, false);
         }
     }
+    private void OnLevelWasLoaded(int level)
+    {
+        gameObject.SetActive(false);
+    }
 }
