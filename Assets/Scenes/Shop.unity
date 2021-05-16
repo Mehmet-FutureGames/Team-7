@@ -9567,6 +9567,8 @@ MonoBehaviour:
     yellow attacks.'
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
+  distanceBetweenPlayer: 5
+  offset: {x: 0, y: 15, z: 0}
 --- !u!4 &1599486799 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 423916, guid: 07bee576df5b5e049a39f20f65b6ddb1,
@@ -12973,12 +12975,7 @@ PrefabInstance:
     - target: {fileID: 563273943502274850, guid: 07a0797e9f31faa419fa3697f5698f6e,
         type: 3}
       propertyPath: m_text
-      value: 'Welcome to the Notes shop!
-
-
-        Here you can boost your run with
-        items that you buy with Notes, a rare currency that you can find when playing
-        the game. '
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 563273943502274850, guid: 07a0797e9f31faa419fa3697f5698f6e,
         type: 3}
@@ -13007,6 +13004,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a0797e9f31faa419fa3697f5698f6e, type: 3}
+--- !u!1 &563273943054576397 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 564333789678381630, guid: 07a0797e9f31faa419fa3697f5698f6e,
+    type: 3}
+  m_PrefabInstance: {fileID: 563273943054576396}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &563273943054576398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563273943054576397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDescription: 'Welcome to the Notes shop!
+
+
+    Here you can boost your run
+    with items that you buy with Notes, a rare currency that you can find when playing
+    the game. '
+  textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
+    type: 3}
+  distanceBetweenPlayer: 5
+  offset: {x: 0, y: 15, z: 0}
 --- !u!1001 &4276114996034102437
 PrefabInstance:
   m_ObjectHideFlags: 0
