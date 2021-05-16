@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f5adbe229116746947608c0674f60a, type: 3}
+  m_Name: TestItmeDamage
+  m_EditorClassIdentifier: 
+  nameItem: 
+  itemModel: {fileID: 7861883854169727345, guid: edbc8888adca65340bd612c4e86463e0,
+    type: 3}
+  upgradeAmount: 25
+  itemCostCoins: 0
+  itemCostNotes: 0
+  itemType: 1

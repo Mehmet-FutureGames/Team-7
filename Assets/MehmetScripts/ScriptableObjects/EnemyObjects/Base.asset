@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b003b01bd880a44d96e3bab38f6eacf, type: 3}
+  m_Name: Base
+  m_EditorClassIdentifier: 
+  enemyName: TankDemonDudeLordMF
+  movePattern: 0
+  enemyType: 0
+  enemyModel: {fileID: 7280686633801961007, guid: 2f2dd6f54256d8541a2b2aebc926adf0,
+    type: 3}
+  floatingText: {fileID: 7834719628194316170, guid: 2f7ade109394de44e8c41a4781951eaf,
+    type: 3}
+  attackAreaShape: {fileID: 5413893435592207300, guid: 8bbfbd6b7efa6f440bec64f8d53f9173,
+    type: 3}
+  attackAreaScale: {x: 3, y: 2, z: 7}
+  isRanged: 0
+  movementSpeed: 1
+  moveDistance: 8
+  detectionRange: 30
+  notesToMove: 1
+  attackDamage: 0
+  attackRange: 14
+  health: 1
+  noteDropChance: 50
+  coinMinDropCount: 0
+  coinMaxDropCount: 8
+  coinValue: 1

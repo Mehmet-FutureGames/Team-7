@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b003b01bd880a44d96e3bab38f6eacf, type: 3}
+  m_Name: Base_Enemy_enr
+  m_EditorClassIdentifier: 
+  enemyName: Normal Enemy
+  movePattern: 0
+  enemyType: 0
+  enemyModel: {fileID: 6182000829908483884, guid: fd2fb663cac2feb47b4343198f34ca32,
+    type: 3}
+  floatingText: {fileID: 7834719628194316170, guid: 2f7ade109394de44e8c41a4781951eaf,
+    type: 3}
+  attackAreaShape: {fileID: 5142904849790710492, guid: 0276f6d96dfb9c141a6591ed02f83c65,
+    type: 3}
+  attackAreaScale: {x: 3, y: 3, z: 3}
+  attackAreaShape2: {fileID: 1178725643994930611, guid: 46e188008eaf89243816bd5080d7b0b9,
+    type: 3}
+  attackAreaScale2: {x: 0, y: 0, z: 0}
+  isRanged: 0
+  movementSpeed: 2
+  moveDistance: 10
+  detectionRange: 100
+  notesToMove: 1
+  attackDamage: 20
+  attackRange: 6
+  health: 100
+  noteDropChance: 16.2
+  coinMinDropCount: 0
+  coinMaxDropCount: 4
+  coinValue: 5
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  damagePlayerSound: 

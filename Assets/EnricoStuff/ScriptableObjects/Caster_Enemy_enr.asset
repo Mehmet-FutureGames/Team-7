@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b003b01bd880a44d96e3bab38f6eacf, type: 3}
+  m_Name: Caster_Enemy_enr
+  m_EditorClassIdentifier: 
+  enemyName: Caster
+  movePattern: 0
+  enemyType: 1
+  enemyModel: {fileID: 7585108776222457206, guid: b206bf098e5cb0a45b537c2f88c49868,
+    type: 3}
+  floatingText: {fileID: 7834719628194316170, guid: 2f7ade109394de44e8c41a4781951eaf,
+    type: 3}
+  attackAreaShape: {fileID: 5142904849790710492, guid: 74a96bd4303c80943b1fceb9ccadd5ac,
+    type: 3}
+  attackAreaScale: {x: 8, y: 8, z: 8}
+  attackAreaShape2: {fileID: 1178725643994930611, guid: 46e188008eaf89243816bd5080d7b0b9,
+    type: 3}
+  attackAreaScale2: {x: 0, y: 0, z: 0}
+  isRanged: 1
+  movementSpeed: 2
+  moveDistance: 8
+  detectionRange: 100
+  notesToMove: 1
+  attackDamage: 30
+  attackRange: 30
+  health: 80
+  noteDropChance: 53.5
+  coinMinDropCount: 6
+  coinMaxDropCount: 10
+  coinValue: 10
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  damagePlayerSound: Aj

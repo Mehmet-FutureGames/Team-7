@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4839025464020082310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1396822464465207458}
+  - component: {fileID: 5576551875691951524}
+  m_Layer: 9
+  m_Name: Base_Enemy
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1396822464465207458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4839025464020082310}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5576551875691951524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4839025464020082310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1806a6cdb08623a428a4c40597e024b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemysound: {fileID: 8300000, guid: cfd567c9ffd769a428ee6fa0de6a4895, type: 3}
+  enemy2sound: {fileID: 8300000, guid: cfd567c9ffd769a428ee6fa0de6a4895, type: 3}
+  animator: {fileID: 0}
+  playerIsInAttackArea: 0
+  area: {fileID: 0}
+  isRanged: 0
+  agentObj: {fileID: 0}
+  agent: {fileID: 0}
+  attackAreaScale: {x: 0, y: 0, z: 0}
+  moveDistance: 0
+  defaultMoveDistance: 0
+  notesToMove: 0
+  detectionRange: 0
+  attackRange: 0
+  health: 0
+  movePattern: 0
+  enemyType: 0
+  moveCounter: 0
+  distanceToPlayer: 0
+  player: {fileID: 0}
+  stats: {fileID: 11400000, guid: 8995957558cda5a4bb275fd6a11239ec, type: 2}

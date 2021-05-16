@@ -4,5 +4,47 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: ccade51b2d499d145a4c93b3bd431f7d
+  - enabled: 1
+    path: Assets/Scenes/CharacterChange.unity
+    guid: 2ed4081ccc1327f4d81c09012efdb37c
+  - enabled: 1
+    path: Assets/EmilSStuff/TutorialPC.unity
+    guid: ce8a28e55ab340040a070d1623e4bd26
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: e6d59c01f04bd0147aa9a8d2ecaf492e
+  - enabled: 1
+    path: Assets/EmilSStuff/EmilSTestScene.unity
+    guid: e99bcb8993ff30041b2dbacd030afdaf
+  - enabled: 1
+    path: Assets/Scenes/CoinShop.unity
+    guid: 09e1331d4123a57419a8f79606c9df34
+  - enabled: 1
+    path: Assets/EmilSStuff/Level_2.unity
+    guid: 4125dfee2f93f404abfa38caa7536cd2
+  - enabled: 1
+    path: Assets/EmilSStuff/Level_3.unity
+    guid: 37911103cc5fcc143aab0f96f2de1354
+  - enabled: 0
+    path: Assets/Scenes/JohanTestScene.unity
+    guid: ebc338b4e4261d146ae845f38e400cc4
+  - enabled: 0
+    path: Assets/Scenes/GameScene.unity
+    guid: 2dae91d30edcc1645ad787fed5449eae
+  - enabled: 1
+    path: Assets/Scenes/ThankYou.unity
+    guid: f70d12a7fc6c5c2478c736ac75ebaff9
+  - enabled: 1
+    path: Assets/Scenes/SettingsUI.unity
+    guid: f4a0c9797a707dc4cb399b46b059ea8f
+  - enabled: 1
+    path: Assets/JohanStuff/MetronomeTest/Scene/MetronomeTestScene.unity
+    guid: 271d88c25b46f5e4f84731fee839ee61
+  - enabled: 1
+    path: Assets/EmilSStuff/TutorialMobile.unity
+    guid: 1a668b8bfefada84983a0f3f78b4f7a5
   m_configObjects: {}

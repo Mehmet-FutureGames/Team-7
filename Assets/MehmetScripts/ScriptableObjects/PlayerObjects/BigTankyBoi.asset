@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0a8eb1dde53c84fa29e79686573e89, type: 3}
+  m_Name: BigTankyBoi
+  m_EditorClassIdentifier: 
+  playerModel: {fileID: 1887590721339854, guid: b1d589de4cb337b47a6b60a449d26b2b,
+    type: 3}
+  playerDamageText: {fileID: 3411471724750393966, guid: 06a5d40551cdc894daaf72510bb45db9,
+    type: 3}
+  playerName: R3-D3
+  movementSpeed: 0
+  attackDamage: 40
+  health: 200
+  dashDamage: 25
+  meleeAttackDuration: 1
+  maxFrenzy: 50
+  dashAttackDuration: 0.8
+  dashAttackFrenzyCost: 5
+  distanceToClick: 6
+  descriptionCharacter: R3-D3 is a 300 pounds iron robot, once forced to fight the
+    gladiators in the arena, he suddenly became self aware when he took a big swing
+    to the head.

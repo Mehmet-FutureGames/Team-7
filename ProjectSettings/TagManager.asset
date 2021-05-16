@@ -3,7 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Activator
+  - Obstacle
+  - Enemy
+  - SpawnPoints
+  - PatternSpawner
+  - Note
+  - SuperActivator
+  - Coin
+  - NoteCurrency
+  - AttackButton
+  - BlockButton
+  - SpawnPos
+  - FadeImage
   layers:
   - Default
   - TransparentFX
@@ -11,10 +24,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Overlay
+  - Ground
+  - Obstacle
+  - Enemy
   - 
   - 
   - 
@@ -40,4 +53,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BeatIndicator
+    uniqueID: 98757501
     locked: 0
