@@ -31,11 +31,11 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         mixer = Resources.Load<AudioMixer>("MainMixer");
-        Invoke("LoadVolume", 0.0001f);
     }
 
     private void Start()
     {
+        LoadVolume();
         motionBlurSetting = PlayerPrefs.GetInt("MotionBlur") == 1;
         hasGoneToSettings = false;
         manager = FindObjectOfType<LevelManager>();
