@@ -65,8 +65,6 @@ public class Player : MonoBehaviour
 
     [SerializeField] bool developerMode;
 
-    Transform spawnLocation;
-
     public GameObject SlashParticleTrail; //for dash attack particles
     public GameObject SlashParticleTrail2;
 
