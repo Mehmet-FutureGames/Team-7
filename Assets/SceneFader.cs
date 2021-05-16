@@ -9,6 +9,7 @@ public class SceneFader : MonoBehaviour
     private static float fadeTimer = 1f;
     public delegate void FadeDelegate();
     public static AudioSource musicSource;
+    [SerializeField] Sprite shopImage;
     public static Image fadeImage;
     public static float FadeTimer
     {
@@ -31,7 +32,7 @@ public class SceneFader : MonoBehaviour
         while (FadeTimer >= 0)
         {
             colorfloat = FadeTimer * -1 + 10;
-            fadeImage.color = new Color(0,0,0,colorfloat * 0.1f);
+            fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, colorfloat * 0.1f);
             musicSource.volume = musicSource.volume - 0.01f;
             if(musicSource.pitch > 0)
             {
@@ -40,6 +41,7 @@ public class SceneFader : MonoBehaviour
             FadeTimer = FadeTimer - 0.1f;
             yield return new WaitForSeconds(0.01f);
         }
+        fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 1);
         musicSource.pitch = 1;
         musicSource.Stop();
         method();
@@ -64,13 +66,14 @@ public class SceneFader : MonoBehaviour
         while (FadeTimer <= 10f)
         {
             colorfloat = FadeTimer * -1 + 10;
-            fadeImage.color = new Color(0, 0, 0, colorfloat * 0.1f);
+            fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, colorfloat * 0.1f);
 
             musicSource.volume = Mathf.Lerp(0,NoteManager.currentSongMaxVolume, FadeTimer * 0.1f);
             FadeTimer = FadeTimer + 0.1f;
             yield return new WaitForSecondsRealtime(0.01f);
         }
-        
+        fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 0);
+
     }
 
     private void OnLevelWasLoaded(int level)
@@ -78,6 +81,8 @@ public class SceneFader : MonoBehaviour
 
         if (level == SceneManager.GetSceneByName("CoinShop").buildIndex || level == SceneManager.GetSceneByName("Shop").buildIndex)
         {
+            fadeImage.sprite = shopImage;
+            fadeImage.color = new Color(1, 1, 1, 0);
             StartCoroutine(FadeIn());
         }
         else if (level == SceneManager.GetSceneByName("EmilSTestScene").buildIndex)

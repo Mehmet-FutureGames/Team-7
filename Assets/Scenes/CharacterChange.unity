@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13904926, g: 0.065655954, b: 0.08371233, a: 1}
+  m_IndirectSpecularColor: {r: 0.14006785, g: 0.066396184, b: 0.08464492, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1801,6 +1801,7 @@ MonoBehaviour:
   masterVolume: {fileID: 0}
   SFXVolume: {fileID: 0}
   musicVolume: {fileID: 0}
+  motionBlur: {fileID: 0}
   saveButtonMenu: {fileID: 0}
   saveButtonSettings: {fileID: 0}
 --- !u!1 &609388806
@@ -6203,14 +6204,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 8e613333554ecc14a9d9c4e7e6ae7293, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8500,6 +8501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b7663946e46f144b2413d9fca6398f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopImage: {fileID: 21300000, guid: 8e613333554ecc14a9d9c4e7e6ae7293, type: 3}
 --- !u!1 &1762849256
 GameObject:
   m_ObjectHideFlags: 0

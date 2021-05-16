@@ -28,10 +28,12 @@ public class TransisitonToShop : MonoBehaviour
         {
             if (hasReachedTheEnd)
             {
+                SceneFader.fadeImage.color = new Color(0,0,0,0);
                 StartCoroutine(SceneFader.FadeOut(LoadFinalScene));
             }
             else if (!hasProceeded)
             {
+                SceneFader.fadeImage.color = new Color(1, 1, 1, 0);
                 other.GetComponent<MovePlayer>().mousePos = other.GetComponent<Transform>().position;
                 StartCoroutine(SceneFader.FadeOut(LoadScene));
                 LevelManager.levelsCompletedThisRun++;
