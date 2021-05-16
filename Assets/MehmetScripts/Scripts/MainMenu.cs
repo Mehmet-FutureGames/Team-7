@@ -7,6 +7,7 @@ using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
+    bool motionBlurSetting;
     PlayerStatsMenu playerStatsMenu;
     public static bool hasGoneToSettings = false;
     int levelSelected;
@@ -19,6 +20,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] Slider SFXVolume;
     [SerializeField] Slider musicVolume;
 
+    [SerializeField] Toggle motionBlur;
+
      float masterVolumeFloat;
      float SFXVolumeFloat;
      float musicVolumeFloat;
@@ -28,11 +31,13 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        motionBlurSetting = PlayerPrefs.GetInt("MotionBlur") == 1;
         hasGoneToSettings = false;
         mixer = Resources.Load<AudioMixer>("MainMixer");
         manager = FindObjectOfType<LevelManager>();
         playerStatsMenu = FindObjectOfType<PlayerStatsMenu>();
         LoadVolume();
+        LoadMotionBlurSetting();
     }
 
     public void SavedVolume()
@@ -151,6 +156,16 @@ SceneManager.LoadScene("TutorialMobile");
         SceneManager.LoadScene("SettingsUI");
     }
 
+    public void LoadMotionBlurSetting()
+    {
+        motionBlurSetting = PlayerPrefs.GetInt("MotionBlur") == 1;
+        Debug.Log(motionBlurSetting);
+        if (motionBlur != null)
+        {
+            motionBlur.isOn = motionBlurSetting;
+        }
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -264,6 +279,21 @@ SceneManager.LoadScene("TutorialMobile");
                 mixer.SetFloat("MusicVol", Mathf.Log10(1) * 20);
                 musicVolume.value = 1;
                 break;
+        }
+    }
+    public void SaveMotionBlurSetting()
+    {
+        PlayerPrefs.SetInt("MotionBlur", motionBlurSetting ? 1 : 0);
+    }
+    public void MotionBlurOption()
+    {
+        if (motionBlur.isOn)
+        {
+            motionBlurSetting = true;
+        }
+        if (!motionBlur.isOn)
+        {
+            motionBlurSetting = false;
         }
     }
     public void ChangeGraphics(int qualityLevel)

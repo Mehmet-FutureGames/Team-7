@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/JohanStuff/MetronomeTest/Scene/MetronomeTestScene.unity
     guid: 271d88c25b46f5e4f84731fee839ee61
+  - enabled: 1
+    path: Assets/EmilSStuff/TutorialMobile.unity
+    guid: 1a668b8bfefada84983a0f3f78b4f7a5
   m_configObjects: {}
