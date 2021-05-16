@@ -53,7 +53,7 @@ public class Dialogue : MonoBehaviour
         {
             text = Instantiate(textToShow, transform.position, Quaternion.identity, transform);
             text.transform.position = new Vector3(text.transform.position.x, offset.y, text.transform.position.z);
-            text.GetComponent<TextMeshProUGUI>().text = enemyDescription;
+            text.GetComponent<TextMeshPro>().text = enemyDescription;
             hasSpawnedATextBox = true;
         }
     }
