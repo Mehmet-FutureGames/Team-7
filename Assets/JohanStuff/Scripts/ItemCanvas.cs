@@ -34,8 +34,11 @@ public class ItemCanvas : MonoBehaviour
         }
 
     }
+
     private void OnLevelWasLoaded(int level)
     {
-        gameObject.SetActive(false);
+        isInBuyArea = false;
+        panel.SetActive(false);
+        
     }
 }
