@@ -3127,12 +3127,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDescription: "No, no, no! \nJoe is the real deal!\nBalanced, and also he has
-    \nsome very cool dance moves!"
+  enemyDescription: "No, no, no! \n\nJoe is the real deal!\nBalanced, and also he
+    has \nsome very cool dance moves!"
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
   distanceBetweenPlayer: 5
-  offset: {x: 0, y: 10, z: 0}
+  offset: {x: 0, y: 15, z: 0}
 --- !u!1 &1249379902
 GameObject:
   m_ObjectHideFlags: 0
@@ -3608,9 +3608,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10e7f8614cb79a4c955017fbbb3da06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDescription: "Annie May is obviously the best fighter, she is so strong.\nBut,
-    I guess she isn't the tankiest of gladiators. \nI wonder if someone can upgrade
-    her..."
+  enemyDescription: 'Annie May is obviously the best fighter, she is so strong.
+
+    But,
+    I guess she isn''t the tankiest of gladiators,
+
+    she should probably spend
+    her notes on health upgrades.'
   textToShow: {fileID: 7428903838403753172, guid: 1d51ebc9281de974b96a3a33abe1b5e3,
     type: 3}
   distanceBetweenPlayer: 5
