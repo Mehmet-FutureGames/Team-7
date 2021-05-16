@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MusicSingleton : MonoBehaviour
 {
+    AudioSource menuSong;
     SceneFader faderScript;
 
     Scene currentScene;
@@ -14,6 +15,8 @@ public class MusicSingleton : MonoBehaviour
     public static MusicSingleton Instance { get { return _instance; } }
     private void Awake()
     {
+        menuSong = GetComponent<AudioSource>();
+        PlaySong();
         faderScript = GetComponent<SceneFader>();
         if (_instance == null)
         {
@@ -28,6 +31,10 @@ public class MusicSingleton : MonoBehaviour
     public void DestroyThis()
     {
         Destroy(gameObject);
+    }
+    public void PlaySong()
+    {
+        menuSong.Play();
     }
     private void OnLevelWasLoaded(int level)
     {

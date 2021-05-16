@@ -18,13 +18,13 @@ MonoBehaviour:
     type: 3}
   playerName: Joe
   movementSpeed: 0
-  attackDamage: 150
-  health: 150
+  attackDamage: 75
+  health: 75
   dashDamage: 30
   meleeAttackDuration: 1
-  maxFrenzy: 110
+  maxFrenzy: 75
   dashAttackDuration: 1
-  dashAttackFrenzyCost: 0
+  dashAttackFrenzyCost: 5
   distanceToClick: 6
   descriptionCharacter: 'Not just your average Joe. This Joe comes from a long line
     of warriors. It''s not his fault his generation never had any great wars. '

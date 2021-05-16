@@ -18,11 +18,11 @@ MonoBehaviour:
     type: 3}
   playerName: R3-D3
   movementSpeed: 0
-  attackDamage: 50
+  attackDamage: 40
   health: 200
   dashDamage: 25
   meleeAttackDuration: 1
-  maxFrenzy: 110
+  maxFrenzy: 50
   dashAttackDuration: 0.8
   dashAttackFrenzyCost: 5
   distanceToClick: 6
