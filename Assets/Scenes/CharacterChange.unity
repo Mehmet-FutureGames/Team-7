@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13487712, g: 0.06427941, b: 0.07973439, a: 1}
+  m_IndirectSpecularColor: {r: 0.09888949, g: 0.040395238, b: 0.05606857, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1757,7 +1757,7 @@ MonoBehaviour:
   damageText: {fileID: 220696802}
   frenzyText: {fileID: 2078245974}
   cantBuyCharacter: {fileID: 1226234076}
-  startingNotes: 150
+  startingNotes: 0
   button: {fileID: 0}
   healthMinusButton: {fileID: 1762849256}
   DamageMinusButton: {fileID: 632357031}
@@ -5199,7 +5199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1232754652
 RectTransform:
   m_ObjectHideFlags: 0
