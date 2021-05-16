@@ -362,6 +362,8 @@ public class Player : MonoBehaviour
         {
             playerAttackRange.gameObject.SetActive(true);
             playerDashRange.gameObject.SetActive(true);
+            playerAttackRange.gameObject.SetActive(false);
+            playerDashRange.gameObject.SetActive(false);
         }
         if (!hasStarted)
         {
