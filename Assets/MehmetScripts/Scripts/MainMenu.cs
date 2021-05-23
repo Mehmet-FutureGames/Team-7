@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] Toggle motionBlur;
 
      float masterVolumeFloat;
-     float SFXVolumeFloat;
+     float sfxVolumeFloat;
      float musicVolumeFloat;
 
     [SerializeField] GameObject saveButtonMenu;
@@ -46,13 +46,13 @@ public class MainMenu : MonoBehaviour
     public void SavedVolume()
     {
         PlayerPrefs.SetFloat("masterVolume",masterVolumeFloat);
-        PlayerPrefs.SetFloat("SFXvolume", SFXVolumeFloat);
+        PlayerPrefs.SetFloat("SFXvolume", sfxVolumeFloat);
         PlayerPrefs.SetFloat("MusicVol", musicVolumeFloat);
         mixer.SetFloat("MasterVol", Mathf.Log10(masterVolumeFloat) * 20);
-        mixer.SetFloat("SFXVol", Mathf.Log10(SFXVolumeFloat) * 20);
+        mixer.SetFloat("SFXVol", Mathf.Log10(sfxVolumeFloat) * 20);
         mixer.SetFloat("MusicVol", Mathf.Log10(musicVolumeFloat) * 20);
     }
-    public void LoadVolume()
+    private void LoadVolume()
     {
         if (masterVolume != null)
             if (PlayerPrefs.GetFloat("masterVolume") != 0)
@@ -71,7 +71,7 @@ public class MainMenu : MonoBehaviour
                 musicVolume.value = 1;
 
         masterVolumeFloat = PlayerPrefs.GetFloat("masterVolume");
-        SFXVolumeFloat = PlayerPrefs.GetFloat("SFXvolume");
+        sfxVolumeFloat = PlayerPrefs.GetFloat("SFXvolume");
         musicVolumeFloat = PlayerPrefs.GetFloat("MusicVol");
 
         if (mixer == null)
@@ -81,7 +81,7 @@ public class MainMenu : MonoBehaviour
         else
         {
             mixer.SetFloat("MasterVol", Mathf.Log10(masterVolumeFloat) * 20);
-            mixer.SetFloat("SFXVol", Mathf.Log10(SFXVolumeFloat) * 20);
+            mixer.SetFloat("SFXVol", Mathf.Log10(sfxVolumeFloat) * 20);
             mixer.SetFloat("MusicVol", Mathf.Log10(musicVolumeFloat) * 20);
         }
     }
@@ -89,7 +89,7 @@ public class MainMenu : MonoBehaviour
     public void ChangeVolume(int volumeChanged)
     {
         masterVolumeFloat = masterVolume.value;
-        SFXVolumeFloat = SFXVolume.value;
+        sfxVolumeFloat = SFXVolume.value;
         musicVolumeFloat = musicVolume.value;
         switch (volumeChanged)
         {
@@ -97,7 +97,7 @@ public class MainMenu : MonoBehaviour
                 mixer.SetFloat("MasterVol", Mathf.Log10(masterVolumeFloat) * 20);
                 break;
             case 1:
-                mixer.SetFloat("SFXVol", Mathf.Log10(SFXVolumeFloat) * 20);
+                mixer.SetFloat("SFXVol", Mathf.Log10(sfxVolumeFloat) * 20);
                 break;
             case 2:
                 mixer.SetFloat("MusicVol", Mathf.Log10(musicVolumeFloat) * 20);

@@ -135,13 +135,18 @@ public class PlayerStatsMenu : MonoBehaviour
         }
         notesText.text = notes.ToString();
         UpdateTextUpgrade();
+
+        characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth = PlayerPrefs.GetInt("UpgradeHealth" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth);
+        characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage = PlayerPrefs.GetInt("UpgradeDamage" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage);
+        characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost = PlayerPrefs.GetInt("UpgradeHealth" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth);
+
     }
 
     private void UpdateTextUpgrade()
     {
         frenzyText.text = PlayerPrefs.GetInt("UpgradeFrenzy" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost).ToString();
-        damageText.text = PlayerPrefs.GetInt("UpgradeDamage" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost).ToString();
-        healthText.text = PlayerPrefs.GetInt("UpgradeHealth" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost).ToString();
+        damageText.text = PlayerPrefs.GetInt("UpgradeDamage" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage).ToString();
+        healthText.text = PlayerPrefs.GetInt("UpgradeHealth" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth).ToString();
     }
 
     public void BuyCharacter()
@@ -198,6 +203,10 @@ public class PlayerStatsMenu : MonoBehaviour
                 cantBuyCharacter.gameObject.SetActive(false);
                 characters[i].SetActive(i == currentCharacterSelected);
                 characters[currentCharacterSelected].GetComponentInChildren<SkinnedMeshRenderer>().material = unlockedMaterials[currentCharacterSelected];
+
+                characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth = PlayerPrefs.GetInt("UpgradeHealth" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth);
+                characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage = PlayerPrefs.GetInt("UpgradeDamage" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostDamage);
+                characters[currentCharacterSelected].GetComponent<CharacterStats>().notesFrenzyCost = PlayerPrefs.GetInt("UpgradeHealth" + currentCharacterSelected, characters[currentCharacterSelected].GetComponent<CharacterStats>().notesCostHealth);
             }
             else
             {
