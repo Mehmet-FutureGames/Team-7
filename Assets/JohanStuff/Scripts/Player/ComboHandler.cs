@@ -88,9 +88,9 @@ public class ComboHandler : MonoBehaviour
     IEnumerator Slide() // moves the combo slider down every time a beatNote spwans. To move it to the beat instead of just moving it down with time.
     {
         sliderRunning = true;
-        float startSliderVal = slider.value;
+        float startSliderVal = slider.maxValue;
         float reduction = slider.maxValue / comboDepletionCount;
-        nextSliderVal = startSliderVal - reduction;
+        nextSliderVal = slider.value - reduction;
         while (true)
         {
             slider.value = Mathf.SmoothDamp(slider.value, nextSliderVal, ref dampVel, 0.1f);
@@ -124,6 +124,7 @@ public class ComboHandler : MonoBehaviour
     {
         slider.gameObject.SetActive(true);
         slider.value = slider.maxValue;
+        nextSliderVal = slider.value - (slider.maxValue / comboDepletionCount);
         hasHit = true;
         Combo += 1;
     }
