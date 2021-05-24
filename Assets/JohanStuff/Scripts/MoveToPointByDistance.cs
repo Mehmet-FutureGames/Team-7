@@ -5,7 +5,6 @@ using UnityEngine;
 public class MoveToPointByDistance
 {
     Vector3 previous;
-    //float velocity = 0;
     public Vector3 Move(Vector3 current, Vector3 target, float deltaSpeed, ref float velocity)
     {
         float distance = (current - target).magnitude;
