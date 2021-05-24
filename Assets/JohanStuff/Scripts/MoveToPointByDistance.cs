@@ -12,7 +12,6 @@ public class MoveToPointByDistance
         Vector3 pos = Vector3.MoveTowards(current, target, distance * deltaSpeed);
         velocity = (pos - previous).magnitude / Time.deltaTime;
         previous = pos;
-        Debug.Log(velocity);
         return pos;
     }
 }
