@@ -9,8 +9,6 @@ using UnityEngine.SceneManagement;
 public class MovePlayer : MonoBehaviour
 {
     NotePublisher publisher;
-    
-    bool collided;
 
     public AudioClip movingsound;
 
@@ -77,7 +75,7 @@ public class MovePlayer : MonoBehaviour
     }
     private void MoveCharacter()
     {
-        if (!collided && !hitWall)
+        if (!hitWall)
         {
             distance = (transform.position - mousePos).magnitude;
 
@@ -97,7 +95,7 @@ public class MovePlayer : MonoBehaviour
             // move the player to mouse position
             transform.position = Vector3.MoveTowards(transform.position, mousePos, modifier);
         }
-        else if (!collided && hitWall)
+        else if (hitWall)
         {
 
             // if there's a wall between the player and the mouse position, make the player move to the normal point of the wall.
@@ -149,7 +147,6 @@ public class MovePlayer : MonoBehaviour
         TurnPlayerTowardsDir();
         SendPlayerRegMove();
         StartCoroutine(Move());
-        collided = false;
         
         
     }
