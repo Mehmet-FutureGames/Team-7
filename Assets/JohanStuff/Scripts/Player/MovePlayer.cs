@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class MovePlayer : MonoBehaviour
 {
+    MoveToPointByDistance moveToPointByDistance;
+
     NotePublisher publisher;
 
     public AudioClip movingsound;
@@ -33,7 +35,7 @@ public class MovePlayer : MonoBehaviour
     float raycastDistance;
     bool hitWall;
     [SerializeField] LayerMask obstaclLayer;
-
+    Coroutine lastRoutine = null;
     Player player;
 
     Camera camera;
@@ -44,7 +46,7 @@ public class MovePlayer : MonoBehaviour
     {
         mousePos = transform.position;
         publisher = FindObjectOfType<NotePublisher>();
-        
+        moveToPointByDistance = new MoveToPointByDistance();
         player = GetComponent<Player>();
         camera = Camera.main;
     }
@@ -75,35 +77,13 @@ public class MovePlayer : MonoBehaviour
     }
     private void MoveCharacter()
     {
-        if (!hitWall)
-        {
-            distance = (transform.position - mousePos).magnitude;
-
-            ////  This will most likely be used to get the current speed the player is moving. 
-            // Example: if(value > 0){ doingDamageIsPossible }
-            MovementValue = (distance * moveSpeedMultiplier * Time.deltaTime) * 10;
-            if (MovementValue > Mathf.Epsilon)
-            {
-
-                gameObject.GetComponent<NavMeshObstacle>().enabled = false;
-            }
-            else { gameObject.GetComponent<NavMeshObstacle>().enabled = true; }
-
-            ////
-
-            float modifier = (distance + moveSpeedModifier) * moveSpeedMultiplier * Time.deltaTime;
-            // move the player to mouse position
-            transform.position = Vector3.MoveTowards(transform.position, mousePos, modifier);
-        }
-        else if (hitWall)
+        transform.position = moveToPointByDistance.Move(transform.position, mousePos, (moveSpeedMultiplier + moveSpeedModifier) * Time.deltaTime, ref MovementValue);
+        if (MovementValue > Mathf.Epsilon)
         {
 
-            // if there's a wall between the player and the mouse position, make the player move to the normal point of the wall.
-            distance = (transform.position - mousePos).magnitude;
-            MovementValue = (distance * moveSpeedMultiplier * Time.deltaTime) * 10;
-            float modifier = (distance + moveSpeedModifier) * moveSpeedMultiplier * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, mousePos, modifier);
+            gameObject.GetComponent<NavMeshObstacle>().enabled = false;
         }
+        else { gameObject.GetComponent<NavMeshObstacle>().enabled = true; }
     }
     private void DelayMove()
     {
@@ -146,7 +126,11 @@ public class MovePlayer : MonoBehaviour
         //////////////////////////////////////////////////////////////////////////////
         TurnPlayerTowardsDir();
         SendPlayerRegMove();
-        StartCoroutine(Move());
+        if(lastRoutine != null)
+        {
+            StopCoroutine(lastRoutine);
+        }
+        lastRoutine = StartCoroutine(Move());
         
         
     }
@@ -167,8 +151,10 @@ public class MovePlayer : MonoBehaviour
     IEnumerator Move()
     {
         isMoving = true;
-        while (transform.position != mousePos)
+        float distance = (transform.position - mousePos).magnitude;
+        while (distance > 0.08f)
         {
+            distance = (transform.position - mousePos).magnitude;
             MoveCharacter();
             yield return new WaitForEndOfFrame();
         }
